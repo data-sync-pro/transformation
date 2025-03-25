@@ -1,0 +1,80 @@
+
+.doc-page {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #333;
+  }
+  
+  .doc-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .doc-section {
+    margin-bottom: 2rem;
+  }
+  
+  .doc-section h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 0.25rem;
+  }
+  
+  .doc-syntax {
+    background-color: #f8f8f8;
+    padding: 1rem;
+    border-radius: 4px;
+    white-space: pre-wrap;        
+    overflow-wrap: break-word;
+    overflow-x: hidden; 
+  }
+  
+  .doc-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+  }
+  
+  .doc-table th,
+  .doc-table td {
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    vertical-align: top;
+  }
+  
+  .doc-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .doc-example pre {
+    background-color: #f8f8f8;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow-x: hidden;
+  }
+  
+  ul {
+    margin: 0.5rem 0 0.5rem 1.5rem;
+    padding-left: 0;
+  }
+  
+  ul li {
+    margin: 0.5rem 0;
+  }
+  
+  h2 {
+    color: #418796
+  }
+
+  .hljs {
+    background-color: #f8f8f8 !important; 
+    line-height: 1.5;
+  }
