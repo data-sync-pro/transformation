@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DocsService } from '../docs.service';
+import hljs from 'highlight.js';
+
 
 @Component({
   selector: 'app-doc-viewer',
@@ -21,6 +23,9 @@ export class DocViewerComponent implements OnInit {
       const docName = params.get('docName');
       if (docName) {
         this.docContent = this.docsService.getDocByName(docName);
+        setTimeout(() => {
+          hljs.highlightAll();
+        }, 0);
       }
     });
   }
