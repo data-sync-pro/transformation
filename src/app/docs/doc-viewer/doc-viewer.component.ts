@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DocsService } from '../docs.service';
+import { DocsService, DocData } from '../docs.service';
 import hljs from 'highlight.js';
-
+import { switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-doc-viewer',
   templateUrl: './doc-viewer.component.html',
-  styleUrls: ['./doc-viewer.component.css']
+  styleUrls: ['./doc-viewer.component.css'],
 })
 export class DocViewerComponent implements OnInit {
-  docName: string | null = null;
-  docContent: any;
+  docContent: DocData | null = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -19,14 +18,21 @@ export class DocViewerComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      const docName = params.get('docName');
-      if (docName) {
-        this.docContent = this.docsService.getDocByName(docName);
+    this.route.paramMap
+      .pipe(
+        switchMap(params => {
+          const docName = params.get('docName');
+          if (!docName){
+            return [];
+          }
+          return this.docsService.getDocByName(docName);
+        })
+      )
+      .subscribe(doc => {
+        this.docContent = doc;
         setTimeout(() => {
           hljs.highlightAll();
         }, 0);
-      }
-    });
+      })
   }
 }
