@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core";
-import docsData from "../../assets/data/functions.json";
+import { HttpClient } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 
 interface Parameter {
@@ -9,7 +11,7 @@ interface Parameter {
     description: string;
   }
 
-interface DocData {
+export interface DocData {
     title: string;
     description: string;
     syntax: string;
@@ -24,15 +26,16 @@ interface DocData {
 })
 
 export class DocsService {
-    private docs: { [key: string]: DocData } = docsData;
+    constructor(private http: HttpClient) {}
   
-    constructor() {}
   
-    getDocByName(docName: string): DocData | null {
-      return this.docs[docName] || null;
-    }
-  
-    getAllDocKeys(): string[] {
-      return Object.keys(this.docs);
+    getDocByName(docName: string): Observable<DocData | null> {
+      const url = `assets/data/functions/${docName}.json`;
+      return this.http.get<DocData>(url).pipe(
+        catchError(error => {
+          console.error(`Error loading ${url}:`, error);
+          return of(null);
+        })
+      );
     }
   }

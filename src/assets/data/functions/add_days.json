@@ -1,0 +1,29 @@
+{
+  "title": "ADD_DAYS",
+  "description": "Returns a datetime that is the indicated number of days before or after a specified date or datetime.",
+  "syntax": "ADD_DAYS(date/datetime, num) -> Datetime",
+  "parameters": [
+    {
+      "name": "date/datetime",
+      "type": "Date/Datetime",
+      "required": "Yes",
+      "description": "The input date or datetime."
+    },
+    {
+      "name": "num",
+      "type": "Integer",
+      "required": "Yes",
+      "description": "The number of days to add (use a negative value to subtract days)."
+    }
+  ],
+  "examples": [
+    "ADD_DAYS(DATE('2024-8-1'), 3)\n-- Returns 2024-08-04",
+    "ADD_DAYS('2024-08-30', 3)\n-- Returns 2024-09-02",
+    "ADD_DAYS(TO_DATETIME('2024-08-30 08:30:00.002'), 2)\n-- Returns 2024-09-01"
+  ],
+  "tips": [
+    "When you pass a Date as the first parameter, the function returns a Date value.",
+    "When used in a Datetime field, it will store that in a Datetime field."
+  ],
+  "relatedFormulas": ["TO_DATE", "TO_DATETIME"]
+}
