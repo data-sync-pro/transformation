@@ -30,7 +30,7 @@ export class DocsService {
   
   
     getDocByName(docName: string): Observable<DocData | null> {
-      const url = `assets/data/functions/${docName}.json`;
+      const url = `assets/functions/${docName}.json`;
       return this.http.get<DocData>(url).pipe(
         catchError(error => {
           console.error(`Error loading ${url}:`, error);
