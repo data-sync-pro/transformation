@@ -1,39 +1,38 @@
-
 <div class="doc-page" *ngIf="docContent">
-<h1 class="doc-title">{{ docContent.title }}</h1>
-<section class="doc-section">
-  <h2>Description</h2>
-  <p>{{ docContent.description }}</p>
-</section>
-<section class="doc-section">
-  <h2>Syntax</h2>
-  <pre class="doc-syntax">{{ docContent.syntax }}</pre>
-</section>
+  <h1 class="doc-title">{{ docContent.title }}</h1>
+  <section class="doc-section">
+    <h2>Description</h2>
+    <p>{{ docContent.description }}</p>
+  </section>
+  <section class="doc-section">
+    <h2>Syntax</h2>
+    <pre class="doc-syntax">{{ docContent.syntax }}</pre>
+  </section>
 
-<section class="doc-section" *ngIf="docContent.parameters?.length">
+  <section class="doc-section" *ngIf="docContent.parameters?.length">
     <h2>Parameters</h2>
     <table class="doc-table">
-        <thead>
-            <tr>
-                <th>Parameter</th>
-                <th>Data Type</th>
-                <th>Required</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let param of docContent.parameters">
-              <td>{{ param.name }}</td>
-              <td>{{ param.type }}</td>
-              <td>{{ param.required }}</td>
-              <td>{{ param.description }}</td>
-            </tr>
-          </tbody>
+      <thead>
+        <tr>
+          <th>Parameter</th>
+          <th>Data Type</th>
+          <th>Required</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let param of docContent.parameters">
+          <td>{{ param.name }}</td>
+          <td>{{ param.type }}</td>
+          <td>{{ param.required }}</td>
+          <td>{{ param.description }}</td>
+        </tr>
+      </tbody>
     </table>
-</section>
-<section class="doc-section" *ngIf="docContent.examples?.length">
+  </section>
+  <section class="doc-section" *ngIf="docContent.examples?.length">
     <h2 *ngIf="(docContent.examples?.length || 0) === 1">Example</h2>
-    <h2 *ngIf="(docContent.examples?.length || 0 ) > 1">Examples</h2>
+    <h2 *ngIf="(docContent.examples?.length || 0) > 1">Examples</h2>
     <div class="doc-example" *ngFor="let example of docContent.examples">
       <pre><code class="language-sql">{{ example }}</code></pre>
     </div>

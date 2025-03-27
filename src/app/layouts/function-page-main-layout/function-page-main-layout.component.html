@@ -1,25 +1,91 @@
+<header class="top-header">
+  <div class="header-content">
+    <div class="logo-name-items">
+      <img class="logo" src="assets/logo.png" alt="Logo" />
+      <div class="name">Pushtopic</div>
+    </div>
+  </div>
+</header>
 
-<header>
-    <h1>My Docs</h1>
-  </header>
-  
-  <div class="container">
+<div class="container">
+  <aside class="sidebar" *ngIf="!isSidebarCollapsed">
+    <div class="sidebar-search" *ngIf="!isSidebarCollapsed">
+      <div class="search-shortcut-wrapper">
+        <input
+          type="text"
+          placeholder="Search functions..."
+          (click)="isSearchOpen = true"
+          readonly
+          class="search-input"
+        />
+        <span
+          class="shortcut-hint shortcut-clickable"
+          (click)="isSearchOpen = true"
+          >/</span
+        >
+      </div>
+    </div>
 
-    <nav class="sidebar">
-
-      <ul>
-        <li><a routerLink="/docs/add_days">ADD_DAYS</a></li>
-        <li><a routerLink="/docs/agg_count_distinct">AGG_COUNT_DISTINCT</a></li>
- 
+    <nav class="nav" *ngIf="!isSidebarCollapsed">
+      <ul class="nav-section">
+        <li *ngFor="let category of functionCategories" class="nav-category">
+          <div class="category-header" (click)="toggleCategory(category)">
+            {{ category.name }}
+            <span class="arrow" [class.expanded]="category.expanded">▸</span>
+          </div>
+          <ul class="function-list" *ngIf="category.expanded">
+            <li
+              class="nav-item"
+              *ngFor="let func of category.functions"
+              routerLinkActive="active"
+            >
+              <a [routerLink]="['/docs', func.route]">{{ func.name }}</a>
+            </li>
+          </ul>
+        </li>
       </ul>
     </nav>
-  
-    <main class="content">
+  </aside>
+
+  <main class="content" [class.sidebar-collapsed]="isSidebarCollapsed">
+    <div class="sidebar-header">
+      <button
+        class="sidebar-collapse-button"
+        (click)="isSidebarCollapsed = !isSidebarCollapsed"
+        title="Collapse Sidebar"
+      >
+        <span>☰</span>
+      </button>
+    </div>
+    <div class="main-content-wrapper">
       <router-outlet></router-outlet>
-    </main>
+    </div>
+  </main>
+  <div
+    class="search-overlay"
+    *ngIf="isSearchOpen"
+    (click)="isSearchOpen = false"
+  >
+    <div class="search-overlay-content" (click)="$event.stopPropagation()">
+      <div class="overlay-search-wrapper">
+        <input
+          type="text"
+          class="overlay-search-box"
+          placeholder="What are you searching for?"
+        />
+        <span
+          class="shortcut-hint shortcut-clickable"
+          (click)="isSearchOpen = false"
+          >Esc</span
+        >
+      </div>
+
+      <div class="suggestions-list">
+        <div class="suggestion-item"><span class="icon">🔍</span> item 1</div>
+        <div class="suggestion-item"><span class="icon">🔍</span> item 2</div>
+        <div class="suggestion-item"><span class="icon">🔍</span> item 3</div>
+        <div class="suggestion-item"><span class="icon">🔍</span> item 4</div>
+      </div>
+    </div>
   </div>
-  
-  <footer>
-    <p>Copyright © 2025</p>
-  </footer>
-  
+</div>
