@@ -5,6 +5,7 @@ import { DocViewerComponent } from './docs/doc-viewer/doc-viewer.component';
 
 
 const routes: Routes = [
+  { path: '', redirectTo: 'docs/add_days', pathMatch: 'full' },
   {
     path: 'docs',
     component: FunctionPageMainLayoutComponent,
