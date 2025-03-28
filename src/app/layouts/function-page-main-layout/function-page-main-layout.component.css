@@ -208,19 +208,25 @@ body {
 }
 
 .container {
-  display: flex;
   margin-top: 60px;
   min-height: calc(100vh - 60px);
-  align-items: flex-start;
+  justify-content: center;
 }
 
 .content {
-  flex: 1;
-  padding: 5px 16px 16px 14px;
-  display: flex;
-  justify-content: center;
+  padding-top: 3rem;
   transition: margin-left 0.3s ease;
+  justify-self: center;
+  width: 80%;
 }
+
+.sidebar-wrapper.collapsed + .content {
+  margin-left: 0;
+}
+.sidebar-wrapper + .content {
+  margin-left: 290px;
+}
+
 
 
 ul {
