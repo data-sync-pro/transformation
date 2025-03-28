@@ -1,0 +1,88 @@
+<div class="search-overlay" (click)="close()">
+  <div class="search-overlay-content" (click)="$event.stopPropagation()">
+    <div class="overlay-search-wrapper">
+      <input
+        type="text"
+        class="overlay-search-box"
+        placeholder="What are you searching for?"
+        [(ngModel)]="searchQuery"
+        (input)="filterSuggestions()"
+      />
+      <span class="shortcut-hint shortcut-clickable" (click)="close()"
+        >Esc</span
+      >
+    </div>
+
+    <div class="filters-section">
+      <!-- Categories -->
+      <div class="filter-group">
+        <!-- <div class="filter-label">Categories</div>
+        <div class="filter-chips scrollable-container">
+          <span
+            class="filter-chip"
+            *ngFor="let category of categories"
+            [class.active]="selectedCategories.includes(category)"
+            (click)="toggleCategory(category)"
+          >
+            {{ category }}
+          </span>
+        </div> -->
+        <!-- </div> -->
+
+        <!-- Tags -->
+        <div class="filter-group">
+          <div class="filter-header">
+            <div class="filter-label">Tags</div>
+            <button class="clear-filters-btn" (click)="clearFilters()">
+              Clear Filters
+            </button>
+          </div>
+
+          <div class="filter-chips scrollable-container">
+            <span
+              class="filter-chip"
+              *ngFor="let tag of tags"
+              [class.active]="selectedTags.includes(tag)"
+              (click)="toggleTag(tag)"
+            >
+              {{ tag }}
+            </span>
+          </div>
+        </div>
+
+        <div
+          *ngIf="
+            searchQuery || selectedCategories.length || selectedTags.length
+          "
+        ></div>
+      </div>
+      <div
+        class="suggestions-list"
+        *ngIf="
+          (searchQuery.trim().length > 0 || selectedTags.length > 0) &&
+          filteredSuggestions.length > 0
+        "
+      >
+        <div class="suggestions-list">
+          <div class="suggestion-item" *ngFor="let item of filteredSuggestions">
+            <div class="suggestion-left">
+              <span>{{ item.name }}</span> 
+            </div>
+            <div class="suggestion-tags">
+              <span class="tag" *ngFor="let tag of item.Tags">{{ tag }}</span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="suggestions-list"
+          *ngIf="
+            (searchQuery.trim().length > 0 || selectedTags.length > 0) &&
+            filteredSuggestions.length === 0
+          "
+        >
+          <div class="suggestion-item">No results found.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
