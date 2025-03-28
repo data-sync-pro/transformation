@@ -44,47 +44,57 @@ body {
   justify-content: space-between;
 }
 
-
-.sidebar {
-  width: 15%;
-  min-width: 11rem;
+.sidebar-wrapper {
   position: fixed;
   top: 60px;
+  left: 0;
   height: calc(100vh - 60px);
-  border-right: 1px solid #e5e7eb;
-  padding: 1rem;
+  width: 290px;
+  background-color: transparent;
+  border-right: none;
+  transition: width 0.3s ease;
+}
+
+.sidebar-wrapper.collapsed {
+  width: 0;
+}
+
+.sidebar {
+  width: 250px;
+  padding: 1rem 1rem;
+  transition: width 0.3s ease;
   background-color: #f9f9f9;
-  overflow-y: auto;
   display: flex;
   flex-direction: column;
-  transition: width 0.3s ease;
+  height: calc(100vh - 60px);
+  overflow-y: auto;
 }
 
 .sidebar.collapsed {
   width: 0px;
 }
-.sidebar-header {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  padding: 0.5rem 0rem 0.5rem 0.5rem;
-  padding-right: 0rem;
-}
 
 .sidebar-collapse-button {
+  position: absolute;
+  top: 10px;
+  left: 290px;
+  margin-left: 6px;
   background: transparent;
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
   color: #333;
   transition: color 0.2s ease;
-  flex-direction: column;
-  justify-self: start;
 }
 
 .sidebar-collapse-button:hover {
   color: #418796;
 }
+
+.sidebar-wrapper.collapsed .sidebar-collapse-button {
+  left: 10px;
+}
+
 .search-input {
   width: 100%;
   box-sizing: border-box;
@@ -204,19 +214,14 @@ body {
   align-items: flex-start;
 }
 
-
 .content {
   flex: 1;
   padding: 5px 16px 16px 14px;
   display: flex;
   justify-content: center;
-  margin-left: 16%; /* match sidebar width */
   transition: margin-left 0.3s ease;
 }
 
-.content.sidebar-collapsed {
-  margin-left: 0;
-}
 
 ul {
   padding-left: 1rem;
@@ -265,7 +270,7 @@ ul {
 .function-list {
   list-style: none;
   margin: 0;
-  padding: 0.5rem 0 0.5rem 1.5rem;
+  padding: 0.5rem 0 0.5rem 0.5rem;
   border-left: 1px solid #d9e4e8;
 }
 
