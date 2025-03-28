@@ -1,49 +1,55 @@
-import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import {
+  Component,
+  Output,
+  EventEmitter,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  Input,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-overlay',
   templateUrl: './search-overlay.component.html',
   styleUrls: ['./search-overlay.component.css'],
 })
-export class SearchOverlayComponent implements OnInit {
+export class SearchOverlayComponent implements OnInit, OnChanges {
+  @Input() isOpen: boolean = false;
+  @Output() closed = new EventEmitter<void>();
+  @ViewChild('searchInput') searchInputRef!: ElementRef<HTMLInputElement>;
+
   searchQuery: string = '';
-  selectedCategories: string[] = [];
   selectedTags: string[] = [];
-  //categories: string[] = [];
   tags: string[] = [];
   suggestions: any[] = [];
   filteredSuggestions: any[] = [];
 
-  @Output() closed = new EventEmitter<void>();
-
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit() {
     this.http.get<any[]>('assets/data/tags.json').subscribe((data) => {
       this.suggestions = data.map((item) => ({
         name: item['Item Name'],
         Tags: item['Tags'],
+        route: item['Item Name'].toLowerCase().replace(/\s+/g, '_'),
       }));
-      // this.filteredSuggestions = [...this.suggestions];
 
-      // Extract unique categories and tags
       const tagSet = new Set<string>();
       this.suggestions.forEach((item) =>
         item.Tags.forEach((tag: string) => tagSet.add(tag))
       );
       this.tags = Array.from(tagSet);
-      //this.categories = this.tags;
     });
   }
 
-  // toggleCategory(category: string) {
-  //   const i = this.selectedCategories.indexOf(category);
-  //   i >= 0
-  //     ? this.selectedCategories.splice(i, 1)
-  //     : this.selectedCategories.push(category);
-  //   this.filterSuggestions();
-  // }
+  onSelectSuggestion(item: any) {
+    this.router.navigate(['/docs', item.route]);
+    this.close();
+  }
 
   toggleTag(tag: string) {
     const i = this.selectedTags.indexOf(tag);
@@ -53,9 +59,16 @@ export class SearchOverlayComponent implements OnInit {
 
   clearFilters() {
     this.searchQuery = '';
-    this.selectedCategories = [];
     this.selectedTags = [];
     this.filterSuggestions();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['isOpen']?.currentValue === true) {
+      setTimeout(() => {
+        this.searchInputRef?.nativeElement?.focus();
+      }, 0);
+    }
   }
 
   close() {

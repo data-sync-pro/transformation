@@ -70,7 +70,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  margin-top: 1rem;
+  margin-top: 0rem;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -117,7 +117,7 @@
 }
 
 .suggestion-item:hover {
-  background-color: #e2e8f0;
+  background-color: #d9e4e8;
 }
 
 .icon {

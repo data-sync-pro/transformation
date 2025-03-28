@@ -62,6 +62,7 @@
 
   <app-search-overlay
     *ngIf="isSearchOpen"
+    [isOpen]="isSearchOpen"
     (closed)="isSearchOpen = false"
   ></app-search-overlay>
 </div>
