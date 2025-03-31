@@ -1,0 +1,30 @@
+{
+  "title": "REPLACE_ALL",
+  "description": "<p>Returns a new string in which all occurrences matching the provided regular expression (regex) within the original string are replaced by the specified replacement substring.</p>",
+  "syntax": "REPLACE_ALL(string, regex, replacement) -> String",
+  "parameters": [
+    {
+      "name": "string",
+      "type": "String",
+      "required": "Yes",
+      "description": "The original string."
+    },
+    {
+      "name": "regex",
+      "type": "String",
+      "required": "Yes",
+      "description": "The regular expression defining patterns to replace."
+    },
+    {
+      "name": "replacement",
+      "type": "String",
+      "required": "Yes",
+      "description": "The substring used to replace matched patterns."
+    }
+  ],
+  "examples": [
+    "REPLACE_ALL(\"Order 1234: Total 56\", \"\\d+\", \"#\")\n-- Returns: \"Order #: Total #\"\n-- The regular expression \\d+ matches one or more digits, and each match is replaced with #."
+  ],
+  "tips": [],
+  "relatedFormulas": []
+}

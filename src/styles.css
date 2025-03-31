@@ -5,3 +5,11 @@ body {
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   color: #333;
 }
+
+.doc-section p code {
+  background-color: #f2eeee;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 1.25rem;
+  color: #e35f5f;
+}

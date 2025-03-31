@@ -1,0 +1,43 @@
+{
+  "title": "AGG_MAX",
+  "description": "<p>Performs a dynamic aggregation on a specified Salesforce object and returns the <strong>maximum</strong> value of a specified field among all matching records.</p>",
+  "syntax": "AGG_MAX(aggregate_object_name, aggregate_field_name, ...[group_field_name, group_field_value], additional_filters_optional) -> Decimal",
+  "parameters": [
+    {
+      "name": "aggregate_object_name",
+      "type": "String",
+      "required": "Yes",
+      "description": "The name of the object containing records to evaluate."
+    },
+    {
+      "name": "aggregate_field_name",
+      "type": "String",
+      "required": "Yes",
+      "description": "The name of the numeric field whose maximum value will be returned."
+    },
+    {
+      "name": "… group_field_name",
+      "type": "String",
+      "required": "Optional",
+      "description": "The name of the field used to filter records."
+    },
+    {
+      "name": "… group_field_value",
+      "type": "Object",
+      "required": "Optional",
+      "description": "The field value used as filtering criteria."
+    },
+    {
+      "name": "additional_filters_optional",
+      "type": "String",
+      "required": "Optional",
+      "description": "Additional conditions to filter records."
+    }
+  ],
+  "examples": [
+    "AGG_MAX(\n\t\t\"Opportunity\", \n\t\t\"Amount\", \n\t\t\"AccountId\", Id, \n\t\t\"StageName = 'Closed Won'\"\n)\n-- Calculates the maximum Opportunity Amount for each Account where StageName is 'Closed Won',\n-- using AccountId values from the current record set (typically from Account data).\n\n-- During runtime, DSP generates the following SOQL query:\nSELECT AccountId groupField0, MAX(Amount) agg0 \nFROM Opportunity \nWHERE AccountId IN ('0018K00000kPuYXQA0', '0018K00000kPuYYQA0', '0018K00000kPuYZQA0', '0018K00000kPuYaQAK', '0018K00000kPuYbQAK') AND StageName = 'Closed Won' \nGROUP BY AccountId",
+    "AGG_MAX(\n\t\t\"Opportunity\", \n\t\t\"Amount\", \n\t\t\"AccountId\", Id, \n\t\t\"OwnerId\", OwnerId, \n\t\t\"StageName = 'Closed Won'\"\n)\n-- Calculates the maximum Opportunity Amount grouped by both AccountId and OwnerId,\n-- filtering only for records where StageName is 'Closed Won'.\n\n-- During runtime, DSP generates the following SOQL query:\nSELECT AccountId groupField0, OwnerId groupField1, MAX(Amount) agg0 \nFROM Opportunity \nWHERE (AccountId IN ('0018K00000kPuYXQA0', '0018K00000kPuYYQA0', '0018K00000kPuYZQA0', '0018K00000kPuYaQAK', '0018K00000kPuYbQAK') AND OwnerId IN ('005D2000006JY2bIAG', '0058K0000047WdvQAE', '0055e000007rpICAAY')) AND StageName = 'Closed Won'\nGROUP BY AccountId, OwnerId"
+  ],
+  "tips": [],
+  "relatedFormulas": []
+}

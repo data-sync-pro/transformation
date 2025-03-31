@@ -1,0 +1,19 @@
+{
+  "title": "FORMAT_DSP_TEMPLATE",
+  "description": "<p>Parses and formats a DSP (Data Sync Pro) template string by resolving all embedded expressions and placeholders.</p>",
+  "syntax": "FORMAT_DSP_TEMPLATE(template) -> String",
+  "parameters": [
+    {
+      "name": "template",
+      "type": "String",
+      "required": "Yes",
+      "description": "A string containing merge fields or expressions in DSP template syntax (e.g. {!FieldName}, {VLOOKUP(...)}) to be evaluated and replaced with their corresponding values."
+    }
+  ],
+  "examples": [
+    "FORMAT_DSP_TEMPLATE(\"{FirstName}\")  \n-- Returns the value of the FirstName field from the current context.  \n-- For example, if FirstName = \"Jordan\", it returns \"Jordan\".",
+    "FORMAT_DSP_TEMPLATE(\"The stage of the latest opportunity is {VLOOKUP(\\\"Opportunity\\\", \\\"StageName\\\", \\\"AccountId\\\", Id)}\")\n-- Parses and formats the string by resolving the VLOOKUP expression inside the template.\n-- For example, if the current record's Id matches an Opportunity with StageName = \"Negotiation\", it returns:\n-- \"The stage of the latest opportunity is Negotiation\""
+  ],
+  "tips": [],
+  "relatedFormulas": []
+}

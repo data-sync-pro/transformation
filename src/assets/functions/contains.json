@@ -1,0 +1,28 @@
+{
+  "title": "CONTAINS",
+  "description": "<p>Returns TRUE if the provided string contains any of the specified compare_strings. The comparison is case-sensitive. Otherwise, returns FALSE.</p>",
+  "syntax": "CONTAINS(string, ...compare_strings) -> Boolean",
+  "parameters": [
+    {
+      "name": "string",
+      "type": "String",
+      "required": "Yes",
+      "description": "The source string to search within."
+    },
+    {
+      "name": "… compare_strings",
+      "type": "String",
+      "required": "Yes",
+      "description": "One or more strings to search for within the source string."
+    }
+  ],
+  "examples": [
+    "CONTAINS(\"Welcome to the China\", \"Welcome\", \"China\")\n-- Returns TRUE because the text contains \"Welcome\" and \"China\" (case-sensitive match).",
+    "CONTAINS(\"Welcome to the China\", \"welcome\", \"china\")\n-- Returns FALSE because \"welcome\" and \"china\" do not match the casing in the original text (case-sensitive comparison).",
+    "IF(CONTAINS(Product_Type__c, \"part\"), \"Parts\", \"Service\")\n-- Returns \"Parts\" if Product_Type__c contains \"part\"; otherwise, returns \"Service\"."
+  ],
+  "tips": [],
+  "relatedFormulas": [
+    "IF"
+  ]
+}

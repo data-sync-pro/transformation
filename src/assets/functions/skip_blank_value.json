@@ -1,0 +1,22 @@
+{
+  "title": "SKIP_BLANK_VALUE",
+  "description": "<p>Returns the provided object if it is not blank. If the object is blank (null, empty, or whitespace), returns $SKIP_ASSIGNMENT.</p>",
+  "syntax": "SKIP_BLANK_VALUE(obj) -> Object",
+  "parameters": [
+    {
+      "name": "obj",
+      "type": "Object",
+      "required": "Yes",
+      "description": "The object to evaluate."
+    }
+  ],
+  "examples": [
+    "SKIP_BLANK_VALUE(\"Data\")\n-- Returns \"Data\"",
+    "SKIP_BLANK_VALUE(\"\") \n-- Returns $SKIP_ASSIGNMENT",
+    "SKIP_BLANK_VALUE(\" \") \n-- Returns $SKIP_ASSIGNMENT",
+    "SKIP_BLANK_VALUE(NULL) \n-- Returns $SKIP_ASSIGNMENT",
+    "SKIP_BLANK_VALUE(AccountId)\n-- Returns AccountId if it has a value.\n-- Returns $SKIP_ASSIGNMENT if AccountId is null or blank, preventing an unnecessary assignment."
+  ],
+  "tips": [],
+  "relatedFormulas": []
+}

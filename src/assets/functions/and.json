@@ -1,0 +1,25 @@
+{
+  "title": "AND",
+  "description": "<p>Returns TRUE if all provided conditions are TRUE; otherwise, returns FALSE.</p>",
+  "syntax": "AND(...logical) -> Boolean",
+  "parameters": [
+    {
+      "name": "...logical",
+      "type": "Boolean",
+      "required": "Yes",
+      "description": "The logical conditions to evaluate."
+    }
+  ],
+  "examples": [
+    "AND(TRUE, TRUE, TRUE)\n-- Returns TRUE",
+    "AND(TRUE, FALSE)\n-- Retuens FALSE",
+    "AND(5 > 3, 10 == 10, \"A\" == \"A\")\n-- Returns TRUE"
+  ],
+  "tips": [
+    {
+      "text": "<p>It functions the same as the &amp;&amp; operator.</p>",
+      "children": []
+    }
+  ],
+  "relatedFormulas": []
+}

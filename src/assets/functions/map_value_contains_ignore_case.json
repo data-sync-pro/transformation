@@ -1,0 +1,43 @@
+{
+  "title": "MAP_VALUE_CONTAINS_IGNORE_CASE",
+  "description": "<p>Returns the corresponding return value for the first compare substring found within the provided string, performing case-insensitive matching. If no substrings match, returns default return value optional. If default return value optional is omitted and no match occurs, the function returns $SKIP_ASSIGNMENT.</p>",
+  "syntax": "MAP_VALUE_CONTAINS_IGNORE_CASE(string, ...[compare_substring, return_value], default_return_value_optional) -> String",
+  "parameters": [
+    {
+      "name": "string",
+      "type": "String",
+      "required": "Yes",
+      "description": "The string to evaluate (case-insensitive)."
+    },
+    {
+      "name": "… compare_substring",
+      "type": "String",
+      "required": "Yes",
+      "description": "The substring to search for within the provided string."
+    },
+    {
+      "name": "… return_value",
+      "type": "Object",
+      "required": "Yes",
+      "description": "The value returned if the compare substring is found."
+    },
+    {
+      "name": "default_return_value_optional",
+      "type": "Object",
+      "required": "Optional",
+      "description": "The value returned if no substrings match. If omitted and no match occurs, returns $SKIP_ASSIGNMENT."
+    }
+  ],
+  "examples": [
+    "MAP_VALUE_CONTAINS_IGNORE_CASE(\"New York - office\", \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t \"New York\", \"NY\", \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t \"California\", \"CA\", \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t \"Other\") \n-- Returns \"NY\"(case-insensitive)",
+    "MAP_VALUE_CONTAINS_IGNORE_CASE(\"New York - office\", \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t \"new york\", \"NY\", \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t \"California\", \"CA\", \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t \"Other\") \n-- Returns \"NY\"(case-insensitive)",
+    "MAP_VALUE_CONTAINS_IGNORE_CASE(Description, \n                               \"platinum\", \"Partner\", \n                               \"individual\", \"Person\", \n                               \"Business\")\n-- Returns \"Partner\" if 'Description' contains \"platinum\" (case-insensitive) and stops evaluation.\n-- If \"platinum\" is not found but \"individual\" is, returns \"Person\". Otherwise, returns \"Business\"."
+  ],
+  "tips": [
+    {
+      "text": "<p>Ensure that <strong>return_value</strong> and <strong>default_return_value_optional</strong> are of the same data type.</p>",
+      "children": []
+    }
+  ],
+  "relatedFormulas": []
+}

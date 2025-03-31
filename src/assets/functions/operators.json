@@ -1,0 +1,34 @@
+{
+  "title": "OPERATORS",
+  "description": "",
+  "syntax": "",
+  "parameters": [
+    {
+      "name": "Add",
+      "type": "",
+      "required": "",
+      "description": "Calculates the sum of two numbers."
+    },
+    {
+      "name": "Subtract",
+      "type": "",
+      "required": "",
+      "description": "Calculates the difference between two numbers."
+    },
+    {
+      "name": "Multiply",
+      "type": "",
+      "required": "",
+      "description": "Calculates the product of two numbers."
+    },
+    {
+      "name": "Divide",
+      "type": "",
+      "required": "",
+      "description": "Calculates the quotient of two numbers."
+    }
+  ],
+  "examples": [],
+  "tips": [],
+  "relatedFormulas": []
+}

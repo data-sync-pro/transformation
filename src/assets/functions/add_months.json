@@ -1,0 +1,39 @@
+{
+  "title": "ADD_MONTHS",
+  "description": "<p>Returns a Date or Datetime adjusted by the specified number of months, either forward (positive) or backward (negative), relative to the provided Date or Datetime.</p>",
+  "syntax": "ADD_MONTHS(date/datetime, num) -> Date/Datetime",
+  "parameters": [
+    {
+      "name": "date/datetime",
+      "type": "Date/Datetime",
+      "required": "Yes",
+      "description": "The original Date or Datetime to adjust."
+    },
+    {
+      "name": "num",
+      "type": "Integer",
+      "required": "Yes",
+      "description": "The number of months to add (use a negative value to subtract months)."
+    }
+  ],
+  "examples": [
+    "ADD_MONTHS(TO_DATE(\"2017-09-20\"), 5)\n-- Adds 5 months to September 20, 2017\n-- Returns 2018-02-20",
+    "ADD_MONTHS(StartDate, 3)\n-- Adds 3 months to the value in 'StartDate'",
+    "ADD_MONTHS(TO_DATE(\"2017-09-30\"), 5)\n-- Adds 5 months to September 30, 2017\n-- Returns 2018-02-28\n-- Since '2017-09-30' is the last day of the month, the resulting date is the last day of February 2018.",
+    "ADD_MONTHS(TO_DATETIME(\"2017-10-15T14:30:00.000Z\"), -2)\n-- Subtracts 2 months from October 15, 2017 14:30:00\n-- Returns 2017-08-15T14:30:00.000Z"
+  ],
+  "tips": [
+    {
+      "text": "<p>If the reference date is the last day of its month, the result is the last day of the target month. Otherwise, the function retains the same day if it exists in the target month; if the day does not exist, it returns the last day of the target month.</p>",
+      "children": []
+    },
+    {
+      "text": "<p>The return type matches the type of the first parameter: if the first parameter is of type Date, the function returns a Date; if it's a Datetime, the function returns a Datetime.</p>",
+      "children": []
+    }
+  ],
+  "relatedFormulas": [
+    "TO_DATE",
+    "TO_DATETIME"
+  ]
+}
