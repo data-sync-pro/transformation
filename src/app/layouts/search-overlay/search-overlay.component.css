@@ -108,7 +108,7 @@
 }
 
 .tag {
-  background-color: #e4e4e4;
+  background-color: #d9e4e8;
   color: #333;
   padding: 3px 8px;
   font-size: 0.75rem;
@@ -118,6 +118,11 @@
 
 .suggestion-item:hover {
   background-color: #d9e4e8;
+}
+
+.suggestion-item:hover .tag {
+  background-color: #418796;
+  color: white;
 }
 
 .icon {
