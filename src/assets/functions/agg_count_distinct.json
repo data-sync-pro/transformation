@@ -1,41 +1,43 @@
 {
   "title": "AGG_COUNT_DISTINCT",
-  "description": "Returns the count of distinct non-null values of a specified field from an aggregate object. The function also allows you to designate additional fields for grouping and filtering based on corresponding values from the source object.",
-  "syntax": "AGG_COUNT_DISTINCT(aggregate_object, target_field_name, group_field_n, filter_field_n, filter_value_n, ...) -> Number",
+  "description": "<p>Performs a dynamic aggregation on a specified Salesforce object and returns the <strong>count of unique (distinct) values</strong> in a selected field for the matching records.</p>",
+  "syntax": "AGG_COUNT_DISTINCT(aggregate_object_name, aggregate_field_name, ...[group_field_name, group_field_value], additional_filters_optional) -> Integer",
   "parameters": [
     {
-      "name": "aggregate_object",
-      "type": "Object reference",
-      "required": "Yes",
-      "description": "The name of the source object for aggregation."
-    },
-    {
-      "name": "target_field_name",
+      "name": "aggregate_object_name",
       "type": "String",
       "required": "Yes",
-      "description": "The field from the source object whose distinct non-null values are counted."
+      "description": "The name of the object containing records to evaluate."
     },
     {
-      "name": "group_field_n",
+      "name": "aggregate_field_name",
+      "type": "String",
+      "required": "Yes",
+      "description": "The name of the field whose distinct values will be counted."
+    },
+    {
+      "name": "… group_field_name",
       "type": "String",
       "required": "Optional",
-      "description": "A field from the source object that can be used to group results. This parameter can be repeated multiple times for multiple grouping fields."
+      "description": "The name of the field used to filter records."
     },
     {
-      "name": "filter_field_n",
+      "name": "… group_field_value",
+      "type": "Object",
+      "required": "Optional",
+      "description": "The field value used as filtering criteria."
+    },
+    {
+      "name": "additional_filters_optional",
       "type": "String",
       "required": "Optional",
-      "description": "The field from the source object used to filter results. This parameter can be repeated multiple times for multiple filters."
-    },
-    {
-      "name": "filter_value_n",
-      "type": "Any",
-      "required": "Optional",
-      "description": "The value to filter on for the corresponding filter_field_n."
+      "description": "Additional conditions to filter records."
     }
   ],
   "examples": [
-    "AGG_COUNT_DISTINCT(\n  \"Opportunity\",\n  \"Type\",\n  \"AccountId\",\n  \"StageName\",\n  \"Closed Won\"\n)\n\n-- Calculates the count of distinct non-null 'Type' values from Opportunity records, grouped by AccountId, where StageName is 'Closed Won' and AccountId matches Account Data.\n\n-- During runtime, DSP generates the following SOQL query:\nSELECT AccountId, COUNT_DISTINCT(Type) agg0\nFROM Opportunity\nWHERE (AccountId IN ('0018k00000B1pVXAAZ','0018k00000B1pVZAAZ'))\nAND StageName = 'Closed Won'\nGROUP BY AccountId",
-    "AGG_COUNT_DISTINCT(\n  \"Opportunity\",\n  \"Type\",\n  \"AccountId\",\n  \"OwnerId\",\n  \"StageName\",\n  \"Closed Won\"\n)\n\n-- Calculates the count of distinct non-null 'Type' values from Opportunity records, grouped by AccountId and OwnerId, where StageName is 'Closed Won' and AccountId matches Account Data.\n\n-- During runtime, DSP generates the following SOQL query:\nSELECT AccountId, OwnerId, COUNT_DISTINCT(Type) agg0\nFROM Opportunity\nWHERE (AccountId IN ('0018k00000B1pVZAAZ','0018k00000B1pViAAZ','0055D00000Pi7cTAAR'))\nAND StageName = 'Closed Won'\nGROUP BY AccountId, OwnerId"
-  ]
+    "AGG_COUNT_DISTINCT(\n\t\t\"Opportunity\", \n\t\t\"Type\", \n\t\t\"AccountId\", Id, \n\t\t\"StageName = 'Closed Won'\"\n)\n-- Calculates the count of distinct non-null Type values from Opportunity records, grouped by AccountId, where StageName is \"Closed Won\" and AccountId matches Account data. \n\n-- During runtime, DSP generates the following SOQL query:\nSELECT AccountId groupField0, COUNT_DISTINCT(Type) agg0 \nFROM Opportunity \nWHERE AccountId IN ('0018K00000kPuYXQA0', '0018K00000kPuYYQA0', '0018K00000kPuYZQA0', '0018K00000kPuYaQAK', '0018K00000kPuYbQAK') AND StageName = 'Closed Won' \nGROUP BY AccountId",
+    "AGG_COUNT_DISTINCT(\n\t\t\"Opportunity\", \n\t\t\"Type\", \n\t\t\"AccountId\", Id, \n\t\t\"OwnerId\", OwnerId, \n\t\t\"StageName = 'Closed Won'\"\n)\n-- Calculates the count of distinct non-null Type values from Opportunity records, grouped by AccountId and OwnerId, filtering for records where StageName is 'Closed Won'.\n\n-- During runtime, DSP generates the following SOQL query:\nSELECT AccountId groupField0, OwnerId groupField1, COUNT_DISTINCT(Type) agg0 \nFROM Opportunity \nWHERE (AccountId IN ('0018K00000kPuYXQA0', '0018K00000kPuYYQA0', '0018K00000kPuYZQA0', '0018K00000kPuYaQAK', '0018K00000kPuYbQAK') AND OwnerId IN ('005D2000006JY2bIAG', '0058K0000047WdvQAE', '0055e000007rpICAAY')) AND StageName = 'Closed Won'\nGROUP BY AccountId, OwnerId"
+  ],
+  "tips": [],
+  "relatedFormulas": []
 }

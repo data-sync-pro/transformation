@@ -1,0 +1,44 @@
+{
+  "title": "TO_DATE",
+  "description": "<p>Converts a given value into a Date. Acceptable inputs include strings representing dates, Datetime values. If the input cannot be converted, the function returns an error.</p>",
+  "syntax": "TO_DATE(string/datetime) -> Date",
+  "parameters": [
+    {
+      "name": "string/datetime",
+      "type": "String/Datetime",
+      "required": "Yes",
+      "description": "The value to convert to a Date."
+    }
+  ],
+  "examples": [
+    "TO_DATE(\"2005-11-15\")\n-- Returns November 15, 2005 as a date value",
+    "TO_DATE(NOW())\n-- Returns today's date by extracting the date portion from the current datetime.",
+    "IF(TO_DATE(Invoice_Date__c) < TODAY(), \"Overdue\", \"Upcoming\")\n-- Converts the text field 'Invoice_Date__c' into a Date value and compares it with today's date\n-- If the invoice date is earlier than today, the formula returns \"Overdue\"; otherwise, it returns \"Upcoming\"."
+  ],
+  "tips": [
+    {
+      "text": "<p>Returns null immediately for blank or null inputs.</p>",
+      "children": []
+    },
+    {
+      "text": "<p>Primarily parses using Salesforce's built-in Date.parse().</p>",
+      "children": []
+    },
+    {
+      "text": "<p>If primary parsing fails, attempts parsing via JSON deserialization.</p>",
+      "children": []
+    },
+    {
+      "text": "<p>As a final attempt, replaces dashes () with slashes (/) and retries parsing.</p>",
+      "children": []
+    },
+    {
+      "text": "<p>Throws an ApplicationException if all parsing attempts fail.</p>",
+      "children": []
+    }
+  ],
+  "relatedFormulas": [
+    "IF",
+    "TODAY"
+  ]
+}

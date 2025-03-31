@@ -1,0 +1,31 @@
+{
+  "title": "BUSINESS_HOURS_ADD",
+  "description": "<p>Adds a time interval to a starting Datetime, counting only Business Hours. Returns the resulting Datetime in UTC.</p>",
+  "syntax": "BUSINESS_HOURS_ADD(start_date, interval_milliseconds, business_hours_name_optional) -> Datetime",
+  "parameters": [
+    {
+      "name": "start_date",
+      "type": "Datetime",
+      "required": "Yes",
+      "description": "The starting Datetime."
+    },
+    {
+      "name": "interval_milliseconds",
+      "type": "Long",
+      "required": "Yes",
+      "description": "The interval to add, specified in milliseconds."
+    },
+    {
+      "name": "business_hours_name_optional",
+      "type": "String",
+      "required": "Optional",
+      "description": "The name of the Business Hours. If omitted, the default schedule is applied."
+    }
+  ],
+  "examples": [
+    "BUSINESS_HOURS_ADD(TO_DATETIME(\"2002-10-09T09:00:00Z\"), 7200000)\n-- Adds 7,200,000 milliseconds (2 hours) to the datetime \"2002-10-09T09:00:00Z\" \n-- using the default Business Hours.\n-- Returns 2002-10-09T11:00:00.000Z, assuming the entire duration falls within working hours.",
+    "BUSINESS_HOURS_ADD(NOW(), -7200000, \"CustomSchedule\")\n-- Substracts 7,200,000 milliseconds (equivalent to 2 hours) from now according to the 'CustomSchedule'."
+  ],
+  "tips": [],
+  "relatedFormulas": []
+}

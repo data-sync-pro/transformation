@@ -2,8 +2,9 @@
   <h1 class="doc-title">{{ docContent.title }}</h1>
   <section class="doc-section">
     <h2>Description</h2>
-    <p>{{ docContent.description }}</p>
+    <p [innerHTML]="docContent.description"></p>
   </section>
+  
   <section class="doc-section">
     <h2>Syntax</h2>
     <pre class="doc-syntax">{{ docContent.syntax }}</pre>
@@ -40,13 +41,32 @@
 
   <section class="doc-section" *ngIf="docContent.tips?.length">
     <h2>Tips</h2>
-    <ul>
-      <li *ngFor="let tip of docContent.tips">{{ tip }}</li>
-    </ul>
+    <ng-container *ngTemplateOutlet="recursiveList; context:{ tips: docContent.tips }"></ng-container>
   </section>
+  
+  <ng-template #recursiveList let-tips="tips">
+    <ul>
+      <li *ngFor="let tip of tips">
+        <ng-container *ngIf="tip.code; else normalTip">
+          <div [innerHTML]="tip.text"></div>
+          <div class="doc-example">
+            <pre><code class="language-sql">{{ tip.code }}</code></pre>
+          </div>
+        </ng-container>
+        <ng-template #normalTip>
+          <div [innerHTML]="tip.text"></div>
+        </ng-template>
+        <ng-container *ngIf="tip.children?.length">
+          <ng-container *ngTemplateOutlet="recursiveList; context:{ tips: tip.children }"></ng-container>
+        </ng-container>
+      </li>
+    </ul>
+  </ng-template>
+  
 
   <section class="doc-section" *ngIf="docContent.relatedFormulas?.length">
-    <h2>Related Formulas</h2>
+    <h2 *ngIf="(docContent.relatedFormulas?.length || 0) === 1">Related Formula</h2>
+    <h2 *ngIf="(docContent.relatedFormulas?.length || 0) > 1">Related Formulas</h2>
     <ul>
       <li *ngFor="let formula of docContent.relatedFormulas">
         <a routerLink="/docs/{{ formula | lowercase }}">{{ formula }}</a>

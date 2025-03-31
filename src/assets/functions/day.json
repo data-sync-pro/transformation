@@ -1,0 +1,22 @@
+{
+  "title": "DAY",
+  "description": "<p>Returns the day of the month from a Date or Datetime in the context user's local time zone。</p>",
+  "syntax": "DAY(date/datetime) -> Integer",
+  "parameters": [
+    {
+      "name": "date/datetime",
+      "type": "Date/Datetime",
+      "required": "Yes",
+      "description": "The Date or Datetime value from which to extract the day."
+    }
+  ],
+  "examples": [
+    "DAY(DATE(2024, 1, 25))\n-- Returns 25",
+    "DAY(TO_DATETIME(\"2024-08-15T14:45:00.000Z\"))\n-- Returns 15"
+  ],
+  "tips": [],
+  "relatedFormulas": [
+    "DATE",
+    "TO_DATETIME"
+  ]
+}

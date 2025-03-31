@@ -1,33 +1,35 @@
 {
-    "title": "ADD_DAYS",
-    "description": "Returns a Date or Datetime adjusted by the specified number of days, either forward (positive) or backward (negative), relative to the provided Date or Datetime.",
-    "syntax": "ADD_DAYS(date/datetime, num) -> Date/Datetime",
-    "parameters": [
-      {
-        "name": "date/datetime",
-        "type": "Date/Datetime",
-        "required": "Yes",
-        "description": "The original Date or Datetime to adjust."
-      },
-      {
-        "name": "num",
-        "type": "Integer",
-        "required": "Yes",
-        "description": "The number of months to add (positive) or subtract (negative)."
-      }
-    ],
-    "examples": [
-      "ADD_DAYS(date/datetime, num) -> Date/Datetime",
-      "ADD_DAYS(DATE(2024, 8, 8), 4)\n-- Adds 4 days to August 8, 2024\n-- Returns 2024-08-12",
-      "ADD_DAYS(TO_DATE(\"2024-08-08\"), -3)\n-- Subtracts 3 days from August 8, 2024\n-- Returns 2024-08-05",
-      "ADD_DAYS(TO_DATETIME(\"2024-08-08T10:30:00.000Z\"), 2)\n-- Using a datetime as the start date\n-- Returns 2024-08-10T10:30:00.000Z",
-      "ADD_DAYS(StartDate, 5)\n-- Adds 5 days to the value in 'StartDate'"
-    ],
-    "tips": [
-      "The return type matches the type of the first parameter: if the first parameter is of type Date, the function returns a Date; if it's a Datetime, the function returns a Datetime."
-    ],
-    "relatedFormulas": [
-      "TO_DATE",
-      "TO_DATETIME"
-    ]
-  }
+  "title": "ADD_DAYS",
+  "description": "<p>Returns a Date or Datetime adjusted by the specified number of days, either forward (positive) or backward (negative), relative to the provided Date or Datetime.</p>",
+  "syntax": "ADD_DAYS(date/datetime, num) -> Date/Datetime",
+  "parameters": [
+    {
+      "name": "date/datetime",
+      "type": "Date/Datetime",
+      "required": "Yes",
+      "description": "The original Date or Datetime to adjust."
+    },
+    {
+      "name": "num",
+      "type": "Integer",
+      "required": "Yes",
+      "description": "The number of months to add (positive) or subtract (negative)."
+    }
+  ],
+  "examples": [
+    "ADD_DAYS(DATE(2024, 8, 8), 4)\n-- Adds 4 days to August 8, 2024\n-- Returns 2024-08-12",
+    "ADD_DAYS(TO_DATE(\"2024-08-08\"), -3)\n-- Subtracts 3 days from August 8, 2024\n-- Returns 2024-08-05",
+    "ADD_DAYS(StartDate, 5)\n-- Adds 5 days to the value in 'StartDate'",
+    "ADD_DAYS(TO_DATETIME(\"2024-08-08T10:30:00.000Z\"), 2)\n-- Uses a datetime as the start date\n-- Returns 2024-08-10T10:30:00.000Z"
+  ],
+  "tips": [
+    {
+      "text": "<p>The return type matches the type of the first parameter: if the first parameter is of type Date, the function returns a Date; if it's a Datetime, the function returns a Datetime.</p>",
+      "children": []
+    }
+  ],
+  "relatedFormulas": [
+    "TO_DATE",
+    "TO_DATETIME"
+  ]
+}

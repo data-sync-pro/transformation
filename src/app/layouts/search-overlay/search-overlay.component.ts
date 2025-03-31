@@ -78,47 +78,37 @@ export class SearchOverlayComponent implements OnInit, OnChanges {
   filterSuggestions() {
     const query = this.searchQuery.trim().toLowerCase();
 
-    // Step 1: Find functions with names matching the query
-    const nameMatches = this.suggestions.filter((item) =>
-      item.name.toLowerCase().includes(query)
-    );
+    if(query) {
+      // when there is input, only return functions with a matching name
+      this.filteredSuggestions = this.suggestions.filter((item) => {
+        const itemTags = item.Tags || [];
+        const isNameMatch = item.name.toLowerCase().includes(query);
+        const matchesSelectedTags =
+          this.selectedTags.length === 0 ||
+          this.selectedTags.some((tag: string) => itemTags.includes(tag));
+        return isNameMatch && matchesSelectedTags;
+      }).sort((a, b) => {
+        const aName = a.name.toLowerCase();
+        const bName = b.name.toLowerCase();
+        const aStarts = aName.startsWith(query);
+        const bStarts = bName.startsWith(query);
 
-    // Step 2: Collect all tags from name-matched items
-    const relatedTags = new Set<string>();
-    nameMatches.forEach((item) =>
-      item.Tags.forEach((tag: string) => relatedTags.add(tag))
-    );
+        if (aStarts && !bStarts) return -1;
+        if (!aStarts && bStarts) return 1;
 
-    // Step 3: Filter all items that:
-    // - Match by name OR
-    // - Share any of the related tags
-    // - AND match selected tags if any
-    const matched = this.suggestions.filter((item) => {
-      const itemTags = item.Tags || [];
-      const isNameMatch = item.name.toLowerCase().includes(query);
-      const sharesRelatedTag = itemTags.some((tag: string) =>
-        relatedTags.has(tag)
+        // If both or neither start with it, sort by index of match
+        return aName.indexOf(query) - bName.indexOf(query);
+      }
       );
-      const matchesSelectedTags =
-        this.selectedTags.length === 0 ||
-        this.selectedTags.every((tag: string) => itemTags.includes(tag));
-      return (isNameMatch || sharesRelatedTag) && matchesSelectedTags;
-    });
-
-    // Step 4: Sort by how well the name matches
-    matched.sort((a, b) => {
-      const aName = a.name.toLowerCase();
-      const bName = b.name.toLowerCase();
-      const aStarts = aName.startsWith(query);
-      const bStarts = bName.startsWith(query);
-
-      if (aStarts && !bStarts) return -1;
-      if (!aStarts && bStarts) return 1;
-
-      // If both or neither start with it, sort by index of match
-      return aName.indexOf(query) - bName.indexOf(query);
-    });
-
-    this.filteredSuggestions = matched;
+    } else {
+      this.filteredSuggestions = this.suggestions.filter((item) => {
+        const itemTags = item.Tags || [];
+        return (
+          this.selectedTags.length === 0 ||
+          this.selectedTags.some((tag: string) => itemTags.includes(tag))
+        );
+      });
+    }
   }
 }
+  
