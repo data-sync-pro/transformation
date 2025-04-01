@@ -8,12 +8,13 @@ import { FunctionPageMainLayoutComponent } from './layouts/function-page-main-la
 import { DocViewerComponent } from './docs/doc-viewer/doc-viewer.component';
 import { SearchOverlayComponent } from './layouts/search-overlay/search-overlay.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     FunctionPageMainLayoutComponent,
     DocViewerComponent,
-    SearchOverlayComponent
+    SearchOverlayComponent,
   ],
   imports: [
     BrowserModule,
