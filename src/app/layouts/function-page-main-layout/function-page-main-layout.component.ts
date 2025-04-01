@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { BreadcrumbItem } from 'src/app/shared/breadcrumb/breadcrumb.component'; // adjust the path as needed
 
 @Component({
   selector: 'app-function-page-main-layout',
@@ -8,6 +9,11 @@ import { Component, HostListener } from '@angular/core';
 export class FunctionPageMainLayoutComponent {
   isSearchOpen = false;
   isSidebarCollapsed = false;
+
+  breadcrumbs: BreadcrumbItem[] = [
+    { label: 'Home', link: '/' },
+    { label: 'Functions' }
+  ];
 
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
@@ -23,7 +29,6 @@ export class FunctionPageMainLayoutComponent {
     }
   }
   
-
   openSearch() {
     this.isSearchOpen = true;
   }
@@ -54,5 +59,4 @@ export class FunctionPageMainLayoutComponent {
   toggleCategory(category: any) {
     category.expanded = !category.expanded;
   }
-  
 }

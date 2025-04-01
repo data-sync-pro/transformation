@@ -8,6 +8,7 @@
 </header>
 
 <div class="container">
+
   <div class="sidebar-wrapper" [class.collapsed]="isSidebarCollapsed">
     <aside class="sidebar" *ngIf="!isSidebarCollapsed">
       <div class="sidebar-search">
@@ -57,6 +58,7 @@
   </div>
 
   <main class="content" [class.sidebar-collapsed]="isSidebarCollapsed">
+    <app-breadcrumb [crumbs]="breadcrumbs"></app-breadcrumb>
     <router-outlet></router-outlet>
   </main>
 

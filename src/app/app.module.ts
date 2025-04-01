@@ -7,13 +7,15 @@ import { FormsModule } from '@angular/forms';
 import { FunctionPageMainLayoutComponent } from './layouts/function-page-main-layout/function-page-main-layout.component';
 import { DocViewerComponent } from './docs/doc-viewer/doc-viewer.component';
 import { SearchOverlayComponent } from './layouts/search-overlay/search-overlay.component';
+import { BreadcrumbComponent } from './shared/breadcrumb/breadcrumb.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FunctionPageMainLayoutComponent,
     DocViewerComponent,
-    SearchOverlayComponent
+    SearchOverlayComponent,
+    BreadcrumbComponent
   ],
   imports: [
     BrowserModule,
