@@ -1,12 +1,24 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+interface FunctionItem {
+  'Item Name': string;
+  Tags: string[];
+}
+
+interface FunctionCategory {
+  name: string;
+  expanded: boolean;
+  functions: { name: string; route: string }[];
+}
 import { BreadcrumbItem } from 'src/app/shared/breadcrumb/breadcrumb.component'; // adjust the path as needed
 
 @Component({
   selector: 'app-function-page-main-layout',
   templateUrl: './function-page-main-layout.component.html',
-  styleUrls: ['./function-page-main-layout.component.css']
+  styleUrls: ['./function-page-main-layout.component.css'],
 })
-export class FunctionPageMainLayoutComponent {
+export class FunctionPageMainLayoutComponent implements OnInit {
   isSearchOpen = false;
   isSidebarCollapsed = false;
 
@@ -15,9 +27,69 @@ export class FunctionPageMainLayoutComponent {
     { label: 'Functions' }
   ];
 
+  functionCategories: FunctionCategory[] = [];
+
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    // Load the JSON file from the assets folder
+    this.http.get<FunctionItem[]>('assets/data/tags.json').subscribe((data) => {
+      this.groupFunctionsByTags(data);
+    });
+  }
+
+  groupFunctionsByTags(functionItems: FunctionItem[]) {
+    // Create a map to hold tag groups
+    const tagMap: { [tag: string]: { name: string; route: string }[] } = {};
+
+    functionItems.forEach((item) => {
+      item.Tags.forEach((tag) => {
+        if (!tagMap[tag]) {
+          tagMap[tag] = [];
+        }
+        // Create a route based on the function name
+        tagMap[tag].push({
+          name: item['Item Name'],
+          route: item['Item Name'].toLowerCase(),
+        });
+      });
+    });
+
+    // Transform the map into an array for the sidebar
+    this.functionCategories = Object.keys(tagMap).map((tag) => ({
+      name: tag,
+      expanded: false, // You can set default expanded state here
+      functions: tagMap[tag],
+    }));
+
+    const TAG_ORDER = [
+      'Date & Time',
+      'Time',
+      'Text',
+      'Number',
+      'Logical',
+      'Trigger',
+      'Type Processing',
+      'Randomization',
+      'Operators',
+      'Global Variable',
+      'Advanced',
+    ];
+
+    this.functionCategories.sort((a, b) => {
+      const indexA = TAG_ORDER.indexOf(a.name);
+      const indexB = TAG_ORDER.indexOf(b.name);
+      return (
+        (indexA === -1 ? Infinity : indexA) -
+        (indexB === -1 ? Infinity : indexB)
+      );
+    });
+  }
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
-    const isInputFocused = ['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName || '');
+    const isInputFocused = ['INPUT', 'TEXTAREA'].includes(
+      document.activeElement?.tagName || ''
+    );
 
     if (event.key === '/' && !isInputFocused) {
       event.preventDefault();
@@ -29,6 +101,7 @@ export class FunctionPageMainLayoutComponent {
     }
   }
   
+
   openSearch() {
     this.isSearchOpen = true;
   }
@@ -37,26 +110,8 @@ export class FunctionPageMainLayoutComponent {
     this.isSearchOpen = false;
   }
 
-  functionCategories = [
-    {
-      name: 'Date Functions',
-      expanded: true,  
-      functions: [
-        { name: 'ADD_DAYS', route: 'add_days' },
-        { name: 'AGG_COUNT_DISTINCT', route: 'agg_count_distinct' }
-      ]
-    },
-    {
-      name: 'Encoding Functions',
-      expanded: false,
-      functions: [
-        { name: 'BASE64_ENCODE', route: 'base64_encode' },
-        { name: 'BASE64_DECODE', route: 'base64_decode' }
-      ]
-    }
-  ];
-  
   toggleCategory(category: any) {
     category.expanded = !category.expanded;
   }
+  
 }

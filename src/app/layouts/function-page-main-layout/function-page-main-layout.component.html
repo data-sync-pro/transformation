@@ -4,6 +4,20 @@
       <img class="logo" src="assets/logo.png" alt="Logo" />
       <div class="name">Pushtopic</div>
     </div>
+    <div class="search-shortcut-wrapper">
+      <input
+        type="text"
+        placeholder="Search functions..."
+        (click)="isSearchOpen = true"
+        readonly
+        class="search-input"
+      />
+      <span
+        class="shortcut-hint shortcut-clickable"
+        (click)="isSearchOpen = true"
+        >/</span
+      >
+    </div>
   </div>
 </header>
 
@@ -11,23 +25,6 @@
 
   <div class="sidebar-wrapper" [class.collapsed]="isSidebarCollapsed">
     <aside class="sidebar" *ngIf="!isSidebarCollapsed">
-      <div class="sidebar-search">
-        <div class="search-shortcut-wrapper">
-          <input
-            type="text"
-            placeholder="Search functions..."
-            (click)="isSearchOpen = true"
-            readonly
-            class="search-input"
-          />
-          <span
-            class="shortcut-hint shortcut-clickable"
-            (click)="isSearchOpen = true"
-            >/</span
-          >
-        </div>
-      </div>
-
       <nav class="nav">
         <ul class="nav-section">
           <li *ngFor="let category of functionCategories" class="nav-category">
