@@ -1,14 +1,16 @@
 .doc-page {
   font-family: Arial, sans-serif;
   max-width: 1500px;
+  padding: 1rem;
   width: 81%; 
   margin: 0 auto; 
   color: #333;
-  padding: 1rem;
+  
 }
 
 .doc-title {
   font-size: 2.2rem;
+  margin-top: 4rem;
   margin-bottom: 2rem;
 }
 
