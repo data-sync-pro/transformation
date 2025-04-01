@@ -98,7 +98,7 @@
     { "Item Name": "TO_INTEGER", "Tags": ["Number", "Text", "Type Processing"] },
     { "Item Name": "TO_LOWER_CASE", "Tags": ["Text"] },
     { "Item Name": "TO_STRING", "Tags": ["Text", "Type Processing"] },
-    { "Item Name": "TO_TIME", "Tags": ["Time", "Type Processing"] },
+    { "Item Name": "TO_TIME", "Tags": ["Date & Time", "Type Processing"] },
     { "Item Name": "TO_UPPER_CASE", "Tags": ["Text"] },
     { "Item Name": "TRIM", "Tags": ["Text"] },
     { "Item Name": "VALUE_IN", "Tags": ["Logical"] },
