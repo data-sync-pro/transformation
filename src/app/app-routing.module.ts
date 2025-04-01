@@ -5,19 +5,18 @@ import { DocViewerComponent } from './docs/doc-viewer/doc-viewer.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'docs/add_days', pathMatch: 'full' },
+  { path: '', redirectTo: '/docs', pathMatch: 'full' },
   {
     path: 'docs',
     component: FunctionPageMainLayoutComponent,
     children: [
-      { path: ':docName', component: DocViewerComponent },
-      { path: '', redirectTo: 'add_days', pathMatch: 'full' }
-    ]
-  }
+          { path: ':docName', component: DocViewerComponent },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -37,7 +37,6 @@ body {
 
 .header-content {
   width: 100%;
-  max-width: 1200px;
   padding: 0 1rem;
   display: flex;
   align-items: center;
@@ -60,8 +59,8 @@ body {
 }
 
 .sidebar {
-  width: 250px;
-  padding: 1rem 1rem;
+  width: 260px;
+  padding: 0rem, 0.5rem;
   transition: width 0.3s ease;
   background-color: #f9f9f9;
   display: flex;
@@ -77,7 +76,7 @@ body {
 .sidebar-collapse-button {
   position: absolute;
   top: 10px;
-  left: 290px;
+  left: 270px;
   margin-left: 6px;
   background: transparent;
   border: none;
@@ -110,6 +109,7 @@ body {
 
 .search-shortcut-wrapper {
   position: relative;
+  width: 25%;
 }
 
 .shortcut-hint {
@@ -162,7 +162,7 @@ ul {
 .nav {
   list-style: none;
   padding: 0;
-  margin: 1rem 0rem 1rem 0rem;
+  margin: 0rem 0rem 1rem 0rem;
 }
 
 .nav-section {
@@ -171,9 +171,7 @@ ul {
   margin: 0;
 }
 
-.nav-category {
-  margin-bottom: 1rem;
-}
+
 
 .category-header {
   display: flex;
@@ -185,11 +183,16 @@ ul {
   color: #418796;
   transition: background 0.2s;
   border-radius: 6px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #f9f9f9;
 }
 
 .category-header:hover {
   background-color: #d9e4e8;
 }
+
 
 .arrow {
   transition: transform 0.3s;
@@ -201,19 +204,23 @@ ul {
 
 .function-list {
   list-style: none;
-  margin: 0;
-  padding: 0.5rem 0 0.5rem 0.5rem;
+  margin: 0.5rem;
+  padding: 0rem 0 0.5rem 0.5rem;
   border-left: 1px solid #d9e4e8;
 }
 
 .nav-item a {
   text-decoration: none;
   color: #333;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   margin: 0.5rem 0rem 0.5rem 0rem;
   padding: 0.5rem;
   border-radius: 6px;
   display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .nav-item a:hover {
@@ -225,3 +232,4 @@ ul {
   color: #418796;
   font-weight: 500;
 }
+
