@@ -11,28 +11,42 @@ interface Parameter {
 }
 
 export interface DocData {
-  title: string;
-  description: string;
-  syntax: string;
-  parameters?: Parameter[];
-  examples?: string[];
-  tips?: string[];
-  relatedFormulas?: string[];
-}
+    title: string;
+    description?: string;
+    syntax?: string;
+    parameters?: Parameter[];
+    examples?: string[];
+    tips?: string[];
+    relatedFormulas?: string[];
+    operators?: {
+      [category: string]: {
+        operator: string;
+        name: string;
+        description: string;
+      }[];
+    }
+    globalVariables?: {
+      variable: string;
+      description: string;
+      exampleValue: string;
+    }[];
+  }
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class DocsService {
-  constructor(private http: HttpClient) {}
-
-  getDocByName(docName: string): Observable<DocData | null> {
-    const url = `assets/functions/${docName}.json`;
-    return this.http.get<DocData>(url).pipe(
-      catchError((error) => {
-        console.error(`Error loading ${url}:`, error);
-        return of(null);
-      })
-    );
+    constructor(private http: HttpClient) {}
+  
+  
+    getDocByName(docName: string): Observable<DocData | null> {
+      const url = `assets/functions/${docName}.json`;
+      return this.http.get<DocData>(url).pipe(
+        catchError(error => {
+          console.error(`Error loading ${url}:`, error);
+          return of(null);
+        })
+      );
+    }
   }
-}
