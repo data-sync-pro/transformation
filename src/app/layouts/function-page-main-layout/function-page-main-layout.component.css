@@ -84,6 +84,7 @@ body {
   cursor: pointer;
   color: #333;
   transition: color 0.2s ease;
+  z-index: 999;
 }
 
 .sidebar-collapse-button:hover {
