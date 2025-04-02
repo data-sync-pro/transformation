@@ -13,13 +13,21 @@ interface Parameter {
 
 export interface DocData {
     title: string;
-    description: string;
-    syntax: string;
+    description?: string;
+    syntax?: string;
     parameters?: Parameter[];
     examples?: string[];
     tips?: string[];
     relatedFormulas?: string[];
-}
+    operators?: {
+      [category: string]: {
+        operator: string;
+        name: string;
+        description: string;
+      }[];
+    }
+  }
+
 
 @Injectable({
     providedIn: 'root'

@@ -23,7 +23,7 @@ interface FunctionCategory {
 export class FunctionPageMainLayoutComponent implements OnInit {
   isSearchOpen = false;
   isSidebarCollapsed = false;
-
+  operatorArrowLeft = false; 
   breadcrumbs: BreadcrumbItem[] = [{ label: 'Home', link: '/' }];
 
   functionCategories: FunctionCategory[] = [];
@@ -156,7 +156,20 @@ export class FunctionPageMainLayoutComponent implements OnInit {
   }
 
   toggleCategory(category: any) {
-    category.expanded = !category.expanded;
+    if (category.name === 'Operators') {
+      this.operatorArrowLeft = true;
+      this.router.navigate(['/docs', category.name.toLowerCase()]);
+    }else {
+      // For any other category, set the Operators arrow to point down (true)
+      this.operatorArrowLeft = false;
+      // Toggle the clicked category's expansion
+      category.expanded = !category.expanded;
+    }
+    
+  }
+
+  resetOperatorsArrow() {
+    this.operatorArrowLeft = false;
   }
   
 }

@@ -31,18 +31,18 @@
               {{ category.name }}
               <img
                 class="arrow"
-                [class.expanded]="category.expanded"
-                src="assets/icon/left-arrow.svg"
+                [class.expanded]="category.name === 'Operators' ? operatorArrowLeft : category.expanded"
+                src="assets/icon/arrow.svg"
                 alt="Expand"
               />
             </div>
-            <ul class="function-list" *ngIf="category.expanded">
+            <ul class="function-list" *ngIf="category.expanded && category.name !== 'Operators'">
               <li
                 class="nav-item"
                 *ngFor="let func of category.functions"
                 routerLinkActive="active"
               >
-                <a [routerLink]="['/docs', func.route]">{{ func.name }}</a>
+                <a [routerLink]="['/docs', func.route]" (click)="resetOperatorsArrow()">{{ func.name }}</a>
               </li>
             </ul>
           </li>
