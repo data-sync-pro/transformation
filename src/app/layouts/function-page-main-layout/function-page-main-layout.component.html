@@ -22,7 +22,6 @@
 </header>
 
 <div class="container">
-
   <div class="sidebar-wrapper" [class.collapsed]="isSidebarCollapsed">
     <aside class="sidebar" *ngIf="!isSidebarCollapsed">
       <nav class="nav">
@@ -30,7 +29,12 @@
           <li *ngFor="let category of functionCategories" class="nav-category">
             <div class="category-header" (click)="toggleCategory(category)">
               {{ category.name }}
-              <span class="arrow" [class.expanded]="category.expanded">▸</span>
+              <img
+                class="arrow"
+                [class.expanded]="category.expanded"
+                src="assets/icon/left-arrow.svg"
+                alt="Expand"
+              />
             </div>
             <ul class="function-list" *ngIf="category.expanded">
               <li
