@@ -26,6 +26,11 @@ export interface DocData {
         description: string;
       }[];
     }
+    globalVariables?: {
+      variable: string;
+      description: string;
+      exampleValue: string;
+    }[];
   }
 
 
@@ -45,5 +50,9 @@ export class DocsService {
           return of(null);
         })
       );
+    }
+
+    getGlobalVariables(): Observable<DocData> {
+      return this.http.get<DocData>('assets/data/global_variables.json');
     }
   }

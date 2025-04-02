@@ -1,6 +1,32 @@
 <div class="doc-page" *ngIf="docContent">
-  <h1 class="doc-title">{{ docContent.title }}</h1>
-
+  <h1 class="doc-title" *ngIf="docContent.title">{{ docContent.title }}</h1>
+  <section class="doc-section" *ngIf="docContent.globalVariables">
+    <h1 class="doc-title">Global Variables</h1>
+    <table class="doc-tables">
+      <thead>
+        <tr>
+          <th>Variable</th>
+          <th>Description</th>
+          <th>Example Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let variable of docContent.globalVariables">
+          <td>{{ variable.variable }}</td>
+          <td>{{ variable.description }}</td>
+          <td>
+            <ng-container *ngIf="variable.variable === '$JOINER'; else normalValue">
+              <a [routerLink]="['/docs', '$joiner']">{{ variable.exampleValue }}</a>
+            </ng-container>
+            <ng-template #normalValue>
+              {{ variable.exampleValue }}
+            </ng-template>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  
   <section *ngIf="docContent.operators">
     <div *ngFor="let group of docContent?.operators | keyvalue">
       <h2>{{ group.key }}</h2>

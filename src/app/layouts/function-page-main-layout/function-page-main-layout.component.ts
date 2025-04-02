@@ -23,7 +23,8 @@ interface FunctionCategory {
 export class FunctionPageMainLayoutComponent implements OnInit {
   isSearchOpen = false;
   isSidebarCollapsed = false;
-  operatorArrowLeft = false; 
+  operatorArrowLeft = false;
+  globalVariableArrowLeft = false;
   breadcrumbs: BreadcrumbItem[] = [{ label: 'Home', link: '/' }];
 
   functionCategories: FunctionCategory[] = [];
@@ -31,12 +32,11 @@ export class FunctionPageMainLayoutComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit() {
-    // Load the JSON file from the assets folder
     this.http.get<FunctionItem[]>('assets/data/tags.json').subscribe((data) => {
       this.groupFunctionsByTags(data);
       this.updateBreadcrumbs();
     });
-    
+
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe(() => {
@@ -45,7 +45,6 @@ export class FunctionPageMainLayoutComponent implements OnInit {
   }
 
   groupFunctionsByTags(functionItems: FunctionItem[]) {
-    // Create a map to hold tag groups
     const tagMap: { [tag: string]: { name: string; route: string }[] } = {};
 
     functionItems.forEach((item) => {
@@ -78,7 +77,7 @@ export class FunctionPageMainLayoutComponent implements OnInit {
       'Type Processing',
       'Randomization',
       'Operators',
-      'Global Variable',
+      'Global Variables',
       'Advanced',
     ];
 
@@ -129,7 +128,6 @@ export class FunctionPageMainLayoutComponent implements OnInit {
     }
   }
 
-
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
     const isInputFocused = ['INPUT', 'TEXTAREA'].includes(
@@ -145,7 +143,6 @@ export class FunctionPageMainLayoutComponent implements OnInit {
       this.isSearchOpen = false;
     }
   }
-  
 
   openSearch() {
     this.isSearchOpen = true;
@@ -158,18 +155,20 @@ export class FunctionPageMainLayoutComponent implements OnInit {
   toggleCategory(category: any) {
     if (category.name === 'Operators') {
       this.operatorArrowLeft = true;
-      this.router.navigate(['/docs', category.name.toLowerCase()]);
-    }else {
-      // For any other category, set the Operators arrow to point down (true)
+      this.router.navigate(['/docs/operators']);
+      this.globalVariableArrowLeft = false;
+    } else if (category.name === 'Global Variables') {
+      this.globalVariableArrowLeft = true;
+      this.router.navigate(['/docs', 'global_variables']);
       this.operatorArrowLeft = false;
-      // Toggle the clicked category's expansion
+    } else {
+      this.operatorArrowLeft = false;
+      this.globalVariableArrowLeft = false;
       category.expanded = !category.expanded;
     }
-    
   }
 
   resetOperatorsArrow() {
     this.operatorArrowLeft = false;
   }
-  
 }
