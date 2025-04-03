@@ -112,6 +112,10 @@
     </ul>
   </ng-template>
   
+  <section class="doc-section" *ngIf="docContent.title.startsWith('AGG_')">
+    <h2>Related information</h2>
+    <ul><li>DSP handles AGG_ functions efficiently. See <a href="/docs/aggregate general">AGGREGATE GENERAL</a> for details.</li></ul>
+  </section>
 
   <section class="doc-section" *ngIf="docContent.relatedFormulas?.length">
     <h2 *ngIf="(docContent.relatedFormulas?.length || 0) === 1">Related Formula</h2>

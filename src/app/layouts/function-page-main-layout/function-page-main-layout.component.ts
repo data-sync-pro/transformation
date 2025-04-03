@@ -102,6 +102,8 @@ export class FunctionPageMainLayoutComponent implements OnInit {
       // Search through all function categories to find the function that matches the URL route.
       if (funcRoute === 'global_variables') {
         foundFunction = { name: 'Global Variables' };
+      } else if (funcRoute === 'apex%20class') {
+        foundFunction = { name: 'Apex Class' };
       } else {
         for (const category of this.functionCategories) {
           const match = category.functions.find((fn) => fn.route === funcRoute);
@@ -110,6 +112,9 @@ export class FunctionPageMainLayoutComponent implements OnInit {
             break;
           }
         }
+      }
+      {
+        console.log('foundFunction', foundFunction);
       }
       // If a matching function is found, update or add it as the second breadcrumb.
       if (foundFunction) {

@@ -1,6 +1,6 @@
 {
   "title": "APEX  CLASS",
-  "description": "<p>An Apex Class element specifies a custom Apex class that implements the pushtopics.SalesforceDataTransformer interface for handling custom transformation logic.</p>\n<p>```sql\nglobal interface SalesforceDataTransformer {</p>\n<pre><code>/*\n* Define source fields to be fetched from the source connection and used in the mapper class.\n*/\nString[] retrieveSourceFields();\n\nObject transform(List&lt;Map&lt;String, Object&gt;&gt; contextSourceRecords, Map&lt;String, Object&gt; currentSourceRecord, String assignedToFieldName);\n</code></pre>\n<p>}\n```</p>",
+  "description": "<p>An Apex Class element specifies a custom Apex class that implements the pushtopics.SalesforceDataTransformer interface for handling custom transformation logic.</p>\n<p><pre><code>\nglobal interface SalesforceDataTransformer {</p>\n/*\n* Define source fields to be fetched from the source connection and used in the mapper class.\n*/\nString[] retrieveSourceFields();\n\nObject transform(List&lt;Map&lt;String, Object&gt;&gt; contextSourceRecords, Map&lt;String, Object&gt; currentSourceRecord, String assignedToFieldName);\n\n<p>}\n</p></code></pre>",
   "syntax": "",
   "parameters": [],
   "examples": [

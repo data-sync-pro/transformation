@@ -8,6 +8,8 @@ body {
 }
 
 
+
+
 body {
   font-family: "ITC Avant Garde", system-ui, -apple-system, system-ui,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
@@ -41,4 +43,9 @@ ul li {
 .hljs {
   background-color: #f8f8f8 !important;
   line-height: 1.6;
+}
+
+a {
+  color: #418796;
+  text-decoration: none;
 }
