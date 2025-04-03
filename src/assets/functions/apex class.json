@@ -1,0 +1,11 @@
+{
+  "title": "APEX  CLASS",
+  "description": "<p>An Apex Class element specifies a custom Apex class that implements the pushtopics.SalesforceDataTransformer interface for handling custom transformation logic.</p>\n<p>```sql\nglobal interface SalesforceDataTransformer {</p>\n<pre><code>/*\n* Define source fields to be fetched from the source connection and used in the mapper class.\n*/\nString[] retrieveSourceFields();\n\nObject transform(List&lt;Map&lt;String, Object&gt;&gt; contextSourceRecords, Map&lt;String, Object&gt; currentSourceRecord, String assignedToFieldName);\n</code></pre>\n<p>}\n```</p>",
+  "syntax": "",
+  "parameters": [],
+  "examples": [
+    "global class DescriptionEmailExtractor implements pushtopics.SalesforceDataTransformer {\n\n    private static final Pattern EMAIL_PATTERN = Pattern.compile(\n        '([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,})'\n    );\n\n    global String[] retrieveSourceFields() {\n        return new String[] { 'Description' };\n    }\n\n    global Object transform(\n        List<Map<String, Object>> contextSourceRecords,\n        Map<String, Object> currentSourceRecord,\n        String assignedToFieldName\n    ) {\n        String desc = (String) currentSourceRecord.get('Description');\n\n        if (String.isBlank(desc)) {\n            return null;\n        }\n\n        Matcher matcher = EMAIL_PATTERN.matcher(desc);\n        return matcher.find() ? matcher.group(1) : null;\n    }\n}"
+  ],
+  "tips": [],
+  "relatedFormulas": []
+}

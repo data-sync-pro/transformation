@@ -30,8 +30,8 @@
   ],
   "examples": [
     "MAP_VALUE_CONTAINS(\"New York - Office\", \"New York\", \"NY\", \"California\", \"CA\", \"Other\") \n-- Returns \"NY\"(case-sensitive)",
-    "MAP_VALUE_CONTAINS(\"New York - Office\", \n                   \"new york\", \"NY\", \n                   \"California\", \"CA\", \n                   \"Other\") \n-- Returns \"Other\"(case-sensitive)",
-    "MAP_VALUE_CONTAINS(Description,  \n                   \"Platinum\", \"Partner\", \n                   \"Individual\", \"Person\", \n                   \"Business\"\n                   )\n-- Returns \"Partner\" if 'Description' contains \"Platinum\" (stops evaluation even if \"Individual\" is found)."
+    "MAP_VALUE_CONTAINS(\"New York - Office\", \"new york\", \"NY\", \"California\", \"CA\", \"Other\") \n-- Returns \"Other\"(case-sensitive)",
+    "MAP_VALUE_CONTAINS(Description, \"Platinum\", \"Partner\", \"Individual\", \"Person\", \"Business\")\n-- Returns \"Partner\" if 'Description' contains \"Platinum\" (stops evaluation even if \"Individual\" is found)."
   ],
   "tips": [
     {

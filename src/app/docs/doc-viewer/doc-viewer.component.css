@@ -81,6 +81,8 @@ ul {
 
 ul li {
   margin: 0.5rem 0;
+
+  line-height: 1.6;
 }
 
 h2 {
@@ -89,6 +91,8 @@ h2 {
 
 p, tr, pre, li {
   font-size: 1.25rem;
+
+  line-height: 1.6;
 }
 
 .hljs {

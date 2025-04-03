@@ -14,5 +14,7 @@
     "TRIGGER_IS_FLIPPED(\"IsReady__c\")\n-- Returns TRUE if the checkbox field 'IsReady__c' was flipped from FALSE to TRUE earlier in the same transaction.\n-- Typically used with the TRIGGER_FLIPPER() function to detect one-time manual triggers within before-insert or before-update contexts."
   ],
   "tips": [],
-  "relatedFormulas": []
+  "relatedFormulas": [
+    "TRIGGER_FLIPPER"
+  ]
 }

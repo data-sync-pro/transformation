@@ -1,0 +1,69 @@
+<div class="home-content">
+  <h1>DSP Transformation Quick Start Guide</h1>
+  <section class="doc-subsection">
+    <h2 class="doc-subheading">Elements of a Formula</h2>
+    <p>Formulas in Field Mapping are made of reusable logic elements:</p>
+  
+    <ul>
+      <li><strong>Literal Value:</strong> Static values like <code>"Hello"</code>, <code>42</code>, or <code>true</code>.</li>
+      <li><strong>Field Reference:</strong> Points to data from other fields, blocks, or user input.</li>
+      <li><strong>Global Variable:</strong> Predefined system variables like <code>User.ProfileId</code> or <code>User.Email</code>.</li>
+      <li><strong>Function:</strong> Logic helpers like <code>IF()</code>, <code>ADD_DAYS()</code>, etc.</li>
+      <li><strong>Operator:</strong> Math or logic symbols: <code>+</code>, <code>==</code>, <code>AND</code>, etc.</li>
+      <li><strong>APEX CLASS:</strong> (Advanced) Custom backend logic for developers.</li>
+    </ul>
+  
+  </section>
+  <h2 class="doc-subheading">Purpose of Field Mapping</h2>
+  <p><strong>Definition:</strong> Field Mapping sets the metadata for target fields and defines the transformation logic DSP uses to calculate and assign their values.</p>
+  <p><strong>Key Concept:</strong> Instead of editing records directly on the page layout, use the <strong>Fields Mapper</strong> tool to auto-generate mapping records based on your configuration.</p>
+
+  <h2 class="doc-subheading">Using the Fields Mapper Tool</h2>
+  <p><strong>What It Does:</strong> Automatically generates Field Mapping records.</p>
+  <p><strong>Why Use It:</strong> It ensures that your mappings are consistent with the DSP runtime engine requirements, reducing manual errors.</p>
+
+  <h2 class="doc-subheading">Key Components in Field Mapping</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Component</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Field Mapping API Name</strong></td>
+        <td>Unique identifier for each mapping record.</td>
+      </tr>
+      <tr>
+        <td><strong>Mapping (Transformation Logic)</strong></td>
+        <td>Contains the logic used to compute the target field’s value.</td>
+      </tr>
+      <tr>
+        <td><strong>Createable & Updateable Flags</strong></td>
+        <td>Indicate if a field can be inserted or modified.</td>
+      </tr>
+      <tr>
+        <td><strong>Nillable</strong></td>
+        <td>Specifies if the target field is allowed to have a null value.</td>
+      </tr>
+      <tr>
+        <td><strong>External Id Field(s)</strong></td>
+        <td>Used when working with reference fields (lookup or master-detail).</td>
+      </tr>
+      <tr>
+        <td><strong>Reference To & Relationship Name</strong></td>
+        <td>Define the object and relationship for reference fields.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 class="doc-subheading">Steps to Get Started</h2>
+  <ol>
+    <li><strong>Access the Fields Mapper:</strong> Use this tool to create or modify mappings without directly editing the page layout.</li>
+    <li><strong>Define Your Target Fields:</strong> Identify the fields that need transformation.</li>
+    <li><strong>Set Up Transformation Logic:</strong> Use the <code>Mapping</code> field to write the logic that computes each target field’s value.</li>
+    <li><strong>Review Field Attributes:</strong> Check properties like <code>Createable</code>, <code>Updateable</code>, <code>Nillable</code>, and External Id configurations to ensure they match your data requirements.</li>
+    <li><strong>Test Your Configuration:</strong> Validate that the DSP runtime engine correctly applies the transformations during processing.</li>
+  </ol>
+</div>
