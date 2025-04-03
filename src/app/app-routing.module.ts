@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FunctionPageMainLayoutComponent } from './layouts/function-page-main-layout/function-page-main-layout.component';
 import { DocViewerComponent } from './docs/doc-viewer/doc-viewer.component';
-
+import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/docs', pathMatch: 'full' },
@@ -10,7 +10,8 @@ const routes: Routes = [
     path: 'docs',
     component: FunctionPageMainLayoutComponent,
     children: [
-          { path: ':docName', component: DocViewerComponent },
+      { path: '', component: HomeComponent },
+      { path: ':docName', component: DocViewerComponent }
     ],
   },
 ];

@@ -1,0 +1,49 @@
+
+.home-content {
+  max-width: 1500px;
+  padding: 1rem;
+  width: 81%; 
+  margin: 0 auto; 
+  padding-top:5rem;
+}
+
+.home-content h1 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.doc-subheading {
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: #217B95; /* same tone as your function heading */
+}
+
+.home-content p,
+.home-content li {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.home-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+
+.home-content th,
+.home-content td {
+  border: 1px solid #ccc;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.home-content code {
+  font-family: monospace;
+  background: #f4f4f4;
+  padding: 2px 5px;
+  border-radius: 4px;
+}
