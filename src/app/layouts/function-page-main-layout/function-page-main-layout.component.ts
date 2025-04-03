@@ -23,9 +23,11 @@ interface FunctionCategory {
 export class FunctionPageMainLayoutComponent implements OnInit {
   isSearchOpen = false;
   isSidebarCollapsed = false;
+  showSidebar = false;
   operatorArrowLeft = false;
   globalVariableArrowLeft = false;
   breadcrumbs: BreadcrumbItem[] = [{ label: 'Home', link: '/' }];
+  placeholderText = '';
 
   functionCategories: FunctionCategory[] = [];
 
@@ -42,6 +44,16 @@ export class FunctionPageMainLayoutComponent implements OnInit {
       .subscribe(() => {
         this.updateBreadcrumbs();
       });
+
+    this.updatePlaceholder(); // Set initial placeholder
+    window.addEventListener('resize', this.updatePlaceholder.bind(this));
+  }
+  updatePlaceholder() {
+    this.placeholderText = window.innerWidth < 768 ? 'Search...' : 'Search functions...';
+  }
+  
+  ngOnDestroy() {
+    window.removeEventListener('resize', this.updatePlaceholder.bind(this));
   }
 
   groupFunctionsByTags(functionItems: FunctionItem[]) {
@@ -102,6 +114,8 @@ export class FunctionPageMainLayoutComponent implements OnInit {
       // Search through all function categories to find the function that matches the URL route.
       if (funcRoute === 'global_variables') {
         foundFunction = { name: 'Global Variables' };
+      } else if (funcRoute === 'apex%20class') {
+        foundFunction = { name: 'Apex Class' };
       } else {
         for (const category of this.functionCategories) {
           const match = category.functions.find((fn) => fn.route === funcRoute);
@@ -110,6 +124,9 @@ export class FunctionPageMainLayoutComponent implements OnInit {
             break;
           }
         }
+      }
+      {
+        console.log('foundFunction', foundFunction);
       }
       // If a matching function is found, update or add it as the second breadcrumb.
       if (foundFunction) {
@@ -171,8 +188,21 @@ export class FunctionPageMainLayoutComponent implements OnInit {
       category.expanded = !category.expanded;
     }
   }
+  toggleSidebar() {
+    if (window.innerWidth < 1070) {
+      this.showSidebar = !this.showSidebar;
+    } else {
+      this.isSidebarCollapsed = !this.isSidebarCollapsed;
+    }
+  }
+
+
+closeSidebar() {
+  this.showSidebar = false;
+}
 
   resetOperatorsArrow() {
     this.operatorArrowLeft = false;
   }
 }
+

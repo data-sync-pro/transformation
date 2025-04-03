@@ -7,7 +7,7 @@
     <div class="search-shortcut-wrapper">
       <input
         type="text"
-        placeholder="Search functions..."
+        [placeholder]="placeholderText"
         (click)="isSearchOpen = true"
         readonly
         class="search-input"
@@ -22,8 +22,11 @@
 </header>
 
 <div class="container">
-  <div class="sidebar-wrapper" [class.collapsed]="isSidebarCollapsed">
-    <aside class="sidebar" *ngIf="!isSidebarCollapsed">
+  <div class="sidebar-wrapper" [ngClass]="{ 'collapsed': isSidebarCollapsed, 'show-sidebar': showSidebar }">
+    <div class="sidebar-overlay" (click)="closeSidebar()"></div>
+
+  <aside class="sidebar" *ngIf="!isSidebarCollapsed || showSidebar">
+    <div class="sidebar-scroll-content">
       <nav class="nav">
         <ul class="nav-section">
           <li *ngFor="let category of functionCategories" class="nav-category">
@@ -60,10 +63,11 @@
           </li>
         </ul>
       </nav>
+    </div>
     </aside>
     <button
       class="sidebar-collapse-button"
-      (click)="isSidebarCollapsed = !isSidebarCollapsed"
+      (click)="toggleSidebar()"
       title="Collapse Sidebar"
     >
       <span>☰</span>
