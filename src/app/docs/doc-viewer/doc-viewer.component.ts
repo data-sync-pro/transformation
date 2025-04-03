@@ -25,6 +25,9 @@ export class DocViewerComponent implements OnInit {
           if (!docName){
             return [];
           }
+          if (docName === 'global_variables') {
+            return this.docsService.getGlobalVariables(); 
+          }
           return this.docsService.getDocByName(docName);
         })
       )

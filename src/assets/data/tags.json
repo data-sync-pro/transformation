@@ -40,7 +40,7 @@
     { "Item Name": "IS_NUMERIC", "Tags": ["Logical"] },
     { "Item Name": "IS_PHONE_NUMBER", "Tags": ["Logical", "Text"] },
     { "Item Name": "IS_UPDATE", "Tags": ["Logical"] },
-    { "Item Name": "$JOINER", "Tags": ["Advanced", "Global Variable"] },
+    { "Item Name": "$JOINER", "Tags": ["Advanced", "Global Variables"] },
     { "Item Name": "JOIN_JSON", "Tags": ["Advanced"] },
     { "Item Name": "JOIN_OBJECT", "Tags": ["Advanced"] },
     { "Item Name": "LAST_INDEX_OF", "Tags": ["Text"] },
@@ -112,11 +112,11 @@
     { "Item Name": "AGG_MAX", "Tags": ["Advanced"] },
     { "Item Name": "AGG_MIN", "Tags": ["Advanced"] },
     { "Item Name": "AGG_SUM", "Tags": ["Advanced"] },
-    { "Item Name": "$CONTEXT_RECORD_ID", "Tags": ["Global Variable"] },
-    { "Item Name": "$SKIP_ASSIGNMENT", "Tags": ["Global Variable"] },
-    { "Item Name": "$UserId", "Tags": ["Global Variable"] },
-    { "Item Name": "$User.UserName", "Tags": ["Global Variable"] },
-    { "Item Name": "$User.Email", "Tags": ["Global Variable"] },
-    { "Item Name": "$User.ProfileId", "Tags": ["Global Variable"] }
+    { "Item Name": "$CONTEXT_RECORD_ID", "Tags": ["Global Variables"] },
+    { "Item Name": "$SKIP_ASSIGNMENT", "Tags": ["Global Variables"] },
+    { "Item Name": "$UserId", "Tags": ["Global Variables"] },
+    { "Item Name": "$User.UserName", "Tags": ["Global Variables"] },
+    { "Item Name": "$User.Email", "Tags": ["Global Variables"] },
+    { "Item Name": "$User.ProfileId", "Tags": ["Global Variables"] }
   ]
   

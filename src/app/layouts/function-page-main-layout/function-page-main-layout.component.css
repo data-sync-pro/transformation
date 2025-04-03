@@ -111,6 +111,7 @@ body {
 .search-shortcut-wrapper {
   position: relative;
   width: 25%;
+  margin-right: 18px;
 }
 
 .shortcut-hint {
@@ -196,7 +197,9 @@ ul {
 
 
 .arrow {
-  transition: transform 0.3s;
+  width: 12px; 
+  height: 12px;
+  transform: rotate(0deg);
 }
 
 .arrow.expanded {

@@ -13,13 +13,26 @@ interface Parameter {
 
 export interface DocData {
     title: string;
-    description: string;
-    syntax: string;
+    description?: string;
+    syntax?: string;
     parameters?: Parameter[];
     examples?: string[];
     tips?: string[];
     relatedFormulas?: string[];
-}
+    operators?: {
+      [category: string]: {
+        operator: string;
+        name: string;
+        description: string;
+      }[];
+    }
+    globalVariables?: {
+      variable: string;
+      description: string;
+      exampleValue: string;
+    }[];
+  }
+
 
 @Injectable({
     providedIn: 'root'
@@ -37,5 +50,9 @@ export class DocsService {
           return of(null);
         })
       );
+    }
+
+    getGlobalVariables(): Observable<DocData> {
+      return this.http.get<DocData>('assets/data/global_variables.json');
     }
   }
