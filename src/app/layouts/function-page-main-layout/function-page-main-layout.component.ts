@@ -23,9 +23,11 @@ interface FunctionCategory {
 export class FunctionPageMainLayoutComponent implements OnInit {
   isSearchOpen = false;
   isSidebarCollapsed = false;
+  showSidebar = false;
   operatorArrowLeft = false;
   globalVariableArrowLeft = false;
   breadcrumbs: BreadcrumbItem[] = [{ label: 'Home', link: '/' }];
+  placeholderText = '';
 
   functionCategories: FunctionCategory[] = [];
 
@@ -42,6 +44,16 @@ export class FunctionPageMainLayoutComponent implements OnInit {
       .subscribe(() => {
         this.updateBreadcrumbs();
       });
+
+    this.updatePlaceholder(); // Set initial placeholder
+    window.addEventListener('resize', this.updatePlaceholder.bind(this));
+  }
+  updatePlaceholder() {
+    this.placeholderText = window.innerWidth < 768 ? 'Search...' : 'Search functions...';
+  }
+  
+  ngOnDestroy() {
+    window.removeEventListener('resize', this.updatePlaceholder.bind(this));
   }
 
   groupFunctionsByTags(functionItems: FunctionItem[]) {
@@ -176,8 +188,21 @@ export class FunctionPageMainLayoutComponent implements OnInit {
       category.expanded = !category.expanded;
     }
   }
+  toggleSidebar() {
+    if (window.innerWidth < 1070) {
+      this.showSidebar = !this.showSidebar;
+    } else {
+      this.isSidebarCollapsed = !this.isSidebarCollapsed;
+    }
+  }
+
+
+closeSidebar() {
+  this.showSidebar = false;
+}
 
   resetOperatorsArrow() {
     this.operatorArrowLeft = false;
   }
 }
+
