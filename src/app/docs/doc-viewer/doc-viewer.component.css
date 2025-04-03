@@ -1,15 +1,9 @@
 .doc-page {
-  font-family: Arial, sans-serif;
-  max-width: 1500px;
-  padding: 1rem;
   width: 81%; 
-  margin: 0 auto; 
-  color: #333;
-  
+  margin: 5rem auto;
 }
 
 .doc-title {
-  font-size: 2.2rem;
   margin-top: 5rem;
   margin-bottom: 2rem;
 }
@@ -19,10 +13,26 @@
 }
 
 .doc-section h2 {
-  font-size: 1.5rem;
   margin-bottom: 0.5rem;
   border-bottom: 2px solid #ddd;
   padding-bottom: 0.25rem;
+}
+
+.doc-section ul {
+  margin: 1.25rem 0 1.25rem 1.5rem;
+  padding-left: 0;
+}
+
+.doc-section ul li {
+  margin: 0.5rem 0;
+}
+
+.doc-section p code {
+  background-color: #f2eeee;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 1.25rem;
+  color: #e35f5f;
 }
 
 .doc-syntax {
@@ -38,7 +48,6 @@
   width: 100%;
   border-collapse: collapse;
   margin-top: 1rem;
-  font-size: 0.95rem;
 }
 
 .doc-tables{
@@ -46,7 +55,6 @@
   border-collapse: collapse;
   margin-top: 1rem;
   margin-bottom: 5rem;
-  font-size: 0.95rem;
 }
 
 .doc-table th,
@@ -72,32 +80,6 @@
   word-wrap: break-word;
   overflow-wrap: break-word;
   overflow-x: hidden;
-}
-
-ul {
-  margin: 1.25rem 0 1.25rem 1.5rem;
-  padding-left: 0;
-}
-
-ul li {
-  margin: 0.5rem 0;
-
-  line-height: 1.6;
-}
-
-h2 {
-  color: #418796;
-}
-
-p, tr, pre, li {
-  font-size: 1.25rem;
-
-  line-height: 1.6;
-}
-
-.hljs {
-  background-color: #f8f8f8 !important;
-  line-height: 1.5;
 }
 
 a {
