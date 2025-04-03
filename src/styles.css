@@ -1,4 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+
 body {
   font-family: "ITC Avant Garde", system-ui, -apple-system, system-ui,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
@@ -6,10 +15,30 @@ body {
   color: #333;
 }
 
-.doc-section p code {
-  background-color: #f2eeee;
-  padding: 0.2rem 0.4rem;
-  border-radius: 4px;
-  font-size: 1.25rem;
-  color: #e35f5f;
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #217B95;
+}
+
+p, tr, pre, ul, li {
+  font-size: 1rem;
+  line-height: 1.6;
+} 
+
+ul {
+  margin: 1.25rem 0 1.25rem 1.5rem;
+  padding-left: 0;
+}
+
+ul li {
+  margin: 0.5rem 0;
+} 
+
+.hljs {
+  background-color: #f8f8f8 !important;
+  line-height: 1.6;
 }

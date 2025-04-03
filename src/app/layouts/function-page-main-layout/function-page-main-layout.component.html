@@ -29,18 +29,13 @@
           <li *ngFor="let category of functionCategories" class="nav-category">
             <div class="category-header" (click)="toggleCategory(category)">
               {{ category.name }}
-              <img
-                class="arrow"
-                [class.expanded]="
-                  category.name === 'Operators'
-                    ? operatorArrowLeft
-                    : category.name === 'Global Variables'
-                    ? globalVariableArrowLeft
-                    : category.expanded
-                "
-                src="assets/icon/arrow.svg"
-                alt="Expand"
-              />
+              <span class="arrow" [class.expanded]="
+              category.name === 'Operators'
+                ? operatorArrowLeft
+                : category.name === 'Global Variables'
+                ? globalVariableArrowLeft
+                : category.expanded
+            ">▸</span>
             </div>
             <ul
               class="function-list"
