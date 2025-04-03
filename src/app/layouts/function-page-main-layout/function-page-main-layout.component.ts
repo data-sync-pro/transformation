@@ -100,11 +100,15 @@ export class FunctionPageMainLayoutComponent implements OnInit {
     if (funcRoute) {
       let foundFunction: { name: string } | undefined;
       // Search through all function categories to find the function that matches the URL route.
-      for (const category of this.functionCategories) {
-        const match = category.functions.find((fn) => fn.route === funcRoute);
-        if (match) {
-          foundFunction = match;
-          break;
+      if (funcRoute === 'global_variables') {
+        foundFunction = { name: 'Global Variables' };
+      } else {
+        for (const category of this.functionCategories) {
+          const match = category.functions.find((fn) => fn.route === funcRoute);
+          if (match) {
+            foundFunction = match;
+            break;
+          }
         }
       }
       // If a matching function is found, update or add it as the second breadcrumb.
