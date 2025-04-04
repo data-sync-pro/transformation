@@ -1,11 +1,11 @@
 <header class="top-header">
   <div class="header-content">
-    <a href="/docs" class="logo-name-wrapper">
-    <div class="logo-name-items">
-      <img class="logo" src="assets/logo.png" alt="Logo" />
-      <div class="name">Pushtopic</div>
-    </div>
-  </a>
+    <a [routerLink]="['/docs']" class="logo-name-wrapper">
+      <div class="logo-name-items">
+        <img class="logo" src="assets/logo.png" alt="Logo" />
+        <div class="name">Pushtopic</div>
+      </div>
+    </a>
     <div class="search-shortcut-wrapper">
       <input
         type="text"
@@ -24,48 +24,58 @@
 </header>
 
 <div class="container">
-  <div class="sidebar-wrapper" [ngClass]="{ 'collapsed': isSidebarCollapsed, 'show-sidebar': showSidebar }">
+  <div
+    class="sidebar-wrapper"
+    [ngClass]="{ collapsed: isSidebarCollapsed, 'show-sidebar': showSidebar }"
+  >
     <div class="sidebar-overlay" (click)="closeSidebar()"></div>
 
-  <aside class="sidebar" *ngIf="!isSidebarCollapsed || showSidebar">
-    <div class="sidebar-scroll-content">
-      <nav class="nav">
-        <ul class="nav-section">
-          <li *ngFor="let category of functionCategories" class="nav-category">
-            <div class="category-header" (click)="toggleCategory(category)">
-              {{ category.name }}
-              <span class="arrow" [class.expanded]="
-              category.name === 'Operators'
-                ? operatorArrowLeft
-                : category.name === 'Global Variables'
-                ? globalVariableArrowLeft
-                : category.expanded
-            ">▸</span>
-            </div>
-            <ul
-              class="function-list"
-              *ngIf="
-                category.expanded &&
-                category.name !== 'Operators' &&
-                category.name !== 'Global Variables'
-              "
+    <aside class="sidebar" *ngIf="!isSidebarCollapsed || showSidebar">
+      <div class="sidebar-scroll-content">
+        <nav class="nav">
+          <ul class="nav-section">
+            <li
+              *ngFor="let category of functionCategories"
+              class="nav-category"
             >
-              <li
-                class="nav-item"
-                *ngFor="let func of category.functions"
-                routerLinkActive="active"
-              >
-                <a
-                  [routerLink]="['/docs', func.route]"
-                  (click)="resetOperatorsArrow()"
-                  >{{ func.name }}</a
+              <div class="category-header" (click)="toggleCategory(category)">
+                {{ category.name }}
+                <span
+                  class="arrow"
+                  [class.expanded]="
+                    category.name === 'Operators'
+                      ? operatorArrowLeft
+                      : category.name === 'Global Variables'
+                      ? globalVariableArrowLeft
+                      : category.expanded
+                  "
+                  >▸</span
                 >
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-    </div>
+              </div>
+              <ul
+                class="function-list"
+                *ngIf="
+                  category.expanded &&
+                  category.name !== 'Operators' &&
+                  category.name !== 'Global Variables'
+                "
+              >
+                <li
+                  class="nav-item"
+                  *ngFor="let func of category.functions"
+                  routerLinkActive="active"
+                >
+                  <a
+                    [routerLink]="['/docs', func.route]"
+                    (click)="resetOperatorsArrow()"
+                    >{{ func.name }}</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </aside>
     <button
       class="sidebar-collapse-button"
@@ -77,9 +87,8 @@
   </div>
 
   <main class="content" [class.sidebar-collapsed]="isSidebarCollapsed">
-    <ng-container *ngIf="router.url !== '/docs'">
-      <app-breadcrumb [crumbs]="breadcrumbs"></app-breadcrumb>
-    </ng-container>
+    <app-breadcrumb [crumbs]="breadcrumbs"></app-breadcrumb>
+
     <router-outlet></router-outlet>
   </main>
 

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { BreadcrumbItem } from 'src/app/shared/breadcrumb/breadcrumb.component';
+import { Subscription } from 'rxjs';
 
 interface FunctionItem {
   'Item Name': string;
@@ -30,7 +31,7 @@ export class FunctionPageMainLayoutComponent implements OnInit {
   placeholderText = '';
 
   functionCategories: FunctionCategory[] = [];
-
+  routerSubscription!: Subscription;
   constructor(private http: HttpClient, public router: Router) {}
 
   ngOnInit() {
@@ -42,18 +43,30 @@ export class FunctionPageMainLayoutComponent implements OnInit {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe(() => {
-        this.updateBreadcrumbs();
+        this.updateBreadcrumbs(); // Update on each navigation event
       });
+    this.routerSubscription = this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.updateActiveCategory();
+      });
+
+    // Set initial state.
+    this.updateActiveCategory();
 
     this.updatePlaceholder(); // Set initial placeholder
     window.addEventListener('resize', this.updatePlaceholder.bind(this));
   }
   updatePlaceholder() {
-    this.placeholderText = window.innerWidth < 768 ? 'Search...' : 'Search functions...';
+    this.placeholderText =
+      window.innerWidth < 768 ? 'Search...' : 'Search functions...';
   }
-  
+
   ngOnDestroy() {
     window.removeEventListener('resize', this.updatePlaceholder.bind(this));
+    if (this.routerSubscription) {
+      this.routerSubscription.unsubscribe();
+    }
   }
 
   groupFunctionsByTags(functionItems: FunctionItem[]) {
@@ -104,45 +117,39 @@ export class FunctionPageMainLayoutComponent implements OnInit {
   }
 
   updateBreadcrumbs() {
-    // Split the current URL to extract the function route.
-    // For example, if URL is '/docs/add_days', then funcRoute is 'add_days'
+    // Extract the function route from the URL (e.g., '/docs/add_days')
     const urlParts = this.router.url.split('/');
     const funcRoute = urlParts[2];
 
+    let functionName = '';
+
     if (funcRoute) {
-      let foundFunction: { name: string } | undefined;
-      // Search through all function categories to find the function that matches the URL route.
       if (funcRoute === 'global_variables') {
-        foundFunction = { name: 'Global Variables' };
-      } else if (funcRoute === 'apex%20class') {
-        foundFunction = { name: 'Apex Class' };
+        functionName = 'Global Variables';
+      } else if (funcRoute === 'apex-class' || funcRoute === 'apex%20class') {
+        functionName = 'Apex Class';
       } else {
+        // Loop through your function categories to find the matching function.
         for (const category of this.functionCategories) {
           const match = category.functions.find((fn) => fn.route === funcRoute);
           if (match) {
-            foundFunction = match;
+            functionName = match.name;
             break;
           }
         }
       }
-      {
-        console.log('foundFunction', foundFunction);
-      }
-      // If a matching function is found, update or add it as the second breadcrumb.
-      if (foundFunction) {
-        if (this.breadcrumbs.length === 1) {
-          this.breadcrumbs.push({ label: foundFunction.name });
-        } else {
-          this.breadcrumbs[1] = { label: foundFunction.name };
-        }
+    }
+
+    // Update the breadcrumb:
+    // If a function name is found, add or update the second breadcrumb.
+    if (functionName) {
+      if (this.breadcrumbs.length === 1) {
+        this.breadcrumbs.push({ label: functionName });
       } else {
-        // If no matching function is found, remove any existing function breadcrumb.
-        if (this.breadcrumbs.length > 1) {
-          this.breadcrumbs.splice(1);
-        }
+        this.breadcrumbs[1] = { label: functionName };
       }
     } else {
-      // If the URL does not contain a function route, ensure only the "Home" breadcrumb is present.
+      // If no matching function is found, remove any existing function breadcrumb.
       if (this.breadcrumbs.length > 1) {
         this.breadcrumbs.splice(1);
       }
@@ -196,13 +203,30 @@ export class FunctionPageMainLayoutComponent implements OnInit {
     }
   }
 
-
-closeSidebar() {
-  this.showSidebar = false;
-}
+  closeSidebar() {
+    this.showSidebar = false;
+  }
 
   resetOperatorsArrow() {
     this.operatorArrowLeft = false;
   }
-}
+  updateActiveCategory() {
+    // Assume the URL structure is '/docs/{function-route}'
+    const urlSegments = this.router.url.split('/');
+    const activeRoute = urlSegments[2]; // This picks up the function route segment
 
+    // Loop through categories and expand the one with a matching function route.
+    this.functionCategories.forEach((category) => {
+      if (category.name === 'Operators') {
+        this.operatorArrowLeft = activeRoute === 'operators';
+      } else if (category.name === 'Global Variables') {
+        this.globalVariableArrowLeft = activeRoute === 'global_variables';
+      } else {
+        // For regular categories, set expanded if one of its functions matches.
+        category.expanded = category.functions.some(
+          (fn) => fn.route === activeRoute
+        );
+      }
+    });
+  }
+}
