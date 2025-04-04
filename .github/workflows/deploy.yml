@@ -15,6 +15,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
+          token: ${{ secrets.PAT }}
           fetch-depth: 0
 
       - name: Setup Node.js
@@ -27,6 +28,9 @@ jobs:
 
       - name: Build project
         run: npx ng build --base-href /DSP_FunctionDocumentation/ --output-path docs
+
+      - name: Disable Jekyll
+        run: touch docs/.nojekyll
 
       - name: Commit and push updated docs
         run: |
