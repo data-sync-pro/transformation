@@ -45,7 +45,7 @@
                 }
               ],
               "outputHashing": "all",
-              "baseHref": "/DSP_FunctionDocumentation/docs"
+              "baseHref": "/DSP_FunctionDocumentation"
             },
             "development": {
               "buildOptimizer": false,
