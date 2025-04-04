@@ -26,7 +26,7 @@ jobs:
         run: npm install
 
       - name: Build project
-        run: ng build --base-href /DSP_FunctionDocumentation/ --output-path docs
+        run: npx ng build --base-href /DSP_FunctionDocumentation/ --output-path docs
 
       - name: Commit and push updated docs
         run: |
