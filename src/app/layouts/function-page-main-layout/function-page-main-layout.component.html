@@ -87,8 +87,9 @@
   </div>
 
   <main class="content" [class.sidebar-collapsed]="isSidebarCollapsed">
-    <app-breadcrumb [crumbs]="breadcrumbs"></app-breadcrumb>
-
+    <ng-container *ngIf="router.url !== '/docs'">
+      <app-breadcrumb [crumbs]="breadcrumbs"></app-breadcrumb>
+    </ng-container>
     <router-outlet></router-outlet>
   </main>
 

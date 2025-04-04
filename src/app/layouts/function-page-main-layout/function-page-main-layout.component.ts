@@ -126,8 +126,10 @@ export class FunctionPageMainLayoutComponent implements OnInit {
     if (funcRoute) {
       if (funcRoute === 'global_variables') {
         functionName = 'Global Variables';
-      } else if (funcRoute === 'apex-class' || funcRoute === 'apex%20class') {
+      } else if (funcRoute === 'apex%20class') {
         functionName = 'Apex Class';
+      } else if (funcRoute === 'aggregate%20general') {
+        functionName = 'Aggregate General';
       } else {
         // Loop through your function categories to find the matching function.
         for (const category of this.functionCategories) {
