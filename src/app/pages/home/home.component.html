@@ -3,26 +3,85 @@
   <section class="doc-subsection">
     <h2 class="doc-subheading">Elements of a Formula</h2>
     <p>Formulas in Field Mapping are made of reusable logic elements:</p>
-  
+
     <ul>
-      <li><strong>Literal Value:</strong> Static values like <code>"Hello"</code>, <code>42</code>, or <code>true</code>.</li>
-      <li><strong>Field Reference:</strong> Points to data from other fields, blocks, or user input.</li>
-      <li><strong>Global Variable<a href="docs/global_variables"> 🔗 </a>:</strong> Predefined system variables like <code>User.ProfileId</code> or <code>User.Email</code>.</li>
-      <li><strong>Function:</strong> Logic helpers like <code>IF()</code>, <code>ADD_DAYS()</code>, etc.</li>
-      <li><strong>Operator<a href="docs/operators"> 🔗 </a>:</strong> Math or logic symbols: <code>+</code>, <code>==</code>, <code>AND</code>, etc.</li>
-      <li><strong>APEX CLASS
-        <a href="/docs/apex class"> 🔗 </a>:
-      </strong>  (Advanced) Custom backend logic for developers.</li>
+      <li>
+        <strong>Literal Value:</strong> Static values like <code>"Hello"</code>,
+        <code>42</code>, or <code>true</code>.
+      </li>
+      <li>
+        <strong>Field Reference:</strong> Points to data from other fields,
+        blocks, or user input.
+      </li>
+      <li>
+        <strong
+          ><a [routerLink]="['/docs/global_variables']">
+            Global Variable
+
+            <img
+              src="assets/icon/link.svg"
+              alt="Link icon"
+              class="link-icon"
+            /> </a
+          >:</strong
+        >
+        Predefined system variables like <code>$User.ProfileId</code> or
+        <code>$User.Email</code>.
+      </li>
+      <li>
+        <strong>Function:</strong> Logic helpers like <code>IF()</code>,
+        <code>ADD_DAYS()</code>, etc.
+      </li>
+      <li>
+        <strong
+          ><a [routerLink]="['/docs/operators']"
+            >Operator
+            <img
+              src="assets/icon/link.svg"
+              alt="Link icon"
+              class="link-icon"
+            /> </a
+          >:</strong
+        >
+        Math or logic symbols: <code>+</code>, <code>==</code>,
+        <code>AND</code>, etc.
+      </li>
+      <li>
+        <strong>
+          <a [routerLink]="['/docs/apex class']">
+            APEX CLASS
+            <img
+              src="assets/icon/link.svg"
+              alt="Link icon"
+              class="link-icon"
+            /> </a
+          >:
+        </strong>
+        (Advanced) Custom backend logic for developers.
+      </li>
     </ul>
-  
   </section>
   <h2 class="doc-subheading">Purpose of Field Mapping</h2>
-  <p><strong>Definition:</strong> Field Mapping sets the metadata for target fields and defines the transformation logic DSP uses to calculate and assign their values.</p>
-  <p><strong>Key Concept:</strong> Instead of editing records directly on the page layout, use the <strong>Fields Mapper</strong> tool to auto-generate mapping records based on your configuration.</p>
+  <p>
+    <strong>Definition:</strong> Field Mapping sets the metadata for target
+    fields and defines the transformation logic DSP uses to calculate and assign
+    their values.
+  </p>
+  <p>
+    <strong>Key Concept:</strong> Instead of editing records directly on the
+    page layout, use the <strong>Fields Mapper</strong> tool to auto-generate
+    mapping records based on your configuration.
+  </p>
 
   <h2 class="doc-subheading">Using the Fields Mapper Tool</h2>
-  <p><strong>What It Does:</strong> Automatically generates Field Mapping records.</p>
-  <p><strong>Why Use It:</strong> It ensures that your mappings are consistent with the DSP runtime engine requirements, reducing manual errors.</p>
+  <p>
+    <strong>What It Does:</strong> Automatically generates Field Mapping
+    records.
+  </p>
+  <p>
+    <strong>Why Use It:</strong> It ensures that your mappings are consistent
+    with the DSP runtime engine requirements, reducing manual errors.
+  </p>
 
   <h2 class="doc-subheading">Key Components in Field Mapping</h2>
   <table>
@@ -51,7 +110,9 @@
       </tr>
       <tr>
         <td><strong>External Id Field(s)</strong></td>
-        <td>Used when working with reference fields (lookup or master-detail).</td>
+        <td>
+          Used when working with reference fields (lookup or master-detail).
+        </td>
       </tr>
       <tr>
         <td><strong>Reference To & Relationship Name</strong></td>
@@ -62,10 +123,28 @@
 
   <h2 class="doc-subheading">Steps to Get Started</h2>
   <ol>
-    <li><strong>Access the Fields Mapper:</strong> Use this tool to create or modify mappings without directly editing the page layout.</li>
-    <li><strong>Define Your Target Fields:</strong> Identify the fields that need transformation.</li>
-    <li><strong>Set Up Transformation Logic:</strong> Use the <code>Mapping</code> field to write the logic that computes each target field’s value.</li>
-    <li><strong>Review Field Attributes:</strong> Check properties like <code>Createable</code>, <code>Updateable</code>, <code>Nillable</code>, and External Id configurations to ensure they match your data requirements.</li>
-    <li><strong>Test Your Configuration:</strong> Validate that the DSP runtime engine correctly applies the transformations during processing.</li>
+    <li>
+      <strong>Access the Fields Mapper:</strong> Use this tool to create or
+      modify mappings without directly editing the page layout.
+    </li>
+    <li>
+      <strong>Define Your Target Fields:</strong> Identify the fields that need
+      transformation.
+    </li>
+    <li>
+      <strong>Set Up Transformation Logic:</strong> Use the
+      <code>Mapping</code> field to write the logic that computes each target
+      field’s value.
+    </li>
+    <li>
+      <strong>Review Field Attributes:</strong> Check properties like
+      <code>Createable</code>, <code>Updateable</code>, <code>Nillable</code>,
+      and External Id configurations to ensure they match your data
+      requirements.
+    </li>
+    <li>
+      <strong>Test Your Configuration:</strong> Validate that the DSP runtime
+      engine correctly applies the transformations during processing.
+    </li>
   </ol>
 </div>

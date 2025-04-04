@@ -24,6 +24,10 @@
     text-decoration: none;
   }
 
+  .breadcrumb-item a:hover {
+    text-decoration: underline;
+  }
+
   @media (max-width: 1070px) {
     .breadcrumb {
       margin-left: 9vw;;

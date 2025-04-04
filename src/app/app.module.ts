@@ -8,6 +8,7 @@ import { FunctionPageMainLayoutComponent } from './layouts/function-page-main-la
 import { DocViewerComponent } from './docs/doc-viewer/doc-viewer.component';
 import { SearchOverlayComponent } from './layouts/search-overlay/search-overlay.component';
 import { BreadcrumbComponent } from './shared/breadcrumb/breadcrumb.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -15,15 +16,11 @@ import { BreadcrumbComponent } from './shared/breadcrumb/breadcrumb.component';
     FunctionPageMainLayoutComponent,
     DocViewerComponent,
     SearchOverlayComponent,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    HomeComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
