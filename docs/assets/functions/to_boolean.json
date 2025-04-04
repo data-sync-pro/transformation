@@ -1,0 +1,30 @@
+{
+  "title": "TO_BOOLEAN",
+  "description": "<p>Converts a string into a Boolean value. If the input cannot be converted, the function returns an error.</p>",
+  "syntax": "TO_BOOLEAN(string) -> Boolean",
+  "parameters": [
+    {
+      "name": "string",
+      "type": "String",
+      "required": "Yes",
+      "description": "The string to convert into a Boolean."
+    }
+  ],
+  "examples": [
+    "TO_BOOLEAN(\"true\")\n-- Returns TRUE",
+    "IF(TO_BOOLEAN(Opt_In__c), \"Subscribed\", \"Not Subscribed\")\n-- Converts the text value in the field 'Opt_In__c' into a Boolean\n-- If 'Opt_In__c' equals \"true\" (ignoring case), the formula returns \"Subscribed\". Otherwise, it returns \"Not Subscribed\"."
+  ],
+  "tips": [
+    {
+      "text": "<p>The function returns TRUE if the input string, ignoring case, equals \"true\".</p>",
+      "children": []
+    },
+    {
+      "text": "<p>Any string that does not match \"true\" (case insensitive) returns FALSE.</p>",
+      "children": []
+    }
+  ],
+  "relatedFormulas": [
+    "IF"
+  ]
+}

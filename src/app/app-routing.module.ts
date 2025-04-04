@@ -5,7 +5,7 @@ import { DocViewerComponent } from './docs/doc-viewer/doc-viewer.component';
 import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/docs', pathMatch: 'full' },
+  { path: '', redirectTo: 'docs', pathMatch: 'full' },
   {
     path: 'docs',
     component: FunctionPageMainLayoutComponent,
@@ -19,6 +19,7 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes,
     {
+      useHash:true,
       scrollPositionRestoration: 'enabled',
       anchorScrolling: 'enabled'
     }

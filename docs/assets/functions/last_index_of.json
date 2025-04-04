@@ -1,0 +1,32 @@
+{
+  "title": "LAST_INDEX_OF",
+  "description": "<p>Returns the starting position (zero-based index) of the last occurrence of substring within string. The search is case-sensitive. If end_position_optional is provided, the search considers characters from the start of the string up to the specified end position. Returns -1 if the substring is not found.</p>",
+  "syntax": "LAST_INDEX_OF(string, substring, end_position_optional) -> Integer",
+  "parameters": [
+    {
+      "name": "string",
+      "type": "String",
+      "required": "Yes",
+      "description": "The string to search within."
+    },
+    {
+      "name": "substring",
+      "type": "String",
+      "required": "Yes",
+      "description": "The substring to locate."
+    },
+    {
+      "name": "end_position_optional",
+      "type": "Integer",
+      "required": "Optional",
+      "description": "The zero-based index indicating the end position for the search. If omitted, searches the entire string."
+    }
+  ],
+  "examples": [
+    "LAST_INDEX_OF(\"hello hello\", \"hello\")\n-- Returns 6 because the last occurrence of \"hello\"(case-sensitive) starts at index 6.\n-- Note: All indexes are based on a 0-based index (the first character is at position 0).",
+    "LAST_INDEX_OF(\"hello hello\", \"hello\", 5)\n-- Returns 0 because it searches only up to index 5 and finds \"hello\"(case-sensitive) at the beginning.\n-- Note: All indexes are based on a 0-based index (the first character is at position 0).",
+    "LAST_INDEX_OF(\"hello Hello\", \"hello\")\n-- Returns 0 because it performs a case-sensitive search and finds \"hello\"(case-sensitive) only at index 0.\n-- Note: All indexes are based on a 0-based index (the first character is at position 0)."
+  ],
+  "tips": [],
+  "relatedFormulas": []
+}
