@@ -285,7 +285,7 @@ p, tr, pre, ul, li {
   }
 
   .sidebar-collapse-button {
-    left: 10px !important;
+    left: 0px !important;
     z-index: 1001;
   }
 
