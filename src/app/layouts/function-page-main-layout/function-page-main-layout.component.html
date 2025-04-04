@@ -1,9 +1,11 @@
 <header class="top-header">
   <div class="header-content">
+    <a href="/docs" class="logo-name-wrapper">
     <div class="logo-name-items">
       <img class="logo" src="assets/logo.png" alt="Logo" />
       <div class="name">Pushtopic</div>
     </div>
+  </a>
     <div class="search-shortcut-wrapper">
       <input
         type="text"
@@ -75,7 +77,9 @@
   </div>
 
   <main class="content" [class.sidebar-collapsed]="isSidebarCollapsed">
-    <app-breadcrumb [crumbs]="breadcrumbs"></app-breadcrumb>
+    <ng-container *ngIf="router.url !== '/docs'">
+      <app-breadcrumb [crumbs]="breadcrumbs"></app-breadcrumb>
+    </ng-container>
     <router-outlet></router-outlet>
   </main>
 

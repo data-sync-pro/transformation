@@ -1,4 +1,6 @@
-
+.logo-name-wrapper{
+  text-decoration: none;
+}
 .logo {
   height: 60px;
 }

@@ -49,3 +49,12 @@ a {
   color: #418796;
   text-decoration: none;
 }
+
+a:hover {
+  text-decoration: underline;
+}
+
+.link-icon{
+  height: 14px;
+  width: 14px;
+}

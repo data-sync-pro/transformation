@@ -31,7 +31,7 @@ export class FunctionPageMainLayoutComponent implements OnInit {
 
   functionCategories: FunctionCategory[] = [];
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, public router: Router) {}
 
   ngOnInit() {
     this.http.get<FunctionItem[]>('assets/data/tags.json').subscribe((data) => {
