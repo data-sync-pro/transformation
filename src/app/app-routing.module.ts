@@ -5,7 +5,7 @@ import { DocViewerComponent } from './docs/doc-viewer/doc-viewer.component';
 import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'docs', pathMatch: 'full' },
+  { path: '', component: FunctionPageMainLayoutComponent },
   {
     path: 'docs',
     component: FunctionPageMainLayoutComponent,
