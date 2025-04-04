@@ -1,0 +1,31 @@
+{
+  "title": "IS_ALL_LOWER_CASE",
+  "description": "<p>Returns TRUE if the provided string contains only lowercase alphabetical characters; otherwise, returns FALSE.</p>",
+  "syntax": "IS_ALL_LOWER_CASE(string) -> Boolean",
+  "parameters": [
+    {
+      "name": "string",
+      "type": "String",
+      "required": "Yes",
+      "description": "The string to evaluate."
+    }
+  ],
+  "examples": [
+    "IS_ALL_LOWER_CASE(\"helloworld\")\n-- Returns TRUE",
+    "IS_ALL_LOWER_CASE(\"hello world\")\n-- Returns FALSE",
+    "IS_ALL_LOWER_CASE(\"HelloWorld\")\n-- Returns FALSE",
+    "IS_ALL_LOWER_CASE(\"1234!\")\n-- Returns FALSE",
+    "IS_ALL_LOWER_CASE(\"\")\n-- Returns FALSE"
+  ],
+  "tips": [
+    {
+      "text": "<p>Returns FALSE if the string is empty.</p>",
+      "children": []
+    },
+    {
+      "text": "<p>Only lowercase letters (a–z) are accepted; any uppercase letters, numbers, spaces, or symbols will result in FALSE.</p>",
+      "children": []
+    }
+  ],
+  "relatedFormulas": []
+}

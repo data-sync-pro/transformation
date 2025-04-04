@@ -1,0 +1,28 @@
+{
+  "title": "CONTAINS_IGNORE_CASE",
+  "description": "<p>Returns TRUE if the provided string contains any of the specified compare_strings, ignoring case differences. Otherwise, returns FALSE.</p>",
+  "syntax": "CONTAINS_IGNORE_CASE(string, ...compare_strings) -> Boolean",
+  "parameters": [
+    {
+      "name": "string",
+      "type": "String",
+      "required": "Yes",
+      "description": "The source string to search within."
+    },
+    {
+      "name": "...compare_strings",
+      "type": "String",
+      "required": "Yes",
+      "description": "One or more strings to search for within the source string."
+    }
+  ],
+  "examples": [
+    "CONTAINS_IGNORE_CASE(\"Welcome to the China\", \"Welcome\", \"China\")\n-- Returns TRUE because the text contains \"Welcome\" and \"China\", and case is ignored.",
+    "CONTAINS_IGNORE_CASE(\"Welcome to the China\", \"welcome\", \"china\")\n-- Returns TRUE because case is ignored, and both \"welcome\" and \"china\" are present in the text.",
+    "IF(CONTAINS_IGNORE_CASE(Product_Type__c, \"part\"), \"Parts\", \"Service\")\n-- Returns \"Parts\" if Product_Type__c contains \"part\" in any case; otherwise, returns \"Service\"."
+  ],
+  "tips": [],
+  "relatedFormulas": [
+    "IF"
+  ]
+}

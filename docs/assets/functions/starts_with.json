@@ -1,0 +1,38 @@
+{
+  "title": "STARTS_WITH",
+  "description": "<p>Returns TRUE if the provided string starts with any of the specified compare_strings (case-sensitive); otherwise, returns FALSE.</p>",
+  "syntax": "STARTS_WITH(string, ...compare_strings) -> Boolean",
+  "parameters": [
+    {
+      "name": "string",
+      "type": "String",
+      "required": "Yes",
+      "description": "The string to evaluate."
+    },
+    {
+      "name": "… compare_strings",
+      "type": "String",
+      "required": "Yes",
+      "description": "One or more strings to check for at the beginning of string"
+    }
+  ],
+  "examples": [
+    "STARTS_WITH(\"Hello World\", \"Hello\", \"He\")\n-- Returns TRUE(case-sensitive)",
+    "STARTS_WITH(\"Hello World\", \"hello\", \"he\")\n-- Returns FALSE(case-sensitive)",
+    "STARTS_WITH(\"Hello\", \"\")\n-- Returns TRUE",
+    "IF(STARTS_WITH(Email, \"sales@\"), \"Sales Inquiry\", \"General Inquiry\")\n-- This formula checks whether the Email field starts with \"sales@\".\n-- If true, it returns \"Sales Inquiry\"; otherwise, it returns \"General Inquiry\".\n-- Useful for categorizing records based on email patterns."
+  ],
+  "tips": [
+    {
+      "text": "<p>An empty compare_string always returns TRUE since every string starts with an empty string.</p>",
+      "children": []
+    },
+    {
+      "text": "<p>Punctuation and symbols are treated like letters.</p>",
+      "children": []
+    }
+  ],
+  "relatedFormulas": [
+    "IF"
+  ]
+}

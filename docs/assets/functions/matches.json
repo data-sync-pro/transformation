@@ -1,0 +1,30 @@
+{
+  "title": "MATCHES",
+  "description": "<p>Returns TRUE if the provided string matches any of the specified regular expressions; otherwise, returns FALSE.</p>",
+  "syntax": "MATCHES(string, ...regex_expressions) -> Boolean",
+  "parameters": [
+    {
+      "name": "string",
+      "type": "String",
+      "required": "Yes",
+      "description": "The text to evaluate against the provided regular expressions."
+    },
+    {
+      "name": "…regex_expressions",
+      "type": "String",
+      "required": "Yes",
+      "description": "One or more regular expressions to test against the string."
+    }
+  ],
+  "examples": [
+    "MATCHES(\"123-456-7890\", \n        \"^\\d{3}-\\d{3}-\\d{4}$\",\n        \"^\\(\\d{3}\\) \\d{3}-\\d{4}$\")\n-- Format 1: 123-456-7890\n-- Format 2: (123) 456-7890\n-- Returns TRUE because the string matches the first regular expression.",
+    "MATCHES(\"user@example.com\",\n        \"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$\")\n-- Returns TRUE because the string matches the pattern."
+  ],
+  "tips": [
+    {
+      "text": "<p>Define your regular expressions using Apex- or Java-compliant syntax.</p>",
+      "children": []
+    }
+  ],
+  "relatedFormulas": []
+}

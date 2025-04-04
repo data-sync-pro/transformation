@@ -1,0 +1,43 @@
+{
+  "title": "JOIN_JSON",
+  "description": "<p>Returns a filtered array containing objects from the provided JSON array that match the specified field name and field value criteria.</p>",
+  "syntax": "JOIN_JSON(json_array, ...[matching_field_name, matching_field_value])",
+  "parameters": [
+    {
+      "name": "json_array",
+      "type": "String",
+      "required": "Yes",
+      "description": "The JSON array of objects to filter."
+    },
+    {
+      "name": "… matching_field_name",
+      "type": "String",
+      "required": "Optional",
+      "description": "The field name to use as the filter criterion. Multiple pairs allowed. Left Join if any pairs are included; Cross Join if all are omitted."
+    },
+    {
+      "name": "… matching_field_value",
+      "type": "Object",
+      "required": "Optional",
+      "description": "Field value to match for filtering."
+    }
+  ],
+  "examples": [
+    "JOIN_JSON('[\"red\", \"green\", \"blue\"]')\n-- Performs a cross join because no matching criteria are provided.\n-- Each record in the current context is joined with every value (\"red\", \"green\", \"blue\") in the JSON array.\n-- For example, joining 100 records results in 300 records (100 × 3).\n-- When referencing joined values (e.g., in Scope Filters or Field Mappings), use `$Joiner.Value`.",
+    "JOIN_JSON('[\n  {\n    \"Id\": \"0068K000007tDwxQAE\", \n    \"AccountId\": \"0018K00000kQI8RQAW\",\n    \"OwnerId\": \"0055e000006XrYrAAK\", \n    \"Type\": \"New Business\",\n    \"ShippingCountry\": \"Canada\",\n    \"ShippingState\": \"Quebec\"\n  },\n  {\n    \"Id\": \"0068K000007tDwyQAE\", \n    \"AccountId\": \"0018K00000kQI8SQAW\",\n    \"OwnerId\": \"0055e000006WuzOAAS\", \n    \"Type\": \"New Business\",\n    \"ShippingCountry\": \"Canada\",\n    \"ShippingState\": \"Vancouver\"\n  }\n]', \"ShippingCountry\", ShippingCountry__c)\n-- Performs a left join between the current record and the JSON array based on the ShippingCountry field.\n-- Returns a list of JSON objects where each object's ShippingCountry matches the current record's ShippingCountry__c value.\n-- For example, if ShippingCountry__c = \"Canada\", both records in the array are returned.",
+    "JOIN_JSON('[\n  {\n    \"Id\": \"0068K000007tDwxQAE\", \n    \"AccountId\": \"0018K00000kQI8RQAW\",\n    \"OwnerId\": \"0055e000006XrYrAAK\", \n    \"Type\": \"New Business\",\n    \"ShippingCountry\": \"Canada\",\n    \"ShippingState\": \"Quebec\"\n  },\n  {\n    \"Id\": \"0068K000007tDwyQAE\", \n    \"AccountId\": \"0018K00000kQI8SQAW\",\n    \"OwnerId\": \"0055e000006WuzOAAS\", \n    \"Type\": \"New Business\",\n    \"ShippingCountry\": \"Canada\",\n    \"ShippingState\": \"Vancouver\"\n  }\n]', \"ShippingCountry\", ShippingCountry__c, \"ShippingState\", ShippingState__c)\n-- Returns objects from the JSON array where both of the following match the current record:\n-- 1. ShippingCountry in the JSON object matches the value of ShippingCountry__c on the current record\n-- 2. ShippingState in the JSON object matches the value of ShippingState__c on the current record\n-- This functions as a left join from the current record to the JSON array, filtering the array based on field matches.\n-- Only JSON objects satisfying both conditions are returned."
+  ],
+  "tips": [
+    {
+      "text": "<p>Defines this function during the Scoping stage to retrieve and prepare data for subsequent use in the Mapping stage.</p>",
+      "children": []
+    },
+    {
+      "text": "<p>Be careful to provide matching pairs when using this function. Omitting matching criteria can result in cross joins, creating excessively large record sets. Follow Salesforce best practices to prevent exceeding system limits.</p>",
+      "children": []
+    }
+  ],
+  "relatedFormulas": [
+    "$JOINER"
+  ]
+}

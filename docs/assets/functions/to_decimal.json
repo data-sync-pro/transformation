@@ -1,0 +1,31 @@
+{
+  "title": "TO_DECIMAL",
+  "description": "<p>Converts the input value to a Decimal. If the input cannot be converted, the function throws an error.</p>",
+  "syntax": "TO_DECIMAL(string/double/long/float/integer, scale_optional) -> Decimal",
+  "parameters": [
+    {
+      "name": "string/double/long/float/integer",
+      "type": "String / Double / Long / Float / Integer",
+      "required": "Yes",
+      "description": "The string to convert into a Decimal"
+    },
+    {
+      "name": "scale_optional",
+      "type": "Integer",
+      "required": "Optional",
+      "description": "The number of decimal places to round to. If omitted, no rounding occurs."
+    }
+  ],
+  "examples": [
+    "TO_DECIMAL(\"25.3\")\n-- Returns 25.3 as a Decimal",
+    "TO_DECIMAL(25, 2)\n-- Returns 25.00 as a Decimal",
+    "TO_DECIMAL(25.6789, 2)\n-- Returns 25.68 as a Decimal"
+  ],
+  "tips": [
+    {
+      "text": "<p>Ensure that the input string is a valid decimal representation.</p>",
+      "children": []
+    }
+  ],
+  "relatedFormulas": []
+}

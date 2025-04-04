@@ -1,0 +1,29 @@
+{
+  "title": "ENDS_WITH_IGNORE_CASE",
+  "description": "<p>Returns TRUE if the provided string ends with any of the specified compare_strings. The comparison is case-insensitive. Otherwise, returns FALSE.</p>",
+  "syntax": "ENDS_WITH_IGNORE_CASE(string, ...compare_strings) -> Boolean",
+  "parameters": [
+    {
+      "name": "string",
+      "type": "String",
+      "required": "Yes",
+      "description": "The source string to evaluate."
+    },
+    {
+      "name": "… compare_string",
+      "type": "String",
+      "required": "Yes",
+      "description": "One or more strings to compare against the end of the source string."
+    }
+  ],
+  "examples": [
+    "ENDS_WITH_IGNORE_CASE(\"Salesforce Platform\", \"Platform\", \"plat\") \n-- Returns TRUE",
+    "ENDS_WITH_IGNORE_CASE(\"Salesforce Platform\", \"platform\", \"plat\") \n-- Returns TRUE(case-insensitive)",
+    "ENDS_WITH_IGNORE_CASE(\"Salesforce Platform\", \"force\") \n-- Returns FALSE",
+    "IF(ENDS_WITH_IGNORE_CASE(Product_type__c, \"icu\"), \"Medical\", \"Technical\")\n-- Returns \"Medical\" if Product_type__c ends with \"icu\"; otherwise, returns \"Technical\""
+  ],
+  "tips": [],
+  "relatedFormulas": [
+    "IF"
+  ]
+}

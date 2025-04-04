@@ -1,0 +1,23 @@
+{
+  "title": "SCRAMBLE",
+  "description": "<p>Shuffle the items in the current batch and select one at random.</p>",
+  "syntax": "SCRAMBLE(obj) -> same data type as obj",
+  "parameters": [
+    {
+      "name": "obj",
+      "type": "Object",
+      "required": "Yes",
+      "description": "Object whose content will be scrambled."
+    }
+  ],
+  "examples": [
+    "SCRAMBLE(FirstName) \n-- Returns the FirstName of a random record within the execution batch."
+  ],
+  "tips": [
+    {
+      "text": "<p>Using SCRAMBLE or RANDOMIZE in production will cause an exception when saving or executing the mapping.</p>",
+      "children": []
+    }
+  ],
+  "relatedFormulas": []
+}

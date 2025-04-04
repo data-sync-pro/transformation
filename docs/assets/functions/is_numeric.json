@@ -1,0 +1,20 @@
+{
+  "title": "IS_NUMERIC",
+  "description": "<p>Returns TRUE if the provided string contains only numeric digits (0–9); otherwise, returns FALSE.</p>",
+  "syntax": "IS_NUMERIC(string) -> Boolean",
+  "parameters": [
+    {
+      "name": "string",
+      "type": "String",
+      "required": "Yes",
+      "description": "The string to evaluate."
+    }
+  ],
+  "examples": [
+    "IS_NUMERIC(\"123\")\n-- Returns TRUE because \"123\" is a valid numeric string.",
+    "IS_NUMERIC(\"World\")\n-- Returns FALSE because \"World\" is not a valid numeric string.",
+    "IS_NUMERIC(Price_String__c)\n-- Evaluates whether the field 'Price_String__c' contains a value that can be converted to a Decimal.\n-- Returns TRUE if it is numeric; otherwise, returns FALSE."
+  ],
+  "tips": [],
+  "relatedFormulas": []
+}

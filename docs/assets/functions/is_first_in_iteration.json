@@ -1,0 +1,18 @@
+{
+  "title": "IS_FIRST_IN_ITERATION",
+  "description": "<p>Returns TRUE if the current record is the first one encountered with the specified combination of expression values during the current iteration. Typically used in the Scope Filters.</p>",
+  "syntax": "IS_FIRST_IN_ITERATION(...expressions) -> Boolean",
+  "parameters": [
+    {
+      "name": "… expressions",
+      "type": "Object",
+      "required": "Yes",
+      "description": "One or more expressions combined to determine if this is the first occurrence in the source data iteration."
+    }
+  ],
+  "examples": [
+    "IS_FIRST_IN_ITERATION(FirstName, LastName)\n-- Returns TRUE for the first source record encountered with a given (FirstName, LastName) combination during the current iteration.\n-- All following records with the same (FirstName, LastName) will return FALSE.\n-- Useful for processing or flagging only the first occurrence of each unique (FirstName, LastName) pair."
+  ],
+  "tips": [],
+  "relatedFormulas": []
+}

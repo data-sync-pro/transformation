@@ -1,0 +1,38 @@
+{
+  "title": "STARTS_WITH_IGNORE_CASE",
+  "description": "<p>Returns TRUE if the provided string starts with any of the specified compare_strings(case-insensitive); otherwise, returns FALSE.</p>",
+  "syntax": "STARTS_WITH_IGNORE_CASE(string, ...compare_strings) -> Boolean",
+  "parameters": [
+    {
+      "name": "string",
+      "type": "String",
+      "required": "Yes",
+      "description": "The string to evaluate."
+    },
+    {
+      "name": "… compare_strings",
+      "type": "String",
+      "required": "Yes",
+      "description": "Strings to compare against the start of the source string. case-insensitive."
+    }
+  ],
+  "examples": [
+    "STARTS_WITH_IGNORE_CASE(\"Hello World\", \"Hello\", \"He\")\n-- Returns TRUE(case-insensitive)",
+    "STARTS_WITH_IGNORE_CASE(\"Hello World\", \"hello\", \"he\")\n-- Returns TRUE(case-insensitive)",
+    "STARTS_WITH_IGNORE_CASE(\"Hello\", \"\")\n-- Returns TRUE",
+    "IF(STARTS_WITH_IGNORE_CASE(Product_type__c, \"icu\"), \"Medical\", \"Technical\")\n-- Checks whether the value in the Product_type__c field starts with \"icu\", ignoring case.\n-- Returns \"Medical\" if it does; otherwise, returns \"Technical\".\n-- Useful for categorizing product types based on prefix patterns regardless of letter casing."
+  ],
+  "tips": [
+    {
+      "text": "<p>An empty compare_string always returns TRUE since every string starts with an empty string.</p>",
+      "children": []
+    },
+    {
+      "text": "<p>Punctuation and symbols are treated like letters.</p>",
+      "children": []
+    }
+  ],
+  "relatedFormulas": [
+    "IF"
+  ]
+}

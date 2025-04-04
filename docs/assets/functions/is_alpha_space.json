@@ -1,0 +1,21 @@
+{
+  "title": "IS_ALPHA_SPACE",
+  "description": "<p>Returns TRUE if the provided string contains only alphabetic characters (A-Z, a-z) and spaces; otherwise, returns FALSE.</p>",
+  "syntax": "IS_ALPHA_SPACE(string) -> Boolean",
+  "parameters": [
+    {
+      "name": "string",
+      "type": "String",
+      "required": "Yes",
+      "description": "The string to evaluate."
+    }
+  ],
+  "examples": [
+    "IS_ALPHA_SPACE(\"HelloWorld\")\n-- Returns TRUE",
+    "IS_ALPHA_SPACE(\"Hello World\")\n-- Returns TRUE",
+    "IS_ALPHA_SPACE(\"Hello World!\")\n-- Returns FALSE, as it contains an exclamation mark",
+    "IS_ALPHA_SPACE(\"\")\n-- Returns TRUE"
+  ],
+  "tips": [],
+  "relatedFormulas": []
+}

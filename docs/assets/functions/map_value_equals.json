@@ -1,0 +1,43 @@
+{
+  "title": "MAP_VALUE_EQUALS",
+  "description": "<p>Returns the corresponding return_value for the first compare_value equal to the provided object. If no values match, returns default_return_value_optional. If default_return_value_optional is omitted and no matches occur, the function returns $SKIP_ASSIGNMENT.</p>",
+  "syntax": "MAP_VALUE_EQUALS(obj, ...[compare_value, return_value], default_return_value_optional) -> Object",
+  "parameters": [
+    {
+      "name": "obj",
+      "type": "Object",
+      "required": "Yes",
+      "description": "The object to compare against; it can be of any type."
+    },
+    {
+      "name": "… compare_value",
+      "type": "Object",
+      "required": "Yes",
+      "description": "The value to match exactly against the provided object."
+    },
+    {
+      "name": "… return_value",
+      "type": "Object",
+      "required": "Yes",
+      "description": "The value returned if the compare value matches exactly."
+    },
+    {
+      "name": "default_return_value_optional",
+      "type": "Object",
+      "required": "Optional",
+      "description": "The value returned if no compare values match. If omitted and no match occurs, returns $SKIP_ASSIGNMENT."
+    }
+  ],
+  "examples": [
+    "MAP_VALUE_EQUALS(\"NC\", \"NY\", \"New York\", \"CA\", \"California\") \n-- Returns \"New York\"",
+    "MAP_VALUE_EQUALS(\"NY\", \"NY\", \"New York\", \"CA\", \"California\", \"Other\") \n-- Returns $SKIP_ASSIGNMENT",
+    "MAP_VALUE_EQUALS(Score, 100, \"Perfect\", 50, \"Average\", 0, \"Fail\", \"No Match\")\n-- Returns \"Perfect\" if Score equals 100.\n-- Returns \"Average\" if Score equals 50.\n-- Returns \"Fail\" if Score equals 0.\n-- Otherwise, returns \"No Match\"."
+  ],
+  "tips": [
+    {
+      "text": "<p>Ensure that the <strong>return_value</strong> and <strong>default_return_value_optional</strong> are of the same data type.</p>",
+      "children": []
+    }
+  ],
+  "relatedFormulas": []
+}
