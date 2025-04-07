@@ -9,6 +9,7 @@ import { DocViewerComponent } from './docs/doc-viewer/doc-viewer.component';
 import { SearchOverlayComponent } from './layouts/search-overlay/search-overlay.component';
 import { BreadcrumbComponent } from './shared/breadcrumb/breadcrumb.component';
 import { HomeComponent } from './pages/home/home.component';
+import { ScrollToTopComponent } from './shared/scroll-to-top/scroll-to-top.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HomeComponent } from './pages/home/home.component';
     DocViewerComponent,
     SearchOverlayComponent,
     BreadcrumbComponent,
-    HomeComponent
+    HomeComponent,
+    ScrollToTopComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

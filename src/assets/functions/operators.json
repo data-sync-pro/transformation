@@ -60,6 +60,11 @@
         "operator": "&&",
         "name": "AND",
         "description": "Evaluates to TRUE if both conditions are true."
+      },
+      {
+        "operator": "||",
+        "name": "OR",
+        "description": "Evaluates to TRUE if at least one condition is true."
       }
     ],
     "Other Operators": [
