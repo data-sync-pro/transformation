@@ -1,6 +1,6 @@
 {
     "title": "Elements of a Formula",
-    "description": "Formulas may include field references, operators, functions, literal values, global variables, or custom Apex classes. You can combine these elements to create effective formulas.",
+    "description": "A formula can contain references to the values of source fields, operators, functions, literal values, or other formulas. Use any or all of these elements to build a formula.",
     "elements": [
       {
         "element": "Literal Value",
