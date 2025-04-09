@@ -94,7 +94,6 @@ export class FunctionPageMainLayoutComponent implements OnInit {
 
     const TAG_ORDER = [
       'Date & Time',
-      'Time',
       'Text',
       'Number',
       'Logical',
