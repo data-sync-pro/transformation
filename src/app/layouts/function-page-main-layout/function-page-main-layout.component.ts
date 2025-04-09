@@ -25,8 +25,8 @@ export class FunctionPageMainLayoutComponent implements OnInit {
   isSearchOpen = false;
   isSidebarCollapsed = false;
   showSidebar = false;
-  operatorArrowLeft = false;
-  globalVariableArrowLeft = false;
+  operatorExpand = false;
+  globalVariableExpand = false;
   breadcrumbs: BreadcrumbItem[] = [{ label: 'Home', link: '/' }];
   placeholderText = '';
 
@@ -85,16 +85,23 @@ export class FunctionPageMainLayoutComponent implements OnInit {
       });
     });
 
-    // Transform the map into an array for the sidebar
     this.functionCategories = Object.keys(tagMap).map((tag) => ({
       name: tag,
-      expanded: false, // You can set default expanded state here
-      functions: tagMap[tag],
+      expanded: false, 
+      functions: tagMap[tag].sort((a, b) => {
+        const aName = a.name.toLowerCase();
+        const bName = b.name.toLowerCase();
+        const aDollar = aName.startsWith('$');
+        const bDollar = bName.startsWith('$');
+        if (aDollar && !bDollar) return 1;
+        if (!aDollar && bDollar) return -1;
+
+        return aName.localeCompare(bName);
+      })
     }));
 
     const TAG_ORDER = [
       'Date & Time',
-      'Time',
       'Text',
       'Number',
       'Logical',
@@ -184,16 +191,16 @@ export class FunctionPageMainLayoutComponent implements OnInit {
 
   toggleCategory(category: any) {
     if (category.name === 'Operators') {
-      this.operatorArrowLeft = true;
+      this.operatorExpand = true;
       this.router.navigate(['/docs/operators']);
-      this.globalVariableArrowLeft = false;
+      this.globalVariableExpand = false;
     } else if (category.name === 'Global Variables') {
-      this.globalVariableArrowLeft = true;
+      this.globalVariableExpand = true;
       this.router.navigate(['/docs', 'global_variables']);
-      this.operatorArrowLeft = false;
+      this.operatorExpand = false;
     } else {
-      this.operatorArrowLeft = false;
-      this.globalVariableArrowLeft = false;
+      this.operatorExpand = false;
+      this.globalVariableExpand = false;
       category.expanded = !category.expanded;
     }
   }
@@ -210,19 +217,19 @@ export class FunctionPageMainLayoutComponent implements OnInit {
   }
 
   resetOperatorsArrow() {
-    this.operatorArrowLeft = false;
+    this.operatorExpand = false;
   }
   updateActiveCategory() {
-    // Assume the URL structure is '/docs/{function-route}'
+   
     const urlSegments = this.router.url.split('/');
     const activeRoute = urlSegments[2]; // This picks up the function route segment
 
     // Loop through categories and expand the one with a matching function route.
     this.functionCategories.forEach((category) => {
       if (category.name === 'Operators') {
-        this.operatorArrowLeft = activeRoute === 'operators';
+        this.operatorExpand = activeRoute === 'operators';
       } else if (category.name === 'Global Variables') {
-        this.globalVariableArrowLeft = activeRoute === 'global_variables';
+        this.globalVariableExpand = activeRoute === 'global_variables';
       } else {
         // For regular categories, set expanded if one of its functions matches.
         category.expanded = category.functions.some(

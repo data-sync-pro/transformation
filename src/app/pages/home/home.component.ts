@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   tagsData: FunctionTag[] = [];
   itemsByTag: { [tag: string]: string[] } = {};
   uniqueTags: string[] = [];
+  displayTags: string[] = [];
   functionDescriptions: { [funcName: string]: string } = {};
   formulaElements: any = null;
 
@@ -52,19 +53,41 @@ export class HomeComponent implements OnInit {
         });
       });
 
+      Object.keys(this.itemsByTag).forEach(tag => {
+        this.itemsByTag[tag].sort((a, b) => {
+          const aDollar = a.startsWith('$');
+          const bDollar = b.startsWith('$');
+          if (aDollar && !bDollar) return 1;
+          if (!aDollar && bDollar) return -1;
+          return a.localeCompare(b);
+        }
+        );
+        
+      });
+
       const desiredOrder = [
         'Date & Time',
-        'Time',
         'Text',
         'Number',
         'Logical',
         'Trigger',
         'Type Processing',
         'Randomization',
+        'Operators',
+        'Global Variables',
         'Advanced'
       ];
 
-      this.uniqueTags = desiredOrder.filter(tag => tagSet.has(tag));
+      this.displayTags = desiredOrder.filter(tag => {
+        if (tag === 'Operators' || tag === 'Global Variables') {
+          return true;
+        }
+        return tagSet.has(tag);
+      });
+
+      // Also build uniqueTags from tagSet for any other internal processing if needed
+      this.uniqueTags = Array.from(tagSet); // if you need it, though displayTags is used for display
+
       this.loadFunctionDescriptions();
     });
   }
@@ -74,12 +97,25 @@ export class HomeComponent implements OnInit {
   loadFunctionDescriptions() {
     this.tagsData.forEach(item => {
       const funcName = item["Item Name"];
-      // Assumes the JSON file is named with lower case and underscores (e.g., add_days.json)
-      const fileName = funcName.toLowerCase().replace(/\s/g, '_') + '.json';
+      let fileName: string;
+
+      if (funcName.trim().toLowerCase() === 'apex class') {
+        fileName = funcName.toLowerCase() + '.json';
+      } else {
+        fileName = funcName.toLowerCase().replace(/\s/g, '_') + '.json';
+      }
+
       const filePath = `assets/functions/${fileName}`;
       this.http.get<any>(filePath).subscribe(
         funcData => {
-          this.functionDescriptions[funcName] = funcData.description;
+          if (funcName.trim().toLowerCase() === 'apex class') {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(funcData.description, 'text/html');
+            const firstParagraph = doc.querySelector('p');
+            this.functionDescriptions[funcName] = firstParagraph && firstParagraph.textContent ? firstParagraph.textContent.trim() : 'Description not available.';
+          } else {
+            this.functionDescriptions[funcName] = funcData.description;
+          }
         },
         error => {
           this.functionDescriptions[funcName] = 'Description not available.';

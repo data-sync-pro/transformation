@@ -43,6 +43,32 @@ export class SearchOverlayComponent implements OnInit, OnChanges {
         item.Tags.forEach((tag: string) => tagSet.add(tag))
       );
       this.tags = Array.from(tagSet);
+
+      const preferredOrder = [
+        'Date & Time',
+        'Text',
+        'Number',
+        'Logical',
+        'Trigger',
+        'Type Processing',
+        'Randomization',
+        'Operators',
+        'Global Variables',
+        'Advanced',
+      ];
+      this.tags.sort((a, b) => {
+        const aIndex = preferredOrder.indexOf(a);
+        const bIndex = preferredOrder.indexOf(b);
+  
+        if (aIndex !== -1 && bIndex !== -1) {
+          return aIndex - bIndex;
+        }
+  
+        if (aIndex === -1 && bIndex === -1) {
+          return a.localeCompare(b);
+        }
+        return aIndex === -1 ? 1 : -1;
+      });
     });
   }
 
@@ -96,7 +122,7 @@ export class SearchOverlayComponent implements OnInit, OnChanges {
         if (aStarts && !bStarts) return -1;
         if (!aStarts && bStarts) return 1;
 
-        // If both or neither start with it, sort by index of match
+       
         return aName.indexOf(query) - bName.indexOf(query);
       }
       );
@@ -107,6 +133,17 @@ export class SearchOverlayComponent implements OnInit, OnChanges {
           this.selectedTags.length === 0 ||
           this.selectedTags.some((tag: string) => itemTags.includes(tag))
         );
+      })
+      .sort((a, b) => {
+        const aName = a.name.toLowerCase();
+        const bName = b.name.toLowerCase();
+
+        const aDollar = aName.startsWith('$');
+        const bDollar = bName.startsWith('$');
+        if (aDollar && !bDollar) return 1;
+        if (!aDollar && bDollar) return -1;
+
+        return aName.localeCompare(bName);
       });
     }
   }

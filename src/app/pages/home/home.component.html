@@ -3,16 +3,15 @@
   <nav class="tag-nav">
     <ul>
       <li>
-        <a [attr.href]="'#' + getAnchorId('Elements of a Formula')">Elements of a Formula</a>
+        <a [attr.href]="'#' + getAnchorId('Formula Elements')">Elements of a Formula</a>
       </li>
-      <li *ngFor="let tag of uniqueTags">
-        <a [attr.href]="'#' + getAnchorId(tag)">{{ tag }}</a>
-      </li>
-      <li>
-        <a [attr.href]="'#' + getAnchorId('Operators')">Operators</a>
-      </li>
-      <li>
-        <a [attr.href]="'#' + getAnchorId('Global Variables')">Global Variables</a>
+      <li *ngFor="let tag of displayTags">
+        <a [attr.href]="'#' + getAnchorId(tag)">
+          {{ tag }}
+          <ng-container *ngIf="tag !== 'Operators' && tag !== 'Global Variables'">
+            Functions
+          </ng-container>
+        </a>
       </li>
     </ul>
   </nav>
@@ -37,80 +36,81 @@
     </table>
   </section>
   <!-- Functions grouped by tag -->
-  <div *ngFor="let tag of uniqueTags">
-    <h2 [attr.id]="getAnchorId(tag)">{{ tag }} Functions</h2>
-    <table class="doc-tables two-columns">
-      <thead>
-        <tr>
-          <th>Function Name</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let funcName of itemsByTag[tag]">
-          <td>
-            <a (click)="goToFunction(funcName.toLowerCase())">{{ funcName }}</a>
-          </td>
-          <td [innerHTML]="functionDescriptions[funcName] || 'Loading...'"></td>
-        </tr>
-      </tbody>
-    </table>
+  <div *ngFor="let tag of displayTags">
+    <ng-container [ngSwitch]="tag">
+      <section *ngSwitchCase="'Operators'">
+        <h2 [attr.id]="getAnchorId('Operators')">Operators</h2>
+        <div *ngIf="operators && objectKeys(operators).length">
+          <div *ngFor="let group of operators | keyvalue">
+            <h3>{{ group.key }}</h3>
+            <table class="doc-tables three-columns">
+              <thead>
+                <tr>
+                  <th>Operator</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let operator of group.value">
+                  <td>{{ operator.operator }}</td>
+                  <td>{{ operator.name }}</td>
+                  <td>{{ operator.description }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section *ngSwitchCase="'Global Variables'">
+        <h2 [attr.id]="getAnchorId('Global Variables')">Global Variables</h2>
+        <div *ngIf="globalVariables && globalVariables.length">
+          <table class="doc-tables three-columns">
+            <thead>
+              <tr>
+                <th>Variable</th>
+                <th>Description</th>
+                <th>Example Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let variable of globalVariables">
+                <td>{{ variable.variable }}</td>
+                <td>{{ variable.description }}</td>
+                <td>
+                  <ng-container *ngIf="variable.variable === '$JOINER'; else normalValue">
+                    <a [routerLink]="['/docs', '$joiner']">{{ variable.exampleValue }}</a>
+                  </ng-container>
+                  <ng-template #normalValue>
+                    {{ variable.exampleValue }}
+                  </ng-template>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section *ngSwitchDefault>
+        <h2 [attr.id]="getAnchorId(tag)">{{ tag }} Functions</h2>
+        <table class="doc-tables two-columns">
+          <thead>
+            <tr>
+              <th>Function Name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let funcName of itemsByTag[tag]">
+              <td>
+                <a (click)="goToFunction(funcName.toLowerCase())">{{ funcName }}</a>
+              </td>
+              <td [innerHTML]="functionDescriptions[funcName] || 'Loading...'"></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </ng-container>
   </div>
-
-  <!-- Operators Section -->
-  <section *ngIf="operators && objectKeys(operators).length" [attr.id]="getAnchorId('Operators')">
-    <div *ngFor="let group of operators | keyvalue">
-      <h2>{{ group.key }}</h2>
-      <table class="doc-tables three-columns">
-        <thead>
-          <tr>
-            <th>Operator</th>
-            <th>Type</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let operator of group.value">
-            <td>{{ operator.operator }}</td>
-            <td>{{ operator.name }}</td>
-            <td>{{ operator.description }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <section
-    class="doc-subsection"
-    *ngIf="globalVariables && globalVariables.length"
-  >
-    <h2 [attr.id]="getAnchorId('Global Variables')">Global Variables</h2>
-    <table class="doc-tables three-columns">
-      <thead>
-        <tr>
-          <th>Variable</th>
-          <th>Description</th>
-          <th>Example Value</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let variable of globalVariables">
-          <td>{{ variable.variable }}</td>
-          <td>{{ variable.description }}</td>
-          <td>
-            <ng-container
-              *ngIf="variable.variable === '$JOINER'; else normalValue"
-            >
-              <a [routerLink]="['/docs', '$joiner']">{{
-                variable.exampleValue
-              }}</a>
-            </ng-container>
-            <ng-template #normalValue>
-              {{ variable.exampleValue }}
-            </ng-template>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
 </div>

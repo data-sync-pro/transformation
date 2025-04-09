@@ -20,25 +20,26 @@
 
 .two-columns th:nth-child(1),
 .two-columns td:nth-child(1) {
-  width: 25%;
+  width: 40%;
 }
 .two-columns th:nth-child(2),
 .two-columns td:nth-child(2) {
-  width: 75%;
+  width: 60%;
 }
 
 .three-columns th:nth-child(1),
 .three-columns td:nth-child(1) {
-  width: 15%;
+  width: 24%;
 }
 .three-columns th:nth-child(2),
 .three-columns td:nth-child(2) {
-  width: 20%;
+  width: 38%;
 }
 .three-columns th:nth-child(3),
 .three-columns td:nth-child(3) {
-  width: 65%;
+  width: 38%;
 }
+
 
 h2[id] {
   scroll-margin-top: 80px;

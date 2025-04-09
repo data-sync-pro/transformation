@@ -39,18 +39,37 @@
               class="nav-category"
             >
               <div class="category-header" (click)="toggleCategory(category)">
-                {{ category.name }}
+                {{ category.name
+                }}{{
+                  category.name !== "Operators" &&
+                  category.name !== "Global Variables"
+                    ? " Functions"
+                    : ""
+                }}
                 <span
                   class="arrow"
                   [class.expanded]="
                     category.name === 'Operators'
-                      ? operatorArrowLeft
+                      ? operatorExpand
                       : category.name === 'Global Variables'
-                      ? globalVariableArrowLeft
+                      ? globalVariableExpand
                       : category.expanded
                   "
-                  >▸</span
                 >
+                  {{
+                    category.name === "Operators"
+                      ? operatorExpand
+                        ? "−"
+                        : "+"
+                      : category.name === "Global Variables"
+                      ? globalVariableExpand
+                        ? "−"
+                        : "+"
+                      : category.expanded
+                      ? "−"
+                      : "+"
+                  }}
+                </span>
               </div>
               <ul
                 class="function-list"
