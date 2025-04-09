@@ -248,6 +248,8 @@ p, tr, pre, ul, li {
   background-color: #d9e4e8;
   color: #418796;
   font-weight: 500;
+  padding-left: 1rem;
+  transition: padding-left 0.3s ease;
 }
 
 @media (max-width: 1200px) {
