@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   tagsData: FunctionTag[] = [];
   itemsByTag: { [tag: string]: string[] } = {};
   uniqueTags: string[] = [];
+  displayTags: string[] = [];
   functionDescriptions: { [funcName: string]: string } = {};
   formulaElements: any = null;
 
@@ -52,19 +53,41 @@ export class HomeComponent implements OnInit {
         });
       });
 
+      Object.keys(this.itemsByTag).forEach(tag => {
+        this.itemsByTag[tag].sort((a, b) => {
+          const aDollar = a.startsWith('$');
+          const bDollar = b.startsWith('$');
+          if (aDollar && !bDollar) return 1;
+          if (!aDollar && bDollar) return -1;
+          return a.localeCompare(b);
+        }
+        );
+        
+      });
+
       const desiredOrder = [
         'Date & Time',
-        'Time',
         'Text',
         'Number',
         'Logical',
         'Trigger',
         'Type Processing',
         'Randomization',
+        'Operators',
+        'Global Variables',
         'Advanced'
       ];
 
-      this.uniqueTags = desiredOrder.filter(tag => tagSet.has(tag));
+      this.displayTags = desiredOrder.filter(tag => {
+        if (tag === 'Operators' || tag === 'Global Variables') {
+          return true;
+        }
+        return tagSet.has(tag);
+      });
+
+      // Also build uniqueTags from tagSet for any other internal processing if needed
+      this.uniqueTags = Array.from(tagSet); // if you need it, though displayTags is used for display
+
       this.loadFunctionDescriptions();
     });
   }
