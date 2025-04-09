@@ -1,14 +1,19 @@
 {
     "globalVariables": [
       {
-        "variable": "$User.Id",
-        "description": "Unique identifier for the user.",
-        "exampleValue": "0055e000007rpICAAY"
+        "variable": "$CONTEXT_RECORD_ID",
+        "description": "Identifier linking the current operation to a specific record in the system.",
+        "exampleValue": "0018K00000kQTQVQA4"
       },
       {
-        "variable": "$User.UserName",
-        "description": "The username associated with the user account.",
-        "exampleValue": "hello@data-sync-pro.io.orga"
+        "variable": "$JOINER",
+        "description": "Provides access to fields in the joined record set (via JOIN_OBJECT/JOIN_JSON).",
+        "exampleValue": "Refer to the $JOINER documentation."
+      },
+      {
+        "variable": "$SKIP_ASSIGNMENT",
+        "description": "A flag that determines whether the assignment logic should be executed.",
+        "exampleValue": "[SKIP ASSIGNEMNT]"
       },
       {
         "variable": "$User.Email",
@@ -21,19 +26,14 @@
         "exampleValue": "00e5e00000287wrAAA"
       },
       {
-        "variable": "$CONTEXT_RECORD_ID",
-        "description": "Identifier linking the current operation to a specific record in the system.",
-        "exampleValue": "0018K00000kQTQVQA4"
+        "variable": "$User.UserName",
+        "description": "The username associated with the user account.",
+        "exampleValue": "hello@data-sync-pro.io.orga"
       },
       {
-        "variable": "$SKIP_ASSIGNMENT",
-        "description": "A flag that determines whether the assignment logic should be executed.",
-        "exampleValue": "[SKIP ASSIGNEMNT]"
-      },
-      {
-        "variable": "$JOINER",
-        "description": "Provides access to fields in the joined record set (via JOIN_OBJECT/JOIN_JSON).",
-        "exampleValue": "Refer to the $JOINER documentation."
+        "variable": "$User.Id",
+        "description": "Unique identifier for the user.",
+        "exampleValue": "0055e000007rpICAAY"
       }
     ]
   }
