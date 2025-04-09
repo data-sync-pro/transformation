@@ -25,8 +25,8 @@ export class FunctionPageMainLayoutComponent implements OnInit {
   isSearchOpen = false;
   isSidebarCollapsed = false;
   showSidebar = false;
-  operatorArrowLeft = false;
-  globalVariableArrowLeft = false;
+  operatorExpand = false;
+  globalVariableExpand = false;
   breadcrumbs: BreadcrumbItem[] = [{ label: 'Home', link: '/' }];
   placeholderText = '';
 
@@ -191,16 +191,16 @@ export class FunctionPageMainLayoutComponent implements OnInit {
 
   toggleCategory(category: any) {
     if (category.name === 'Operators') {
-      this.operatorArrowLeft = true;
+      this.operatorExpand = true;
       this.router.navigate(['/docs/operators']);
-      this.globalVariableArrowLeft = false;
+      this.globalVariableExpand = false;
     } else if (category.name === 'Global Variables') {
-      this.globalVariableArrowLeft = true;
+      this.globalVariableExpand = true;
       this.router.navigate(['/docs', 'global_variables']);
-      this.operatorArrowLeft = false;
+      this.operatorExpand = false;
     } else {
-      this.operatorArrowLeft = false;
-      this.globalVariableArrowLeft = false;
+      this.operatorExpand = false;
+      this.globalVariableExpand = false;
       category.expanded = !category.expanded;
     }
   }
@@ -217,7 +217,7 @@ export class FunctionPageMainLayoutComponent implements OnInit {
   }
 
   resetOperatorsArrow() {
-    this.operatorArrowLeft = false;
+    this.operatorExpand = false;
   }
   updateActiveCategory() {
    
@@ -227,9 +227,9 @@ export class FunctionPageMainLayoutComponent implements OnInit {
     // Loop through categories and expand the one with a matching function route.
     this.functionCategories.forEach((category) => {
       if (category.name === 'Operators') {
-        this.operatorArrowLeft = activeRoute === 'operators';
+        this.operatorExpand = activeRoute === 'operators';
       } else if (category.name === 'Global Variables') {
-        this.globalVariableArrowLeft = activeRoute === 'global_variables';
+        this.globalVariableExpand = activeRoute === 'global_variables';
       } else {
         // For regular categories, set expanded if one of its functions matches.
         category.expanded = category.functions.some(
