@@ -122,7 +122,7 @@ export class SearchOverlayComponent implements OnInit, OnChanges {
         if (aStarts && !bStarts) return -1;
         if (!aStarts && bStarts) return 1;
 
-        // If both or neither start with it, sort by index of match
+       
         return aName.indexOf(query) - bName.indexOf(query);
       }
       );

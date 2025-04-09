@@ -85,11 +85,19 @@ export class FunctionPageMainLayoutComponent implements OnInit {
       });
     });
 
-    // Transform the map into an array for the sidebar
     this.functionCategories = Object.keys(tagMap).map((tag) => ({
       name: tag,
-      expanded: false, // You can set default expanded state here
-      functions: tagMap[tag],
+      expanded: false, 
+      functions: tagMap[tag].sort((a, b) => {
+        const aName = a.name.toLowerCase();
+        const bName = b.name.toLowerCase();
+        const aDollar = aName.startsWith('$');
+        const bDollar = bName.startsWith('$');
+        if (aDollar && !bDollar) return 1;
+        if (!aDollar && bDollar) return -1;
+
+        return aName.localeCompare(bName);
+      })
     }));
 
     const TAG_ORDER = [
@@ -212,7 +220,7 @@ export class FunctionPageMainLayoutComponent implements OnInit {
     this.operatorArrowLeft = false;
   }
   updateActiveCategory() {
-    // Assume the URL structure is '/docs/{function-route}'
+   
     const urlSegments = this.router.url.split('/');
     const activeRoute = urlSegments[2]; // This picks up the function route segment
 
