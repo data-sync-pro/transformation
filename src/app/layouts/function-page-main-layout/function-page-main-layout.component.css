@@ -214,7 +214,7 @@ li {
   list-style: none;
   margin-top: 0px;
   margin-bottom: 0.5rem;
-  margin-left: 0.5rem;
+  margin-left: 18px;
   padding-left: 0.5rem;
   border-left: 1.5px solid #d9e4e8;
 }
@@ -231,6 +231,7 @@ li {
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
+  padding-left: 13px;
 }
 
 .nav-item a:hover {
@@ -241,8 +242,6 @@ li {
   background-color: #d9e4e8;
   color: #418796;
   font-weight: 500;
-  padding-left: 1rem;
-  transition: padding-left 0.3s ease;
 }
 
 @media (min-width: 768px) {
