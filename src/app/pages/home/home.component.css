@@ -54,7 +54,7 @@ h2[id] {
 
 .tag-nav ul {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 默认三列 */
+  grid-template-columns: repeat(3, 1fr); 
   gap: 10px;
   list-style: none;
   padding: 0;
@@ -67,15 +67,15 @@ h2[id] {
   }
 }
 
-/* 当屏幕宽度小于 600px 时，改为两列 */
+
 @media (max-width: 800px) {
   .tag-nav ul {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* 当屏幕宽度小于 400px 时，改为一列 */
-@media (max-width: 400px) {
+
+@media (max-width: 600px) {
   .tag-nav ul {
     grid-template-columns: 1fr;
   }
