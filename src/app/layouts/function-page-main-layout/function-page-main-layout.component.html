@@ -86,6 +86,7 @@
                 >
                   <a
                     [routerLink]="['/docs', func.route]"
+                    [queryParams]="{ activeCategory: category.name }"
                     (click)="resetOperatorsArrow()"
                     >{{ func.name }}</a
                   >
