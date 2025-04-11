@@ -30,6 +30,14 @@
 
   @media (max-width: 1070px) {
     .breadcrumb {
-      margin-left: 9vw;;
+      margin-left: 6vw;
     }
   }
+
+  @media (max-width: 1250px) {
+    .breadcrumb {
+      margin-left: 6vw;
+    }
+  }
+
+  
