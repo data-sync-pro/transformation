@@ -133,10 +133,9 @@ export class FunctionPageMainLayoutComponent implements OnInit {
   updateBreadcrumbs() {
     // Extract the function route from the URL (e.g., '/docs/add_days')
     const urlParts = this.router.url.split('/');
-    const funcRoute = urlParts[2];
+    const funcRoute = urlParts[2].split('?')[0]; // Get the route part before any query params
 
     let functionName = '';
-
     if (funcRoute) {
       if (funcRoute === 'global_variables') {
         functionName = 'Global Variables';
@@ -155,7 +154,6 @@ export class FunctionPageMainLayoutComponent implements OnInit {
         }
       }
     }
-
     // Update the breadcrumb:
     // If a function name is found, add or update the second breadcrumb.
     if (functionName) {
