@@ -1,9 +1,10 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { BreadcrumbItem } from 'src/app/shared/breadcrumb/breadcrumb.component';
 import { Subscription } from 'rxjs';
+import { SidebarService } from 'src/app/services/sidebar.service';
 
 interface FunctionItem {
   'Item Name': string;
@@ -32,27 +33,33 @@ export class FunctionPageMainLayoutComponent implements OnInit {
 
   functionCategories: FunctionCategory[] = [];
   routerSubscription!: Subscription;
-  constructor(private http: HttpClient, public router: Router) {}
+  constructor(
+    private http: HttpClient,
+    public router: Router,
+    private route: ActivatedRoute,
+    private sidebarService: SidebarService
+  ) {}
 
   ngOnInit() {
+
+    this.route.queryParams.subscribe((params) => {
+      if (params['activeCategory']) {
+        this.sidebarService.setActiveCategory(params['activeCategory']);
+      }
+    });
+
     this.http.get<FunctionItem[]>('assets/data/tags.json').subscribe((data) => {
       this.groupFunctionsByTags(data);
       this.updateBreadcrumbs();
+      this.updateActiveCategory();
     });
 
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe(() => {
         this.updateBreadcrumbs(); // Update on each navigation event
-      });
-    this.routerSubscription = this.router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe(() => {
         this.updateActiveCategory();
       });
-
-    // Set initial state.
-    this.updateActiveCategory();
 
     this.updatePlaceholder(); // Set initial placeholder
     window.addEventListener('resize', this.updatePlaceholder.bind(this));
@@ -87,7 +94,7 @@ export class FunctionPageMainLayoutComponent implements OnInit {
 
     this.functionCategories = Object.keys(tagMap).map((tag) => ({
       name: tag,
-      expanded: false, 
+      expanded: false,
       functions: tagMap[tag].sort((a, b) => {
         const aName = a.name.toLowerCase();
         const bName = b.name.toLowerCase();
@@ -97,7 +104,7 @@ export class FunctionPageMainLayoutComponent implements OnInit {
         if (!aDollar && bDollar) return -1;
 
         return aName.localeCompare(bName);
-      })
+      }),
     }));
 
     const TAG_ORDER = [
@@ -189,6 +196,12 @@ export class FunctionPageMainLayoutComponent implements OnInit {
     this.isSearchOpen = false;
   }
 
+  onFunctionClick(category: FunctionCategory, fn: { name: string; route: string }) {
+    this.sidebarService.setActiveCategory(category.name);
+    this.router.navigate(['/docs', fn.route], { queryParams: { activeCategory: category.name } });
+  }
+
+
   toggleCategory(category: any) {
     if (category.name === 'Operators') {
       this.operatorExpand = true;
@@ -220,22 +233,26 @@ export class FunctionPageMainLayoutComponent implements OnInit {
     this.operatorExpand = false;
   }
   updateActiveCategory() {
-   
     const urlSegments = this.router.url.split('/');
-    const activeRoute = urlSegments[2]; // This picks up the function route segment
+    const activeRoute = urlSegments[2];
 
-    // Loop through categories and expand the one with a matching function route.
-    this.functionCategories.forEach((category) => {
-      if (category.name === 'Operators') {
-        this.operatorExpand = activeRoute === 'operators';
-      } else if (category.name === 'Global Variables') {
-        this.globalVariableExpand = activeRoute === 'global_variables';
-      } else {
-        // For regular categories, set expanded if one of its functions matches.
-        category.expanded = category.functions.some(
-          (fn) => fn.route === activeRoute
-        );
-      }
+    this.sidebarService.activeCategory$.subscribe(activeCategory => {
+      this.functionCategories.forEach((category) => {
+        if (category.name === 'Operators') {
+          this.operatorExpand = activeRoute === 'operators';
+        } else if (category.name === 'Global Variables') {
+          this.globalVariableExpand = activeRoute === 'global_variables';
+        } else {
+          if (activeCategory) {
+            category.expanded = (category.name === activeCategory);
+          } else {
+            category.expanded = category.functions.some(
+              (fn) => fn.route === activeRoute
+            );
+          }
+        }
+      });
     });
   }
+
 }
