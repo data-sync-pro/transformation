@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   formulaElements: any = null;
 
 
-  globalVariables: { variable: string; description: string; exampleValue: string; }[] | undefined
+  globalVariables: { variable: string; description: string; }[] | undefined
   operators: { [category: string]: { operator: string; name: string; description: string }[] } | null = null;
 
   constructor(private router: Router, private http: HttpClient, private docsService: DocsService) {}
