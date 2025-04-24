@@ -29,7 +29,6 @@ export interface DocData {
     globalVariables?: {
       variable: string;
       description: string;
-      exampleValue: string;
     }[];
   }
 

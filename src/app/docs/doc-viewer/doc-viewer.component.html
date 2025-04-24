@@ -7,25 +7,12 @@
         <tr>
           <th>Variable</th>
           <th>Description</th>
-          <th>Example Value</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let variable of docContent.globalVariables">
           <td>{{ variable.variable }}</td>
           <td>{{ variable.description }}</td>
-          <td>
-            <ng-container
-              *ngIf="variable.variable === '$JOINER'; else normalValue"
-            >
-              <a [routerLink]="['/docs', '$joiner']">{{
-                variable.exampleValue
-              }}</a>
-            </ng-container>
-            <ng-template #normalValue>
-              {{ variable.exampleValue }}
-            </ng-template>
-          </td>
         </tr>
       </tbody>
     </table>
