@@ -143,7 +143,7 @@
   padding-top: 0.5px;
   transition: margin-left 0.3s ease;
   justify-self: center;
-  width: 75%;
+  width: 73%;
 }
 
 .sidebar-wrapper.collapsed + .content {
