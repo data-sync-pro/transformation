@@ -66,15 +66,15 @@ export class HomeComponent implements OnInit {
       });
 
       const desiredOrder = [
-        'Date & Time',
         'Text',
-        'Number',
         'Logical',
-        'Trigger',
-        'Type Processing',
-        'Randomization',
+        'Number',
+        'Date & Time',
         'Operators',
         'Global Variables',
+        'Randomization',
+        'Type Processing',
+        'Trigger',
         'Advanced'
       ];
 

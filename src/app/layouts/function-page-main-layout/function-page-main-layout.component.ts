@@ -108,16 +108,16 @@ export class FunctionPageMainLayoutComponent implements OnInit {
     }));
 
     const TAG_ORDER = [
-      'Date & Time',
       'Text',
-      'Number',
       'Logical',
-      'Trigger',
-      'Type Processing',
-      'Randomization',
+      'Number',
+      'Date & Time',
       'Operators',
       'Global Variables',
-      'Advanced',
+      'Randomization',
+      'Type Processing',
+      'Trigger',
+      'Advanced'
     ];
 
     this.functionCategories.sort((a, b) => {

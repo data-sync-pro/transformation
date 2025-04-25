@@ -112,12 +112,6 @@
     { "Item Name": "AGG_MAX", "Tags": ["Advanced"] },
     { "Item Name": "AGG_MIN", "Tags": ["Advanced"] },
     { "Item Name": "AGG_SUM", "Tags": ["Advanced"] },
-    {"Item Name": "APEX CLASS", "Tags": ["Advanced"]},
-    { "Item Name": "$CONTEXT_RECORD_ID", "Tags": ["Global Variables"] },
-    { "Item Name": "$SKIP_ASSIGNMENT", "Tags": ["Global Variables"] },
-    { "Item Name": "$UserId", "Tags": ["Global Variables"] },
-    { "Item Name": "$User.UserName", "Tags": ["Global Variables"] },
-    { "Item Name": "$User.Email", "Tags": ["Global Variables"] },
-    { "Item Name": "$User.ProfileId", "Tags": ["Global Variables"] }
+    {"Item Name": "APEX CLASS", "Tags": ["Apex Class"]}
   ]
   

@@ -202,8 +202,8 @@ li {
 }
 
 .arrow {
-  font-size: 1.3rem;
-  transform: rotate(90deg);
+  font-size: 1.8rem;
+  transform: rotate(180deg);
 }
 
 .arrow.expanded {

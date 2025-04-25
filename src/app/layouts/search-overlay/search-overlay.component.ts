@@ -45,16 +45,16 @@ export class SearchOverlayComponent implements OnInit, OnChanges {
       this.tags = Array.from(tagSet);
 
       const preferredOrder = [
-        'Date & Time',
         'Text',
-        'Number',
         'Logical',
-        'Trigger',
-        'Type Processing',
-        'Randomization',
+        'Number',
+        'Date & Time',
         'Operators',
         'Global Variables',
-        'Advanced',
+        'Randomization',
+        'Type Processing',
+        'Trigger',
+        'Advanced'
       ];
       this.tags.sort((a, b) => {
         const aIndex = preferredOrder.indexOf(a);

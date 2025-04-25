@@ -42,7 +42,8 @@
                 {{ category.name
                 }}{{
                   category.name !== "Operators" &&
-                  category.name !== "Global Variables"
+                  category.name !== "Global Variables"&&
+                  category.name !== "Apex Class"
                     ? " Functions"
                     : ""
                 }}
@@ -54,6 +55,7 @@
                       : category.name === 'Global Variables'
                       ? globalVariableExpand
                       : category.expanded
+                      
                   "
                 >
                   {{
