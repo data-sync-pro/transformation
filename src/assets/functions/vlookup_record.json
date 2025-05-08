@@ -1,0 +1,50 @@
+{
+  "title": "VLOOKUP_RECORD",
+  "description": "Retrieves one record that matches the specified field-value pairs from a given object and returns the full Object record.",
+  "syntax": "VLOOKUP_RECORD(lookup_object_name, ...[matching_field_name, matching_field_value], additional_clause_optional) -> Object",
+  "parameters": [
+    {
+      "name": "lookup_object_name",
+      "type": "String",
+      "required": "Yes",
+      "description": "The name of the object to look up."
+    },
+    {
+      "name": "...matching_field_name",
+      "type": "String",
+      "required": "Yes",
+      "description": "The name of the field used to match records."
+    },
+    {
+      "name": "...matching_field_value",
+      "type": "Object",
+      "required": "Yes",
+      "description": "The field value used as matching criteria."
+    },
+    {
+      "name": "additional_clause_optional",
+      "type": "String",
+      "required": "Optional",
+      "description": "Additional query conditions for more precise filtering."
+    }
+  ],
+  "examples": [
+    "VLOOKUP_RECORD(\"Opportunity\", \n        \"AccountId\", Id, \n        \"IsClosed = true\")\n-- Retrieve a Opportunity record where:\n-- AccountId matches the current record's Id\n-- IsClosed equals true",
+    "VLOOKUP_RECORD(\"Opportunity\", \n        \"AccountId\", Id, \n        \"OwnerId\", OwnerId, \n        \"Probability > 90\")\n-- Retrieves a Opportunity record where:\n-- AccountId matches the current record's Id\n-- OwnerId matches the current record's OwnerId\n-- Probability is greater than 90"
+  ],
+  "tips": [
+    {
+      "text": "<p>Use VLOOKUP_RECORD under the <strong>“Related”</strong> tab in the <strong>“Variables”</strong> section. There you can also set the variable’s <strong>Scope</strong>—Executable, Pipeline, Connection, or Global.</p>",
+      "children": []
+    },
+    {
+      "text": "<p>After the object is retrieved, reference its fields in the <strong>Mapping</strong> step (e.g., <code>#accountVar.Name</code>, <code>#accountVar.OwnerId</code>) to populate target fields.</p>",
+      "children": []
+    },
+    {
+        "text": "<p>SOQL queries are capped at <strong>50,000 returned rows</strong> per transaction; refine your filters or apply additional indexing to prevent your lookup from exceeding this governor limit.</p>",
+        "children": []
+      }
+  ],
+  "relatedFormulas": []
+}

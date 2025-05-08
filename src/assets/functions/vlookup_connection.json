@@ -42,7 +42,7 @@
   ],
   "examples": [
     "VLOOKUP_CONNECTION(\"Current\",\n                   \"Opportunity\",\n                   \"Amount\", \n                   \"AccountId\", Id)\n-- Fetches the Amount field from the first Opportunity record in the \"Current\" connection\n-- where the Opportunity’s AccountId matches the current record’s Id.",
-    "VLOOKUP_CONNECTION(\"Current\", \n                   \"Opportunity\", \n                   \"Amount\", \n                   \"AccountId\", Id, \n                   \"OwnerId\", $User.Id, \n                   \"FiscalYear = 2024\")\n-- Retrieves the Amount field from the first Opportunity record in the \"Current\" connection\n-- where:\n-- - AccountId matches the current record’s Id\n-- - OwnerId matches the current user’s Id ($User.Id)\n-- - FiscalYear equals 2024"
+    "VLOOKUP_CONNECTION(\"Current\", \n                   \"Opportunity\", \n                   \"Amount\", \n                   \"AccountId\", Id, \n                   \"OwnerId\", $User.Id, \n                   \"FiscalYear = 2024\")\n-- Retrieves the Amount field from the first Opportunity record in the \"Current\" connection\n-- where:\n-- AccountId matches the current record’s Id\n-- OwnerId matches the current user’s Id ($User.Id)\n-- FiscalYear equals 2024"
   ],
   "tips": [],
   "relatedFormulas": []
