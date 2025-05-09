@@ -1,6 +1,6 @@
 {
   "title": "LAST_INDEX_OF_IGNORE_CASE",
-  "description": "<p>Returns the starting position (zero-based index) of the <strong>last</strong> occurrence of substring within string, ignoring case differences. If end_position_optional is provided, the search considers characters from the start of the string up to the specified end position. Returns -1 if the substring is not found.</p>",
+  "description": "<p>Returns the starting position (zero-based index) of the last occurrence of substring within string, ignoring case differences. If end_position_optional is provided, the search considers characters from the start of the string up to the specified end position. Returns -1 if the substring is not found.</p>",
   "syntax": "LAST_INDEX_OF_IGNORE_CASE(string, substring, end_position_optional) -> Integer",
   "parameters": [
     {
