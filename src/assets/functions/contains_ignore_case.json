@@ -17,8 +17,8 @@
     }
   ],
   "examples": [
-    "CONTAINS_IGNORE_CASE(\"Welcome to the China\", \"Welcome\", \"China\")\n-- Returns TRUE because the text contains \"Welcome\" and \"China\", and case is ignored.",
-    "CONTAINS_IGNORE_CASE(\"Welcome to the China\", \"welcome\", \"china\")\n-- Returns TRUE because case is ignored, and both \"welcome\" and \"china\" are present in the text.",
+    "CONTAINS_IGNORE_CASE(\"Annual Financial Review 2024\", \"Annual\", \"financial\")\n-- Returns TRUE because \"Annual\" and \"financial\" are present in the text, regardless of case.",
+    "CONTAINS_IGNORE_CASE(\"Annual Financial Review 2024\", \"Annual\", \"2025\")\n-- Returns FALSE because \"2025\" is not present in the text.",
     "IF(CONTAINS_IGNORE_CASE(Product_Type__c, \"part\"), \"Parts\", \"Service\")\n-- Returns \"Parts\" if Product_Type__c contains \"part\" in any case; otherwise, returns \"Service\"."
   ],
   "tips": [],

@@ -1,6 +1,6 @@
 {
   "title": "BUSINESS_HOURS_IS_WITHIN",
-  "description": "<p>Returns TRUE if the specified datetime falls within defined Business Hours. If no schedule is provided, the default Business Hours are used.</p>",
+  "description": "<p>Returns TRUE if the specified datetime falls within defined Business Hours.</p>",
   "syntax": "BUSINESS_HOURS_IS_WITHIN(target_date, business_hours_name_optional) -> Boolean",
   "parameters": [
     {
@@ -17,7 +17,7 @@
     }
   ],
   "examples": [
-    "BUSINESS_HOURS_IS_WITHIN(NOW())\n-- Returns TRUE if the current datetime falls within the default Business Hours.\n-- Returns FALSE if the current time is outside of Business Hours.",
+    "BUSINESS_HOURS_IS_WITHIN(NOW())\n-- Returns TRUE if the current datetime falls within the default Business Hours; otherwise, returns FALSE.",
     "BUSINESS_HOURS_IS_WITHIN(NOW(), \"CustomSchedule\")\n-- Returns TRUE if the current time is within the Business Hours specified in \"CustomSchedule\"; otherwise, returns FALSE."
   ],
   "tips": [],

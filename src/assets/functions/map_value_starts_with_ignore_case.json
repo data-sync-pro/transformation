@@ -29,9 +29,9 @@
     }
   ],
   "examples": [
-    "MAP_VALUE_STARTS_WITH(\"CA-San Francisco\", \"CA\", \"California\", \"NY\", \"New York\", \"Other\") \n-- Returns \"California\"(case-insensitive)",
-    "MAP_VALUE_STARTS_WITH(\"ca-san francisco\", \"CA\", \"California\", \"NY\", \"New York\", \"Other\") \n-- Returns \"California\"(case-insensitive)",
-    "MAP_VALUE_STARTS_WITH(\"TX-Dallas\", \"Fran\", \"California\", \"NY\", \"New York\") \n-- Returns $SKIP_ASSIGNMENT",
+    "MAP_VALUE_STARTS_WITH_IGNORE_CASE(\"CA-San Francisco\", \"CA\", \"California\", \"NY\", \"New York\", \"Other\") \n-- Returns \"California\"(case-insensitive)",
+    "MAP_VALUE_STARTS_WITH_IGNORE_CASE(\"ca-san francisco\", \"CA\", \"California\", \"NY\", \"New York\", \"Other\") \n-- Returns \"California\"(case-insensitive)",
+    "MAP_VALUE_STARTS_WITH_IGNORE_CASE(\"TX-Dallas\", \"Fran\", \"California\", \"NY\", \"New York\") \n-- Returns $SKIP_ASSIGNMENT",
     "MAP_VALUE_STARTS_WITH_IGNORE_CASE(Description, \"platinum\", \"Partner\", \"individual\", \"Person\", \"Business\")\n-- Checks if 'Description' starts with \"platinum\" (case insensitive); if so, returns \"Partner\".\n-- If it starts with \"individual\" (case insensitive), returns \"Person\".\n-- Otherwise, returns \"Business\"."
   ],
   "tips": [
