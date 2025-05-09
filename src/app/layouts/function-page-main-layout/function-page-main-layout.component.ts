@@ -28,6 +28,7 @@ export class FunctionPageMainLayoutComponent implements OnInit {
   showSidebar = false;
   operatorExpand = false;
   globalVariableExpand = false;
+  apexClassExpand = false;
   breadcrumbs: BreadcrumbItem[] = [{ label: 'Home', link: '/' }];
   placeholderText = '';
 
@@ -139,7 +140,7 @@ export class FunctionPageMainLayoutComponent implements OnInit {
     if (funcRoute) {
       if (funcRoute === 'global_variables') {
         functionName = 'Global Variables';
-      } else if (funcRoute === 'apex%20class') {
+      } else if (funcRoute === 'apex%2520class') {
         functionName = 'Apex Class';
       } else if (funcRoute === 'aggregate%20general') {
         functionName = 'Aggregate General';
@@ -205,16 +206,25 @@ export class FunctionPageMainLayoutComponent implements OnInit {
       this.operatorExpand = true;
       this.router.navigate(['/docs/operators']);
       this.globalVariableExpand = false;
+      this.apexClassExpand = false;
     } else if (category.name === 'Global Variables') {
       this.globalVariableExpand = true;
       this.router.navigate(['/docs', 'global_variables']);
       this.operatorExpand = false;
+      this.apexClassExpand = false;
+    } else if (category.name === 'Apex Class') {
+      this.apexClassExpand = true;
+      this.router.navigate(['/docs', 'apex%20class']);
+      this.operatorExpand = false;
+      this.globalVariableExpand = false; 
     } else {
       this.operatorExpand = false;
       this.globalVariableExpand = false;
+      this.apexClassExpand = false;
       category.expanded = !category.expanded;
     }
   }
+  
   toggleSidebar() {
     if (window.innerWidth < 1070) {
       this.showSidebar = !this.showSidebar;
@@ -240,6 +250,8 @@ export class FunctionPageMainLayoutComponent implements OnInit {
           this.operatorExpand = activeRoute === 'operators';
         } else if (category.name === 'Global Variables') {
           this.globalVariableExpand = activeRoute === 'global_variables';
+        } else if (category.name === 'Apex Class') {
+          this.apexClassExpand = activeRoute === 'apex%2520class'; 
         } else {
           if (activeCategory) {
             category.expanded = (category.name === activeCategory);
