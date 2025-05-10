@@ -17,8 +17,8 @@
     }
   ],
   "examples": [
-    "CONTAINS(\"Quarterly Financial Report 2024\", \"Quarterly\", \"Financial\")\n-- Returns TRUE because the text contains \"Quarterly\" and \"Financial\" (case-sensitive match).",
-    "CONTAINS(\"Quarterly Financial Report 2024\", \"financial\", \"2024\")\n-- Returns FALSE because \"financial\" does not match the casing in the original text (case-sensitive comparison).",
+    "CONTAINS(\"Quarterly Financial Report 2024\", \"Quarterly\", \"financial\")\n-- Returns TRUE because the text contains \"Quarterly\" (case-sensitive match).",
+    "CONTAINS(\"Quarterly Financial Report 2024\", \"quarterly\", \"financial\")\n-- Returns FALSE because \"quarterly\" and \"financial\" do not match the casing in the original text (case-sensitive comparison).",
     "IF(CONTAINS(Product_Type__c, \"part\"), \"Parts\", \"Service\")\n-- Returns \"Parts\" if Product_Type__c contains \"part\"; otherwise, returns \"Service\"."
   ],
   "tips": [],
