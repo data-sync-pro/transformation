@@ -23,7 +23,7 @@
     }
   ],
   "examples": [
-    "INDEX_OF(\"hello world\", \"hello\")\n-- Returns 0\n-- Note: The index is based on a 0-based index (the first character is at position 0).",
+    "INDEX_OF_IGNORE_CASE(\"hello world\", \"hello\")\n-- Returns 0\n-- Note: The index is based on a 0-based index (the first character is at position 0).",
     "INDEX_OF_IGNORE_CASE(\"hello world\", \"Hello\")\n-- Returns 0 because the substring \"Hello\" (case-insensitive match) starts at the 6th position in the string.\n-- Note: The index is based on a 0-based index (the first character is at position 0).",
     "INDEX_OF_IGNORE_CASE(\"world world\", \"Hello\")\n-- Returns -1\n-- Note: The index is based on a 0-based index (the first character is at position 0).",
     "INDEX_OF_IGNORE_CASE(\"hello world\", \"o\", 5)\n-- Returns 7 because the first occurrence of \"o\" (case-insensitive match) starting from index 5 is at position 7.\n-- Note: The start position and result use a 0-based index."

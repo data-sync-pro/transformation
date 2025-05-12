@@ -23,7 +23,7 @@
     }
   ],
   "examples": [
-    "INDEX_OF(\"hello world\", \"hello\")\n-- Returns 0 because the substring \"hello\"(case-sensitive) starts at the 0th position in the string.\n-- Note: The index is based on a 0-based index (the first character is at position 0).",
+    "INDEX_OF(\"hello world\", \"hello\")\n-- Returns 0 because the substring \"hello\" starts at the 0th position in the string.\n-- Note: The index is based on a 0-based index (the first character is at position 0).",
     "INDEX_OF(\"hello world\", \"Hello\")\n-- Returns -1 because \"Hello\" (uppercase 'H') is not present in \"hello world\" (lowercase 'h').\n-- Case-sensitive search does not find a match.",
     "INDEX_OF(\"hello world\", \"o\", 5)\n-- Returns 7 because the first occurrence of \"o\" starting from index 5 is at position 7.\n-- Note: The start position and result use a 0-based index."
   ],

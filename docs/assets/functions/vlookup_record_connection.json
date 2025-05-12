@@ -1,0 +1,55 @@
+{
+    "title": "VLOOKUP_RECORD_CONNECTION",
+    "description": "Retrieves one record that matches the given field-value pairs through a named connection and returns the full Object record.",
+    "syntax": "VLOOKUP_RECORD_CONNECTION(connection_name, lookup_object_name, ...[matching_field_name, matching_field_value], additional_clause_optional) -> Object",
+    "parameters": [
+    {
+      "name": "connection_name",
+      "type": "String",
+      "required": "Yes",
+      "description": "The name of the connection to use."
+    },
+    {
+      "name": "lookup_object_name",
+      "type": "String",
+      "required": "Yes",
+      "description": "The name of the object to look up."
+    },
+    {
+      "name": "...matching_field_name",
+      "type": "String",
+      "required": "Yes",
+      "description": "The name of the field used to match records."
+    },
+    {
+      "name": "...matching_field_value",
+      "type": "Object",
+      "required": "Yes",
+      "description": "The field value used as matching criteria."
+    },
+    {
+      "name": "additional_clause_optional",
+      "type": "String",
+      "required": "Optional",
+      "description": "Additional query conditions for more precise filtering."
+    }
+  ],
+    "examples": [
+  "VLOOKUP_RECORD_CONNECTION(\"OrgB\", \n        \"Opportunity\", \n        \"Source_System_Id__c\", Source_System_Id__c, \n        \"Amount > 50000\")\n-- Retrieves a Opportunity in connection 'OrgB' where:\n-- Source_System_Id__c equals the current record’s Source_System_Id__c\n-- Amount is greater than 50,000"
+],
+    "tips": [
+    {
+      "text": "<p>Use VLOOKUP_RECORD_CONNECTION under the <strong>“Related”</strong> tab in the <strong>“Variables”</strong> section. There you can also set the variable’s <strong>Scope</strong>—Executable, Pipeline, Connection, or Global.</p>",
+      "children": []
+    },
+    {
+      "text": "<p>After the object is retrieved, reference its fields in the <strong>Mapping</strong> step (e.g., <code>#accountVar.Name</code>, <code>#accountVar.OwnerId</code>) to populate target fields.</p>",
+      "children": []
+    },
+    {
+        "text": "<p>SOQL queries are capped at <strong>50,000 returned rows</strong> per transaction; refine your filters or apply additional indexing to prevent your lookup from exceeding this governor limit.</p>",
+        "children": []
+      }
+  ],
+    "relatedFormulas": []
+  }
