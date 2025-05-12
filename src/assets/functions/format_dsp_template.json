@@ -15,5 +15,5 @@
     "FORMAT_DSP_TEMPLATE(\"The stage of the latest opportunity is {VLOOKUP(\\\"Opportunity\\\", \\\"StageName\\\", \\\"AccountId\\\", Id)}\")\n-- Parses and formats the string by resolving the VLOOKUP expression inside the template.\n-- For example, if the current record's Id matches an Opportunity with StageName = \"Negotiation\", it returns:\n-- \"The stage of the latest opportunity is Negotiation\""
   ],
   "tips": [],
-  "relatedFormulas": []
+  "relatedFormulas": ["VLOOKUP"]
 }

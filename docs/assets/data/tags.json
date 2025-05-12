@@ -107,6 +107,8 @@
     { "Item Name": "VALUE_IN", "Tags": ["Logical"] },
     { "Item Name": "VLOOKUP", "Tags": ["Advanced"] },
     { "Item Name": "VLOOKUP_CONNECTION", "Tags": ["Advanced"] },
+    { "Item Name": "VLOOKUP_RECORD", "Tags": ["Advanced"] },
+    { "Item Name": "VLOOKUP_RECORD_CONNECTION", "Tags": ["Advanced"] },
     { "Item Name": "YEAR", "Tags": ["Date & Time"] },
     { "Item Name": "YESTERDAY", "Tags": ["Date & Time"] },
     { "Item Name": "AGG_AVG", "Tags": ["Advanced"] },
