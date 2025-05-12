@@ -1,6 +1,6 @@
 {
   "title": "BUSINESS_HOURS_NEXT_START_DATE",
-  "description": "<p>Returns the next start time of Business Hours after the specified datetime. If no schedule is provided, the default Business Hours are used. The result is returned in UTC.</p>",
+  "description": "<p>Returns the next start time of Business Hours after the specified datetime. The result is returned in UTC.</p>",
   "syntax": "BUSINESS_HOURS_NEXT_START_DATE(target_date, business_hours_name_optional) -> Datetime",
   "parameters": [
     {

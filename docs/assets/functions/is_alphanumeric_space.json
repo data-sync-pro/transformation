@@ -11,10 +11,10 @@
     }
   ],
   "examples": [
-    "IS_ALPHANUMERIC_SPACE(\"Hello World\")\n-- Returns TRUE.",
-    "IS_ALPHANUMERIC_SPACE(\"HelloWorld123\")\n-- Returns TRUE.",
-    "IS_ALPHANUMERIC_SPACE(\"Hello World!\")\n-- Returns FALSE, as it contains punctuation.",
-    "IS_ALPHANUMERIC_SPACE(\"\")\n-- Returns TRUE."
+    "IS_ALPHANUMERIC_SPACE(\"Hello World\")\n-- Returns TRUE",
+    "IS_ALPHANUMERIC_SPACE(\"HelloWorld123\")\n-- Returns TRUE",
+    "IS_ALPHANUMERIC_SPACE(\"Hello World!\")\n-- Returns FALSE, as it contains punctuation",
+    "IS_ALPHANUMERIC_SPACE(\"\")\n-- Returns TRUE"
   ],
   "tips": [ 
     {

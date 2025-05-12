@@ -24,7 +24,7 @@
   ],
   "examples": [
     "BUSINESS_HOURS_DIFF(\n    TO_DATETIME(\"2025-03-01T08:00:00Z\"),\n    TO_DATETIME(\"2025-03-01T17:00:00Z\")\n)\n-- Returns 10800000 milliseconds",
-    "BUSINESS_HOURS_DIFF(    \n\t\tCompletedDateTime,\n    NOW(), \n    \"CustomSchedule\"\n)\n-- Returns the elapsed time in milliseconds between the timestamps, counting only Business Hours defined by \"CustomSchedule\"."
+    "BUSINESS_HOURS_DIFF(\n    CompletedDateTime,\n    NOW(), \n    \"CustomSchedule\"\n)\n-- Returns the elapsed time in milliseconds between the timestamps, counting only Business Hours defined by \"CustomSchedule\"."
   ],
   "tips": [],
   "relatedFormulas": [

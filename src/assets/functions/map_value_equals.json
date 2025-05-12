@@ -30,8 +30,10 @@
   ],
   "examples": [
     "MAP_VALUE_EQUALS(\"NY\", \"NY\", \"New York\", \"CA\", \"California\") \n-- Returns \"New York\"",
+
     "MAP_VALUE_EQUALS(\"FL\", \"NY\", \"New York\", \"CA\", \"California\") \n-- Returns $SKIP_ASSIGNMENT",
     "MAP_VALUE_EQUALS(\"FL\", \"NY\", \"New York\", \"CA\", \"California\", \"Other\") \n-- Returns \"Other\"",
+
     "MAP_VALUE_EQUALS(Score, 100, \"Perfect\", 50, \"Average\", 0, \"Fail\", \"No Match\")\n-- Returns \"Perfect\" if Score equals 100.\n-- Returns \"Average\" if Score equals 50.\n-- Returns \"Fail\" if Score equals 0.\n-- Otherwise, returns \"No Match\"."
   ],
   "tips": [
