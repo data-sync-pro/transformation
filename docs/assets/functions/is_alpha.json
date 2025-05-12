@@ -16,6 +16,14 @@
     "IS_ALPHA(\"Hello123\")\n-- Returns FALSE, as it contains numbers",
     "IS_ALPHA(\"\")\n-- Returns FALSE"
   ],
-  "tips": [],
+  "tips": [ 
+  {
+    "text": "<p>Returns FALSE if the string is empty.</p>",
+    "children": []
+  },
+  {
+    "text": "<p>Any numbers, spaces, or symbols will result in FALSE.</p>",
+    "children": []
+  }],
   "relatedFormulas": []
 }

@@ -16,6 +16,14 @@
     "IS_ALPHANUMERIC(\"Hello123!\")\n-- Returns FALSE, as it contains punctuation",
     "IS_ALPHANUMERIC(\"\")\n-- Returns FALSE"
   ],
-  "tips": [],
+  "tips": [ 
+    {
+      "text": "<p>Returns FALSE if the string is empty.</p>",
+      "children": []
+    },
+    {
+      "text": "<p>Any spaces, or symbols will result in FALSE.</p>",
+      "children": []
+    }],
   "relatedFormulas": []
 }

@@ -16,6 +16,14 @@
     "IS_ALPHA_SPACE(\"Hello World!\")\n-- Returns FALSE, as it contains an exclamation mark",
     "IS_ALPHA_SPACE(\"\")\n-- Returns TRUE"
   ],
-  "tips": [],
+  "tips": [ 
+    {
+      "text": "<p>Returns TRUE if the string is empty.</p>",
+      "children": []
+    },
+    {
+      "text": "<p>Any numbers or symbols will result in FALSE.</p>",
+      "children": []
+    }],
   "relatedFormulas": []
 }
