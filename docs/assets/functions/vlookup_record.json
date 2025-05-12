@@ -1,6 +1,6 @@
 {
   "title": "VLOOKUP_RECORD",
-  "description": "Retrieves one record that matches the specified field-value pairs from a given object and returns the full Object record.",
+  "description": "Retrieves one full Object record that matches the specified field-value pairs from a given object.",
   "syntax": "VLOOKUP_RECORD(lookup_object_name, ...[matching_field_name, matching_field_value], additional_clause_optional) -> Object",
   "parameters": [
     {
@@ -34,11 +34,11 @@
   ],
   "tips": [
     {
-      "text": "<p>Use VLOOKUP_RECORD under the <strong>“Related”</strong> tab in the <strong>“Variables”</strong> section. There you can also set the variable’s <strong>Scope</strong>—Executable, Pipeline, Connection, or Global.</p>",
+      "text": "<p>Use VLOOKUP_RECORD under the <strong>“Related”</strong> tab in the <strong>“Variables”</strong> section. You can also set the variable’s <strong>Scope</strong>—Executable, Pipeline, Connection, or Global.</p>",
       "children": []
     },
     {
-      "text": "<p>After the object is retrieved, reference its fields in the <strong>Mapping</strong> step (e.g., <code>#accountVar.Name</code>, <code>#accountVar.OwnerId</code>) to populate target fields.</p>",
+      "text": "<p>After the variable is created, reference it in the <strong>Mapping</strong> step (e.g., <code>#accountVar.Name</code>, <code>#accountVar.OwnerId</code>).</p>",
       "children": []
     },
     {
