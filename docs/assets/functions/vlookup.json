@@ -29,8 +29,8 @@
     }
   ],
   "examples": [
-    "VLOOKUP(\"Opportunity\", \n        \"StageName\", \n        \"AccountId\", Id, \n        \"IsClosed = true\")\n-- Retrieves the StageName from the first Opportunity record where:\n-- - AccountId matches the current record's Id\n-- - IsClosed equals true",
-    "VLOOKUP(\"Opportunity\", \n        \"Amount\", \n        \"AccountId\", Id, \n        \"OwnerId\", OwnerId, \n        \"Probability\", 50)\n-- Retrieves the Amount from the first Opportunity record where:\n-- - AccountId matches the current record's Id\n-- - OwnerId matches the current record's OwnerId\n-- - Probability equals 50"
+    "VLOOKUP(\"Opportunity\", \n        \"StageName\", \n        \"AccountId\", Id, \n        \"IsClosed = true\")\n-- Retrieves the StageName from the first Opportunity record where:\n-- AccountId matches the current record's Id\n-- IsClosed equals true",
+    "VLOOKUP(\"Opportunity\", \n        \"Amount\", \n        \"AccountId\", Id, \n        \"OwnerId\", OwnerId, \n        \"Probability\", 50)\n-- Retrieves the Amount from the first Opportunity record where:\n-- AccountId matches the current record's Id\n-- OwnerId matches the current record's OwnerId\n-- Probability equals 50"
   ],
   "tips": [],
   "relatedFormulas": []
