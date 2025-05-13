@@ -24,10 +24,6 @@
       "children": []
     },
     {
-      "text": "<p>Percent values are returned in decimal form.</p>",
-      "children": []
-    },
-    {
       "text": "<p>Dates are returned as YYYY-MM-DD.</p>",
       "children": []
     },

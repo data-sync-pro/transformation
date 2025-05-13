@@ -11,7 +11,7 @@
     }
   ],
   "examples": [
-    "TO_STRING(TO_TIME(\"14:30:00\"))\n-- Returns \"19:30:00.000Z\" if the time is converted and displayed in UTC.\n-- The output reflects the time adjusted from local to UTC, depending on the context user's time zone."
+    "TO_STRING(TO_TIME(\"14:30:00\"))\n-- Returns the input time converted to UTC based on the context user's local time zone.\n-- \"14:30:00\" EST becomes \"19:30:00.000Z\" UTC."
   ],
   "tips": [
     {

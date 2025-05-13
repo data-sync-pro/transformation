@@ -1,10 +1,10 @@
 {
   "title": "VLOOKUP_RECORD",
   "description": "Retrieves one full Object record that matches the specified field-value pairs from a given object.",
-  "syntax": "VLOOKUP_RECORD(lookup_object_name, ...[matching_field_name, matching_field_value], additional_clause_optional) -> Object",
+  "syntax": "VLOOKUP_RECORD(target_object_name, ...[matching_field_name, matching_field_value], additional_clause_optional) -> Object",
   "parameters": [
     {
-      "name": "lookup_object_name",
+      "name": "target_object_name",
       "type": "String",
       "required": "Yes",
       "description": "The name of the object to look up."
@@ -42,7 +42,7 @@
       "children": []
     },
     {
-        "text": "<p>SOQL queries are capped at <strong>50,000 returned rows</strong> per transaction; refine your filters or apply additional indexing to prevent your lookup from exceeding this governor limit.</p>",
+        "text": "<p>SOQL queries have a <strong>governor limit of 50,000</strong> rows per transaction. Optimize your filters or leverage indexing to ensure your lookup remains within this limit.</p>",
         "children": []
       }
   ],

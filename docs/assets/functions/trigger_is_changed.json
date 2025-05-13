@@ -7,7 +7,7 @@
       "name": "… field_names",
       "type": "String",
       "required": "Yes",
-      "description": "One or more field API names (as strings) to evaluate. Each field is compared between the current and previous versions of the record."
+      "description": "One or more field API names to evaluate. Each field is compared between the current and previous versions of the record."
     }
   ],
   "examples": [
