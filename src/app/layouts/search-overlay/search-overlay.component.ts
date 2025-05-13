@@ -11,6 +11,7 @@ import {
 } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { buildRoute } from 'src/app/utils/route.util';
 
 @Component({
   selector: 'app-search-overlay',
@@ -35,7 +36,7 @@ export class SearchOverlayComponent implements OnInit, OnChanges {
       this.suggestions = data.map((item) => ({
         name: item['Item Name'],
         Tags: item['Tags'],
-        route: item['Item Name'].toLowerCase().replace(/\s+/g, '_'),
+        route: buildRoute(item['Item Name']),
       }));
 
       const tagSet = new Set<string>();
@@ -73,7 +74,15 @@ export class SearchOverlayComponent implements OnInit, OnChanges {
   }
 
   onSelectSuggestion(item: any) {
-    this.router.navigate(['/docs', item.route]);
+    console.log(item);
+    if (item.name === 'GLOBAL VARIABLES' || item.name === 'OPERATORS' || item.name === 'APEX CLASS') {
+      this.router.navigate(['/docs', item.route]);
+    } else {
+      this.router.navigate(
+        ['/docs', item.route],
+        { queryParams: { activeCategory: this.selectedTags[0] ?? '' } }
+      );
+    }
     this.close();
   }
 
