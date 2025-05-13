@@ -20,7 +20,7 @@
     "STARTS_WITH_IGNORE_CASE(\"Hello World\", \"Hello\", \"He\")\n-- Returns TRUE(case-insensitive)",
     "STARTS_WITH_IGNORE_CASE(\"Hello World\", \"hello\", \"he\")\n-- Returns TRUE(case-insensitive)",
     "STARTS_WITH_IGNORE_CASE(\"Hello\", \"\")\n-- Returns TRUE",
-    "IF(STARTS_WITH_IGNORE_CASE(Product_type__c, \"icu\"), \"Medical\", \"Technical\")\n-- Checks whether the value in the Product_type__c field starts with \"icu\", ignoring case.\n-- Returns \"Medical\" if it does; otherwise, returns \"Technical\".\n-- Useful for categorizing product types based on prefix patterns regardless of letter casing."
+    "IF(STARTS_WITH_IGNORE_CASE(Product_type__c, \"icu\"), \"Medical\", \"Technical\")\n-- Checks whether the value in the Product_type__c field starts with \"icu\", ignoring case.\n-- Returns \"Medical\" if it does; otherwise, returns \"Technical\"."
   ],
   "tips": [
     {

@@ -11,7 +11,7 @@
     }
   ],
   "examples": [
-    "RANDOM_ITEM(\"New\", \"In Progress\", \"Escalated\", \"Closed\")\n-- Might return: \"In Progress\""
+    "RANDOM_ITEM(\"New\", \"In Progress\", \"Escalated\", \"Closed\")\n-- Possible output: \"In Progress\""
   ],
   "tips": [
     {

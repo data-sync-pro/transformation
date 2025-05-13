@@ -36,10 +36,6 @@
           "children": []
         }
       ]
-    },
-    {
-      "text": "<p>The substring before the last occurrence of the separator.</p>",
-      "children": []
     }
   ],
   "relatedFormulas": []

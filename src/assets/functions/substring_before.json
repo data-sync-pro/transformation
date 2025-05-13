@@ -36,10 +36,6 @@
     {
       "text": "<p>If the separator is not found in the string, the function returns the entire string.</p>",
       "children": []
-    },
-    {
-      "text": "<p>The substring before the first occurrence of the separator.</p>",
-      "children": []
     }
   ],
   "relatedFormulas": []

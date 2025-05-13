@@ -18,7 +18,7 @@
   ],
   "examples": [
     "SUBSTRING_AFTER(\"Hello World\", \"llo\")\n-- Returns \" World\"",
-    "SUBSTRING_AFTER_LAST(\"abc def ghi\", \" \")\n-- Returns \"def ghi\""
+    "SUBSTRING_AFTER(\"abc def ghi\", \" \")\n-- Returns \"def ghi\""
   ],
   "tips": [
     {
@@ -36,10 +36,6 @@
     },
     {
       "text": "<p>If the separator is an empty string, the entire string is returned.</p>",
-      "children": []
-    },
-    {
-      "text": "<p>The substring after the first occurrence of the separator.</p>",
       "children": []
     }
   ],
