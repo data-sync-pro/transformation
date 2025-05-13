@@ -74,13 +74,12 @@ export class SearchOverlayComponent implements OnInit, OnChanges {
   }
 
   onSelectSuggestion(item: any) {
-    console.log(item);
     if (item.name === 'GLOBAL_VARIABLES' || item.name === 'OPERATORS' || item.name === 'APEX_CLASS') {
       this.router.navigate(['/docs', item.route]);
     } else {
       this.router.navigate(
         ['/docs', item.route],
-        { queryParams: { activeCategory: this.selectedTags[0] ?? '' } }
+        { queryParams: { activeCategory: item.Tags[0] } }
       );
     }
     this.close();
