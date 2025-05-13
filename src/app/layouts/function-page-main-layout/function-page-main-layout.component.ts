@@ -5,6 +5,7 @@ import { filter } from 'rxjs/operators';
 import { BreadcrumbItem } from 'src/app/shared/breadcrumb/breadcrumb.component';
 import { Subscription } from 'rxjs';
 import { SidebarService } from 'src/app/services/sidebar.service';
+import { buildRoute } from 'src/app/utils/route.util';
 
 interface FunctionItem {
   'Item Name': string;
@@ -88,7 +89,7 @@ export class FunctionPageMainLayoutComponent implements OnInit {
         // Create a route based on the function name
         tagMap[tag].push({
           name: item['Item Name'],
-          route: item['Item Name'].toLowerCase(),
+          route: buildRoute(item['Item Name']),
         });
       });
     });
@@ -137,12 +138,13 @@ export class FunctionPageMainLayoutComponent implements OnInit {
     const funcRoute = urlParts[2].split('?')[0]; // Get the route part before any query params
 
     let functionName = '';
+    console.log('Function Route:', funcRoute);
     if (funcRoute) {
       if (funcRoute === 'global_variables') {
         functionName = 'Global Variables';
-      } else if (funcRoute === 'apex%2520class') {
+      } else if (funcRoute === 'apex_class') {
         functionName = 'Apex Class';
-      } else if (funcRoute === 'aggregate%20general') {
+      } else if (funcRoute === 'aggregate_general') {
         functionName = 'Aggregate General';
       } else {
         // Loop through your function categories to find the matching function.
@@ -214,7 +216,7 @@ export class FunctionPageMainLayoutComponent implements OnInit {
       this.apexClassExpand = false;
     } else if (category.name === 'Apex Class') {
       this.apexClassExpand = true;
-      this.router.navigate(['/docs', 'apex%20class']);
+      this.router.navigate(['/docs', 'apex_class']);
       this.operatorExpand = false;
       this.globalVariableExpand = false; 
     } else {
@@ -251,7 +253,7 @@ export class FunctionPageMainLayoutComponent implements OnInit {
         } else if (category.name === 'Global Variables') {
           this.globalVariableExpand = activeRoute === 'global_variables';
         } else if (category.name === 'Apex Class') {
-          this.apexClassExpand = activeRoute === 'apex%2520class'; 
+          this.apexClassExpand = activeRoute === 'apex_class'; 
         } else {
           if (activeCategory) {
             category.expanded = (category.name === activeCategory);
