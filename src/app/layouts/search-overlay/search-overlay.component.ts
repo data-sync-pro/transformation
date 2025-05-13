@@ -75,7 +75,7 @@ export class SearchOverlayComponent implements OnInit, OnChanges {
 
   onSelectSuggestion(item: any) {
     console.log(item);
-    if (item.name === 'GLOBAL VARIABLES' || item.name === 'OPERATORS' || item.name === 'APEX CLASS') {
+    if (item.name === 'GLOBAL_VARIABLES' || item.name === 'OPERATORS' || item.name === 'APEX_CLASS') {
       this.router.navigate(['/docs', item.route]);
     } else {
       this.router.navigate(
