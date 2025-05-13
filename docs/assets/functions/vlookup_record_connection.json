@@ -1,7 +1,7 @@
 {
     "title": "VLOOKUP_RECORD_CONNECTION",
     "description": "Retrieves one full Object record that matches the given field-value pairs through a specified connection.",
-    "syntax": "VLOOKUP_RECORD_CONNECTION(connection_name, lookup_object_name, ...[matching_field_name, matching_field_value], additional_clause_optional) -> Object",
+    "syntax": "VLOOKUP_RECORD_CONNECTION(connection_name, object_name, ...[matching_field_name, matching_field_value], additional_clause_optional) -> Object",
     "parameters": [
     {
       "name": "connection_name",
@@ -10,7 +10,7 @@
       "description": "The name of the connection to use."
     },
     {
-      "name": "lookup_object_name",
+      "name": "object_name",
       "type": "String",
       "required": "Yes",
       "description": "The name of the object to look up."
@@ -47,8 +47,8 @@
       "children": []
     },
     {
-        "text": "<p>SOQL queries are capped at <strong>50,000 returned rows</strong> per transaction; refine your filters or apply additional indexing to prevent your lookup from exceeding this governor limit.</p>",
-        "children": []
+      "text": "<p>SOQL queries have a <strong>governor limit of 50,000</strong> rows per transaction. Optimize your filters or leverage indexing to ensure your lookup remains within this limit.</p>",
+      "children": []
       }
   ],
     "relatedFormulas": []

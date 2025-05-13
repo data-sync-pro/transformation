@@ -11,12 +11,12 @@
     }
   ],
   "examples": [
-    "TRIGGER_FLIPPER() \n--Returns TRUE the first time it's called in a flow, then FALSE for the rest.",
-    "TRIGGER_FLIPPER(Priority == \"High\") \n--Returns TRUE again whenever the Priority equals \"High\"."
+    "TRIGGER_FLIPPER() \n-- Returns TRUE the first time it's called in a flow, then FALSE for the rest.",
+    "TRIGGER_FLIPPER(Priority == \"High\") \n-- Returns TRUE again whenever the Priority equals \"High\"."
   ],
   "tips": [
     {
-      "text": "<p>Typically used with the TRIGGER_IS_FLIPPED(field_name) function which can be called later in the same transaction to determine whether the field was flipped and execute related actions accordingly.</p>",
+      "text": "<p>Typically used with the TRIGGER_IS_FLIPPED function which can be called later in the same transaction to determine whether the field was flipped and execute related actions accordingly.</p>",
       "children": []
     }
   ],

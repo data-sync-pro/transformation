@@ -29,7 +29,7 @@
       "children": []
     },
     {
-      "text": "<p>As a final attempt, replaces dashes () with slashes (/) and retries parsing.</p>",
+      "text": "<p>As a final attempt, replaces dashes (-) with slashes (/) and retries parsing.</p>",
       "children": []
     },
     {
@@ -38,6 +38,7 @@
     }
   ],
   "relatedFormulas": [
+    "NOW",
     "IF",
     "TODAY"
   ]
