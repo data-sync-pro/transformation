@@ -1,6 +1,6 @@
 {
   "title": "VLOOKUP_RECORD",
-  "description": "Retrieves one full Object record that matches the specified field-value pairs from a given object.",
+  "description": "<p>Performs a dynamic lookup on a specified Salesforce object and returns the full Object record from the first record that matches the provided field-value pairs.</p>",
   "syntax": "VLOOKUP_RECORD(target_object_name, ...[matching_field_name, matching_field_value], additional_clause_optional) -> Object",
   "parameters": [
     {
