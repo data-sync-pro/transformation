@@ -1,6 +1,6 @@
 {
   "title": "VLOOKUP",
-  "description": "<p>Performs a dynamic lookup on a specified Salesforce object and returns the value of a selected field from the first record that matches the provided conditions.</p>",
+  "description": "<p>Performs a dynamic lookup on a specified Salesforce object and returns the value of a specified field from the first record that matches the provided conditions.</p>",
   "syntax": "VLOOKUP(target_object_name, return_field_name, ...[matching_field_name, matching_field_value], additional_clause_optional) -> Object",
   "parameters": [
     {
