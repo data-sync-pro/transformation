@@ -17,7 +17,11 @@ interface FunctionCategory {
   expanded: boolean;
   functions: { name: string; route: string }[];
 }
-
+const SPECIAL_ROUTES: Record<string, string> = {
+  Operators: 'operators',
+  'Global Variables': 'global_variables',
+  'Apex Class': 'apex_class',
+};
 @Component({
   selector: 'app-function-page-main-layout',
   templateUrl: './function-page-main-layout.component.html',
@@ -197,34 +201,18 @@ export class FunctionPageMainLayoutComponent implements OnInit {
     this.isSearchOpen = false;
   }
 
-  onFunctionClick(category: FunctionCategory, fn: { name: string; route: string }) {
-    this.sidebarService.setActiveCategory(category.name);
-    this.router.navigate(['/docs', fn.route], { queryParams: { activeCategory: category.name } });
-  }
 
-
-  toggleCategory(category: any) {
-    if (category.name === 'Operators') {
-      this.operatorExpand = true;
-      this.router.navigate(['/docs/operators']);
-      this.globalVariableExpand = false;
-      this.apexClassExpand = false;
-    } else if (category.name === 'Global Variables') {
-      this.globalVariableExpand = true;
-      this.router.navigate(['/docs', 'global_variables']);
-      this.operatorExpand = false;
-      this.apexClassExpand = false;
-    } else if (category.name === 'Apex Class') {
-      this.apexClassExpand = true;
-      this.router.navigate(['/docs', 'apex_class']);
-      this.operatorExpand = false;
-      this.globalVariableExpand = false; 
-    } else {
-      this.operatorExpand = false;
-      this.globalVariableExpand = false;
-      this.apexClassExpand = false;
-      category.expanded = !category.expanded;
+  toggleCategory(category: FunctionCategory): void {
+    
+    const target = SPECIAL_ROUTES[category.name];
+    if (target) {
+      this.sidebarService.setActiveCategory('');
+      category.expanded = true;   
+      this.router.navigate(['/docs', target]);
+      return;
     }
+    
+    category.expanded = !category.expanded;
   }
   
   toggleSidebar() {
@@ -239,15 +227,12 @@ export class FunctionPageMainLayoutComponent implements OnInit {
     this.showSidebar = false;
   }
 
-  resetOperatorsArrow() {
-    this.operatorExpand = false;
-  }
   updateActiveCategory() {
     const urlSegments = this.router.url.split('/');
     const activeRoute = urlSegments[2];
-
     this.sidebarService.activeCategory$.subscribe(activeCategory => {
       this.functionCategories.forEach((category) => {
+        
         if (category.name === 'Operators') {
           this.operatorExpand = activeRoute === 'operators';
         } else if (category.name === 'Global Variables') {

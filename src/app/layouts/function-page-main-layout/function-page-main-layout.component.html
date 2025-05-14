@@ -89,9 +89,10 @@
               <ul
                 class="function-list"
                 *ngIf="
-                  category.expanded &&
                   category.name !== 'Operators' &&
-                  category.name !== 'Global Variables'
+                  category.name !== 'Global Variables'&&
+                  category.name !== 'Apex Class'&&
+                  category.expanded
                 "
               >
                 <li
@@ -102,7 +103,6 @@
                   <a
                     [routerLink]="['/docs', func.route]"
                     [queryParams]="{ activeCategory: category.name }"
-                    (click)="resetOperatorsArrow()"
                     >{{ func.name }}</a
                   >
                 </li>

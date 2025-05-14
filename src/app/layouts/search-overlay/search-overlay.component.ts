@@ -12,7 +12,7 @@ import {
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { buildRoute } from 'src/app/utils/route.util';
-
+import { SidebarService } from 'src/app/services/sidebar.service';
 @Component({
   selector: 'app-search-overlay',
   templateUrl: './search-overlay.component.html',
@@ -29,7 +29,7 @@ export class SearchOverlayComponent implements OnInit, OnChanges {
   suggestions: any[] = [];
   filteredSuggestions: any[] = [];
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router,private sidebarService: SidebarService) {}
 
   ngOnInit() {
     this.http.get<any[]>('assets/data/tags.json').subscribe((data) => {
@@ -75,6 +75,7 @@ export class SearchOverlayComponent implements OnInit, OnChanges {
 
   onSelectSuggestion(item: any) {
     if (item.name === 'GLOBAL_VARIABLES' || item.name === 'OPERATORS' || item.name === 'APEX_CLASS') {
+      this.sidebarService.setActiveCategory('');
       this.router.navigate(['/docs', item.route]);
     } else {
       this.router.navigate(
