@@ -1,6 +1,13 @@
 {
-  "title": "APEX  CLASS",
-  "description": "<p><code>pushtopics.SalesforceDataTransformer</code> is a global interface that enables custom Apex logic within DSP formulas, extending the package’s out-of-box transformations when built-in functions are insufficient. Reference an implementation in a formula using the placeholder syntax <code>$apexClassName</code>.</p>\n<p><pre><code>\nglobal interface SalesforceDataTransformer {</p>\n/*\n* Define source fields to be fetched from the source connection and used in the mapper class.\n*/\nString[] retrieveSourceFields();\n\nObject transform(List&lt;Map&lt;String, Object&gt;&gt; contextSourceRecords, Map&lt;String, Object&gt; currentSourceRecord, String assignedToFieldName);\n\n<p>}\n</p></code></pre>",
+  "title": "APEX CLASS",
+  "description": "<p><code>pushtopics.SalesforceDataTransformer</code> is a global interface that enables custom Apex logic within DSP formulas, extending the package’s out-of-box transformations when built-in functions are insufficient. Reference an implementation in a formula using the placeholder syntax <code>$apexClassName</code>.</p>",
+  "descriptionImages" : [
+    {
+      "src": "assets/transformation-description-img/apex_class/apex_class.jpg",
+      "alt": "APEX CLASS"
+    }
+  ],
+  "descriptionCode": "global interface SalesforceDataTransformer {\n    /* Define source fields to be fetched from the source connection and used in the mapper class. */\n    String[] retrieveSourceFields();\n\n    Object transform(List<Map<String, Object>> contextSourceRecords,\n                     Map<String, Object> currentSourceRecord,\n                     String assignedToFieldName);\n}",
   "syntax": "",
   "parameters": [],
   "examples": [

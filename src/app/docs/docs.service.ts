@@ -20,6 +20,7 @@ export interface DocData {
     title: string;
     description?: string;
     descriptionImages?: DocImage[];
+    descriptionCode?: string; 
     syntax?: string;
     parameters?: Parameter[];
     examples?: string[];

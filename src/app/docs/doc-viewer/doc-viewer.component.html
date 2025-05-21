@@ -43,12 +43,20 @@
   <section class="doc-section" *ngIf="docContent.description">
     <h2>Description</h2>
     <p [innerHTML]="docContent.description"></p>
-    <div class="doc-images">
-    <img *ngFor="let img of docContent.descriptionImages"
-         [src]="img.src"
-         alt="{{ img.alt }}"
-         loading="lazy" />
-  </div>
+    <div class="doc-images" *ngIf="docContent.descriptionImages?.length">
+      <img
+        *ngFor="let img of docContent.descriptionImages"
+        [src]="img.src"
+        alt="{{ img.alt }}"
+        loading="lazy"
+      />
+    </div>
+    <div class="doc-example" *ngIf="docContent.descriptionCode">
+      <pre>
+        <code class="language-sql"
+              [textContent]="docContent.descriptionCode"></code>
+      </pre>
+    </div>
   </section>
 
   <section class="doc-section" *ngIf="docContent.syntax">
