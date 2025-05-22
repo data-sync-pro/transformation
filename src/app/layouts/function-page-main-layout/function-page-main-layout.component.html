@@ -34,11 +34,12 @@
 <div class="container">
   <div
     class="sidebar-wrapper"
-    [ngClass]="{ collapsed: isSidebarCollapsed, 'show-sidebar': showSidebar }"
+    [class.collapsed]="collapsed$ | async"
+    [class.show-sidebar]="showSidebar"   
   >
     <div class="sidebar-overlay" (click)="closeSidebar()"></div>
 
-    <aside class="sidebar" *ngIf="!isSidebarCollapsed || showSidebar">
+    <aside class="sidebar" *ngIf="!(collapsed$ | async) || showSidebar">
       <div class="sidebar-scroll-content">
         <nav class="nav">
           <ul class="nav-section">
@@ -115,13 +116,13 @@
     <button
       class="sidebar-collapse-button"
       (click)="toggleSidebar()"
-      title="Collapse Sidebar"
+      [title]="(collapsed$ | async) ? 'Expand Sidebar' : 'Collapse Sidebar'"
     >
       <span>☰</span>
     </button>
   </div>
 
-  <main class="content" [class.sidebar-collapsed]="isSidebarCollapsed">
+  <main class="content" [class.sidebar-collapsed]="collapsed$ | async">
     <ng-container *ngIf="router.url !== '/docs'">
       <app-breadcrumb [crumbs]="breadcrumbs"></app-breadcrumb>
     </ng-container>
