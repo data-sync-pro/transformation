@@ -28,6 +28,7 @@
     text-decoration: underline;
   }
 
+
   @media (max-width: 1070px) {
     .breadcrumb {
       margin-left: 6vw;

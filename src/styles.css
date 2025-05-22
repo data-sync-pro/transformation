@@ -64,3 +64,8 @@ code {
   padding: 0.2em 0.4em;    
   border-radius: 4px;       
 }
+
+.sidebar-collapsed .breadcrumb {
+  margin-left: 9.3vw !important; 
+  transition: margin-left .3s;
+}

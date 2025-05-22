@@ -1,11 +1,12 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import { filter, takeUntil } from 'rxjs/operators';
 import { BreadcrumbItem } from 'src/app/shared/breadcrumb/breadcrumb.component';
-import { Subscription } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import { SidebarService } from 'src/app/services/sidebar.service';
 import { buildRoute } from 'src/app/utils/route.util';
+import { LayoutService } from '../../services/layout.service';
 
 interface FunctionItem {
   'Item Name': string;
@@ -27,9 +28,11 @@ const SPECIAL_ROUTES: Record<string, string> = {
   templateUrl: './function-page-main-layout.component.html',
   styleUrls: ['./function-page-main-layout.component.css'],
 })
-export class FunctionPageMainLayoutComponent implements OnInit {
+export class FunctionPageMainLayoutComponent implements OnInit, OnDestroy {
   isSearchOpen = false;
-  isSidebarCollapsed = false;
+  //isSidebarCollapsed = false;
+  collapsed$ = this.layout.collapsed$;
+  private destroy$ = new Subject<void>();
   showSidebar = false;
   operatorExpand = false;
   globalVariableExpand = false;
@@ -43,16 +46,18 @@ export class FunctionPageMainLayoutComponent implements OnInit {
     private http: HttpClient,
     public router: Router,
     private route: ActivatedRoute,
-    private sidebarService: SidebarService
+    private sidebarService: SidebarService,
+    private layout: LayoutService
   ) {}
 
   ngOnInit() {
-
-    this.route.queryParams.subscribe((params) => {
-      if (params['activeCategory']) {
-        this.sidebarService.setActiveCategory(params['activeCategory']);
-      }
-    });
+    this.route.queryParams
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((params) => {
+        if (params['activeCategory']) {
+          this.sidebarService.setActiveCategory(params['activeCategory']);
+        }
+      });
 
     this.http.get<FunctionItem[]>('assets/data/tags.json').subscribe((data) => {
       this.groupFunctionsByTags(data);
@@ -61,7 +66,10 @@ export class FunctionPageMainLayoutComponent implements OnInit {
     });
 
     this.router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
+      .pipe(
+        filter((event) => event instanceof NavigationEnd),
+        takeUntil(this.destroy$)
+      )
       .subscribe(() => {
         this.updateBreadcrumbs(); // Update on each navigation event
         this.updateActiveCategory();
@@ -76,6 +84,8 @@ export class FunctionPageMainLayoutComponent implements OnInit {
   }
 
   ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
     window.removeEventListener('resize', this.updatePlaceholder.bind(this));
     if (this.routerSubscription) {
       this.routerSubscription.unsubscribe();
@@ -123,7 +133,7 @@ export class FunctionPageMainLayoutComponent implements OnInit {
       'Randomization',
       'Type Processing',
       'Trigger',
-      'Advanced'
+      'Advanced',
     ];
 
     this.functionCategories.sort((a, b) => {
@@ -201,25 +211,25 @@ export class FunctionPageMainLayoutComponent implements OnInit {
     this.isSearchOpen = false;
   }
 
-
   toggleCategory(category: FunctionCategory): void {
-    
     const target = SPECIAL_ROUTES[category.name];
     if (target) {
       this.sidebarService.setActiveCategory('');
-      category.expanded = true;   
+      category.expanded = true;
       this.router.navigate(['/docs', target]);
       return;
     }
-    
+
     category.expanded = !category.expanded;
   }
-  
+
   toggleSidebar() {
     if (window.innerWidth < 1070) {
       this.showSidebar = !this.showSidebar;
     } else {
-      this.isSidebarCollapsed = !this.isSidebarCollapsed;
+      //this.isSidebarCollapsed = !this.isSidebarCollapsed;
+      this.layout.toggle();
+      console.log(this.collapsed$);
     }
   }
 
@@ -230,26 +240,26 @@ export class FunctionPageMainLayoutComponent implements OnInit {
   updateActiveCategory() {
     const urlSegments = this.router.url.split('/');
     const activeRoute = urlSegments[2];
-    this.sidebarService.activeCategory$.subscribe(activeCategory => {
-      this.functionCategories.forEach((category) => {
-        
-        if (category.name === 'Operators') {
-          this.operatorExpand = activeRoute === 'operators';
-        } else if (category.name === 'Global Variables') {
-          this.globalVariableExpand = activeRoute === 'global_variables';
-        } else if (category.name === 'Apex Class') {
-          this.apexClassExpand = activeRoute === 'apex_class'; 
-        } else {
-          if (activeCategory) {
-            category.expanded = (category.name === activeCategory);
+    this.sidebarService.activeCategory$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((activeCategory) => {
+        this.functionCategories.forEach((category) => {
+          if (category.name === 'Operators') {
+            this.operatorExpand = activeRoute === 'operators';
+          } else if (category.name === 'Global Variables') {
+            this.globalVariableExpand = activeRoute === 'global_variables';
+          } else if (category.name === 'Apex Class') {
+            this.apexClassExpand = activeRoute === 'apex_class';
           } else {
-            category.expanded = category.functions.some(
-              (fn) => fn.route === activeRoute
-            );
+            if (activeCategory) {
+              category.expanded = category.name === activeCategory;
+            } else {
+              category.expanded = category.functions.some(
+                (fn) => fn.route === activeRoute
+              );
+            }
           }
-        }
+        });
       });
-    });
   }
-
 }
