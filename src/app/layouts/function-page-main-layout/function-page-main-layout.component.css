@@ -156,6 +156,7 @@
 
 .sidebar-wrapper.collapsed + .content {
   margin-left: 0;
+  width: 100%;
 }
 .sidebar-wrapper + .content {
   margin-left: 340px;
