@@ -37,7 +37,7 @@ export class FunctionPageMainLayoutComponent implements OnInit, OnDestroy {
   operatorExpand = false;
   globalVariableExpand = false;
   apexClassExpand = false;
-  breadcrumbs: BreadcrumbItem[] = [{ label: 'Home', link: '/' }];
+  breadcrumbs: BreadcrumbItem[] = [{ label: 'HOME', link: '/' }];
   placeholderText = '';
 
   functionCategories: FunctionCategory[] = [];
