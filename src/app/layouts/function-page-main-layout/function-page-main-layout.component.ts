@@ -71,16 +71,16 @@ export class FunctionPageMainLayoutComponent implements OnInit, OnDestroy {
         takeUntil(this.destroy$)
       )
       .subscribe(() => {
-        this.updateBreadcrumbs(); // Update on each navigation event
+        this.updateBreadcrumbs(); 
         this.updateActiveCategory();
       });
 
-    this.updatePlaceholder(); // Set initial placeholder
+    this.updatePlaceholder();
     window.addEventListener('resize', this.updatePlaceholder.bind(this));
   }
   updatePlaceholder() {
     this.placeholderText =
-      window.innerWidth < 768 ? 'Search...' : 'Search functions...';
+      window.innerWidth < 1200 ? 'Search...' : 'Search functions...';
   }
 
   ngOnDestroy() {
