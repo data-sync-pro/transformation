@@ -7,28 +7,14 @@
       </div>
     </a>
     <div class="header-right">
-    <div class="search-shortcut-wrapper">
-      <input
-        type="text"
-        [placeholder]="placeholderText"
-        (click)="isSearchOpen = true"
-        readonly
-        class="search-input"
-      />
-      <span
-        class="shortcut-hint shortcut-clickable"
-        (click)="isSearchOpen = true"
-        >/</span
-      >
-    </div>
-    <div class="developer-guide">
-      <a
-        class="developer-guide-link"
-        href="https://www.pushtopic.com/manual/architecture_auth_security.html"
-        target="_blank"
-        >Developer Guide</a
-      >
-    </div>
+      <div class="developer-guide">
+        <a
+          class="developer-guide-link"
+          href="https://www.pushtopic.com/manual/architecture_auth_security.html"
+          target="_blank"
+          >Developer Guide</a
+        >
+      </div>
     </div>
   </div>
 </header>
@@ -37,27 +23,39 @@
   <div
     class="sidebar-wrapper"
     [class.collapsed]="collapsed$ | async"
-    [class.show-sidebar]="showSidebar"   
+    [class.show-sidebar]="showSidebar"
   >
     <div class="sidebar-overlay" (click)="closeSidebar()"></div>
 
-    <aside class="sidebar" *ngIf="!(collapsed$ | async) || showSidebar">
+    <aside
+      class="sidebar"
+      [class.collapsed]="(collapsed$ | async) && !showSidebar"
+    >
       <div class="sidebar-scroll-content">
         <nav class="nav">
+          <div class="nav-header">
+            <div class="search-shortcut-wrapper">
+              <input
+                type="text"
+                [placeholder]="placeholderText"
+                (click)="isSearchOpen = true"
+                readonly
+                class="search-input"
+              />
+              <span
+                class="shortcut-hint shortcut-clickable"
+                (click)="isSearchOpen = true"
+                >/</span
+              >
+            </div>
+            
+          </div>
           <ul class="nav-section">
             <li
               *ngFor="let category of functionCategories"
               class="nav-category"
             >
               <div class="category-header" (click)="toggleCategory(category)">
-                {{ category.name
-                }}{{
-                  category.name !== "Operators" &&
-                  category.name !== "Global Variables" &&
-                  category.name !== "Apex Class"
-                    ? " Functions"
-                    : ""
-                }}
                 <span
                   class="arrow"
                   [class.expanded]="
@@ -88,13 +86,21 @@
                       : "+"
                   }}
                 </span>
+                {{ category.name
+                }}{{
+                  category.name !== "Operators" &&
+                  category.name !== "Global Variables" &&
+                  category.name !== "Apex Class"
+                    ? " Functions"
+                    : ""
+                }}
               </div>
               <ul
                 class="function-list"
                 *ngIf="
                   category.name !== 'Operators' &&
-                  category.name !== 'Global Variables'&&
-                  category.name !== 'Apex Class'&&
+                  category.name !== 'Global Variables' &&
+                  category.name !== 'Apex Class' &&
                   category.expanded
                 "
               >
@@ -116,12 +122,29 @@
       </div>
     </aside>
     <button
-      class="sidebar-collapse-button"
-      (click)="toggleSidebar()"
-      [title]="(collapsed$ | async) ? 'Expand Sidebar' : 'Collapse Sidebar'"
-    >
-      <span>☰</span>
-    </button>
+              class="sidebar-collapse-button"
+              (click)="toggleSidebar()"
+              [title]="
+                (collapsed$ | async) ? 'Expand Sidebar' : 'Collapse Sidebar'
+              "
+            >
+              <span>☰</span>
+            </button>
+            <button
+              class="sidebar-float-search"
+              *ngIf="(collapsed$ | async) && !showSidebar"
+              (click)="isSearchOpen = true"
+              title="Search"
+            >
+              <svg
+                class="icon-search"
+                width="24"
+                height="24"
+                aria-hidden="true"
+              >
+                <use href="assets/icon/search.svg#search-icon"></use>
+              </svg>
+            </button>
   </div>
 
   <main class="content" [class.sidebar-collapsed]="collapsed$ | async">

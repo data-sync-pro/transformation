@@ -1,6 +1,10 @@
+/* ===========================
+   Logo and Title Styles
+   =========================== */
 .logo-name-wrapper {
   text-decoration: none;
 }
+
 .logo {
   height: 4rem;
 }
@@ -17,6 +21,9 @@
   align-items: center;
 }
 
+/* ===========================
+   Top Header Container
+   =========================== */
 .top-header {
   width: 100%;
   height: 4rem;
@@ -44,12 +51,6 @@
   justify-content: flex-end;
 }
 
-.search-shortcut-wrapper {
-  position: relative;
-  width: 50%;
-  margin-right: 18px;
-}
-
 .developer-guide {
   padding-right: 1rem;
 }
@@ -58,59 +59,13 @@
   color: #333;
 }
 
-.sidebar-wrapper {
-  position: fixed;
-  top: 60px;
-  left: 0;
-  height: calc(100vh - 60px);
-  /* 290 */
-  width: 400px;
-  background-color: transparent;
-  border-right: none;
-  transition: width 0.3s ease;
-}
-
-.sidebar-wrapper.collapsed {
-  width: 0;
-}
-
-.sidebar {
-  /* 260 */
-  width: 370px;
-  padding: 0rem, 0.5rem;
-  transition: width 0.3s ease;
-  background-color: #f9f9f9;
-  display: flex;
-  flex-direction: column;
-  height: calc(100vh - 60px);
-  overflow-y: auto;
-}
-
-.sidebar.collapsed {
-  width: 0px;
-}
-
-.sidebar-collapse-button {
-  position: absolute;
-  top: 10px;
-  /* 270 */
-  left: 380px;
-  margin-left: 6px;
-  background: transparent;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #333;
-  transition: color 0.2s ease;
-  z-index: 999;
-}
-
-.sidebar-collapse-button:hover {
-  color: #418796;
-}
-
-.sidebar-wrapper.collapsed .sidebar-collapse-button {
-  left: 10px;
+/* ===========================
+   Search Box Styles
+   =========================== */
+.search-shortcut-wrapper {
+  position: relative;
+  width: 88%;
+  left: 7px;
 }
 
 .search-input {
@@ -125,8 +80,6 @@
 .search-input:focus {
   outline: none;
 }
-
-
 
 .shortcut-hint {
   position: absolute;
@@ -149,6 +102,108 @@
   background-color: #ddd;
 }
 
+/* ===========================
+   Sidebar Wrapper and Collapse
+   =========================== */
+.sidebar-wrapper {
+  position: fixed;
+  top: 64.7px;
+  left: 0;
+  height: calc(100vh - 64.7px);
+  width: 350px;
+  background-color: transparent;
+  border-right: none;
+}
+
+.sidebar-wrapper.collapsed {
+  width: 0;
+}
+
+/* ===========================
+   Sidebar Main Styles
+   =========================== */
+.sidebar {
+  width: 320px;
+  padding: 0rem, 0.5rem;
+  transition: width 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar.collapsed {
+  width: 0px;
+}
+
+/* ===========================
+   Sidebar Collapse Button
+   =========================== */
+.sidebar-collapse-button {
+  position: absolute;
+  top: 8px;
+  left: 270px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.2s ease;
+  z-index: 999;
+}
+
+.sidebar-collapse-button:hover {
+  color: #418796;
+}
+
+.sidebar-wrapper.collapsed .sidebar-collapse-button {
+  position: fixed;
+  top: 72.7px;
+  left: 10px;
+  z-index: 1001;
+}
+
+/* ===========================
+   Sidebar Floating Buttons (Collapse & Search)
+   =========================== */
+.sidebar-float-btn,
+.sidebar-float-search {
+  position: fixed;
+  left: 9px;
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  stroke: #333;
+  z-index: 10000;
+}
+
+.sidebar-float-btn:hover,
+.sidebar-float-search:hover {
+  color: #418796;
+}
+
+.sidebar-float-btn {
+  top: 70px;
+}
+
+.sidebar-float-search {
+  top: 108px;
+  color: #333;
+}
+
+.icon-search {
+  width: 1.5rem;
+  height: 1.5rem;
+  stroke: currentColor;
+}
+
+/* ===========================
+   Main Content Layout
+   =========================== */
 .container {
   margin-top: 64.7px;
   min-height: calc(100vh - 60px);
@@ -171,6 +226,9 @@
   margin-left: 340px;
 }
 
+/* ===========================
+   Global List and Text Layout
+   =========================== */
 ul {
   padding-left: 1rem;
 }
@@ -187,10 +245,13 @@ li {
   line-height: 1.3;
 }
 
+/* ===========================
+   Navigation Menu Styles
+   =========================== */
 .nav {
   list-style: none;
   padding: 0;
-  margin: 0rem 0rem 1rem 0rem;
+  margin: 0 0 1rem 0;
 }
 
 .nav-section {
@@ -199,9 +260,17 @@ li {
   margin: 0.5rem;
 }
 
+.nav-header {
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background-color: white;
+  padding: 0.5rem;
+}
+
 .category-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 0.45rem 0.45rem;
   font-weight: 500;
@@ -210,9 +279,9 @@ li {
   transition: background 0.2s;
   border-radius: 6px;
   position: sticky;
-  top: 0;
+  top: 51px;
   z-index: 1;
-  background-color: #f9f9f9;
+  background-color: white;
 }
 
 .category-header:hover {
@@ -220,17 +289,13 @@ li {
 }
 
 .arrow {
-  font-size: 1.8rem;
-  transform: rotate(180deg);
-}
-
-.arrow.expanded {
-  transform: rotate(180deg);
+  width: 1.2rem;
+  font-size: large;
 }
 
 .function-list {
   list-style: none;
-  margin-top: 0px;
+  margin-top: 0;
   margin-bottom: 0.5rem;
   margin-left: 18px;
   padding-left: 0.5rem;
@@ -241,7 +306,7 @@ li {
   text-decoration: none;
   color: #333;
   font-size: 0.85rem;
-  margin: 0.25rem 0rem 0rem 0rem;
+  margin: 0.25rem 0 0 0;
   padding: 0.2rem;
   border-radius: 6px;
   display: block;
@@ -262,97 +327,87 @@ li {
   font-weight: 500;
 }
 
-@media (max-width: 1200px) {
-  .search-shortcut-wrapper {
-    width: 40%;
-    margin-right: 8px;
+/* ===========================
+   Responsive: ≤1250px (Medium Screens)
+   =========================== */
+@media (max-width: 1250px) {
+  .content { /* Desktop 73% → 65% */
+    width: 65%;
+  }
+  .sidebar-wrapper.collapsed + .content {
+    width: 100%;
   }
 }
 
+/* ===========================
+   Responsive: ≤1070px (Mobile / Tablet)
+   =========================== */
 @media (max-width: 1070px) {
+
+  /* Sidebar Wrapper (hidden by default) */
   .sidebar-wrapper {
-    width: 0 !important;
+    width: 0;
     height: 0;
     position: fixed;
-    top: 60px;
+    top: var(--header-h);
     left: 0;
     z-index: 1000;
   }
 
+  /* Dark Overlay */
   .sidebar-overlay {
     position: fixed;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    height: calc(100vh - 60px);
-    background-color: rgba(0, 0, 0, 0.4);
+    inset: var(--header-h) 0 0 0;
+    background: rgba(0, 0, 0, .4);
     z-index: 999;
     display: none;
-    pointer-events: auto;
   }
 
-  .sidebar-scroll-content {
-    pointer-events: none;
-  }
-
+  /* Modal-style Sidebar */
   .sidebar {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0.95);
+    transform: translate(-50%, -50%) scale(.95);
     width: 90%;
     max-width: 500px;
-    height: auto;
     max-height: 80vh;
     overflow-y: auto;
-    background-color: #f9f9f9;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
     padding: 0;
     border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, .3);
     opacity: 0;
-    pointer-events: auto;
+    pointer-events: none;
+    transition: opacity .2s ease, transform .2s ease;
     z-index: 1000;
   }
 
+  /* Inner Scroll Container */
+  .sidebar-scroll-content {
+    overflow-y: auto;
+    max-height: inherit;
+  }
+
+  /* Visible State (.show-sidebar) */
   .sidebar-wrapper.show-sidebar .sidebar {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
+    pointer-events: auto;
   }
-
   .sidebar-wrapper.show-sidebar .sidebar-overlay {
     display: block;
   }
 
-  .sidebar-wrapper.show-sidebar .sidebar-scroll-content {
-    pointer-events: auto;
-  }
-
+  /* Adjust Collapse Button */
   .sidebar-collapse-button {
-    left: 0px !important;
+    left: 0;
     z-index: 1001;
   }
 
-  .sidebar-wrapper + .content {
-    margin-left: 0 !important;
-  }
-
-  .sidebar-scroll-content {
-    overflow-y: auto;
-    max-height: 80vh;
-    padding: 0;
-    border-radius: inherit;
-  }
-
+  /* Main Content Full Width */
+  .sidebar-wrapper + .content,
   main.content {
-    width: 100%;
-  }
-}
-@media (max-width: 1250px) {
-  .content {
-    width: 65%;
-  }
-
-  .sidebar-wrapper.collapsed + .content {
+    margin-left: 0;
     width: 100%;
   }
 }
