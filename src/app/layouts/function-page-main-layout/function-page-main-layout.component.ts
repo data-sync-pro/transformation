@@ -30,7 +30,6 @@ const SPECIAL_ROUTES: Record<string, string> = {
 })
 export class FunctionPageMainLayoutComponent implements OnInit, OnDestroy {
   isSearchOpen = false;
-  //isSidebarCollapsed = false;
   collapsed$ = this.layout.collapsed$;
   private destroy$ = new Subject<void>();
   showSidebar = false;
@@ -38,7 +37,6 @@ export class FunctionPageMainLayoutComponent implements OnInit, OnDestroy {
   globalVariableExpand = false;
   apexClassExpand = false;
   breadcrumbs: BreadcrumbItem[] = [{ label: 'HOME', link: '/' }];
-  placeholderText = '';
 
   functionCategories: FunctionCategory[] = [];
   routerSubscription!: Subscription;
@@ -71,22 +69,14 @@ export class FunctionPageMainLayoutComponent implements OnInit, OnDestroy {
         takeUntil(this.destroy$)
       )
       .subscribe(() => {
-        this.updateBreadcrumbs(); 
+        this.updateBreadcrumbs();
         this.updateActiveCategory();
       });
-
-    this.updatePlaceholder();
-    window.addEventListener('resize', this.updatePlaceholder.bind(this));
-  }
-  updatePlaceholder() {
-    this.placeholderText =
-      window.innerWidth < 1200 ? 'Search...' : 'Search functions...';
   }
 
   ngOnDestroy() {
     this.destroy$.next();
     this.destroy$.complete();
-    window.removeEventListener('resize', this.updatePlaceholder.bind(this));
     if (this.routerSubscription) {
       this.routerSubscription.unsubscribe();
     }
@@ -224,13 +214,7 @@ export class FunctionPageMainLayoutComponent implements OnInit, OnDestroy {
   }
 
   toggleSidebar() {
-    if (window.innerWidth < 1070) {
-      this.showSidebar = !this.showSidebar;
-    } else {
-      //this.isSidebarCollapsed = !this.isSidebarCollapsed;
-      this.layout.toggle();
-      console.log(this.collapsed$);
-    }
+    this.layout.toggle();
   }
 
   closeSidebar() {

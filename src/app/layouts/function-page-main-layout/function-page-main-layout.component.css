@@ -110,9 +110,10 @@
   top: 64.7px;
   left: 0;
   height: calc(100vh - 64.7px);
-  width: 350px;
+  width: 320px;
   background-color: white;
   border-right: none;
+  z-index: 1000;
 }
 
 .sidebar-wrapper.collapsed {
@@ -130,10 +131,10 @@
   flex-direction: column;
   height: calc(100vh - 60px);
   overflow-y: scroll;
-  scrollbar-width: thin; 
   opacity: 1;
   transition: opacity 0.3s ease;
-  scrollbar-color:#c4c4c4 transparent;
+  scrollbar-color: #c4c4c4 transparent;
+  border-right: inset;
 }
 
 .sidebar.collapsed {
@@ -202,7 +203,7 @@
    =========================== */
 .container {
   margin-top: 10%;
-  min-height: calc(100vh - 60px);
+  min-height: calc(100vh - 70px);
   justify-content: center;
 }
 
@@ -219,7 +220,7 @@
 }
 
 .sidebar-wrapper + .content {
-  margin-left: 280px;
+  margin-left: 320px;
 }
 
 /* ===========================
@@ -322,5 +323,3 @@ li {
   color: #418796;
   font-weight: 500;
 }
-
-

@@ -1,35 +1,35 @@
 .breadcrumb {
-    display: flex;
-    flex-wrap:wrap;
-    list-style: none;
-    margin: 0;
-    margin-left: 6.8vw;
-    padding-left: 0;
-    padding-top: 9.5px;
-    padding-bottom: 1rem;
-    min-width: 100%;
-    position: fixed;
-    background-color: #fff;
-    z-index: 10; 
-  }
-  
-  .breadcrumb-item + .breadcrumb-item::before {
-    content: "/";
-    padding-left: 0.25rem;
-    color: #333;
-  }
-  
-  .breadcrumb-item a{
-    color: #333;
-    text-decoration: none;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  margin-left: 6.9vw;
+  padding-left: 0;
+  padding-top: 18.5px;
+  padding-bottom: 1rem;
+  min-width: 100%;
+  position: sticky;
+  background-color: #fff;
+  z-index: 10;
+  top: 65px;
+}
 
-  .breadcrumb-item a:hover {
-    text-decoration: underline;
-  }
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "/";
+  padding-left: 0.25rem;
+  color: #333;
+}
 
+.breadcrumb-item a {
+  color: #333;
+  text-decoration: none;
+}
 
-  @media (max-width: 1070px) {
+.breadcrumb-item a:hover {
+  text-decoration: underline;
+}
+
+/* @media (max-width: 1070px) {
     .breadcrumb {
       margin-left: 6vw;
     }
@@ -39,6 +39,4 @@
     .breadcrumb {
       margin-left: 6vw;
     }
-  }
-
-  
+  } */
