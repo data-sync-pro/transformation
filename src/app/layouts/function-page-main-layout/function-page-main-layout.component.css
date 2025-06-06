@@ -181,7 +181,7 @@
   font-size: 1.6rem;
   cursor: pointer;
   stroke: #333;
-  z-index: 0;
+  z-index: 2;
 }
 
 .sidebar-float-search:hover {
@@ -225,6 +225,18 @@
 }
 
 
+/* ===========================
+   Breadcrumb Wrapper
+   =========================== */
+.breadcrumb-wrapper {
+  position: absolute;
+  top: 4rem; /* 与 .top-header 高度一致，确保不会被遮挡 */
+  z-index: 1;
+  background: #fff;
+  padding: 0.8rem 1rem; /* 更紧凑点，但仍保有空间 */
+  margin-bottom: 1rem; /* 与正文内容隔开 */
+  margin-left: 2rem;
+}
 
 /* ===========================
    Global List and Text Layout
@@ -327,3 +339,12 @@ li {
   font-weight: 500;
 }
 
+/* hide the arrow glyph but keep its width so text aligns */
+.home-arrow {
+  visibility: hidden;  /* keeps the space occupied */
+}
+
+/* optional: bold Home like other headers already are */
+.home-header {
+  cursor: pointer;     /* same pointer as other headers */
+}

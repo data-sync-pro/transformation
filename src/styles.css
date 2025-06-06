@@ -65,7 +65,7 @@ code {
   font-family: var(--el-font-mono);   
 }
 
-.sidebar-collapsed .breadcrumb {
-  margin-left: 9.3vw !important; 
+/* .sidebar-collapsed .breadcrumb {
+  margin-left: 8.2vw !important; 
   transition: margin-left .3s;
-}
+} */

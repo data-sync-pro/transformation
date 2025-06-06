@@ -1,16 +1,11 @@
 .breadcrumb {
+  margin: 0;    
+  list-style: none;
   display: flex;
   flex-wrap: wrap;
-  list-style: none;
-  margin: 0;
-  margin-left: 9.5%;
-  padding: 0 0 1rem;  
-  min-width: max-content;
-  position: sticky;
-  background-color: #fff;
-  z-index: 0;
-  top: 64px;
+  padding-left: 3.7rem;
 }
+
 
 .breadcrumb-item + .breadcrumb-item::before {
   content: "/";

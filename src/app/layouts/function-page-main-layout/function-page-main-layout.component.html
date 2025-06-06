@@ -50,6 +50,7 @@
             </div>
           </div>
           <ul class="nav-section">
+            
             <li
               *ngFor="let category of functionCategories"
               class="nav-category"
@@ -89,9 +90,10 @@
                 }}{{
                   category.name !== "Operators" &&
                   category.name !== "Global Variables" &&
-                  category.name !== "Apex Class"
-                    ? " Functions"
-                    : ""
+                  category.name !== "Apex Class" &&
+                  category.name !== 'Home'            
+                    ? ' Functions'
+                    : ''
                 }}
               </div>
               <ul
@@ -100,6 +102,7 @@
                   category.name !== 'Operators' &&
                   category.name !== 'Global Variables' &&
                   category.name !== 'Apex Class' &&
+                   category.name !== 'Home' &&          
                   category.expanded
                 "
               >
@@ -141,7 +144,9 @@
 
   <main class="content" #contentRef [class.sidebar-collapsed]="collapsed$ | async">
     <ng-container *ngIf="router.url !== '/docs'">
-      <app-breadcrumb [crumbs]="breadcrumbs"></app-breadcrumb>
+      <!-- <div class="breadcrumb-wrapper">
+        <app-breadcrumb [crumbs]="breadcrumbs"></app-breadcrumb>
+      </div> -->
     </ng-container>
     <router-outlet></router-outlet>
     <app-scroll-to-top [scrollContainer]="contentRef"></app-scroll-to-top>
