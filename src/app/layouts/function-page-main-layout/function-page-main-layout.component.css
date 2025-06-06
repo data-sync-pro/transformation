@@ -42,7 +42,7 @@
 
 .header-content {
   width: 100%;
-  padding: 0 0.3rem;
+  padding: 0 0.7rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -337,14 +337,4 @@ li {
   background-color: #d9e4e8;
   color: #418796;
   font-weight: 500;
-}
-
-/* hide the arrow glyph but keep its width so text aligns */
-.home-arrow {
-  visibility: hidden;  /* keeps the space occupied */
-}
-
-/* optional: bold Home like other headers already are */
-.home-header {
-  cursor: pointer;     /* same pointer as other headers */
 }
