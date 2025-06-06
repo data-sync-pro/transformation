@@ -3,15 +3,13 @@
   flex-wrap: wrap;
   list-style: none;
   margin: 0;
-  margin-left: 6.9vw;
-  padding-left: 0;
-  padding-top: 18.5px;
-  padding-bottom: 1rem;
-  min-width: 100%;
+  margin-left: 9.5%;
+  padding: 0 0 1rem;  
+  min-width: max-content;
   position: sticky;
   background-color: #fff;
-  z-index: 10;
-  top: 65px;
+  z-index: 0;
+  top: 64px;
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
@@ -28,15 +26,3 @@
 .breadcrumb-item a:hover {
   text-decoration: underline;
 }
-
-/* @media (max-width: 1070px) {
-    .breadcrumb {
-      margin-left: 6vw;
-    }
-  }
-
-  @media (max-width: 1250px) {
-    .breadcrumb {
-      margin-left: 6vw;
-    }
-  } */

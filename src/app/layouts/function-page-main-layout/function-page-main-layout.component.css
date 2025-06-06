@@ -1,3 +1,6 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 /* ===========================
    Logo and Title Styles
    =========================== */
@@ -34,7 +37,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 1;
 }
 
 .header-content {
@@ -64,7 +67,7 @@
    =========================== */
 .search-shortcut-wrapper {
   position: relative;
-  width: 85%;
+  width: 88%;
   left: 7px;
 }
 
@@ -106,14 +109,13 @@
    Sidebar Wrapper and Collapse
    =========================== */
 .sidebar-wrapper {
-  position: fixed;
-  top: 64.7px;
+  position: relative;
   left: 0;
   height: calc(100vh - 64.7px);
   width: 320px;
   background-color: white;
   border-right: none;
-  z-index: 1000;
+  z-index: 0;
 }
 
 .sidebar-wrapper.collapsed {
@@ -125,16 +127,15 @@
    =========================== */
 .sidebar {
   width: 320px;
-  padding: 0rem, 0.5rem;
-  transition: width 0.3s ease;
+  transition: width 0.3s ease, opacity 0.3s ease;
   display: flex;
   flex-direction: column;
   height: calc(100vh - 60px);
   overflow-y: scroll;
   opacity: 1;
-  transition: opacity 0.3s ease;
   scrollbar-color: #c4c4c4 transparent;
   border-right: inset;
+  overflow-x: hidden;
 }
 
 .sidebar.collapsed {
@@ -147,14 +148,14 @@
 .sidebar-collapse-button {
   position: absolute;
   top: 17px;
-  left: 280px;
+  left: 275px;
   background: transparent;
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
   color: #333;
   transition: color 0.2s ease;
-  z-index: 1002;
+  z-index: 1;
 }
 
 .sidebar-collapse-button:hover {
@@ -165,7 +166,7 @@
   position: fixed;
   top: 79.7px;
   left: 10px;
-  z-index: 1001;
+  z-index: 0;
 }
 
 /* ===========================
@@ -180,7 +181,7 @@
   font-size: 1.6rem;
   cursor: pointer;
   stroke: #333;
-  z-index: 10000;
+  z-index: 0;
 }
 
 .sidebar-float-search:hover {
@@ -202,16 +203,20 @@
    Main Content Layout
    =========================== */
 .container {
-  margin-top: 10%;
-  min-height: calc(100vh - 70px);
-  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  margin-top: 4rem;
+  height: calc(100vh - 4rem);
 }
 
 .content {
   padding-top: 0.5px;
   transition: margin-left 0.3s ease;
   justify-self: center;
-  width: 73%;
+  width: calc(100% - 320px);
+  flex: 1;
+  overflow-y: auto;
+  height: 100%; 
 }
 
 .sidebar-wrapper.collapsed + .content {
@@ -219,9 +224,7 @@
   width: 100%;
 }
 
-.sidebar-wrapper + .content {
-  margin-left: 320px;
-}
+
 
 /* ===========================
    Global List and Text Layout
@@ -261,7 +264,7 @@ li {
   display: flex;
   position: sticky;
   top: 0;
-  z-index: 3;
+  z-index: 1;
   background-color: white;
   padding: 1rem 0.5rem;
 }
@@ -277,7 +280,7 @@ li {
   border-radius: 6px;
   position: sticky;
   top: 65px;
-  z-index: 1;
+  z-index: 0;
   background-color: white;
 }
 
@@ -323,3 +326,4 @@ li {
   color: #418796;
   font-weight: 500;
 }
+

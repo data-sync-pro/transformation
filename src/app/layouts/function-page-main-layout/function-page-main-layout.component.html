@@ -25,7 +25,7 @@
     [class.collapsed]="collapsed$ | async"
     [class.show-sidebar]="showSidebar"
   >
-    <div class="sidebar-overlay" (click)="closeSidebar()"></div>
+    <!-- <div class="sidebar-overlay" (click)="closeSidebar()"></div> -->
 
     <aside
       class="sidebar"
@@ -144,6 +144,8 @@
       <app-breadcrumb [crumbs]="breadcrumbs"></app-breadcrumb>
     </ng-container>
     <router-outlet></router-outlet>
+
+<app-scroll-to-top></app-scroll-to-top>
   </main>
 
   <app-search-overlay
