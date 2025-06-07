@@ -112,7 +112,7 @@
   position: relative;
   left: 0;
   height: calc(100vh - 64.7px);
-  width: 320px;
+  width: 290px;
   background-color: white;
   border-right: none;
   z-index: 0;
@@ -126,8 +126,8 @@
    Sidebar Main Styles
    =========================== */
 .sidebar {
-  width: 320px;
-  transition: width 0.3s ease, opacity 0.3s ease;
+  width: 290px;
+  transition: width 0s ease, opacity 0s ease;
   display: flex;
   flex-direction: column;
   height: calc(100vh - 60px);
@@ -148,7 +148,7 @@
 .sidebar-collapse-button {
   position: absolute;
   top: 17px;
-  left: 275px;
+  left: 250px;
   background: transparent;
   border: none;
   font-size: 1.5rem;
@@ -219,9 +219,9 @@
   height: 100%; 
 }
 
-.sidebar-wrapper.collapsed + .content {
+.sidebar-wrapper.collapsed ~ .content {
   margin-left: 0;
-  width: 100%;
+  width: 80%;
 }
 
 
@@ -230,11 +230,11 @@
    =========================== */
 .breadcrumb-wrapper {
   position: absolute;
-  top: 4rem; /* 与 .top-header 高度一致，确保不会被遮挡 */
+  top: 4rem;
   z-index: 1;
   background: #fff;
-  padding: 0.8rem 1rem; /* 更紧凑点，但仍保有空间 */
-  margin-bottom: 1rem; /* 与正文内容隔开 */
+  padding: 0.8rem 1rem; 
+  margin-bottom: 1rem;
   margin-left: 2rem;
 }
 
@@ -284,10 +284,10 @@ li {
 .category-header {
   display: flex;
   align-items: center;
-  padding: 0.45rem 0.45rem;
-  font-weight: 500;
+  padding: 0.3rem 0.45rem;
+  font-weight: 300;
   cursor: pointer;
-  color: #418796;
+  color: #333;
   transition: background 0.2s;
   border-radius: 6px;
   position: sticky;
@@ -303,6 +303,9 @@ li {
 .arrow {
   width: 1.2rem;
   font-size: large;
+  font-weight: 400;
+  padding-bottom: 3px;
+  color: #054352a2;
 }
 
 .function-list {
