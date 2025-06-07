@@ -31,6 +31,7 @@ export class SearchOverlayComponent implements OnInit, OnChanges {
 
   constructor(private http: HttpClient, private router: Router,private sidebarService: SidebarService) {}
 
+
   ngOnInit() {
     this.http.get<any[]>('assets/data/tags.json').subscribe((data) => {
       this.suggestions = data.map((item) => ({
@@ -39,50 +40,67 @@ export class SearchOverlayComponent implements OnInit, OnChanges {
         route: buildRoute(item['Item Name']),
       }));
 
-      const tagSet = new Set<string>();
-      this.suggestions.forEach((item) =>
-        item.Tags.forEach((tag: string) => tagSet.add(tag))
-      );
-      this.tags = Array.from(tagSet);
+      this.http
+        .get<any>('assets/data/global_variables.json')
+        .subscribe((gvData) => {
+          (gvData.globalVariables ?? gvData ?? []).forEach((gv: any) => {
+            this.suggestions.push({
+              name: gv.variable,
+              Tags: ['Global Variables'],
+              route: `global_variables`,
+            });
+          });
 
-      const preferredOrder = [
-        'Text',
-        'Logical',
-        'Number',
-        'Date & Time',
-        'Operators',
-        'Global Variables',
-        'Randomization',
-        'Type Processing',
-        'Trigger',
-        'Advanced'
-      ];
-      this.tags.sort((a, b) => {
-        const aIndex = preferredOrder.indexOf(a);
-        const bIndex = preferredOrder.indexOf(b);
-  
-        if (aIndex !== -1 && bIndex !== -1) {
-          return aIndex - bIndex;
-        }
-  
-        if (aIndex === -1 && bIndex === -1) {
-          return a.localeCompare(b);
-        }
-        return aIndex === -1 ? 1 : -1;
-      });
+          const tagSet = new Set<string>();
+          this.suggestions.forEach((item) =>
+            item.Tags.forEach((tag: string) => tagSet.add(tag))
+          );
+          this.tags = Array.from(tagSet);
+
+          const preferredOrder = [
+            'Text',
+            'Logical',
+            'Number',
+            'Date & Time',
+            'Operators',
+            'Global Variables',
+            'Randomization',
+            'Type Processing',
+            'Trigger',
+            'Advanced',
+          ];
+          this.tags.sort((a, b) => {
+            const aIndex = preferredOrder.indexOf(a);
+            const bIndex = preferredOrder.indexOf(b);
+
+            if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex;
+            if (aIndex === -1 && bIndex === -1) return a.localeCompare(b);
+            return aIndex === -1 ? 1 : -1;
+          });
+        });
     });
   }
 
   onSelectSuggestion(item: any) {
-    if (item.name === 'GLOBAL_VARIABLES' || item.name === 'OPERATORS' || item.name === 'APEX_CLASS') {
+    const isGlobalVariableItem =
+    Array.isArray(item.Tags) && item.Tags.includes('Global Variables');
+
+    const isSpecialName =
+      item.name === 'OPERATORS' ||
+      item.name === 'APEX_CLASS';
+
+    if (isGlobalVariableItem) {
+      this.sidebarService.setActiveCategory('');              
+      this.router.navigate(['/docs', 'global_variables']);      
+    } else if (isSpecialName) {
       this.sidebarService.setActiveCategory('');
       this.router.navigate(['/docs', item.route]);
     } else {
-      this.router.navigate(
-        ['/docs', item.route],
-        { queryParams: { activeCategory: item.Tags[0] } }
-      );
+      this.router.navigate(['/docs', item.route], {
+        queryParams: { activeCategory: item.Tags[0] },
+      });
     }
+
     this.close();
   }
 

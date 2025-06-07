@@ -5,7 +5,7 @@
         #searchInput
         type="text"
         class="overlay-search-box"
-        placeholder="What are you searching for?"
+        placeholder="Search..."
         [(ngModel)]="searchQuery"
         (input)="filterSuggestions()"
       />
@@ -18,7 +18,7 @@
       <div class="filter-group">
         <div class="filter-header">
           <div class="filter-label">Tags</div>
-          <button class="clear-filters-btn" (click)="clearFilters()">
+          <button class="clear-filters-btn" (click)="clearFilters()" *ngIf="searchQuery.trim().length > 0 || selectedTags.length > 0">
             Clear Filters
           </button>
         </div>
@@ -41,18 +41,20 @@
           filteredSuggestions.length > 0
         "
       >
-        <div
-          class="suggestion-item"
-          *ngFor="let item of filteredSuggestions"
-          (click)="onSelectSuggestion(item)"
-        >
-          <div class="suggestion-left">
-            <span>{{ item.name }}</span>
+        <ng-container *ngFor="let item of filteredSuggestions">
+          <div
+            class="suggestion-item"
+            *ngIf="item.name !== 'GLOBAL_VARIABLES'"
+            (click)="onSelectSuggestion(item)"
+          >
+            <div class="suggestion-left">
+              <span>{{ item.name }}</span>
+            </div>
+            <div class="suggestion-tags">
+              <span class="tag" *ngFor="let tag of item.Tags">{{ tag }}</span>
+            </div>
           </div>
-          <div class="suggestion-tags">
-            <span class="tag" *ngFor="let tag of item.Tags">{{ tag }}</span>
-          </div>
-        </div>
+        </ng-container>
       </div>
     </div>
   </div>

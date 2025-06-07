@@ -10,7 +10,8 @@ const routes: Routes = [
     path: 'docs',
     component: FunctionPageMainLayoutComponent,
     children: [
-      { path: '', component: HomeComponent },
+      {path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'home', component: HomeComponent },
       { path: ':docName', component: DocViewerComponent }
     ],
   },

@@ -21,12 +21,6 @@
     <h2 class="doc-title" [attr.id]="getAnchorId('Formula Elements')">{{ formulaElements.title }}</h2>
     <p>{{ formulaElements.description }}</p>
     <table class="doc-tables two-columns">
-      <thead>
-        <tr>
-          <th>Element</th>
-          <th>Description</th>
-        </tr>
-      </thead>
       <tbody>
         <tr *ngFor="let item of formulaElements.elements">
           <td>{{ item.element }}</td>
@@ -44,13 +38,6 @@
           <div *ngFor="let group of operators | keyvalue">
             <h3>{{ group.key }}</h3>
             <table class="doc-tables three-columns">
-              <thead>
-                <tr>
-                  <th>Operator</th>
-                  <th>Type</th>
-                  <th>Description</th>
-                </tr>
-              </thead>
               <tbody>
                 <tr *ngFor="let operator of group.value">
                   <td>{{ operator.operator }}</td>
@@ -67,12 +54,6 @@
         <h2 [attr.id]="getAnchorId('Global Variables')">Global Variables</h2>
         <div *ngIf="globalVariables && globalVariables.length">
           <table class="doc-tables two-columns">
-            <thead>
-              <tr>
-                <th>Variable</th>
-                <th>Description</th>
-              </tr>
-            </thead>
             <tbody>
               <tr *ngFor="let variable of globalVariables">
                 <td>{{ variable.variable }}</td>
@@ -86,12 +67,6 @@
       <section *ngSwitchDefault>
         <h2 [attr.id]="getAnchorId(tag)">{{ tag }} Functions</h2>
         <table class="doc-tables two-columns">
-          <thead>
-            <tr>
-              <th>Function Name</th>
-              <th>Description</th>
-            </tr>
-          </thead>
           <tbody>
             <tr *ngFor="let funcName of itemsByTag[tag]">
               <td>
