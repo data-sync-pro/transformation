@@ -9,6 +9,10 @@
       "description": "$Joiner is a prefix used to reference fields from a dataset that has been joined in the Scoping step of an Executable (left-join or cross-join). It allows downstream logic—such as Scope Filter (Post Join) rules and field mappings—to access the joined record’s fields. For example, $Joiner.Parent__r.Status__c references the Status__c field on the joined record’s Parent__r relationship."
     },
     {
+      "variable": "$ORG_DOMAIN_URL",
+      "description": "Return current org's domain URL."
+    },
+    {
       "variable": "$SKIP_ASSIGNMENT",
       "description": "`$SKIP_ASSIGNMENT` is a special keyword used in DSP formulas to conditionally bypass processing based on dynamic logic. Field Mapping: If a formula evaluates to `$SKIP_ASSIGNMENT`, the target field is excluded from the request payload. Scope Filters: If a formula evaluates to `$SKIP_ASSIGNMENT`, the source record is omitted from processing.\nThis enables fine-grained control over field-level assignments and record-level processing."
     },
