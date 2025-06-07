@@ -41,18 +41,20 @@
           filteredSuggestions.length > 0
         "
       >
-        <div
-          class="suggestion-item"
-          *ngFor="let item of filteredSuggestions"
-          (click)="onSelectSuggestion(item)"
-        >
-          <div class="suggestion-left">
-            <span>{{ item.name }}</span>
+        <ng-container *ngFor="let item of filteredSuggestions">
+          <div
+            class="suggestion-item"
+            *ngIf="item.name !== 'GLOBAL_VARIABLES'"
+            (click)="onSelectSuggestion(item)"
+          >
+            <div class="suggestion-left">
+              <span>{{ item.name }}</span>
+            </div>
+            <div class="suggestion-tags">
+              <span class="tag" *ngFor="let tag of item.Tags">{{ tag }}</span>
+            </div>
           </div>
-          <div class="suggestion-tags">
-            <span class="tag" *ngFor="let tag of item.Tags">{{ tag }}</span>
-          </div>
-        </div>
+        </ng-container>
       </div>
     </div>
   </div>
