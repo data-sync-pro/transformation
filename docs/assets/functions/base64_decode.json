@@ -1,7 +1,7 @@
 {
   "title": "BASE64_DECODE",
   "description": "<p>Returns the original string by decoding the provided Base64-encoded input. If the input is not valid Base64, the function returns an error.</p>",
-  "syntax": "BASE64_DECODE(decoding) -> String",
+  "syntax": "BASE64_DECODE(encoding) -> String",
   "parameters": [
     {
       "name": "encoding",
