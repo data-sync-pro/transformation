@@ -17,10 +17,8 @@
     }
   ],
   "examples": [
-    "ADD_MONTHS(TO_DATE(\"2017-09-20\"), 5)\n-- Adds 5 months to September 20, 2017\n-- Returns 2018-02-20",
-    "ADD_MONTHS(StartDate, 3)\n-- Adds 3 months to the value in 'StartDate'",
-    "ADD_MONTHS(TO_DATE(\"2017-09-30\"), 5)\n-- Adds 5 months to September 30, 2017\n-- Returns 2018-02-28\n-- Since '2017-09-30' is the last day of the month, the resulting date is the last day of February 2018.",
-    "ADD_MONTHS(TO_DATETIME(\"2017-10-15T14:30:00.000Z\"), -2)\n-- Subtracts 2 months from October 15, 2017 14:30:00\n-- Returns 2017-08-15T14:30:00.000Z"
+    "ADD_MONTHS(DATE(2017, 9, 30), 5)\n-- Adds 5 months to 2017-09-30\n-- Returns 2018-02-28, the last day of February 2018",
+    "ADD_MONTHS(NOW(), -2)\n-- Subtracts 2 months from NOW()"
   ],
   "tips": [
     {
@@ -33,7 +31,7 @@
     }
   ],
   "relatedFormulas": [
-    "TO_DATE",
-    "TO_DATETIME"
+    "DATE",
+    "NOW"
   ]
 }
