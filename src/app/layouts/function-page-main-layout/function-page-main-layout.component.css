@@ -284,8 +284,9 @@ li {
 .category-header {
   display: flex;
   align-items: center;
-  padding: 0.3rem 0.45rem;
-  font-weight: 300;
+  padding: 0rem 0.45rem;
+  font-weight: 500;
+  font-size: 0.9rem;
   cursor: pointer;
   color: #333;
   transition: background 0.2s;
@@ -302,27 +303,29 @@ li {
 
 .arrow {
   width: 1.2rem;
-  font-size: large;
-  font-weight: 400;
+  font-size: 1.4rem;
+  font-weight: 100;
   padding-bottom: 3px;
-  color: #054352a2;
+  margin-right: 4px;
+  color: #082a4662;
 }
 
 .function-list {
   list-style: none;
   margin-top: 0;
   margin-bottom: 0.5rem;
-  margin-left: 18px;
+  margin-left: 13px;
   padding-left: 0.5rem;
   border-left: 1.5px solid #d9e4e8;
 }
 
 .nav-item a {
   text-decoration: none;
-  color: #333;
-  font-size: 0.85rem;
+  color: #33333398;
+  font-size: 0.95rem;
+  font-weight: 400;
   margin: 0.25rem 0 0 0;
-  padding: 0.2rem;
+  padding: 0.1rem;
   border-radius: 6px;
   display: block;
   white-space: nowrap;
@@ -337,7 +340,6 @@ li {
 }
 
 .nav-item.active a {
-  background-color: #d9e4e8;
   color: #418796;
   font-weight: 500;
 }

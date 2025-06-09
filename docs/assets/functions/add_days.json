@@ -17,10 +17,8 @@
     }
   ],
   "examples": [
-    "ADD_DAYS(DATE(2024, 8, 8), 4)\n-- Adds 4 days to August 8, 2024\n-- Returns 2024-08-12",
-    "ADD_DAYS(TO_DATE(\"2024-08-08\"), -3)\n-- Subtracts 3 days from August 8, 2024\n-- Returns 2024-08-05",
-    "ADD_DAYS(StartDate, 5)\n-- Adds 5 days to the value in 'StartDate'",
-    "ADD_DAYS(TO_DATETIME(\"2024-08-08T10:30:00.000Z\"), 2)\n-- Uses a datetime as the start date\n-- Returns 2024-08-10T10:30:00.000Z"
+    "ADD_DAYS(DATE(2024, 8, 8), 4)\n-- Adds 4 days to 2024-08-08\n-- Returns 2024-08-12",
+    "ADD_DAYS(NOW(), -3)\n-- Subtracts 3 days from NOW()"
   ],
   "tips": [
     {
@@ -29,7 +27,7 @@
     }
   ],
   "relatedFormulas": [
-    "TO_DATE",
-    "TO_DATETIME"
+    "DATE",
+    "NOW"
   ]
 }
