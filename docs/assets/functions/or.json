@@ -12,8 +12,8 @@
   ],
   "examples": [
     "OR(TRUE, TRUE, TRUE)\n-- Returns TRUE",
-    "OR(TRUE, FALSE)\n-- Retuens TRUE",
-    "OR(FALSE, FALSE)\n-- Retuens FALSE",
+    "OR(TRUE, FALSE)\n-- Returns TRUE",
+    "OR(FALSE, FALSE)\n-- Returns FALSE",
     "OR(5 < 3, 10 == 10, \"A\" == \"B\")\n-- Returns TRUE"
   ],
   "tips": [

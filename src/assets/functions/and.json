@@ -11,9 +11,8 @@
     }
   ],
   "examples": [
-    "AND(TRUE, TRUE, TRUE)\n-- Returns TRUE",
-    "AND(TRUE, FALSE)\n-- Retuens FALSE",
-    "AND(5 > 3, 10 == 10, \"A\" == \"A\")\n-- Returns TRUE"
+    "AND(5 > 3, 10 == 10)\n-- Returns TRUE",
+    "AND(5 < 3, 10 == 10)\n-- Returns FALSE"
   ],
   "tips": [
     {
