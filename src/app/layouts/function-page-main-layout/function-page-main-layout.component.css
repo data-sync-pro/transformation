@@ -148,7 +148,7 @@
 .sidebar-collapse-button {
   position: absolute;
   top: 17px;
-  left: 250px;
+  left: 255px;
   background: transparent;
   border: none;
   font-size: 1.5rem;
@@ -321,8 +321,9 @@ li {
 
 .nav-item a {
   text-decoration: none;
-  color: #33333398;
-  font-size: 0.95rem;
+  color: #555555d5;
+  /* rgb(var(--tint-12)/.64); */
+  font-size: 0.75rem;
   font-weight: 400;
   margin: 0.25rem 0 0 0;
   padding: 0.1rem;
@@ -336,10 +337,12 @@ li {
 }
 
 .nav-item a:hover {
-  background-color: #d9e4e8;
+  background-color: #eeededd1;
 }
 
 .nav-item.active a {
-  color: #418796;
+  color: #418796; 
   font-weight: 500;
+  background-color: #eeededd1;
+
 }
