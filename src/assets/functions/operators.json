@@ -21,6 +21,11 @@
         "operator": "/",
         "name": "Divide",
         "description": "Calculates the quotient of two numbers."
+      },
+      {
+        "operator": "%",
+        "name": "Mod",
+        "description": "Calculates the remainder of two numbers."
       }
     ],
     "Comparison Operators": [
