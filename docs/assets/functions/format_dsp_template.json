@@ -11,8 +11,7 @@
     }
   ],
   "examples": [
-    "FORMAT_DSP_TEMPLATE(\"{FirstName}\")  \n-- Returns the value of the FirstName field from the current context.  \n-- For example, if FirstName = \"Jordan\", it returns \"Jordan\".",
-    "FORMAT_DSP_TEMPLATE(\"The stage of the latest opportunity is {VLOOKUP(\\\"Opportunity\\\", \\\"StageName\\\", \\\"AccountId\\\", Id)}\")\n-- Parses and formats the string by resolving the VLOOKUP expression inside the template.\n-- For example, if the current record's Id matches an Opportunity with StageName = \"Negotiation\", it returns:\n-- \"The stage of the latest opportunity is Negotiation\""
+    "FORMAT_DSP_TEMPLATE(\"Dear {VLOOKUP('OpportunityContactRole', 'Contact.Name', 'OpportunityId', Id,'IsPrimary = TRUE')}, \n\nWe are pleased to inform you that your Account: {Account.Name} has an Opportunity currently at the stage: {StageName}.\n\nFeel free to reach out if you have any questions.\n\nBest regards,   \nSales Team\")\n\n/***********************Returns********************** \nDear Kristin Stanton, \n\nWe are pleased to inform you that your Account: Owens LLC has an Opportunity currently at the stage: Prospecting. \n\nFeel free to reach out if you have any questions. \n\nBest regards, \nSales Team\n****************************************************/"
   ],
   "tips": [],
   "relatedFormulas": ["VLOOKUP"]

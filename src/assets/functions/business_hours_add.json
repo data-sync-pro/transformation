@@ -23,9 +23,11 @@
     }
   ],
   "examples": [
-    "BUSINESS_HOURS_ADD(TO_DATETIME(\"2002-10-09T09:00:00Z\"), 7200000)\n-- Adds 7,200,000 milliseconds (2 hours) to the datetime \"2002-10-09T09:00:00Z\" \n-- using the default Business Hours.\n-- Returns 2002-10-09T11:00:00.000Z, assuming the entire duration falls within working hours.",
-    "BUSINESS_HOURS_ADD(NOW(), -7200000, \"CustomSchedule\")\n-- Substracts 7,200,000 milliseconds (equivalent to 2 hours) from now according to the 'CustomSchedule'."
+    "BUSINESS_HOURS_ADD(CreatedDate, 8 * 60 * 60 * 1000)\n-- Returns a datetime 8 business hours after CreatedDate",
+    "BUSINESS_HOURS_ADD(TO_DATETIME(ClosedDate), -5 * 8 * 60 * 60 * 1000, \"Weekday9to5\" )\n-- Returns a datetime 5 business days before ClosedDate, based on the Weekday9to5 business hours"
   ],
   "tips": [],
-  "relatedFormulas": []
+  "relatedFormulas": [
+    "TO_DATETIME"
+  ]
 }
