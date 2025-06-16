@@ -7,7 +7,7 @@
       "name": "date/datetime",
       "type": "Date/Datetime",
       "required": "Yes",
-      "description": "The date or datetime to extract the month from."
+      "description": "The Date or Datetime to extract the month from."
     }
   ],
   "examples": [
