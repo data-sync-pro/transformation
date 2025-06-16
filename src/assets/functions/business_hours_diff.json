@@ -1,6 +1,6 @@
 {
   "title": "BUSINESS_HOURS_DIFF",
-  "description": "<p>Calculates the difference in milliseconds between two datetime values within Business Hours. Uses the default schedule if none is provided.</p>",
+  "description": "<p>Calculates the difference in milliseconds between two Datetime values within Business Hours. Uses the default schedule if none is provided.</p>",
   "syntax": "BUSINESS_HOURS_DIFF(start_date, end_date, business_hours_name_optional) -> Long",
   "parameters": [
     {

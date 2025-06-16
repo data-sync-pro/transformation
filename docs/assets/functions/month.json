@@ -1,13 +1,13 @@
 {
   "title": "MONTH",
-  "description": "<p>Returns the month component (1=January) from a Date or Datetime, evaluated in the context user's local time zone.</p>",
+  "description": "<p>Returns the month component (1=January) from a Date or , evaluated in the context user's local time zone.</p>",
   "syntax": "MONTH(date/datetime) -> Integer",
   "parameters": [
     {
       "name": "date/datetime",
       "type": "Date/Datetime",
       "required": "Yes",
-      "description": "The date or datetime to extract the month from."
+      "description": "The Date or Datetime to extract the month from."
     }
   ],
   "examples": [

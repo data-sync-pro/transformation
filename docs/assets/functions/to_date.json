@@ -1,6 +1,6 @@
 {
   "title": "TO_DATE",
-  "description": "<p>Converts a given value into a Date. Acceptable inputs include strings representing dates, Datetime values. If the input cannot be converted, the function returns an error.</p>",
+  "description": "<p>Converts a given value into a Date. Acceptable inputs include strings representing dates, datetime values. If the input cannot be converted, the function returns an error.</p>",
   "syntax": "TO_DATE(string/datetime) -> Date",
   "parameters": [
     {

@@ -24,7 +24,7 @@
   ],
   "examples": [
     "FORMAT_DATETIME(TO_DATETIME(\"2025-03-09T15:30:00\"))\n-- Returns a default ISO-formatted string, adjusted to the context user's local time zone.",
-    "FORMAT_DATETIME(NOW(), \"YYYY-MM-dd hh:mm:ss\", \"UTC\")\n-- Provides a printed datetime with the defined format as an example here."
+    "FORMAT_DATETIME(NOW(), \"YYYY-MM-dd hh:mm:ss\", \"UTC\")\n-- Provides a printed Datetime with the defined format as an example here."
   ],
   "tips": [
     {
