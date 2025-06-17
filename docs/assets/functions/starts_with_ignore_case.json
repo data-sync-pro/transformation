@@ -13,12 +13,12 @@
       "name": "… compare_strings",
       "type": "String",
       "required": "Yes",
-      "description": "Strings to compare against the start of the source string. case-insensitive."
+      "description": "Strings to compare against the start of the source string."
     }
   ],
   "examples": [
-    "STARTS_WITH_IGNORE_CASE(\"Hello World\", \"Hello\", \"He\")\n-- Returns TRUE(case-insensitive)",
-    "STARTS_WITH_IGNORE_CASE(\"Hello World\", \"hello\", \"he\")\n-- Returns TRUE(case-insensitive)",
+    "STARTS_WITH_IGNORE_CASE(\"Hello World\", \"Hello\", \"He\")\n-- Returns TRUE",
+    "STARTS_WITH_IGNORE_CASE(\"Hello World\", \"hello\", \"he\")\n-- Returns TRUE",
     "STARTS_WITH_IGNORE_CASE(\"Hello\", \"\")\n-- Returns TRUE",
     "IF(STARTS_WITH_IGNORE_CASE(Product_type__c, \"icu\"), \"Medical\", \"Technical\")\n-- Checks whether the value in the Product_type__c field starts with \"icu\", ignoring case.\n-- Returns \"Medical\" if it does; otherwise, returns \"Technical\"."
   ],

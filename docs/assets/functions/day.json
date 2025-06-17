@@ -11,12 +11,10 @@
     }
   ],
   "examples": [
-    "DAY(DATE(2024, 1, 25))\n-- Returns 25",
-    "DAY(TO_DATETIME(\"2024-08-15T14:45:00.000Z\"))\n-- Returns 15"
+    "DAY(DATE(2024, 1, 25))\n-- Returns 25"
   ],
   "tips": [],
   "relatedFormulas": [
-    "DATE",
-    "TO_DATETIME"
+    "DATE"
   ]
 }

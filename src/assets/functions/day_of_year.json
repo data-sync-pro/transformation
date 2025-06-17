@@ -1,6 +1,6 @@
 {
   "title": "DAY_OF_YEAR",
-  "description": "Returns the day number within the year for a given date, ranging from 1 (January 1) to 365 or 366.",
+  "description": "Returns the day number within the year for a given date, ranging from 1 to 365 or 366.",
   "syntax": "DAY_OF_YEAR(date) -> Integer",
   "parameters": [
     {

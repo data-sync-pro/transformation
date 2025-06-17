@@ -19,7 +19,7 @@
   "examples": [
     "DAYS_BETWEEN(DATE(2024, 1, 1), DATE(2024, 1, 10))\n-- Returns 9",
     "DAYS_BETWEEN(DATE(2024, 1, 10), DATE(2024, 1, 1))\n-- Returns -9",
-    "DAYS_BETWEEN(Birthdate__c, TODAY())\n-- Returns the number of days between the field 'Birthdate__c' and today's date"
+    "DAYS_BETWEEN(CloseDate, TODAY())\n-- Returns the number of days until (positive) or since (negative) the close date"
   ],
   "tips": [],
   "relatedFormulas": [

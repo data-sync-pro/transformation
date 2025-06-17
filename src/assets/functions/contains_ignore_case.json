@@ -17,12 +17,11 @@
     }
   ],
   "examples": [
-    "CONTAINS_IGNORE_CASE(\"Annual Financial Review 2024\", \"Quarterly\", \"financial\")\n-- Returns TRUE because \"financial\" is present in the text, regardless of case.",
-    "CONTAINS_IGNORE_CASE(\"Annual Financial Review 2024\", \"Quarterly\", \"2025\")\n-- Returns FALSE  because the text does not contain \"Quarterly\" or \"2025\"",
-    "IF(CONTAINS_IGNORE_CASE(Product_Type__c, \"part\"), \"Parts\", \"Service\")\n-- Returns \"Parts\" if Product_Type__c contains \"part\" in any case; otherwise, returns \"Service\"."
+    "CONTAINS_IGNORE_CASE(\"Annual Financial Review 2024\", \"Quarterly\", \"financial\")\n-- Returns TRUE (\"financial\" matches, ignoring case)",
+    "CONTAINS_IGNORE_CASE(\"Annual Financial Review 2024\", \"Quarterly\", \"2025\")\n-- Returns FALSE (no matching substring found)",
+    "CONTAINS_IGNORE_CASE(Subject, \"Urgent\", \"ASAP\")\n-- Returns TRUE if Subject includes \"Urgent\" or \"ASAP\", ignoring case"
   ],
   "tips": [],
   "relatedFormulas": [
-    "IF"
   ]
 }
