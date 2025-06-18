@@ -17,9 +17,8 @@
     }
   ],
   "examples": [
-    "CONTAINS(\"Quarterly Financial Report 2024\", \"Quarterly\", \"financial\")\n-- Returns TRUE (\"Quarterly\" matches exactly)",
-    "CONTAINS(\"Quarterly Financial Report 2024\", \"quarterly\", \"financial\")\n-- Returns FALSE (no exact case-sensitive match)",
-    "CONTAINS(Subject, \"Urgent\", \"ASAP\")\n-- TRUE if Subject includes \"Urgent\" or \"ASAP\""
+    "CONTAINS(\"Quarterly Financial Report 2024\", \"quarterly\", \"financial\")\n-- Returns FALSE (no match, case-sensitive).",
+    "CONTAINS(Subject, \"Urgent\", \"ASAP\")\n-- Returns TRUE if matches \"Urgent\" or \"ASAP\". Otherwise, returns FALSE."
   ],
   "tips": [],
   "relatedFormulas": [
