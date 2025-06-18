@@ -17,8 +17,7 @@
     }
   ],
   "examples": [
-    "ENDS_WITH(\"Salesforce Platform\", \"Platform\", \"Plat\") \n-- Returns TRUE",
-    "ENDS_WITH(\"Salesforce Platform\", \"platform\", \"Plat\") \n-- Returns FALSE",
+    "ENDS_WITH(\"Salesforce Platform\", \"platform\", \"Plat\") \n-- Returns FALSE (case-sensitive).",
     "ENDS_WITH(Website, \".org\")\n-- Returns TRUE if the Website ends with \".org\"; otherwise, returns FALSE."
   ],
   "tips": [],
