@@ -1,6 +1,6 @@
 {
   "title": "IF",
-  "description": "<p>Evaluates a logical test and returns a specified value based on the outcome. Returns value_if_true if logical_test evaluates to TRUE; If the condition is FALSE, it returns value_if_false_optional if provided; otherwise, it returns $SKIP_ASSIGNMENT.</p>",
+  "description": "<p>Evaluates a logical condition. If TRUE, returns value_if_true. If FALSE, returns value_if_false_optional (if provided); otherwise returns $SKIP_ASSIGNMENT.</p>",
   "syntax": "IF(...[logical_test, value_if_true], value_if_false_optional) -> Object",
   "parameters": [
     {
