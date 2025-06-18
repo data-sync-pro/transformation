@@ -1,6 +1,6 @@
 {
   "title": "TO_DATE",
-  "description": "<p>Converts a given value into a Date. Acceptable inputs include strings representing dates, datetime values. If the input cannot be converted, the function returns an error.</p>",
+  "description": "<p>Converts a given value into a Date. Acceptable inputs include strings representing Dates, Datetime values. If the input cannot be converted, the function returns an error.</p>",
   "syntax": "TO_DATE(string/datetime) -> Date",
   "parameters": [
     {
@@ -12,7 +12,7 @@
   ],
   "examples": [
     "TO_DATE(\"2005-11-15\")\n-- Returns November 15, 2005 as a date value",
-    "TO_DATE(NOW())\n-- Returns today's date by extracting the date portion from the current datetime.",
+    "TO_DATE(NOW())\n-- Returns today's date by extracting the date portion from the current Datetime.",
     "IF(TO_DATE(Invoice_Date__c) < TODAY(), \"Overdue\", \"Upcoming\")\n-- Converts the text field 'Invoice_Date__c' into a Date value and compares it with today's date\n-- If the invoice date is earlier than today, the formula returns \"Overdue\"; otherwise, it returns \"Upcoming\"."
   ],
   "tips": [

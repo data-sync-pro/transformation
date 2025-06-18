@@ -23,7 +23,7 @@
     }
   ],
   "examples": [
-    "FORMAT_DATETIME(NOW(), \"YYYY-MM-dd hh:mm:ss\", \"UTC\")\n-- Returns the current datetime as a string in UTC formatted as 'YYYY-MM-dd hh:mm:ss'."
+    "FORMAT_DATETIME(NOW(), \"YYYY-MM-dd hh:mm:ss\", \"UTC\")\n-- Returns the current Datetime as a string in UTC formatted as 'YYYY-MM-dd hh:mm:ss'."
   ],
   "tips": [
     {

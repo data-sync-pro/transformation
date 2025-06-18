@@ -1,6 +1,6 @@
 {
   "title": "TO_DATETIME",
-  "description": "<p>Converts a string representing a datetime into a Datetime. If the string cannot be converted, an error is thrown.</p>",
+  "description": "<p>Converts a string representing a Datetime into a Datetime. If the string cannot be converted, an error is thrown.</p>",
   "syntax": "TO_DATETIME(string) -> Datetime",
   "parameters": [
     {
