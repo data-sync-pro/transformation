@@ -1,6 +1,6 @@
 {
   "title": "BUSINESS_HOURS_IS_WITHIN",
-  "description": "<p>Returns TRUE if the specified datetime is within defined business hours.</p>",
+  "description": "<p>Returns TRUE if the specified Datetime is within defined business hours.</p>",
   "syntax": "BUSINESS_HOURS_IS_WITHIN(target_date, business_hours_name_optional) -> Boolean",
   "parameters": [
     {
