@@ -1,6 +1,6 @@
 {
   "title": "BUSINESS_HOURS_ADD",
-  "description": "<p>Adds a time interval to a starting Datetime, counting only Business Hours. Returns the resulting Datetime in UTC.</p>",
+  "description": "<p>Adds a time interval to a starting Datetime, counting only business hours. Returns the resulting Datetime in UTC.</p>",
   "syntax": "BUSINESS_HOURS_ADD(start_date, interval_milliseconds, business_hours_name_optional) -> Datetime",
   "parameters": [
     {
@@ -19,7 +19,7 @@
       "name": "business_hours_name_optional",
       "type": "String",
       "required": "Optional",
-      "description": "The name of the Business Hours. If omitted, the default schedule is applied."
+      "description": "The name of the business hours. If omitted, the default schedule is applied."
     }
   ],
   "examples": [

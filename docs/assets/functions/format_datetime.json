@@ -1,6 +1,6 @@
 {
   "title": "FORMAT_DATETIME",
-  "description": "<p>Formats a Date or Datetime as a string. An optional format pattern can be provided; if omitted, a default format is used. An optional time zone can also be specified; if omitted, the context user's local time zone is applied.</p>",
+  "description": "<p>Formats a Date or Datetime as a string.</p>",
   "syntax": "FORMAT_DATETIME(date/datetime, format_string_optional, timezone_optional) -> String",
   "parameters": [
     {
@@ -23,8 +23,7 @@
     }
   ],
   "examples": [
-    "FORMAT_DATETIME(TO_DATETIME(\"2025-03-09T15:30:00\"))\n-- Returns a default ISO-formatted string, adjusted to the context user's local time zone.",
-    "FORMAT_DATETIME(NOW(), \"YYYY-MM-dd hh:mm:ss\", \"UTC\")\n-- Provides a printed Datetime with the defined format as an example here."
+    "FORMAT_DATETIME(NOW(), \"YYYY-MM-dd hh:mm:ss\", \"UTC\")\n-- Returns the current datetime as a string in UTC formatted as 'YYYY-MM-dd hh:mm:ss'."
   ],
   "tips": [
     {
@@ -33,7 +32,6 @@
     }
   ],
   "relatedFormulas": [
-    "TO_DATETIME",
     "NOW"
   ]
 }

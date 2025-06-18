@@ -7,7 +7,7 @@
       "name": "string",
       "type": "String",
       "required": "Yes",
-      "description": "The source string to search within."
+      "description": "The source string to evaluate."
     },
     {
       "name": "… compare_string",
@@ -17,12 +17,10 @@
     }
   ],
   "examples": [
-    "ENDS_WITH(\"Salesforce Platform\", \"Platform\", \"Plat\") \n-- Returns TRUE(case-sensitive)",
-    "ENDS_WITH(\"Salesforce Platform\", \"platform\", \"Plat\") \n-- Returns FALSE(case-sensitive)",
-    "IF(ENDS_WITH(Product_type__c, \"ICU\"), \"Medical\", \"Technical\")\n-- Returns \"Medical\" if Product_type__c ends with \"ICU\"; otherwise, returns \"Technical\"."
+    "ENDS_WITH(\"Salesforce Platform\", \"platform\", \"Plat\") \n-- Returns FALSE (case-sensitive).",
+    "ENDS_WITH(Website, \".org\")\n-- Returns TRUE if the Website ends with \".org\"; otherwise, returns FALSE."
   ],
   "tips": [],
   "relatedFormulas": [
-    "IF"
   ]
 }

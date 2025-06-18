@@ -17,8 +17,8 @@
     }
   ],
   "examples": [
-    "ERROR(\n    \"Input must be a number\", NOT(IS_NUMERIC(input)),\n    \"Input must be greater than zero\", input <= 0\n)\n-- First pair: Raises an error if input is not a number.\n-- Second pair: Raises an error if input is less than or equal to zero.",
-    "ERROR(\"Invalid input\")\n-- throw an exception with the message \"Invalid input\" without a condition."
+    "ERROR(\n    \"Amount must be a number\", NOT(IS_NUMERIC(Amount)),\n    \"Amount must be greater than zero\", Amount <= 0\n)\n-- First pair: Raises an error if Amount is not a number.\n-- Second pair: Raises an error if Amount is less than or equal to zero.",
+    "ERROR(\"Invalid\")\n-- Throw an exception with the message \"Invalid\" without a condition."
   ],
   "tips": [],
   "relatedFormulas": [
