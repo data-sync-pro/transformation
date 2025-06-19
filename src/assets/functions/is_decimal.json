@@ -1,6 +1,6 @@
 {
   "title": "IS_DECIMAL",
-  "description": "<p>Returns TRUE if the provided string represents a valid decimal number; otherwise, returns FALSE.</p>",
+  "description": "<p>Returns TRUE if the string represents a valid decimal number; otherwise, returns FALSE.</p>",
   "syntax": "IS_DECIMAL(string) -> Boolean",
   "parameters": [
     {
@@ -11,11 +11,8 @@
     }
   ],
   "examples": [
-    "IS_DECIMAL(\"123\")\n-- Returns TRUE",
-    "IS_DECIMAL(\"123.45\")\n-- Returns TRUE",
-    "IS_DECIMAL(\"-0.001\")\n-- Returns TRUE",
-    "IS_DECIMAL(\"abc\")\n-- Returns FALSE",
-    "IS_DECIMAL(\"\")\n-- Returns FALSE"
+    "IS_DECIMAL(\"2500.75\")\n-- Returns TRUE",
+    "IS_DECIMAL(\"1,250.00\")\n-- Returns FALSE (contains a comma)"
   ],
   "tips": [
     {

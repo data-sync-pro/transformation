@@ -1,6 +1,6 @@
 {
   "title": "IS_ALPHA",
-  "description": "<p>Returns TRUE if the provided string contains only alphabetic characters (A-Z, a-z); otherwise, returns FALSE.</p>",
+  "description": "<p>Returns TRUE if the string contains only alphabetic characters; otherwise, returns FALSE.</p>",
   "syntax": "IS_ALPHA(string) -> Boolean",
   "parameters": [
     {
@@ -11,10 +11,8 @@
     }
   ],
   "examples": [
-    "IS_ALPHA(\"HelloWorld\")\n-- Returns TRUE",
-    "IS_ALPHA(\"Hello World\")\n-- Returns FALSE, as it contains a space",
-    "IS_ALPHA(\"Hello123\")\n-- Returns FALSE, as it contains numbers",
-    "IS_ALPHA(\"\")\n-- Returns FALSE"
+    "IS_ALPHA(\"JohnSmith\")\n-- Returns TRUE",
+    "IS_ALPHA(\"John_Smith\")\n-- Returns FALSE (contains non-alphabetical characters)"
   ],
   "tips": [ 
   {
