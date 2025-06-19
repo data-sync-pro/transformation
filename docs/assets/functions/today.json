@@ -1,0 +1,20 @@
+{
+  "title": "TODAY",
+  "description": "<p>Returns the current date in the context user's local time zone.</p>",
+  "syntax": "TODAY() -> Date",
+  "parameters": [],
+  "examples": [
+    "TODAY()\n-- Returns the current date",
+    "DAYS_BETWEEN(TODAY(), Sample_date_c)\n-- Returns the number of days between today's date and the field 'Sample_date_c'"
+  ],
+  "tips": [
+    {
+      "text": "<p>Use the NOW function if you prefer a Datetime value.</p>",
+      "children": []
+    }
+  ],
+  "relatedFormulas": [
+    "NOW",
+    "DAYS_BETWEEN"
+  ]
+}

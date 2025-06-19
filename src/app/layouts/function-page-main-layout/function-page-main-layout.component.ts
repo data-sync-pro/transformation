@@ -1,8 +1,12 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router, NavigationEnd } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
+import { filter, takeUntil } from 'rxjs/operators';
 import { BreadcrumbItem } from 'src/app/shared/breadcrumb/breadcrumb.component';
+import { Subject, Subscription } from 'rxjs';
+import { SidebarService } from 'src/app/services/sidebar.service';
+import { buildRoute } from 'src/app/utils/route.util';
+import { LayoutService } from '../../services/layout.service';
 
 interface FunctionItem {
   'Item Name': string;
@@ -14,46 +18,69 @@ interface FunctionCategory {
   expanded: boolean;
   functions: { name: string; route: string }[];
 }
-
+const SPECIAL_ROUTES: Record<string, string> = {
+  Home: 'home',   
+  Operators: 'operators',
+  'Global Variables': 'global_variables',
+  'Apex Class': 'apex_class',
+};
 @Component({
   selector: 'app-function-page-main-layout',
   templateUrl: './function-page-main-layout.component.html',
   styleUrls: ['./function-page-main-layout.component.css'],
 })
-export class FunctionPageMainLayoutComponent implements OnInit {
+export class FunctionPageMainLayoutComponent implements OnInit, OnDestroy {
   isSearchOpen = false;
-  isSidebarCollapsed = false;
+  collapsed$ = this.layout.collapsed$;
+  private destroy$ = new Subject<void>();
   showSidebar = false;
-  operatorArrowLeft = false;
-  globalVariableArrowLeft = false;
-  breadcrumbs: BreadcrumbItem[] = [{ label: 'Home', link: '/' }];
-  placeholderText = '';
+  operatorExpand = false;
+  globalVariableExpand = false;
+  apexClassExpand = false;
+  //breadcrumbs: BreadcrumbItem[] = [{ label: 'HOME', link: '/' }];
 
   functionCategories: FunctionCategory[] = [];
-
-  constructor(private http: HttpClient, private router: Router) {}
+  routerSubscription!: Subscription;
+  constructor(
+    private http: HttpClient,
+    public router: Router,
+    private route: ActivatedRoute,
+    private sidebarService: SidebarService,
+    private layout: LayoutService
+  ) {}
 
   ngOnInit() {
+    this.route.queryParams
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((params) => {
+        if (params['activeCategory']) {
+          this.sidebarService.setActiveCategory(params['activeCategory']);
+        }
+      });
+
     this.http.get<FunctionItem[]>('assets/data/tags.json').subscribe((data) => {
       this.groupFunctionsByTags(data);
-      this.updateBreadcrumbs();
+      //this.updateBreadcrumbs();
+      this.updateActiveCategory();
     });
 
     this.router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
+      .pipe(
+        filter((event) => event instanceof NavigationEnd),
+        takeUntil(this.destroy$)
+      )
       .subscribe(() => {
-        this.updateBreadcrumbs();
+        //this.updateBreadcrumbs();
+        this.updateActiveCategory();
       });
+  }
 
-    this.updatePlaceholder(); // Set initial placeholder
-    window.addEventListener('resize', this.updatePlaceholder.bind(this));
-  }
-  updatePlaceholder() {
-    this.placeholderText = window.innerWidth < 768 ? 'Search...' : 'Search functions...';
-  }
-  
   ngOnDestroy() {
-    window.removeEventListener('resize', this.updatePlaceholder.bind(this));
+    this.destroy$.next();
+    this.destroy$.complete();
+    if (this.routerSubscription) {
+      this.routerSubscription.unsubscribe();
+    }
   }
 
   groupFunctionsByTags(functionItems: FunctionItem[]) {
@@ -67,29 +94,36 @@ export class FunctionPageMainLayoutComponent implements OnInit {
         // Create a route based on the function name
         tagMap[tag].push({
           name: item['Item Name'],
-          route: item['Item Name'].toLowerCase(),
+          route: buildRoute(item['Item Name']),
         });
       });
     });
 
-    // Transform the map into an array for the sidebar
     this.functionCategories = Object.keys(tagMap).map((tag) => ({
       name: tag,
-      expanded: false, // You can set default expanded state here
-      functions: tagMap[tag],
+      expanded: false,
+      functions: tagMap[tag].sort((a, b) => {
+        const aName = a.name.toLowerCase();
+        const bName = b.name.toLowerCase();
+        const aDollar = aName.startsWith('$');
+        const bDollar = bName.startsWith('$');
+        if (aDollar && !bDollar) return 1;
+        if (!aDollar && bDollar) return -1;
+
+        return aName.localeCompare(bName);
+      }),
     }));
 
     const TAG_ORDER = [
-      'Date & Time',
-      'Time',
       'Text',
-      'Number',
       'Logical',
-      'Trigger',
-      'Type Processing',
-      'Randomization',
+      'Number',
+      'Date & Time',
       'Operators',
       'Global Variables',
+      'Randomization',
+      'Type Processing',
+      'Trigger',
       'Advanced',
     ];
 
@@ -101,53 +135,54 @@ export class FunctionPageMainLayoutComponent implements OnInit {
         (indexB === -1 ? Infinity : indexB)
       );
     });
+
+     this.functionCategories.unshift({
+      name: 'Home',
+      expanded: false,
+      functions: [],
+    });
   }
 
-  updateBreadcrumbs() {
-    // Split the current URL to extract the function route.
-    // For example, if URL is '/docs/add_days', then funcRoute is 'add_days'
-    const urlParts = this.router.url.split('/');
-    const funcRoute = urlParts[2];
+  // updateBreadcrumbs() {
+  //   // Extract the function route from the URL (e.g., '/docs/add_days')
+  //   const urlParts = this.router.url.split('/');
+  //   const funcRoute = urlParts[2].split('?')[0]; // Get the route part before any query params
 
-    if (funcRoute) {
-      let foundFunction: { name: string } | undefined;
-      // Search through all function categories to find the function that matches the URL route.
-      if (funcRoute === 'global_variables') {
-        foundFunction = { name: 'Global Variables' };
-      } else if (funcRoute === 'apex%20class') {
-        foundFunction = { name: 'Apex Class' };
-      } else {
-        for (const category of this.functionCategories) {
-          const match = category.functions.find((fn) => fn.route === funcRoute);
-          if (match) {
-            foundFunction = match;
-            break;
-          }
-        }
-      }
-      {
-        console.log('foundFunction', foundFunction);
-      }
-      // If a matching function is found, update or add it as the second breadcrumb.
-      if (foundFunction) {
-        if (this.breadcrumbs.length === 1) {
-          this.breadcrumbs.push({ label: foundFunction.name });
-        } else {
-          this.breadcrumbs[1] = { label: foundFunction.name };
-        }
-      } else {
-        // If no matching function is found, remove any existing function breadcrumb.
-        if (this.breadcrumbs.length > 1) {
-          this.breadcrumbs.splice(1);
-        }
-      }
-    } else {
-      // If the URL does not contain a function route, ensure only the "Home" breadcrumb is present.
-      if (this.breadcrumbs.length > 1) {
-        this.breadcrumbs.splice(1);
-      }
-    }
-  }
+  //   let functionName = '';
+  //   console.log('Function Route:', funcRoute);
+  //   if (funcRoute) {
+  //     if (funcRoute === 'global_variables') {
+  //       functionName = 'Global Variables';
+  //     } else if (funcRoute === 'apex_class') {
+  //       functionName = 'Apex Class';
+  //     } else if (funcRoute === 'aggregate_general') {
+  //       functionName = 'Aggregate General';
+  //     } else {
+  //       // Loop through your function categories to find the matching function.
+  //       for (const category of this.functionCategories) {
+  //         const match = category.functions.find((fn) => fn.route === funcRoute);
+  //         if (match) {
+  //           functionName = match.name;
+  //           break;
+  //         }
+  //       }
+  //     }
+  //   }
+  //   // Update the breadcrumb:
+  //   // If a function name is found, add or update the second breadcrumb.
+  //   if (functionName) {
+  //     if (this.breadcrumbs.length === 1) {
+  //       this.breadcrumbs.push({ label: functionName });
+  //     } else {
+  //       this.breadcrumbs[1] = { label: functionName };
+  //     }
+  //   } else {
+  //     // If no matching function is found, remove any existing function breadcrumb.
+  //     if (this.breadcrumbs.length > 1) {
+  //       this.breadcrumbs.splice(1);
+  //     }
+  //   }
+  // }
 
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
@@ -173,36 +208,54 @@ export class FunctionPageMainLayoutComponent implements OnInit {
     this.isSearchOpen = false;
   }
 
-  toggleCategory(category: any) {
-    if (category.name === 'Operators') {
-      this.operatorArrowLeft = true;
-      this.router.navigate(['/docs/operators']);
-      this.globalVariableArrowLeft = false;
-    } else if (category.name === 'Global Variables') {
-      this.globalVariableArrowLeft = true;
-      this.router.navigate(['/docs', 'global_variables']);
-      this.operatorArrowLeft = false;
-    } else {
-      this.operatorArrowLeft = false;
-      this.globalVariableArrowLeft = false;
-      category.expanded = !category.expanded;
+  toggleCategory(category: FunctionCategory): void {
+    const target = SPECIAL_ROUTES[category.name];
+    console.log('Toggling category:', category.name, 'Target route:', target);
+    if (target) {
+      this.sidebarService.setActiveCategory('');
+      category.expanded = true;
+      this.router.navigate(['/docs', target]);
+      return;
     }
+
+    category.expanded = !category.expanded;
   }
+
   toggleSidebar() {
-    if (window.innerWidth < 1070) {
-      this.showSidebar = !this.showSidebar;
-    } else {
-      this.isSidebarCollapsed = !this.isSidebarCollapsed;
-    }
+    this.layout.toggle();
   }
 
+  closeSidebar() {
+    this.showSidebar = false;
+  }
 
-closeSidebar() {
-  this.showSidebar = false;
-}
-
-  resetOperatorsArrow() {
-    this.operatorArrowLeft = false;
+  updateActiveCategory() {
+    const urlSegments = this.router.url.split('/');
+    console.log('URL Segments:', urlSegments);
+    const activeRoute = urlSegments[2];
+    console.log('Active Route:', activeRoute);
+    this.sidebarService.activeCategory$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((activeCategory) => {
+        this.functionCategories.forEach((category) => {
+          if (category.name === 'Home') {
+            category.expanded = activeRoute === '' || activeRoute === 'home';
+          } else if (category.name === 'Operators') {
+            this.operatorExpand = activeRoute === 'operators';
+          } else if (category.name === 'Global Variables') {
+            this.globalVariableExpand = activeRoute === 'global_variables';
+          } else if (category.name === 'Apex Class') {
+            this.apexClassExpand = activeRoute === 'apex_class';
+          } else {
+            if (activeCategory) {
+              category.expanded = category.name === activeCategory;
+            } else {
+              category.expanded = category.functions.some(
+                (fn) => fn.route === activeRoute
+              );
+            }
+          }
+        });
+      });
   }
 }
-

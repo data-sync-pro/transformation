@@ -5,19 +5,26 @@ import { DocViewerComponent } from './docs/doc-viewer/doc-viewer.component';
 import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/docs', pathMatch: 'full' },
+  { path: '', redirectTo: 'docs', pathMatch: 'full' },
   {
     path: 'docs',
     component: FunctionPageMainLayoutComponent,
     children: [
-      { path: '', component: HomeComponent },
+      {path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'home', component: HomeComponent },
       { path: ':docName', component: DocViewerComponent }
     ],
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,
+    {
+      useHash:true,
+      scrollPositionRestoration: 'enabled',
+      anchorScrolling: 'enabled'
+    }
+  )],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

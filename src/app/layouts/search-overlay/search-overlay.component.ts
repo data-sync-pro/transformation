@@ -11,7 +11,8 @@ import {
 } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-
+import { buildRoute } from 'src/app/utils/route.util';
+import { SidebarService } from 'src/app/services/sidebar.service';
 @Component({
   selector: 'app-search-overlay',
   templateUrl: './search-overlay.component.html',
@@ -28,26 +29,78 @@ export class SearchOverlayComponent implements OnInit, OnChanges {
   suggestions: any[] = [];
   filteredSuggestions: any[] = [];
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router,private sidebarService: SidebarService) {}
+
 
   ngOnInit() {
     this.http.get<any[]>('assets/data/tags.json').subscribe((data) => {
       this.suggestions = data.map((item) => ({
         name: item['Item Name'],
         Tags: item['Tags'],
-        route: item['Item Name'].toLowerCase().replace(/\s+/g, '_'),
+        route: buildRoute(item['Item Name']),
       }));
 
-      const tagSet = new Set<string>();
-      this.suggestions.forEach((item) =>
-        item.Tags.forEach((tag: string) => tagSet.add(tag))
-      );
-      this.tags = Array.from(tagSet);
+      this.http
+        .get<any>('assets/data/global_variables.json')
+        .subscribe((gvData) => {
+          (gvData.globalVariables ?? gvData ?? []).forEach((gv: any) => {
+            this.suggestions.push({
+              name: gv.variable,
+              Tags: ['Global Variables'],
+              route: `global_variables`,
+            });
+          });
+
+          const tagSet = new Set<string>();
+          this.suggestions.forEach((item) =>
+            item.Tags.forEach((tag: string) => tagSet.add(tag))
+          );
+          this.tags = Array.from(tagSet);
+
+          const preferredOrder = [
+            'Text',
+            'Logical',
+            'Number',
+            'Date & Time',
+            'Operators',
+            'Global Variables',
+            'Randomization',
+            'Type Processing',
+            'Trigger',
+            'Advanced',
+          ];
+          this.tags.sort((a, b) => {
+            const aIndex = preferredOrder.indexOf(a);
+            const bIndex = preferredOrder.indexOf(b);
+
+            if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex;
+            if (aIndex === -1 && bIndex === -1) return a.localeCompare(b);
+            return aIndex === -1 ? 1 : -1;
+          });
+        });
     });
   }
 
   onSelectSuggestion(item: any) {
-    this.router.navigate(['/docs', item.route]);
+    const isGlobalVariableItem =
+    Array.isArray(item.Tags) && item.Tags.includes('Global Variables');
+
+    const isSpecialName =
+      item.name === 'OPERATORS' ||
+      item.name === 'APEX_CLASS';
+
+    if (isGlobalVariableItem) {
+      this.sidebarService.setActiveCategory('');              
+      this.router.navigate(['/docs', 'global_variables']);      
+    } else if (isSpecialName) {
+      this.sidebarService.setActiveCategory('');
+      this.router.navigate(['/docs', item.route]);
+    } else {
+      this.router.navigate(['/docs', item.route], {
+        queryParams: { activeCategory: item.Tags[0] },
+      });
+    }
+
     this.close();
   }
 
@@ -96,7 +149,7 @@ export class SearchOverlayComponent implements OnInit, OnChanges {
         if (aStarts && !bStarts) return -1;
         if (!aStarts && bStarts) return 1;
 
-        // If both or neither start with it, sort by index of match
+       
         return aName.indexOf(query) - bName.indexOf(query);
       }
       );
@@ -107,6 +160,17 @@ export class SearchOverlayComponent implements OnInit, OnChanges {
           this.selectedTags.length === 0 ||
           this.selectedTags.some((tag: string) => itemTags.includes(tag))
         );
+      })
+      .sort((a, b) => {
+        const aName = a.name.toLowerCase();
+        const bName = b.name.toLowerCase();
+
+        const aDollar = aName.startsWith('$');
+        const bDollar = bName.startsWith('$');
+        if (aDollar && !bDollar) return 1;
+        if (!aDollar && bDollar) return -1;
+
+        return aName.localeCompare(bName);
       });
     }
   }

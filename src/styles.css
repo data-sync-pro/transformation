@@ -1,20 +1,18 @@
 
+:root {
+  --el-font-family: 'Inter', -apple-system, BlinkMacSystemFont,
+                    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --el-font-mono:  'IBM Plex Mono', monospace;
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
   box-sizing: border-box;
-}
-
-
-
-
-body {
-  font-family: "ITC Avant Garde", system-ui, -apple-system, system-ui,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: var(--el-font-family);
   color: #333;
+  overflow-y: hidden;
 }
 
 h1 {
@@ -49,3 +47,25 @@ a {
   color: #418796;
   text-decoration: none;
 }
+
+a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.link-icon{
+  height: 14px;
+  width: 14px;
+}
+
+code {
+  background-color: #f5f5f5;
+  padding: 0.2em 0.4em;    
+  border-radius: 4px;    
+  font-family: var(--el-font-mono);   
+}
+
+/* .sidebar-collapsed .breadcrumb {
+  margin-left: 8.2vw !important; 
+  transition: margin-left .3s;
+} */

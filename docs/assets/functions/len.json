@@ -1,0 +1,19 @@
+{
+  "title": "LEN",
+  "description": "<p>Returns the number of characters in the provided string.</p>",
+  "syntax": "LEN(string) -> Integer",
+  "parameters": [
+    {
+      "name": "string",
+      "type": "String",
+      "required": "Yes",
+      "description": "The string to evaluate."
+    }
+  ],
+  "examples": [
+    "LEN(\"Hello World\")\n-- Returns: 11\n-- Spaces count as characters, so \"Hello World\" has 11 characters.",
+    "LEN(\"\")\n-- Returns: 0"
+  ],
+  "tips": [],
+  "relatedFormulas": []
+}

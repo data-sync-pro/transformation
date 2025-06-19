@@ -1,0 +1,23 @@
+{
+  "title": "IS_BLANK",
+  "description": "<p>Returns TRUE if the provided object is blank (NULL, empty, or contains only whitespace); otherwise, returns FALSE.</p>",
+  "syntax": "IS_BLANK(obj) -> Boolean",
+  "parameters": [
+    {
+      "name": "obj",
+      "type": "Object",
+      "required": "Yes",
+      "description": "The object to evaluate for a value."
+    }
+  ],
+  "examples": [
+    "IS_BLANK(\" \")\n-- Returns TRUE",
+    "IS_BLANK(NULL)\n-- Returns TRUE",
+    "IS_BLANK(\"Hello\")\n-- Returns False",
+    "IF(IS_BLANK(Maint_Amount__c), 0, 1)\n-- Returns 0 if Maint_Amount__c is blank, otherwise returns 1"
+  ],
+  "tips": [],
+  "relatedFormulas": [
+    "IF"
+  ]
+}

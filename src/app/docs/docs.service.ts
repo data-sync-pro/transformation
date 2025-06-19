@@ -10,9 +10,16 @@ interface Parameter {
   description: string;
 }
 
+export interface DocImage {
+  src: string;    
+  alt?: string;    
+}
+
 export interface DocData {
     title: string;
     description?: string;
+    descriptionImages?: DocImage[];
+    descriptionCode?: string; 
     syntax?: string;
     parameters?: Parameter[];
     examples?: string[];
@@ -28,7 +35,6 @@ export interface DocData {
     globalVariables?: {
       variable: string;
       description: string;
-      exampleValue: string;
     }[];
   }
 

@@ -7,26 +7,17 @@
         <tr>
           <th>Variable</th>
           <th>Description</th>
-          <th>Example Value</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let variable of docContent.globalVariables">
           <td>{{ variable.variable }}</td>
           <td>{{ variable.description }}</td>
-          <td>
-            <ng-container *ngIf="variable.variable === '$JOINER'; else normalValue">
-              <a [routerLink]="['/docs', '$joiner']">{{ variable.exampleValue }}</a>
-            </ng-container>
-            <ng-template #normalValue>
-              {{ variable.exampleValue }}
-            </ng-template>
-          </td>
         </tr>
       </tbody>
     </table>
   </section>
-  
+
   <section *ngIf="docContent.operators">
     <div *ngFor="let group of docContent?.operators | keyvalue">
       <h2>{{ group.key }}</h2>
@@ -48,12 +39,26 @@
       </table>
     </div>
   </section>
-  
+
   <section class="doc-section" *ngIf="docContent.description">
     <h2>Description</h2>
     <p [innerHTML]="docContent.description"></p>
+    <div class="doc-images" *ngIf="docContent.descriptionImages?.length">
+      <img
+        *ngFor="let img of docContent.descriptionImages"
+        [src]="img.src"
+        alt="{{ img.alt }}"
+        loading="lazy"
+      />
+    </div>
+    <div class="doc-example" *ngIf="docContent.descriptionCode">
+      <pre>
+        <code class="language-sql"
+              [textContent]="docContent.descriptionCode"></code>
+      </pre>
+    </div>
   </section>
-  
+
   <section class="doc-section" *ngIf="docContent.syntax">
     <h2>Syntax</h2>
     <pre class="doc-syntax">{{ docContent.syntax }}</pre>
@@ -90,9 +95,11 @@
 
   <section class="doc-section" *ngIf="docContent.tips?.length">
     <h2>Tips</h2>
-    <ng-container *ngTemplateOutlet="recursiveList; context:{ tips: docContent.tips }"></ng-container>
+    <ng-container
+      *ngTemplateOutlet="recursiveList; context: { tips: docContent.tips }"
+    ></ng-container>
   </section>
-  
+
   <ng-template #recursiveList let-tips="tips">
     <ul>
       <li *ngFor="let tip of tips">
@@ -106,20 +113,32 @@
           <div [innerHTML]="tip.text"></div>
         </ng-template>
         <ng-container *ngIf="tip.children?.length">
-          <ng-container *ngTemplateOutlet="recursiveList; context:{ tips: tip.children }"></ng-container>
+          <ng-container
+            *ngTemplateOutlet="recursiveList; context: { tips: tip.children }"
+          ></ng-container>
         </ng-container>
       </li>
     </ul>
   </ng-template>
-  
+
   <section class="doc-section" *ngIf="docContent?.title?.startsWith('AGG_')">
     <h2>Related information</h2>
-    <ul><li>DSP handles AGG_ functions efficiently. See <a href="/docs/aggregate general">AGGREGATE GENERAL</a> for details.</li></ul>
+    <ul>
+      <li>
+        DSP handles AGG_ functions efficiently. See
+        <a [routerLink]="['/docs', 'aggregate_general']">AGGREGATE GENERAL</a>
+        for details.
+      </li>
+    </ul>
   </section>
 
   <section class="doc-section" *ngIf="docContent.relatedFormulas?.length">
-    <h2 *ngIf="(docContent.relatedFormulas?.length || 0) === 1">Related Formula</h2>
-    <h2 *ngIf="(docContent.relatedFormulas?.length || 0) > 1">Related Formulas</h2>
+    <h2 *ngIf="(docContent.relatedFormulas?.length || 0) === 1">
+      Related Formula
+    </h2>
+    <h2 *ngIf="(docContent.relatedFormulas?.length || 0) > 1">
+      Related Formulas
+    </h2>
     <ul>
       <li *ngFor="let formula of docContent.relatedFormulas">
         <a routerLink="/docs/{{ formula | lowercase }}">{{ formula }}</a>
