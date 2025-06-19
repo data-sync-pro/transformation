@@ -42,6 +42,7 @@
     { "Item Name": "IS_NUMERIC", "Tags": ["Logical"] },
     { "Item Name": "IS_PHONE_NUMBER", "Tags": ["Logical", "Text"] },
     { "Item Name": "IS_UPDATE", "Tags": ["Logical"] },
+    { "Item Name": "$JOINER", "Tags": ["Advanced", "Global Variables"] },
     { "Item Name": "JOIN_JSON", "Tags": ["Advanced"] },
     { "Item Name": "JOIN_OBJECT", "Tags": ["Advanced"] },
     { "Item Name": "LAST_INDEX_OF", "Tags": ["Text"] },
