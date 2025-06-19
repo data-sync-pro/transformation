@@ -44,8 +44,13 @@ export class SearchOverlayComponent implements OnInit, OnChanges {
         .get<any>('assets/data/global_variables.json')
         .subscribe((gvData) => {
           (gvData.globalVariables ?? gvData ?? []).forEach((gv: any) => {
+            const name = gv.variable ?? '';
+            if (name.toUpperCase() === '$JOINER') {
+              return;         
+            }
+            
             this.suggestions.push({
-              name: gv.variable,
+              name,
               Tags: ['Global Variables'],
               route: `global_variables`,
             });
@@ -90,8 +95,15 @@ export class SearchOverlayComponent implements OnInit, OnChanges {
       item.name === 'APEX_CLASS';
 
     if (isGlobalVariableItem) {
-      this.sidebarService.setActiveCategory('');              
-      this.router.navigate(['/docs', 'global_variables']);      
+      if (item.name.toUpperCase() === '$JOINER') {
+        this.sidebarService.setActiveCategory('Advanced');
+        this.router.navigate(['/docs', item.route], {
+          queryParams: { activeCategory: 'Advanced' },
+        });
+      } else {
+        this.sidebarService.setActiveCategory('');              
+        this.router.navigate(['/docs', 'global_variables']);
+      }      
     } else if (isSpecialName) {
       this.sidebarService.setActiveCategory('');
       this.router.navigate(['/docs', item.route]);

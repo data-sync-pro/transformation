@@ -1,6 +1,6 @@
 {
   "title": "IS_ALL_UPPER_CASE",
-  "description": "<p>Returns TRUE if the provided string contains only uppercase alphabetical characters; otherwise, returns FALSE.</p>",
+  "description": "<p>Returns TRUE if the string contains only uppercase alphabetical characters; otherwise, returns FALSE.</p>",
   "syntax": "IS_ALL_UPPER_CASE(string) -> Boolean",
   "parameters": [
     {
@@ -11,11 +11,9 @@
     }
   ],
   "examples": [
-    "IS_ALL_UPPER_CASE(\"HELLOWORLD\")\n-- Returns TRUE",
-    "IS_ALL_UPPER_CASE(\"HELLO WORLD\")\n-- Returns FALSE",
-    "IS_ALL_UPPER_CASE(\"HelloWorld\")\n-- Returns FALSE",
-    "IS_ALL_UPPER_CASE(\"1234!\")\n-- Returns FALSE",
-    "IS_ALL_UPPER_CASE(\"\")\n-- Returns FALSE"
+    "IS_ALL_UPPER_CASE(\"STATUSOK\")\n-- Returns TRUE",
+    "IS_ALL_UPPER_CASE(\"StatusOK\")\n-- Returns FALSE (contains lowercase letters)",
+    "IS_ALL_UPPER_CASE(\"BATCH_01\")\n-- Returns FALSE (contains non-alphabetical characters)"
   ],
   "tips": [
     {
