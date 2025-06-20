@@ -14,12 +14,8 @@
           <td>
             <a
               *ngIf="variable.variable === '$JOINER'; else plainText"
-              [attr.href]="
-                '#/docs/' +
-                variable.variable.toLowerCase() +
-                '?activeCategory=global_variables'
-              "
-            >
+              [routerLink]="['/docs', variable.variable.toLowerCase()]"
+                    [queryParams]="{ activeCategory: 'Global Variables' }">   
               {{ variable.variable }}
             </a>
           </td>
