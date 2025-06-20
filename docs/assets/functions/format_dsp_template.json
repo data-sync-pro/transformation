@@ -11,7 +11,7 @@
     }
   ],
   "examples": [
-    "FORMAT_DSP_TEMPLATE(\"Dear {VLOOKUP('OpportunityContactRole', 'Contact.Name', 'OpportunityId', Id,'IsPrimary = TRUE')}, \n\nWe are pleased to inform you that your Account: {Account.Name} has an Opportunity currently at the stage: {StageName}.\n\nFeel free to reach out if you have any questions.\n\nBest regards,   \nSales Team\")\n\n/***********************Returns********************** \nDear Kristin Stanton, \n\nWe are pleased to inform you that your Account: Owens LLC has an Opportunity currently at the stage: Prospecting. \n\nFeel free to reach out if you have any questions. \n\nBest regards, \nSales Team\n****************************************************/"
+    "FORMAT_DSP_TEMPLATE(\"Dear {VLOOKUP('OpportunityContactRole', 'Contact.Name', 'OpportunityId', Id,'IsPrimary = TRUE')}, \n\nWe are pleased to inform you that your Account: {Account.Name} has an Opportunity currently at the stage: {StageName}.\n\nFeel free to reach out if you have any questions.\n\nBest regards,   \nSales Team\")\n\n<comment>Dear Kristin Stanton, \n\nWe are pleased to inform you that your Account: Owens LLC has an Opportunity currently at the stage: Prospecting. \n\nFeel free to reach out if you have any questions. \n\nBest regards, \nSales Team<comment>"
   ],
   "tips": [],
   "relatedFormulas": ["VLOOKUP"]

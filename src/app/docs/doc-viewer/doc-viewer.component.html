@@ -104,7 +104,7 @@
     <h2 *ngIf="(docContent.examples?.length || 0) === 1">Example</h2>
     <h2 *ngIf="(docContent.examples?.length || 0) > 1">Examples</h2>
     <div class="doc-example" *ngFor="let example of docContent.examples">
-      <pre><code class="language-sql">{{ example }}</code></pre>
+      <pre><code class="language-sql"[innerHTML]="highlightSql(example)"></code></pre>
     </div>
   </section>
 

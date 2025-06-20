@@ -55,4 +55,8 @@ export class DocsService {
         })
       );
     }
+
+    getGlobalVariables(): Observable<DocData> {
+      return this.http.get<DocData>('assets/data/global_variables.json');
+    }
   }
