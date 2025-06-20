@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SecurityContext } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DocsService, DocData } from '../docs.service';
 import hljs from 'highlight.js';
@@ -44,10 +44,12 @@ export class DocViewerComponent implements OnInit {
 
   highlightSql(raw: string): SafeHtml {
 
-    const withComment = hljs.highlight(raw, { language: 'sql' }).value
+    const highlighted = hljs.highlight(raw, { language: 'sql' }).value
     .replace(/\/\*/g, '')
     .replace(/\*\//g, '');
       
-    return this.sanitizer.bypassSecurityTrustHtml(withComment);
+    const safe = this.sanitizer.sanitize(SecurityContext.HTML, highlighted) || '';
+
+    return this.sanitizer.bypassSecurityTrustHtml(safe);
   }
 }
