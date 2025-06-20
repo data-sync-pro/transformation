@@ -45,10 +45,6 @@ export class SearchOverlayComponent implements OnInit, OnChanges {
         .subscribe((gvData) => {
           (gvData.globalVariables ?? gvData ?? []).forEach((gv: any) => {
             const name = gv.variable ?? '';
-            if (name.toUpperCase() === '$JOINER') {
-              return;         
-            }
-            
             this.suggestions.push({
               name,
               Tags: ['Global Variables'],
@@ -96,9 +92,9 @@ export class SearchOverlayComponent implements OnInit, OnChanges {
 
     if (isGlobalVariableItem) {
       if (item.name.toUpperCase() === '$JOINER') {
-        this.sidebarService.setActiveCategory('Advanced');
-        this.router.navigate(['/docs', item.route], {
-          queryParams: { activeCategory: 'Advanced' },
+        this.sidebarService.setActiveCategory('Global Variables');
+        this.router.navigate(['/docs', '$joiner'], {
+          queryParams: { activeCategory: 'Global Variables' },
         });
       } else {
         this.sidebarService.setActiveCategory('');              

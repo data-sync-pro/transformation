@@ -210,7 +210,6 @@ export class FunctionPageMainLayoutComponent implements OnInit, OnDestroy {
 
   toggleCategory(category: FunctionCategory): void {
     const target = SPECIAL_ROUTES[category.name];
-    console.log('Toggling category:', category.name, 'Target route:', target);
     if (target) {
       this.sidebarService.setActiveCategory('');
       category.expanded = true;
@@ -231,9 +230,9 @@ export class FunctionPageMainLayoutComponent implements OnInit, OnDestroy {
 
   updateActiveCategory() {
     const urlSegments = this.router.url.split('/');
-    console.log('URL Segments:', urlSegments);
     const activeRoute = urlSegments[2];
-    console.log('Active Route:', activeRoute);
+    const isDollarVar  = activeRoute?.startsWith('$');
+
     this.sidebarService.activeCategory$
       .pipe(takeUntil(this.destroy$))
       .subscribe((activeCategory) => {
@@ -243,7 +242,9 @@ export class FunctionPageMainLayoutComponent implements OnInit, OnDestroy {
           } else if (category.name === 'Operators') {
             this.operatorExpand = activeRoute === 'operators';
           } else if (category.name === 'Global Variables') {
-            this.globalVariableExpand = activeRoute === 'global_variables';
+            this.globalVariableExpand = activeRoute === 'global_variables' ||
+              isDollarVar ||
+              activeCategory === 'Global Variables';
           } else if (category.name === 'Apex Class') {
             this.apexClassExpand = activeRoute === 'apex_class';
           } else {
