@@ -11,9 +11,8 @@
     }
   ],
   "examples": [
-    "IS_ALL_UPPER_CASE(\"STATUSOK\")\n-- Returns TRUE",
-    "IS_ALL_UPPER_CASE(\"StatusOK\")\n-- Returns FALSE (contains lowercase letters)",
-    "IS_ALL_UPPER_CASE(\"BATCH_01\")\n-- Returns FALSE (contains non-alphabetical characters)"
+    "IS_ALL_UPPER_CASE(\"STATUSOK\")\n-- Returns TRUE.",
+    "IS_ALL_UPPER_CASE(\"Device #01\")\n-- Returns FALSE, only uppercase letters A–Z are accepted."
   ],
   "tips": [
     {

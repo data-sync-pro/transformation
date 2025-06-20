@@ -1,20 +1,18 @@
 {
   "title": "IS_ALPHANUMERIC",
-  "description": "<p>Returns TRUE if the provided string contains only alphabetic characters (A-Z, a-z) or numeric digits (0-9); otherwise, returns FALSE.</p>",
+  "description": "<p>Returns TRUE if the string contains only alphabetic characters or numeric digits; otherwise, returns FALSE.</p>",
   "syntax": "IS_ALPHANUMERIC(string) -> Boolean",
   "parameters": [
     {
       "name": "string",
       "type": "String",
       "required": "Yes",
-      "description": "The text to evaluate for alphanumeric content."
+      "description": "The string to evaluate."
     }
   ],
   "examples": [
-    "IS_ALPHANUMERIC(\"HelloWorld123\")\n-- Returns TRUE",
-    "IS_ALPHANUMERIC(\"Hello World\")\n-- Returns FALSE, as it contains a space",
-    "IS_ALPHANUMERIC(\"Hello123!\")\n-- Returns FALSE, as it contains punctuation",
-    "IS_ALPHANUMERIC(\"\")\n-- Returns FALSE"
+    "IS_ALPHANUMERIC(\"Batch2023\")\n-- Returns TRUE.",
+    "IS_ALPHANUMERIC(\"Report 2025_v1\")\n-- Returns FALSE, only letters and numbers are accepted."
   ],
   "tips": [ 
     {

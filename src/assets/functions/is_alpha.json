@@ -11,8 +11,8 @@
     }
   ],
   "examples": [
-    "IS_ALPHA(\"JohnSmith\")\n-- Returns TRUE",
-    "IS_ALPHA(\"John_Smith\")\n-- Returns FALSE (contains non-alphabetical characters)"
+    "IS_ALPHA(\"JohnSmith\")\n-- Returns TRUE.",
+    "IS_ALPHA(\"Report 2025_v1\")\n-- Returns FALSE, only letters are accepted."
   ],
   "tips": [ 
   {

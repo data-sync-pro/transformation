@@ -11,8 +11,8 @@
     }
   ],
   "examples": [
-    "IS_ALPHANUMERIC_SPACE(\"Acme Industries 2025\")\n-- Returns TRUE",
-    "IS_ALPHANUMERIC_SPACE(\"ACC-12345\")\n-- Returns FALSE (contains a hyphen)"
+    "IS_ALPHANUMERIC_SPACE(\"Acme Industries 2025\")\n-- Returns TRUE.",
+    "IS_ALPHANUMERIC_SPACE(\"ACC-12345\")\n-- Returns FALSE (contains a hyphen)."
   ],
   "tips": [ 
     {

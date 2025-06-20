@@ -11,8 +11,8 @@
     }
   ],
   "examples": [
-    "IS_ALPHA_SPACE(\"New York\")\n-- Returns TRUE",
-    "IS_ALPHA_SPACE(\"Los Angeles-CA\")\n-- Returns FALSE (contains non-alphabetical characters)"
+    "IS_ALPHA_SPACE(\"New York\")\n-- Returns TRUE.",
+    "IS_ALPHA_SPACE(\"Team #01 Alpha\")\n-- Returns FALSE, only letters and spaces are accepted."
   ],
   "tips": [ 
     {

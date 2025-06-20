@@ -23,8 +23,8 @@
     }
   ],
   "examples": [
-    "INDEX_OF_IGNORE_CASE(\"Sales_Report.XLSX\", \".xlsx\")\n-- Returns 12",
-    "INDEX_OF_IGNORE_CASE(\"Voltage=220V; Current=10A\", \"Temperature=\")\n-- Returns -1"
+    "INDEX_OF_IGNORE_CASE(\"Sales_Report.XLSX\", \".xlsx\")\n-- Returns 12.",
+    "INDEX_OF_IGNORE_CASE(\"Voltage=220V\", \"Temperature=\")\n-- Returns -1."
   ],
   "tips": [],
   "relatedFormulas": []
