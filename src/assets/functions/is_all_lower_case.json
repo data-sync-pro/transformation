@@ -1,6 +1,6 @@
 {
   "title": "IS_ALL_LOWER_CASE",
-  "description": "<p>Returns TRUE if the provided string contains only lowercase alphabetical characters; otherwise, returns FALSE.</p>",
+  "description": "<p>Returns TRUE if the string contains only lowercase alphabetical characters; otherwise, returns FALSE.</p>",
   "syntax": "IS_ALL_LOWER_CASE(string) -> Boolean",
   "parameters": [
     {
@@ -11,11 +11,8 @@
     }
   ],
   "examples": [
-    "IS_ALL_LOWER_CASE(\"helloworld\")\n-- Returns TRUE",
-    "IS_ALL_LOWER_CASE(\"hello world\")\n-- Returns FALSE",
-    "IS_ALL_LOWER_CASE(\"HelloWorld\")\n-- Returns FALSE",
-    "IS_ALL_LOWER_CASE(\"1234!\")\n-- Returns FALSE",
-    "IS_ALL_LOWER_CASE(\"\")\n-- Returns FALSE"
+    "IS_ALL_LOWER_CASE(\"sensorstatus\")\n-- Returns TRUE.",
+    "IS_ALL_LOWER_CASE(\"Device #01\")\n-- Returns FALSE, only lowercase letters a–z are accepted."
   ],
   "tips": [
     {

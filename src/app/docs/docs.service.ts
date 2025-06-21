@@ -1,15 +1,14 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-
 interface Parameter {
-    name: string;
-    type: string;
-    required: string;
-    description: string;
-  }
+  name: string;
+  type: string;
+  required: string;
+  description: string;
+}
 
 export interface DocImage {
   src: string;    
@@ -41,9 +40,8 @@ export interface DocData {
 
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class DocsService {
     constructor(private http: HttpClient) {}
   

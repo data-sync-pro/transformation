@@ -10,11 +10,11 @@
       "children": []
     },
     {
-      "text": "<p>Ensure the queue is configured to support the current record’s object type</p>",
+      "text": "<p>Ensure the queue is configured to support the current record’s object type.</p>",
       "children": []
     },
     {
-      "text": "<p>If queue membership uses \"Roles and Subordinates,\" verify that the user’s role is within the defined hierarchy</p>",
+      "text": "<p>If queue membership uses \"Roles and Subordinates,\" verify that the user’s role is within the defined hierarchy.</p>",
       "children": []
     }
   ],

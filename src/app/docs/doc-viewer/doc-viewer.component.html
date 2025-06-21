@@ -11,7 +11,18 @@
       </thead>
       <tbody>
         <tr *ngFor="let variable of docContent.globalVariables">
-          <td>{{ variable.variable }}</td>
+          <td>
+            <a
+              *ngIf="variable.variable === '$JOINER'; else plainText"
+              [routerLink]="['/docs', variable.variable.toLowerCase()]"
+                    [queryParams]="{ activeCategory: 'Global Variables' }">   
+              {{ variable.variable }}
+            </a>
+          </td>
+
+          <ng-template #plainText>
+            {{ variable.variable }}
+          </ng-template>
           <td>{{ variable.description }}</td>
         </tr>
       </tbody>
@@ -89,7 +100,7 @@
     <h2 *ngIf="(docContent.examples?.length || 0) === 1">Example</h2>
     <h2 *ngIf="(docContent.examples?.length || 0) > 1">Examples</h2>
     <div class="doc-example" *ngFor="let example of docContent.examples">
-      <pre><code class="language-sql">{{ example }}</code></pre>
+      <pre><code class="language-sql"[innerHTML]="highlightSql(example)"></code></pre>
     </div>
   </section>
 

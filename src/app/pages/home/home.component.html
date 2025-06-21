@@ -56,7 +56,17 @@
           <table class="doc-tables two-columns">
             <tbody>
               <tr *ngFor="let variable of globalVariables">
-                <td>{{ variable.variable }}</td>
+                <td>
+                  <a *ngIf="variable.variable === '$JOINER'; else plainText"
+                    [routerLink]="['/docs', variable.variable.toLowerCase()]"
+                    [queryParams]="{ activeCategory: 'Global Variables' }">    
+                    {{ variable.variable }}
+                  </a>
+                </td>
+              
+                <ng-template #plainText>
+                  {{ variable.variable }}
+                </ng-template>
                 <td>{{ variable.description }}</td>
               </tr>
             </tbody>
