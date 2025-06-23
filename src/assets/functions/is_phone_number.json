@@ -1,6 +1,6 @@
 {
   "title": "IS_PHONE_NUMBER",
-  "description": "<p>Returns TRUE if the provided string matches a valid phone number format; otherwise, returns FALSE.</p>",
+  "description": "<p>Validates common phone formats, including optional country code, separators, and extension.</p>",
   "syntax": "IS_PHONE_NUMBER(string) -> Boolean",
   "parameters": [
     {
@@ -12,12 +12,12 @@
   ],
   "examples": [
     "IS_PHONE_NUMBER(\"123-456-7890\")\n-- Returns TRUE",
-    "IS_PHONE_NUMBER(\"(123)456-7890\")\n-- Returns TRUE",
-    "IS_PHONE_NUMBER(\"1234567890\")\n-- Returns TRUE",
-    "IS_PHONE_NUMBER(\"+1 (123) 456-7890 ext.1234\")\n-- Returns TRUE",
-    "IS_PHONE_NUMBER(\"\")\n-- Returns FALSE"
+    "IS_PHONE_NUMBER(\"+1 (123) 456-7890 ext.1234\")\n-- Returns TRUE"
   ],
   "tips": [
+    {
+      "text": "Returns FALSE if the string is empty."
+    },
     {
       "text": "<p>Accepted Formats:</p>",
       "children": [

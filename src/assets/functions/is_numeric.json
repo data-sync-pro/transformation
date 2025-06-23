@@ -1,6 +1,6 @@
 {
   "title": "IS_NUMERIC",
-  "description": "<p>Returns TRUE if the provided string contains only Unicode digits (0–9); otherwise, returns FALSE.</p>",
+  "description": "<p>Checks whether a text field contains only digits 0-9.</p>",
   "syntax": "IS_NUMERIC(string) -> Boolean",
   "parameters": [
     {
@@ -11,14 +11,18 @@
     }
   ],
   "examples": [
-    "IS_NUMERIC(\"123\")\n-- Returns TRUE because \"123\" is a valid numeric string.",
-    "IS_NUMERIC(\"1.23\")\n-- Returns FALSE because \"1.23\" includes a decimal point.",
-    "IS_NUMERIC(\"-45\")\n-- Returns FALSE because the leading minus sign (\"-\") is not a digit.",
-    "IS_NUMERIC(\"+78\")\n-- Returns FALSE because the leading plus sign (\"+\") is not a digit.",
-    "IS_NUMERIC(\"12%\")\n-- Returns FALSE because the percent sign (\"%\") is not a digit.",
-    "IS_NUMERIC(\"World\")\n-- Returns FALSE because \"World\" is not a valid numeric string.",
-    "IS_NUMERIC(Price_String__c)\n-- Evaluates whether the field 'Price_String__c' contains a value that can be converted to a Decimal.\n-- Returns TRUE if it is numeric; otherwise, returns FALSE."
+    "IS_NUMERIC(\"123\")\n-- Returns TRUE.",
+    "IS_NUMERIC(\"-1.23%XYZ\")\n-- Returns FALSE, only digits 0-9 are accepted."
+     ],
+  "tips": [
+    {
+      "text": "<p>Returns FALSE if the string is empty.</p>",
+      "children": []
+    },
+    {
+      "text": "<p>Any letters, symbols, or spaces, will result in FALSE.</p>",
+      "children": []
+    }
   ],
-  "tips": [],
   "relatedFormulas": []
 }
