@@ -11,7 +11,7 @@
     }
   ],
   "examples": [
-    "IS_FIRST_IN_ITERATION(AccountId, ProductCode)\n-- Returns TRUE for the first AccountId + ProductCode combination and FALSE for subsequent duplicates.\n"
+    "IS_FIRST_IN_ITERATION(FirstName, LastName)\n-- Returns TRUE for the first combination and FALSE for subsequent duplicates.\n"
   ],
   "tips": [],
   "relatedFormulas": []

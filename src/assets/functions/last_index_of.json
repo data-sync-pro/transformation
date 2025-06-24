@@ -23,9 +23,10 @@
     }
   ],
   "examples": [
-    "LAST_INDEX_OF(\"hello hello\", \"hello\")\n-- Returns 6 because the last occurrence of \"hello\"(case-sensitive) starts at index 6.\n-- Note: All indexes are based on a 0-based index (the first character is at position 0).",
-    "LAST_INDEX_OF(\"hello hello\", \"hello\", 5)\n-- Returns 0 because it searches only up to index 5 and finds \"hello\"(case-sensitive) at the beginning.\n-- Note: All indexes are based on a 0-based index (the first character is at position 0).",
-    "LAST_INDEX_OF(\"hello Hello\", \"hello\")\n-- Returns 0 because it performs a case-sensitive search and finds \"hello\"(case-sensitive) only at index 0.\n-- Note: All indexes are based on a 0-based index (the first character is at position 0)."
+    "LAST_INDEX_OF(\"Apples;Oranges;Bananas\", \";\")\n-- Returns 14.",
+    "LAST_INDEX_OF(\"ERR_100|DONE|ERR_200|DONE\", \"ERR_\", 12)\n -- Returns 0. Finds \"ERR_\" at index 0 within first 12 characters.",
+    "LAST_INDEX_OF(\"Status: Info, status: Warn\", \"status\")\n -- Returns 14. Finds \"status\" at index 14, case-sensitive.",
+    "LAST_INDEX_OF(\"Invoice_2025_Q4.pdf\", \".xlsx\")\n -- Returns -1. No match found."
   ],
   "tips": [],
   "relatedFormulas": []

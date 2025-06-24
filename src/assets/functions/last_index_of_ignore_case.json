@@ -23,9 +23,10 @@
     }
   ],
   "examples": [
-    "LAST_INDEX_OF_IGNORE_CASE(\"hello hello\", \"hello\")\n-- Returns 6 because the last occurrence of \"hello\" (case-insensitive) starts at index 6.\n-- Note: All indexes are based on a 0-based index (the first character is at position 0).",
-    "LAST_INDEX_OF_IGNORE_CASE(\"hello hello\", \"hello\", 5)\n-- Returns 0 because it searches only up to index 5 and finds \"hello\" at index 0.\n-- Note: All indexes are based on a 0-based index (the first character is at position 0).",
-    "LAST_INDEX_OF_IGNORE_CASE(\"hello Hello\", \"hello\")\n-- Returns 6 because \"Hello\" at index 6 matches \"hello\" when ignoring case.\n-- Note: All indexes are based on a 0-based index (the first character is at position 0)."
+    "LAST_INDEX_OF_IGNORE_CASE(\"Report_FINAL.PDF\", \".pdf\")\n -- Returns 12. \".PDF\" matches \".pdf\" ignoring case.",
+    "LAST_INDEX_OF_IGNORE_CASE(\"Error: INFO, error: Warn, ERROR: Critical\", \"error\")\n --Returns 26. Finds \"error\" at index 26, ignoring case.",
+    "LAST_INDEX_OF_IGNORE_CASE(\"Status_OK|status_Fail|STATUS_PENDING\", \"STATUS\", 20)\n -- Returns 10. Matches \"status\" within the first 20 characters, ignoring case.",
+    "LAST_INDEX_OF_IGNORE_CASE(\"Invoice_2025_Q4.pdf\", \".xlsx\")\n -- Returns -1. No match found."
   ],
   "tips": [],
   "relatedFormulas": []

@@ -1,6 +1,6 @@
 {
   "title": "IS_PHONE_NUMBER",
-  "description": "<p>Validates common phone formats, including optional country code, separators, and extension.</p>",
+  "description": "<p>Returns TRUE if the provided string matches a valid phone number format; otherwise, returns FALSE.</p>",
   "syntax": "IS_PHONE_NUMBER(string) -> Boolean",
   "parameters": [
     {
