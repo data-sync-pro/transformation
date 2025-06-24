@@ -23,10 +23,8 @@
     }
   ],
   "examples": [
-    "LAST_INDEX_OF(\"Apples;Oranges;Bananas\", \";\")\n-- Returns 14.",
-    "LAST_INDEX_OF(\"ERR_100|DONE|ERR_200|DONE\", \"ERR_\", 12)\n -- Returns 0. Finds \"ERR_\" at index 0 within first 12 characters.",
-    "LAST_INDEX_OF(\"Status: Info, status: Warn\", \"status\")\n -- Returns 14. Finds \"status\" at index 14, case-sensitive.",
-    "LAST_INDEX_OF(\"Invoice_2025_Q4.pdf\", \".xlsx\")\n -- Returns -1. No match found."
+    "LAST_INDEX_OF(\"ERR_100|DONE|ERR_200|DONE\", \"ERR_\", 8)\n -- Returns 0. Finds \"ERR_\" at index 0 within first 8 characters.",
+    "LAST_INDEX_OF(\"Status: Info, Status: Warn\", \"status\")\n -- Returns -1. No match found (case-sensitive)."
   ],
   "tips": [],
   "relatedFormulas": []
