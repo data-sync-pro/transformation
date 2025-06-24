@@ -11,7 +11,7 @@
     }
   ],
   "examples": [
-    "IS_FIRST_IN_ITERATION(FirstName, LastName)\n-- Returns TRUE for the first source record encountered with a given (FirstName, LastName) combination during the current iteration.\n-- All following records with the same (FirstName, LastName) will return FALSE.\n-- Useful for processing or flagging only the first occurrence of each unique (FirstName, LastName) pair."
+    "IS_FIRST_IN_ITERATION(FirstName, LastName)\n-- Returns TRUE for the first combination and FALSE for subsequent duplicates.\n"
   ],
   "tips": [],
   "relatedFormulas": []

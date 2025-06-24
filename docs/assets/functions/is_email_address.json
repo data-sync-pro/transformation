@@ -1,6 +1,6 @@
 {
   "title": "IS_EMAIL_ADDRESS",
-  "description": "<p>Returns TRUE if the provided string is formatted as a valid email address; otherwise, returns FALSE.</p>",
+  "description": "<p>Returns TRUE if the string is formatted as a valid email address; otherwise, returns FALSE.</p>",
   "syntax": "IS_EMAIL_ADDRESS(string) -> Boolean",
   "parameters": [
     {
@@ -13,10 +13,12 @@
   "examples": [
     "IS_EMAIL_ADDRESS(\"user@example.com\")\n-- Returns TRUE",
     "IS_EMAIL_ADDRESS(\"user.example.com\")\n-- Returns FALSE, as it lacks the '@' symbol",
-    "IS_EMAIL_ADDRESS(\"user@\")\n-- Returns FALSE, as it lacks a domain",
-    "IS_EMAIL_ADDRESS(\"\")\n-- Returns FALSE"
+    "IS_EMAIL_ADDRESS(\"user@\")\n-- Returns FALSE, as it lacks a domain"
   ],
   "tips": [
+    {
+      "text": "Returns FALSE if the string is empty."
+    },
     {
       "text": "<p>The following regular expression is used to check whether the provided string is a valid email address:</p>",
       "children": [],
