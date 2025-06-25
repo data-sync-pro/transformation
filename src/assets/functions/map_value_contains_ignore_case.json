@@ -29,9 +29,8 @@
     }
   ],
   "examples": [
-    "MAP_VALUE_CONTAINS_IGNORE_CASE(\"New York - office\", \"New York\", \"NY\", \"California\", \"CA\", \"Other\") \n-- Returns \"NY\"(case-insensitive)",
-    "MAP_VALUE_CONTAINS_IGNORE_CASE(\"New York - office\", \"new york\", \"NY\", \"California\", \"CA\", \"Other\") \n-- Returns \"NY\"(case-insensitive)",
-    "MAP_VALUE_CONTAINS_IGNORE_CASE(Description, \"platinum\", \"Partner\", \"individual\", \"Person\", \"Business\")\n-- Returns \"Partner\" if 'Description' contains \"platinum\" (case-insensitive) and stops evaluation.\n-- If \"platinum\" is not found but \"individual\" is, returns \"Person\". Otherwise, returns \"Business\"."
+    "MAP_VALUE_CONTAINS_IGNORE_CASE(\"New York - office\", \"new york\", \"NY\", \"California\", \"CA\", \"Other\") \n-- Returns \"NY\"(case-insensitive).",
+    "MAP_VALUE_CONTAINS_IGNORE_CASE(Description, \"platinum\", \"Partner\", \"individual\", \"Person\", \"Business\")\n-- Returns \"Partner\" if \"platinum\" is found.\n-- Returns \"Person\" if only \"individual\" is found.\n-- Returns \"Business\" otherwise.\n-- Case-insensitive, first match wins."
   ],
   "tips": [
     {

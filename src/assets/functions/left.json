@@ -17,10 +17,9 @@
     }
   ],
   "examples": [
-    "LEFT(\"Hello World\", 5)\n-- Returns: \"Hello\"\n-- Extracts the first 5 characters from \"Hello World\".",
-    "LEFT(\"Test\", 10)\n-- Returns: \"Test\"\n-- Since \"Test\" has only 4 characters, the entire string is returned.",
-    "LEFT(CaseNumber, 3)\n-- Extracts the first 3 characters from the field CaseNumber.\n-- For example, if CaseNumber is \"ABC12345\", the result is \"ABC\"."
-  ],
+    "LEFT(CaseNumber, 3)\n-- Returns the first 3 characters of CaseNumber.",
+    "LEFT(\"Q2Report\", 20)\n-- Returns \"Q2Report\". Since 20 exceeds the string length, the entire string is returned."
+    ],
   "tips": [
     {
       "text": "<p>num_chars must be a non-negative integer. If num_chars is 0, an empty string is returned.</p>",

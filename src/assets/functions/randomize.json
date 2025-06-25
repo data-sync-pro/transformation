@@ -11,10 +11,10 @@
     }
   ],
   "examples": [
-    "RANDOMIZE(\"Hello\") \n-- Possible output: \"kJsdP\"",
-    "RANDOMIZE(42) \n-- Possible output: 87",
-    "RANDOMIZE(TO_DATE(\"2025-03-01\"))\n-- Possible output: 2024-05-14",
-    "RANDOMIZE(true)\n-- Possible output: false"
+    "RANDOMIZE(\"Hello\") \n-- Possible output: \"kJsdP\".",
+    "RANDOMIZE(42) \n-- Possible output: 87.",
+    "RANDOMIZE(TO_DATE(\"2025-03-01\"))\n-- Possible output: 2024-05-14.",
+    "RANDOMIZE(true)\n-- Possible output: false."
   ],
   "tips": [
     {

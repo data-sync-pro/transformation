@@ -29,10 +29,9 @@
     }
   ],
   "examples": [
-    "MAP_VALUE_STARTS_WITH(\"CA-San Francisco\", \"CA\", \"California\", \"NY\", \"New York\", \"Other\") \n-- Returns \"California\"(case-sensitive)",
-    "MAP_VALUE_STARTS_WITH(\"ca-san francisco\", \"CA\", \"California\", \"NY\", \"New York\", \"Other\") \n-- Returns \"Other\"(case-sensitive)",
+    "MAP_VALUE_STARTS_WITH(\"ca-san francisco\", \"CA\", \"California\", \"NY\", \"New York\", \"Other\") \n-- Returns \"Other\"(case-sensitive).",
     "MAP_VALUE_STARTS_WITH(\"TX-Dallas\", \"Fran\", \"California\", \"NY\", \"New York\") \n-- Returns $SKIP_ASSIGNMENT.",
-    "MAP_VALUE_STARTS_WITH(Description, \"Platnium\", \"Partner\", \"Individual\", \"Person\", \"Business\")\n-- Checks if 'Description' starts with \"Platnium\"; if so, returns \"Partner\".\n-- If it starts with \"Individual\", returns \"Person\". Otherwise, returns \"Business\"."
+    "MAP_VALUE_STARTS_WITH(Description, \"Platnium\", \"Partner\", \"Individual\", \"Person\", \"Business\")\n-- Returns \"Partner\" if \"Platnium\" is found at the start.\n-- Returns \"Person\" if \"Individual\" is found at the start.\n-- Returns \"Business\" otherwise.\n-- Case-sensitive."
   ],
   "tips": [
     {

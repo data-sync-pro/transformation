@@ -11,8 +11,8 @@
     }
   ],
   "examples": [
-    "LEN(\"Hello World\")\n-- Returns: 11\n-- Spaces count as characters, so \"Hello World\" has 11 characters.",
-    "LEN(\"\")\n-- Returns: 0"
+    "LEN(BillingPostalCode)\n-- Returns the number of characters in the BillingPostalCode field.",
+    "LEN(\"\")\n-- Returns 0."
   ],
   "tips": [],
   "relatedFormulas": []
