@@ -17,9 +17,8 @@
     }
   ],
   "examples": [
-    "RIGHT(\"HelloWorld\", 5)\n-- Returns: \"World\"\n-- It extracts the last 5 characters of \"HelloWorld\".",
-    "RIGHT(\"Test\", 10)\n-- Returns: \"Test\"\n-- Since \"Test\" has only 4 characters, the entire string is returned.",
-    "RIGHT(Phone, 4)\n-- Extracts the last 4 characters from the field 'Phone'\n-- For example, if Phone is \"123-456-7890\", this returns \"7890\"."
+    "RIGHT(\"Q2Report\", 10)\n-- Returns \"Q2Report\". Since 10 exceeds the string length, the entire string is returned.",
+    "RIGHT(Phone, 4)\n-- Returns the last 4 characters of the Phone field."
   ],
   "tips": [
     {

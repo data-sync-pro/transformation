@@ -17,10 +17,7 @@
     }
   ],
   "examples": [
-    "STARTS_WITH(\"Hello World\", \"Hello\", \"He\")\n-- Returns TRUE",
-    "STARTS_WITH(\"Hello World\", \"hello\", \"he\")\n-- Returns FALSE",
-    "STARTS_WITH(\"Hello\", \"\")\n-- Returns TRUE",
-    "IF(STARTS_WITH(Email, \"sales@\"), \"Sales Inquiry\", \"General Inquiry\")\n-- This formula checks whether the Email field starts with \"sales@\".\n-- If true, it returns \"Sales Inquiry\"; otherwise, it returns \"General Inquiry\"."
+    "STARTS_WITH(Email, \"sales@\")\n-- Returns TRUE if the Email field starts with \"sales@\"; otherwise, returns FALSE."
   ],
   "tips": [
     {
@@ -33,6 +30,5 @@
     }
   ],
   "relatedFormulas": [
-    "IF"
   ]
 }

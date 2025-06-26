@@ -11,11 +11,7 @@
     }
   ],
   "examples": [
-    "SKIP_BLANK_VALUE(\"Data\")\n-- Returns \"Data\"",
-    "SKIP_BLANK_VALUE(\"\") \n-- Returns $SKIP_ASSIGNMENT",
-    "SKIP_BLANK_VALUE(\" \") \n-- Returns $SKIP_ASSIGNMENT",
-    "SKIP_BLANK_VALUE(NULL) \n-- Returns $SKIP_ASSIGNMENT",
-    "SKIP_BLANK_VALUE(AccountId)\n-- Returns AccountId if it has a value.\n-- Returns $SKIP_ASSIGNMENT if AccountId is null or blank, preventing an unnecessary assignment."
+    "SKIP_BLANK_VALUE(AccountId)\n-- Returns $SKIP_ASSIGNMENT if AccountId is blank, otherwise returns the value of AccountId."
   ],
   "tips": [],
   "relatedFormulas": []

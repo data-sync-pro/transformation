@@ -17,10 +17,7 @@
     }
   ],
   "examples": [
-    "STARTS_WITH_IGNORE_CASE(\"Hello World\", \"Hello\", \"He\")\n-- Returns TRUE",
-    "STARTS_WITH_IGNORE_CASE(\"Hello World\", \"hello\", \"he\")\n-- Returns TRUE",
-    "STARTS_WITH_IGNORE_CASE(\"Hello\", \"\")\n-- Returns TRUE",
-    "IF(STARTS_WITH_IGNORE_CASE(Product_type__c, \"icu\"), \"Medical\", \"Technical\")\n-- Checks whether the value in the Product_type__c field starts with \"icu\", ignoring case.\n-- Returns \"Medical\" if it does; otherwise, returns \"Technical\"."
+    "STARTS_WITH_IGNORE_CASE(\"FY25-Q2-Report\", \"fy24\", \"fy25\")\n-- Returns TRUE. The string starts with \"fy25\" ignoring case."
   ],
   "tips": [
     {

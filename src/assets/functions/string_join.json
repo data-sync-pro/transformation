@@ -17,8 +17,7 @@
     }
   ],
   "examples": [
-    "STRING_JOIN(1, 2, 3, \"-\")\n-- Returns \"1-2-3\"",
-    "STRING_JOIN(AccountId, Subject, \" - \")\n-- Joins the values of AccountId and Subject into a single string, separated by \" - \".\n-- For example, if AccountId = \"001xx000003NGS5\" and Subject = \"Follow Up\"\n-- Returns:\"001xx000003NGS5 - Follow Up\""
+    "STRING_JOIN(AccountId, Subject, \" - \")\n-- Returns \"001xx000003DGX1AAO - New Opportunity\" if AccountId is '001xx000003DGX1AAO' and Subject is 'New Opportunity'."
   ],
   "tips": [],
   "relatedFormulas": []
