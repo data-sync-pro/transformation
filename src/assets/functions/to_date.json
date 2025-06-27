@@ -11,13 +11,12 @@
     }
   ],
   "examples": [
-    "TO_DATE(\"2005-11-15\")\n-- Returns November 15, 2005 as a date value",
-    "TO_DATE(NOW())\n-- Returns today's date by extracting the date portion from the current Datetime.",
-    "IF(TO_DATE(Invoice_Date__c) < TODAY(), \"Overdue\", \"Upcoming\")\n-- Converts the text field 'Invoice_Date__c' into a Date value and compares it with today's date\n-- If the invoice date is earlier than today, the formula returns \"Overdue\"; otherwise, it returns \"Upcoming\"."
+    "TO_DATE(\"2005-11-15\")\n-- Returns November 15, 2005 as a Date.",
+    "TO_DATE(NOW())\n-- Returns today's date (extracts date from current Datetime)."
   ],
   "tips": [
     {
-      "text": "<p>Returns null immediately for blank or null inputs.</p>",
+      "text": "<p>Returns null for blank or null inputs.</p>",
       "children": []
     },
     {
@@ -38,8 +37,6 @@
     }
   ],
   "relatedFormulas": [
-    "NOW",
-    "IF",
-    "TODAY"
+    "NOW"
   ]
 }

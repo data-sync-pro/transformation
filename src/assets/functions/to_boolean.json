@@ -11,8 +11,7 @@
     }
   ],
   "examples": [
-    "TO_BOOLEAN(\"true\")\n-- Returns TRUE",
-    "IF(TO_BOOLEAN(Opt_In__c), \"Subscribed\", \"Not Subscribed\")\n-- Converts the text value in the field 'Opt_In__c' into a Boolean\n-- If 'Opt_In__c' equals \"true\" (ignoring case), the formula returns \"Subscribed\". Otherwise, it returns \"Not Subscribed\"."
+    "TO_BOOLEAN(\"true\")\n-- Returns TRUE."
   ],
   "tips": [
     {
@@ -25,6 +24,5 @@
     }
   ],
   "relatedFormulas": [
-    "IF"
   ]
 }

@@ -11,8 +11,8 @@
     }
   ],
   "examples": [
-    "TRIM(\"  hello world   \")\n-- Returns \"hello world\"",
-    "TRIM(Customer_Review__c)\n-- Removes any leading or trailing spaces from the field 'Customer_Review__c'"
+    "TRIM(\"  FY25 Budget Report  \")\n-- Returns \"FY25 Budget Report\".",
+    "TRIM(Description)\n-- Returns the Description field value with leading and trailing whitespace removed."
   ],
   "tips": [],
   "relatedFormulas": []

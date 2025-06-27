@@ -11,8 +11,9 @@
     }
   ],
   "examples": [
-    "LEN(BillingPostalCode)\n-- Returns the number of characters in the BillingPostalCode field.",
-    "LEN(\"\")\n-- Returns 0."
+    "LEN(\"Data Sync Pro\")\n-- Returns 13.",
+    "LEN(BillingPostalCode)\n-- Returns the number of characters in the BillingPostalCode field."
+
   ],
   "tips": [],
   "relatedFormulas": []

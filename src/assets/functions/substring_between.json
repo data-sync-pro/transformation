@@ -23,7 +23,7 @@
     }
   ],
   "examples": [
-    "SUBSTRING_BETWEEN(\"Hello [World]!\", \"[\", \"]\")\n-- Returns \"World\""
+    "SUBSTRING_BETWEEN(\"Invoice <INV-2026-009>\", \"<\", \">\")\n-- Returns \"INV-2026-009\".\n-- Extracts the substring between \"<\" and \">\"."
   ],
   "tips": [
     {

@@ -11,7 +11,7 @@
     }
   ],
   "examples": [
-    "TRIGGER_IS_CHANGED(\"Priority\", \"Status\", \"RecordTypeId\")\n-- Returns TRUE if any of these fields changed, otherwise FALSE."
+    "TRIGGER_IS_CHANGED(\"Priority\", \"Status\")\n-- Returns TRUE if any of these fields changed, otherwise FALSE."
   ],
   "tips": [],
   "relatedFormulas": []

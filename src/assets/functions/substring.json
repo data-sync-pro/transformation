@@ -23,7 +23,7 @@
     }
   ],
   "examples": [
-    "SUBSTRING(\"Hello World\", 6, 11)\n-- Returns \"World\"\n-- Extracts characters from index 6 up to (but not including) index 11.\n-- Note: Indexing is 0-based, so index 6 is the 7th character in the string."
+    "SUBSTRING(\"Order SO-10056 closed\", 6, 14)\n-- Returns \"SO-10056\".\n-- Extracts from index 6 to 14 (ending index exclusive)."
   ],
   "tips": [
     {

@@ -11,8 +11,8 @@
     }
   ],
   "examples": [
-    "TO_STRING(0.25)\n-- Returns \"0.25\"",
-    "TO_STRING(\"2005-11-15\")\n-- Returns \"2005-11-15\""
+    "TO_STRING(0.25)\n-- Returns \"0.25\".",
+    "TO_STRING(NOW())\n-- Returns the current date and time as a string."
   ],
   "tips": [
     {
@@ -32,5 +32,7 @@
       "children": []
     }
   ],
-  "relatedFormulas": []
+  "relatedFormulas": [
+    "NOW"
+  ]
 }
