@@ -17,7 +17,7 @@
     }
   ],
   "examples": [
-    "STARTS_WITH_IGNORE_CASE(\"FY25-Q2-Report\", \"fy24\", \"fy25\")\n-- Returns TRUE. The string starts with \"fy25\" ignoring case."
+    "STARTS_WITH_IGNORE_CASE(\"FY25-Q2-Report\", \"fy24\", \"fy25\")\n-- Returns TRUE. The string starts with \"fy25\"(case-insensitive)."
   ],
   "tips": [
     {

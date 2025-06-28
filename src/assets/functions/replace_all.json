@@ -23,7 +23,7 @@
     }
   ],
   "examples": [
-    "REPLACE_ALL(\"Acme inc; Beta INC; Gamma Inc.\", \"(?i)\binc\b\", \"Inc\")\n-- Returns \"Acme Inc; Beta Inc; Gamma Inc.\". "
+    "REPLACE_ALL(\"Acme org; Beta ORG; Gamma Org.\", \"(?i)\borg\b\", \"Org\")\n-- Returns \"Acme Org; Beta Org; Gamma Org.\". "
   ],
   "tips": [],
   "relatedFormulas": []
