@@ -4,7 +4,7 @@
   "syntax": "YESTERDAY() -> Date",
   "parameters": [],
   "examples": [
-    "YESTERDAY()\n-- Returns the date for the day before today.\n-- If today's date is 2025-03-18, this returns 2025-03-17."
+    "YESTERDAY()\n-- Returns yesterday's date."
   ],
   "tips": [],
   "relatedFormulas": []

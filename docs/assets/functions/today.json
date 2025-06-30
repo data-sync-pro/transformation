@@ -4,8 +4,8 @@
   "syntax": "TODAY() -> Date",
   "parameters": [],
   "examples": [
-    "TODAY()\n-- Returns the current date",
-    "DAYS_BETWEEN(TODAY(), Sample_date_c)\n-- Returns the number of days between today's date and the field 'Sample_date_c'"
+    "TODAY()\n-- Returns the current date.",
+    "DAYS_BETWEEN(TODAY(), CloseDate)\n-- Returns the number of days between today and CloseDate."
   ],
   "tips": [
     {
@@ -14,7 +14,6 @@
     }
   ],
   "relatedFormulas": [
-    "NOW",
     "DAYS_BETWEEN"
   ]
 }

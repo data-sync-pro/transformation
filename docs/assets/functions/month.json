@@ -11,8 +11,8 @@
     }
   ],
   "examples": [
-    "MONTH(DATE(2024, 1, 25))\n-- Returns 1",
-    "MONTH(TO_DATETIME(\"2024-08-15T14:45:00.000Z\"))\n-- Returns 8"
+    "MONTH(DATE(2024, 1, 25))\n-- Returns 1.",
+    "MONTH(TO_DATETIME(\"2024-08-15T14:45:00.000Z\"))\n-- Returns 8."
   ],
   "tips": [],
   "relatedFormulas": [

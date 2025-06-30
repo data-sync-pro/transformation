@@ -17,7 +17,7 @@
     }
   ],
   "examples": [
-    "SUBSTRING_AFTER_LAST(\"abc def ghi\", \" \")\n-- Returns \"ghi\""
+    "SUBSTRING_AFTER_LAST(\"REF-2025-1234\", \"-\")\n-- Returns \"1234\". Extracts string after the last hyphen."
   ],
   "tips": [
     {

@@ -11,11 +11,11 @@
     }
   ],
   "examples": [
-    "TO_DATETIME(\"2002-10-09T19:00:00Z\")\n-- Returns a DateTime value corresponding to October 9, 2002 at 7:00 PM UTC"
+    "TO_DATETIME(\"2002-10-09T19:00:00Z\")\n-- Returns October 9, 2002, 7:00 PM UTC as a Datetime value."
   ],
   "tips": [
     {
-      "text": "<p>Returns null immediately for blank or null inputs.</p>",
+      "text": "<p>Returns null for blank or null inputs.</p>",
       "children": []
     },
     {

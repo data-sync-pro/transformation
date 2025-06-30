@@ -17,7 +17,7 @@
     }
   ],
   "examples": [
-    "MATCHES(\"123-456-7890\", \n        \"^\\d{3}-\\d{3}-\\d{4}$\",\n        \"^\\(\\d{3}\\) \\d{3}-\\d{4}$\")\n-- Format 1: 123-456-7890\n-- Format 2: (123) 456-7890\n-- Returns TRUE because the string matches the first regular expression.",
+    "MATCHES(\"123-456-7890\", \n        \"^\\d{3}-\\d{3}-\\d{4}$\",\n        \"^\\(\\d{3}\\) \\d{3}-\\d{4}$\")\n-- Returns TRUE because the string matches one of the patterns.",
     "MATCHES(\"user@example.com\",\n        \"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$\")\n-- Returns TRUE because the string matches the pattern."
   ],
   "tips": [

@@ -11,7 +11,7 @@
     }
   ],
   "examples": [
-    "TO_STRING(TO_TIME(\"14:30:00\"))\n-- Returns the input time converted to UTC based on the context user's local time zone.\n-- \"14:30:00\" EST becomes \"19:30:00.000Z\" UTC."
+    "TO_TIME(\"14:30:00\"))\n-- Returns a Time object for 14:30 local time in UTC."
   ],
   "tips": [
     {
@@ -20,6 +20,5 @@
     }
   ],
   "relatedFormulas": [
-    "TO_STRING"
   ]
 }

@@ -11,13 +11,10 @@
     }
   ],
   "examples": [
-    "YEAR(DATE(2024, 1, 25))\n-- Returns 2024",
-    "YEAR(TO_DATETIME(\"2024-08-15T14:45:00.000Z\"))\n-- Returns 2024",
-    "YEAR(TO_DATETIME(\"2024-01-01T00:10:00.000Z\"))\n-- Assume the user’s local time zone is America/New_York (UTC-05:00, standard time)\n-- Returns 2023"
+    "YEAR(DATE(2024, 1, 25))\n-- Returns 2024."
   ],
   "tips": [],
   "relatedFormulas": [
-    "DATE",
-    "TO_DATETIME"
+    "DATE"
   ]
 }

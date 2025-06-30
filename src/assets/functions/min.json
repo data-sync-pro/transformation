@@ -11,8 +11,8 @@
     }
   ],
   "examples": [
-    "MIN(4, 8, 1, 10) \n-- Returns 1",
-    "MIN(-2, -10, -5) \n-- Returns -10"
+    "MIN(4, 8, 1, 10) \n-- Returns 1.",
+    "MIN(-2, -10, -5) \n-- Returns -10."
   ],
   "tips": [],
   "relatedFormulas": []

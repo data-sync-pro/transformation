@@ -11,9 +11,8 @@
     }
   ],
   "examples": [
-    "TO_INTEGER(\"25\")\n-- Returns 25 as an Integer",
-    "TO_INTEGER(25.8)\n-- Returns 25",
-    "IF(\n    Annual_Sales__c >= TO_INTEGER(Annual_Target_Text__c),\n    \"Target Achieved\",\n    \"Target Not Met\"\n)\n-- Converts the text field 'Annual_Target_Text__c' into an integer.\n-- It then compares this target to the numeric field 'Annual_Sales__c' to determine whether the sales target has been met."
+    "TO_INTEGER(\"25\")\n-- Returns 25 as an Integer.",
+    "TO_INTEGER(25.8)\n-- Returns 25."
   ],
   "tips": [
     {
@@ -26,6 +25,5 @@
     }
   ],
   "relatedFormulas": [
-    "IF"
   ]
 }

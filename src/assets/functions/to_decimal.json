@@ -4,8 +4,8 @@
   "syntax": "TO_DECIMAL(string/double/long/float/integer, scale_optional) -> Decimal",
   "parameters": [
     {
-      "name": "string/double/long/float/integer",
-      "type": "String / Double / Long / Float / Integer",
+      "name": "string/double/long /float/integer",
+      "type": "String/Double/Long /Float/Integer",
       "required": "Yes",
       "description": "The string to convert into a Decimal"
     },
@@ -17,9 +17,7 @@
     }
   ],
   "examples": [
-    "TO_DECIMAL(\"25.3\")\n-- Returns 25.3 as a Decimal",
-    "TO_DECIMAL(25, 2)\n-- Returns 25.00 as a Decimal",
-    "TO_DECIMAL(25.6789, 2)\n-- Returns 25.68 as a Decimal"
+    "TO_DECIMAL(\"25.6789\", 2)\n-- Returns 25.68 as a Decimal, rounded to 2 decimal places."
   ],
   "tips": [
     {

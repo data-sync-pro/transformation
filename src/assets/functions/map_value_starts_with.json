@@ -29,14 +29,12 @@
     }
   ],
   "examples": [
-    "MAP_VALUE_STARTS_WITH(\"CA-San Francisco\", \"CA\", \"California\", \"NY\", \"New York\", \"Other\") \n-- Returns \"California\"(case-sensitive)",
-    "MAP_VALUE_STARTS_WITH(\"ca-san francisco\", \"CA\", \"California\", \"NY\", \"New York\", \"Other\") \n-- Returns \"Other\"(case-sensitive)",
-    "MAP_VALUE_STARTS_WITH(\"TX-Dallas\", \"Fran\", \"California\", \"NY\", \"New York\") \n-- Returns $SKIP_ASSIGNMENT.",
-    "MAP_VALUE_STARTS_WITH(Description, \"Platnium\", \"Partner\", \"Individual\", \"Person\", \"Business\")\n-- Checks if 'Description' starts with \"Platnium\"; if so, returns \"Partner\".\n-- If it starts with \"Individual\", returns \"Person\". Otherwise, returns \"Business\"."
+    "MAP_VALUE_STARTS_WITH(\"ca-san francisco\", \"CA\", \"California\", \"NY\", \"New York\", \"Other\") \n-- Returns \"Other\"(case-sensitive).",
+    "MAP_VALUE_STARTS_WITH(Description, \"Platnium\", \"Partner\", \"Individual\", \"Person\")\n-- Returns \"Partner\" if Description starts with \"Platinum\".\n-- Returns \"Person\" if it starts with \"Individual\".\n-- Returns $SKIP_ASSIGNMENT otherwise.\n-- Evaluation stops at the first match (case-sensitive)."
   ],
   "tips": [
     {
-      "text": "<p>Ensure that the <strong>return_value</strong> and <strong>default_return_value_optional</strong> are of the same data type.</p>",
+      "text": "<p>Ensure that <strong>return_value</strong> and <strong>default_return_value_optional</strong> are of the same data type.</p>",
       "children": []
     }
   ],

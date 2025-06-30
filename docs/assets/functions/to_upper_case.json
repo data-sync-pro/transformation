@@ -18,7 +18,7 @@
   ],
   "examples": [
     "TO_UPPER_CASE(\"icon\")\n-- Returns \"ICON\"",
-    "TO_UPPER_CASE(\"istanbul\", \"tr\")\n-- Returns \"İSTANBUL\""
+    "TO_UPPER_CASE(\"administrator\", \"tr\")\n-- Returns \"ADMİNİSTRATOR\"; converts using Turkish locale rules."
   ],
   "tips": [
     {

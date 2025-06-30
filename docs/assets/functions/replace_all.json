@@ -23,8 +23,7 @@
     }
   ],
   "examples": [
-    "REPLACE_ALL(\"Order 1234: Total 56\", \"\\d+\", \"#\")\n-- Returns: \"Order #: Total #\"\n-- The regular expression \\d+ matches one or more digits, and each match is replaced with #.",
-    "REPLACE_ALL(\"Coupon coupon Coupon\", \"Coupon\", \"Discount\")\n-- Returns: \"Discount coupon Discount\"\n-- All occurrences of \"Coupon\" are replaced with \"Discount\" (case-sensitive)."
+    "REPLACE_ALL(\n\t\"The user logged in at 10:00 and logged out at 17:00.\",\n\t\"\\b(?:[01]?\\d|2[0-3]):[0-5]\\d\\b\",\n\t\"[TIME]\"\n)\n-- Returns \"The user logged in at [TIME] and logged out at [TIME].\""
   ],
   "tips": [],
   "relatedFormulas": []

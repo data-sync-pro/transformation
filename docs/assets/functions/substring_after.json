@@ -17,8 +17,7 @@
     }
   ],
   "examples": [
-    "SUBSTRING_AFTER(\"Hello World\", \"llo\")\n-- Returns \" World\"",
-    "SUBSTRING_AFTER(\"abc def ghi\", \" \")\n-- Returns \"def ghi\""
+    "SUBSTRING_AFTER(\"REF-2025-1234\", \"-\")\n-- Returns \"2025-1234\". Extracts string after the first hyphen."
   ],
   "tips": [
     {
