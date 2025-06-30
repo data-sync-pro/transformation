@@ -23,7 +23,7 @@
     }
   ],
   "examples": [
-    "REPLACE_ALL(\"Acme org; Beta ORG; Gamma Org.\", \"(?i)\borg\b\", \"Org\")\n-- Returns \"Acme Org; Beta Org; Gamma Org.\". "
+    "REPLACE_ALL(\n\t\"The user logged in at 10:00 and logged out at 17:00.\",\n\t\"\\b(?:[01]?\\d|2[0-3]):[0-5]\\d\\b\",\n\t\"[TIME]\"\n)\n-- Returns \"The user logged in at [TIME] and logged out at [TIME].\""
   ],
   "tips": [],
   "relatedFormulas": []

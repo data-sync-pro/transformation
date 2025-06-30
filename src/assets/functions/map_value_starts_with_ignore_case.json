@@ -30,7 +30,7 @@
   ],
   "examples": [
     "MAP_VALUE_STARTS_WITH_IGNORE_CASE(\"ca-san francisco\", \"CA\", \"California\", \"NY\", \"New York\", \"Other\") \n-- Returns \"California\"(case-insensitive).",
-    "MAP_VALUE_STARTS_WITH_IGNORE_CASE(Description, \"platinum\", \"Partner\", \"individual\", \"Person\")\n-- Returns \"Partner\" if Description starts with \"platinum\".\n-- Returns \"Person\" if it starts with \"individual\".\n-- Returns $SKIP_ASSIGNMENT otherwise.\n-- Case-insensitive; evaluation stops at the first match."
+    "MAP_VALUE_STARTS_WITH_IGNORE_CASE(Description, \"platinum\", \"Partner\", \"individual\", \"Person\")\n-- Returns \"Partner\" if Description starts with \"platinum\".\n-- Returns \"Person\" if it starts with \"individual\".\n-- Returns $SKIP_ASSIGNMENT otherwise.\n-- Evaluation stops at the first match (case-insensitive)."
   ],
   "tips": [
     {
