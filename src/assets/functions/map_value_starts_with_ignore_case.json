@@ -34,7 +34,7 @@
   ],
   "tips": [
     {
-      "text": "<p>Ensure that the <strong>return_value</strong> and <strong>default_return_value_optional</strong> are of the same data type.</p>",
+      "text": "<p>Ensure that <strong>return_value</strong> and <strong>default_return_value_optional</strong> are of the same data type.</p>",
       "children": []
     }
   ],

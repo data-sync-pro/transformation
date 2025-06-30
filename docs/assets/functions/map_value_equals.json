@@ -29,16 +29,12 @@
     }
   ],
   "examples": [
-    "MAP_VALUE_EQUALS(\"NY\", \"NY\", \"New York\", \"CA\", \"California\") \n-- Returns \"New York\"",
-
-    "MAP_VALUE_EQUALS(\"FL\", \"NY\", \"New York\", \"CA\", \"California\") \n-- Returns $SKIP_ASSIGNMENT",
-    "MAP_VALUE_EQUALS(\"FL\", \"NY\", \"New York\", \"CA\", \"California\", \"Other\") \n-- Returns \"Other\"",
-
-    "MAP_VALUE_EQUALS(Score, 100, \"Perfect\", 50, \"Average\", 0, \"Fail\", \"No Match\")\n-- Returns \"Perfect\" if Score equals 100.\n-- Returns \"Average\" if Score equals 50.\n-- Returns \"Fail\" if Score equals 0.\n-- Otherwise, returns \"No Match\"."
+    "MAP_VALUE_EQUALS(\"NY\", \"NY\", \"New York\", \"CA\", \"California\") \n-- Returns \"New York\".",
+    "MAP_VALUE_EQUALS(Score, 100, \"Perfect\", 50, \"Average\", 0, \"Fail\")\n-- Returns \"Perfect\" if Score equals 100.\n-- Returns \"Average\" if Score equals 50.\n-- Returns \"Fail\" if Score equals 0.\n-- Returns $SKIP_ASSIGNMENT otherwise.\n-- Evaluation stops at the first match."
   ],
   "tips": [
     {
-      "text": "<p>Ensure that the <strong>return_value</strong> and <strong>default_return_value_optional</strong> are of the same data type.</p>",
+      "text": "<p>Ensure that <strong>return_value</strong> and <strong>default_return_value_optional</strong> are of the same data type.</p>",
       "children": []
     }
   ],

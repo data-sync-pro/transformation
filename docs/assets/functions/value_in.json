@@ -18,7 +18,7 @@
   ],
   "examples": [
     "VALUE_IN(3, 1, 2, 3)\n-- Returns TRUE because 3 is one of the provided compare values.",
-    "VALUE_IN(SUBSTRING_AFTER(Email, \"@\"), \"nvidia.com\", \"amd.com\", \"tesla.com\")\n-- Checks if the domain part of the field 'Email' (i.e., the substring after \"@\") matches any of the specified domains."
+    "VALUE_IN(SUBSTRING_AFTER(Email, \"@\"), \"nvidia.com\", \"amd.com\", \"tesla.com\")\n-- Returns TRUE if the email domain matches any specified domain (\"nvidia.com\", \"amd.com\", or \"tesla.com\")."
   ],
   "tips": [],
   "relatedFormulas": [

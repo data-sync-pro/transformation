@@ -4,8 +4,8 @@
   "syntax": "NOW() -> Datetime",
   "parameters": [],
   "examples": [
-    "NOW()\n-- Returns the current date and time",
-    "ADD_DAYS(NOW(), 3)\n-- Returns the date and time exactly 3 days after the current Datetime."
+    "NOW()\n-- Returns the current date and time.",
+    "ADD_DAYS(NOW(), 3)\n-- Returns the date and time 3 days after the current Datetime."
   ],
   "tips": [
     {

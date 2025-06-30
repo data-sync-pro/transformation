@@ -17,8 +17,8 @@
     }
   ],
   "examples": [
-    "TO_LOWER_CASE(\"ICON\")\n-- Returns \"icon\"",
-    "TO_LOWER_CASE(\"ICON\", \"tr\")\n-- Return \"ıcon\"\n-- The Turkish locale (\"tr\") is applied. Under Turkish locale rules, the uppercase \"I\" converts to a dotless \"ı\" rather than the standard \"i\"."
+    "TO_LOWER_CASE(\"ICON\")\n-- Returns \"icon\".",
+    "TO_LOWER_CASE(\"ADMINISTRATOR\", \"tr\")\n-- Returns \"admınıstrator\"; converts using Turkish locale-specific rules."
   ],
   "tips": [
     {

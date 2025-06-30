@@ -18,7 +18,7 @@
   ],
   "examples": [
     "STRING_JOIN(1, 2, 3, \"-\")\n-- Returns \"1-2-3\".",
-    "STRING_JOIN(FirstName, LastName, \" \")\n-- Returns \"John Doe\" if FirstName is \"John\" and LastName is \"Doe\"."
+    "STRING_JOIN(BillingCity, BillingState, \", \")\n-- Returns \"San Francisco, CA\" if BillingCity is \"San Francisco\" and BillingState is \"CA\"."
   ],
   "tips": [],
   "relatedFormulas": []

@@ -23,8 +23,7 @@
     }
   ],
   "examples": [
-    "REPLACE_FIRST(\"Order 1234: Total 56\", \"[0-9]+\", \"#\")\n-- Returns: \"Order #: Total 56\"",
-    "REPLACE_FIRST(\"Coupon coupon Coupon\", \"Coupon\", \"Discount\")\n-- Returns: \"Discount coupon Coupon\"\n-- Only the first occurrence of \"Coupon\" is replaced with \"Discount\"（case-sensitive)."
+    "REPLACE_FIRST(\"Order 1234: Total 56\", \"[0-9]+\", \"#\")\n-- Returns: \"Order #: Total 56\""
   ],
   "tips": [],
   "relatedFormulas": []

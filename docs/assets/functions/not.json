@@ -11,9 +11,9 @@
     }
   ],
   "examples": [
-    "NOT(TRUE)\n-- Return FALSE",
-    "NOT(1 > 2)\n-- Return TRUE",
-    "NOT(Priority == \"High\")\n-- Returns TRUE if Priority is not equal to \"High\".\n-- For example, if Priority is \"Medium\" or \"Low\", the result is TRUE.\n-- If Priority is \"High\", the result is FALSE."
+    "NOT(TRUE)\n-- Return FALSE.",
+    "NOT(1 > 2)\n-- Return TRUE.",
+    "NOT(Priority == \"High\")\n-- Returns TRUE if Priority is not equal to \"High\"."
   ],
   "tips": [
     {
