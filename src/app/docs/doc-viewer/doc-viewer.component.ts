@@ -44,12 +44,18 @@ export class DocViewerComponent implements OnInit {
 
   highlightSql(raw: string): SafeHtml {
 
-    const highlighted = hljs.highlight(raw, { language: 'sql' }).value
+    const tmp = raw
+    .replace(/<shadow>/g,  '§§SHD_START§§')
+    .replace(/<\/shadow>/g,'§§SHD_END§§')      
+
+    const highlighted = hljs.highlight(tmp, { language: 'sql' }).value;
+    
+    const cleaned = highlighted
+    .replace(/§§SHD_START§§/g, '<span class="code-comment">')
+    .replace(/§§SHD_END§§/g,   '</span>')
     .replace(/\/\*/g, '')
     .replace(/\*\//g, '');
-      
-    const safe = this.sanitizer.sanitize(SecurityContext.HTML, highlighted) || '';
-
-    return this.sanitizer.bypassSecurityTrustHtml(safe);
+  
+    return this.sanitizer.bypassSecurityTrustHtml(cleaned);
   }
 }

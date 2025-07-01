@@ -61,11 +61,14 @@ a:hover {
 code {
   background-color: #f5f5f5;
   padding: 0.2em 0.4em;    
-  border-radius: 4px;    
+  border-radius: 4px;   
   font-family: var(--el-font-mono);   
 }
 
-/* .sidebar-collapsed .breadcrumb {
-  margin-left: 8.2vw !important; 
-  transition: margin-left .3s;
-} */
+
+.code-comment {
+  background-color: rgb(185, 200, 187);
+  padding: 0 .2em;      
+  border-radius: .15em;  
+  display: inline-block;   
+}
