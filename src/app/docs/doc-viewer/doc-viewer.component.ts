@@ -2,6 +2,7 @@ import { Component, OnInit, SecurityContext } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DocsService, DocData } from '../docs.service';
 import hljs from 'highlight.js';
+
 import { switchMap } from 'rxjs';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
@@ -13,6 +14,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 export class DocViewerComponent implements OnInit {
   docContent: DocData | null = null;
   highlightedExamples: SafeHtml[] = [];
+  highlightedDescriptionCode: SafeHtml | null = null; 
   constructor(
     private route: ActivatedRoute,
     private docsService: DocsService,
@@ -36,11 +38,18 @@ export class DocViewerComponent implements OnInit {
       .subscribe((doc) => {
         this.docContent = doc;
 
-
         this.highlightedExamples = (doc?.examples ?? []).map((ex) =>
           this.highlightSql(ex)
         );
+
+        this.highlightedDescriptionCode = doc?.descriptionCode
+          ? this.highlightSql(doc.descriptionCode)
+          : null;
       });
+
+      setTimeout(() => {
+        hljs.highlightAll();
+      }, 0);
   }
 
   private highlightSql(raw: string): SafeHtml {
@@ -58,4 +67,5 @@ export class DocViewerComponent implements OnInit {
 
     return this.sanitizer.bypassSecurityTrustHtml(cleaned);
   }
+
 }

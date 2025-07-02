@@ -67,7 +67,5 @@ code {
 
 .code-comment {
   background-color: rgb(185, 200, 187);
-  padding: 0 .2em;      
-  border-radius: .15em;  
   display: inline-block;   
 }

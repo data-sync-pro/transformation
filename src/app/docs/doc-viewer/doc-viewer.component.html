@@ -56,11 +56,10 @@
     <div class="doc-images" *ngIf="docContent.descriptionImages?.length">
       <img *ngFor="let img of docContent.descriptionImages" [src]="img.src" alt="{{ img.alt }}" loading="lazy" />
     </div>
-    <div class="doc-example" *ngIf="docContent.descriptionCode">
-      <pre>
-        <code class="language-sql"
-              [textContent]="docContent.descriptionCode"></code>
-      </pre>
+    <div class="doc-example" *ngIf="highlightedDescriptionCode">
+      <!-- no leading spaces before the code -->
+      <pre><code class="hljs language-sql"
+                 [innerHTML]="highlightedDescriptionCode"></code></pre>
     </div>
   </section>
 
@@ -95,9 +94,7 @@
     <h2 *ngIf="highlightedExamples.length > 1">Examples</h2>
   
     <div class="doc-example" *ngFor="let html of highlightedExamples">
-      <pre>
-        <code class="hljs language-sql" [innerHTML]="html"></code>
-      </pre>
+      <pre><code class="hljs language-sql" [innerHTML]="html"></code></pre>
     </div>
   </section>
 
