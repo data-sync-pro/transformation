@@ -52,13 +52,20 @@ export class DocViewerComponent implements OnInit {
       }, 0);
   }
 
-  highlightSql(raw: string): SafeHtml {
+  private highlightExamples(raw: string): SafeHtml {
+    const tmp = raw
+      .replace(/<shadow>/g, '§§SHD_START§§')
+      .replace(/<\/shadow>/g, '§§SHD_END§§');
 
-    const highlighted = hljs.highlight(raw, { language: 'sql' }).value
-    .replace(/\/\*/g, '')
-    .replace(/\*\//g, '');
-      
-    const safe = this.sanitizer.sanitize(SecurityContext.HTML, highlighted) || '';
+    const highlighted = hljs.highlight(tmp, { language: 'sql' }).value;
+
+    const cleaned = highlighted
+      .replace(/§§SHD_START§§/g, '<span class="code-comment">')
+      .replace(/§§SHD_END§§/g, '</span>')
+      .replace(/\/\*/g, '')
+      .replace(/\*\//g, '');
+
+    return this.sanitizer.bypassSecurityTrustHtml(cleaned);
   }
 
   private highlightDescriptionCode(raw: string): SafeHtml {
