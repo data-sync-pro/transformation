@@ -39,11 +39,11 @@ export class DocViewerComponent implements OnInit {
         this.docContent = doc;
 
         this.highlightedExamples = (doc?.examples ?? []).map((ex) =>
-          this.highlightSql(ex)
+          this.highlightExamples(ex)
         );
 
         this.highlightedDescriptionCode = doc?.descriptionCode
-          ? this.highlightSql(doc.descriptionCode)
+          ? this.highlightDescriptionCode(doc.descriptionCode)
           : null;
       });
 
@@ -52,7 +52,7 @@ export class DocViewerComponent implements OnInit {
       }, 0);
   }
 
-  private highlightSql(raw: string): SafeHtml {
+  private highlightExamples(raw: string): SafeHtml {
     const tmp = raw
       .replace(/<shadow>/g, '§§SHD_START§§')
       .replace(/<\/shadow>/g, '§§SHD_END§§');
@@ -66,6 +66,11 @@ export class DocViewerComponent implements OnInit {
       .replace(/\*\//g, '');
 
     return this.sanitizer.bypassSecurityTrustHtml(cleaned);
+  }
+
+  private highlightDescriptionCode(raw: string): SafeHtml {
+    const highlighted = hljs.highlight(raw, { language: 'sql' }).value;
+    return this.sanitizer.bypassSecurityTrustHtml(highlighted);
   }
 
 }
