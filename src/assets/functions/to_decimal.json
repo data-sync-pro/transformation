@@ -12,7 +12,7 @@
     {
       "name": "scale_optional",
       "type": "Integer",
-      "required": "Optional",
+      "required": "No",
       "description": "The number of decimal places to round to. If omitted, no rounding occurs."
     }
   ],

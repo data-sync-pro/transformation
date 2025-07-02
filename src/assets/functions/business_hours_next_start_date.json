@@ -12,7 +12,7 @@
     {
       "name": "business_hours_name_optional",
       "type": "String",
-      "required": "Optional",
+      "required": "No",
       "description": "The name of the business hours. If omitted, the default schedule is applied."
     }
   ],

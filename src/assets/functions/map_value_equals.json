@@ -24,7 +24,7 @@
     {
       "name": "default_return_value_optional",
       "type": "Object",
-      "required": "Optional",
+      "required": "No",
       "description": "The value returned if no compare values match. If omitted and no match occurs, returns $SKIP_ASSIGNMENT."
     }
   ],

@@ -12,13 +12,13 @@
     {
       "name": "format_string_optional",
       "type": "String",
-      "required": "Optional",
+      "required": "No",
       "description": "The format pattern. Defaults to a standard format if not provided."
     },
     {
       "name": "timezone_optional",
       "type": "String",
-      "required": "Optional",
+      "required": "No",
       "description": "Time zone identifier (e.g., 'America/New_York'). Defaults to the user's local time zone."
     }
   ],

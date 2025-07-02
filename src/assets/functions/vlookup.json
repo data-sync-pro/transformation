@@ -30,7 +30,7 @@
     {
       "name": "additional_clause_optional",
       "type": "String",
-      "required": "Optional",
+      "required": "No",
       "description": "Additional SOQL criteria for restricting or ordering the matching results."
     }
   ],
