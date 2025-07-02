@@ -90,15 +90,14 @@
       </tbody>
     </table>
   </section>
-  <section class="doc-section" *ngIf="docContent.examples?.length">
-    <h2 *ngIf="(docContent.examples?.length || 0) === 1">Example</h2>
-    <h2 *ngIf="(docContent.examples?.length || 0) > 1">Examples</h2>
-    <div class="doc-example" *ngFor="let example of docContent.examples">
+  <section class="doc-section" *ngIf="highlightedExamples.length">
+    <h2 *ngIf="highlightedExamples.length === 1">Example</h2>
+    <h2 *ngIf="highlightedExamples.length > 1">Examples</h2>
+  
+    <div class="doc-example" *ngFor="let html of highlightedExamples">
       <pre>
-      <code class="hljs language-sql" 
-            [innerHTML]="highlightSql(example)">
-      </code>
-    </pre>
+        <code class="hljs language-sql" [innerHTML]="html"></code>
+      </pre>
     </div>
   </section>
 
