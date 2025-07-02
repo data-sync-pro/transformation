@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { DocsService, DocData } from '../../docs/docs.service';
+import { DocsService, DocData } from '../../services/docs.service';
 interface FunctionTag {
   "Item Name": string;
   Tags: string[];
