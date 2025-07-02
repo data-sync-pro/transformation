@@ -15,7 +15,8 @@
             <a
               *ngIf="variable.variable === '$JOINER'; else plainText"
               [routerLink]="['/docs', variable.variable.toLowerCase()]"
-                    [queryParams]="{ activeCategory: 'Global Variables' }">   
+              [queryParams]="{ activeCategory: 'Global Variables' }"
+            >
               {{ variable.variable }}
             </a>
           </td>
@@ -152,7 +153,14 @@
     </h2>
     <ul>
       <li *ngFor="let formula of docContent.relatedFormulas">
-        <a routerLink="/docs/{{ formula | lowercase }}">{{ formula }}</a>
+        <a
+          [routerLink]="['/docs', formula | lowercase]"
+          [queryParams]="{
+            activeCategory: (getActiveCategory$(formula) | async)
+          }"
+        >
+          {{ formula }}
+        </a>
       </li>
     </ul>
   </section>

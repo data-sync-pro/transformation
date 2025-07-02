@@ -1,6 +1,6 @@
 import { Component, OnInit, SecurityContext } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DocsService, DocData } from '../docs.service';
+import { DocsService, DocData } from '../../services/docs.service';
 import hljs from 'highlight.js';
 import { switchMap } from 'rxjs';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
@@ -51,5 +51,9 @@ export class DocViewerComponent implements OnInit {
     const safe = this.sanitizer.sanitize(SecurityContext.HTML, highlighted) || '';
 
     return this.sanitizer.bypassSecurityTrustHtml(safe);
+  }
+  
+  getActiveCategory$(formula: string) {
+    return this.docsService.getPrimaryCategory(formula);
   }
 }
