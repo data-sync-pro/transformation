@@ -1,10 +1,10 @@
 {
   "title": "STRING_JOIN",
   "description": "<p>Returns a single concatenated string formed by joining multiple provided objects using the specified separator string. Each object is converted to its string representation before concatenation.</p>",
-  "syntax": "STRING_JOIN(...obj, separator_string) -> String",
+  "syntax": "STRING_JOIN(...object, separator_string) -> String",
   "parameters": [
     {
-      "name": "... obj",
+      "name": "...object",
       "type": "Object",
       "required": "Yes",
       "description": "Objects or values to concatenate."
