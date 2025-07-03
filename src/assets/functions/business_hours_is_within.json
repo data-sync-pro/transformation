@@ -17,6 +17,7 @@
     }
   ],
   "examples": [
+    "BUSINESS_HOURS_IS_WITHIN(TO_DATETIME(\"2023-10-01T10:00:00Z\"))\n-- Returns TRUE if the specified Datetime is within org’s default business hours; otherwise, returns FALSE.",
     "BUSINESS_HOURS_IS_WITHIN(NOW(), \"Weekday9to5\")\n-- Returns TRUE if the current time is within the \"Weekday9to5\" business hours; otherwise, returns FALSE."
   ],
   "tips": [],
