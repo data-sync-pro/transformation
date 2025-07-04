@@ -24,7 +24,7 @@
   ],
   "examples": [
     "FORMAT_DATETIME(CreatedDate)\n-- Returns CreatedDate as a formatted string (e.g., \"3/9/2022, 3:06 PM\") in user's local time zone.",
-    "FORMAT_DATETIME(NOW(), \"YYYY-MM-dd hh:mm:ss\", \"UTC\")\n-- Returns the current Datetime as a string in UTC formatted as 'YYYY-MM-dd hh:mm:ss'."
+    "FORMAT_DATETIME(NOW(), \"YYYY-MM-dd hh:mm:ss\", \"UTC\")\n-- Returns the current Datetime as a string in UTC formatted as \"YYYY-MM-dd hh:mm:ss\"."
   ],
   "tips": [
     {
