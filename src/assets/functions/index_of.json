@@ -25,7 +25,7 @@
   "examples": [
     "INDEX_OF(\"Status=OK\", \"status\")\n-- Returns -1.",
     "INDEX_OF(\"Log entry: userID=1234\", \"userID=\")\n-- Returns 11.",
-    "INDEX_OF(\"SystemA-12345-Order-ABC\", \"-\", 10)\n-- Returns 13. Finds '-' starting search from index 10."
+    "INDEX_OF(\"SystemA-12345-Order-ABC\", \"-\", 10)\n-- Returns 13. Finds \"-\" starting search from index 10."
   ],
   "tips": [],
   "relatedFormulas": []
