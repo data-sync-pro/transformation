@@ -17,8 +17,7 @@
     }
   ],
   "examples": [
-    "STRING_JOIN(1, 2, 3, \"-\")\n-- Returns \"1-2-3\".",
-    "STRING_JOIN(BillingCity, BillingState, \", \")\n-- Returns \"San Francisco, CA\" if BillingCity is \"San Francisco\" and BillingState is \"CA\"."
+    "STRING_JOIN(1, 2, 3, \"-\")\n-- Returns \"1-2-3\"."
   ],
   "tips": [],
   "relatedFormulas": []

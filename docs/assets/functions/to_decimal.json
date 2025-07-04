@@ -12,12 +12,16 @@
     {
       "name": "scale_optional",
       "type": "Integer",
-      "required": "Optional",
+      "required": "No",
       "description": "The number of decimal places to round to. If omitted, no rounding occurs."
     }
   ],
   "examples": [
-    "TO_DECIMAL(\"25.6789\", 2)\n-- Returns 25.68 as a Decimal, rounded to 2 decimal places."
+    "TO_DECIMAL(\"25.6789\")\n-- Returns 25.6789.",
+    "TO_DECIMAL(123.456789, 3)\n-- Returns 123.457, rounded to 3 decimal places.",
+    "TO_DECIMAL(3147483647, 2)\n-- Returns 3147483647.00.",
+    "TO_DECIMAL(10/3, 3)\n-- Returns 3.333, rounded to 3 decimal places.",
+    "TO_DECIMAL(75, 3)\n-- Returns 75.000, rounded to 3 decimal places."
   ],
   "tips": [
     {

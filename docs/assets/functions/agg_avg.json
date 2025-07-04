@@ -18,19 +18,19 @@
     {
       "name": "… group_field_name",
       "type": "String",
-      "required": "Optional",
+      "required": "No",
       "description": "The name of the field used for grouping records."
     },
     {
       "name": "… group_field_value",
       "type": "Object",
-      "required": "Optional",
+      "required": "No",
       "description": "The field value used as grouping criteria."
     },
     {
       "name": "additional_filters_optional",
       "type": "String",
-      "required": "Optional",
+      "required": "No",
       "description": "Additional filter conditions to apply."
     }
   ],
