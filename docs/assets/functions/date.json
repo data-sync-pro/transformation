@@ -23,7 +23,7 @@
     }
   ],
   "examples": [
-    "DATE(2005, 1, 2)\n-- Returns 2005-01-02"
+    "DATE(2005, 1, 2)\n-- Returns 2005-01-02."
   ],
   "tips": [],
   "relatedFormulas": []

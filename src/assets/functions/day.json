@@ -11,7 +11,7 @@
     }
   ],
   "examples": [
-    "DAY(DATE(2024, 1, 25))\n-- Returns 25"
+    "DAY(DATE(2024, 1, 25))\n-- Returns 25."
   ],
   "tips": [],
   "relatedFormulas": [

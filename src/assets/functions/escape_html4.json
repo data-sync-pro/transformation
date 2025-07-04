@@ -11,7 +11,7 @@
     }
   ],
   "examples": [
-    "ESCAPE_HTML4(\"<div>Hello, world!</div>\")\n-- Returns: \"&lt;div&gt;Hello, world!&lt;/div&gt;\""    
+    "ESCAPE_HTML4(\"<div>Hello, world!</div>\")\n-- Returns \"&lt;div&gt;Hello, world!&lt;/div&gt;\""    
   ],
   "tips": [],
   "relatedFormulas": []

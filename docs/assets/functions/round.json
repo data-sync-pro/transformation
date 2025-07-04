@@ -17,7 +17,7 @@
     }
   ],
   "examples": [
-    "ROUND(1.2345, 0)\n-- Returns: 1"
+    "ROUND(1.2345, 0)\n-- Returns 1."
   ],
   "tips": [
     {

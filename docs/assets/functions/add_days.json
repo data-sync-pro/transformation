@@ -17,8 +17,8 @@
     }
   ],
   "examples": [
-    "ADD_DAYS(DATE(2024, 8, 8), 4)\n-- Adds 4 days to 2024-08-08\n-- Returns 2024-08-12",
-    "ADD_DAYS(NOW(), -3)\n-- Subtracts 3 days from NOW()"
+    "ADD_DAYS(DATE(2024, 8, 8), 4)\n-- Adds 4 days to 2024-08-08.\n-- Returns 2024-08-12.",
+    "ADD_DAYS(NOW(), -3)\n-- Subtracts 3 days from NOW()."
   ],
   "tips": [
     {
