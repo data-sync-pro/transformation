@@ -16,7 +16,7 @@
   ],
   "tips": [
     {
-      "text": "<p>If the input is a string, it must represent an integer; otherwise, an error will occur.</p>",
+      "text": "<p>If the input is a string, it must represent an integer; otherwise, an error may occur.</p>",
       "children": []
     },
     {

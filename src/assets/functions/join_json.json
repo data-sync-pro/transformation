@@ -12,13 +12,13 @@
     {
       "name": "… matching_field_name",
       "type": "String",
-      "required": "No",
+      "required": "Optional",
       "description": "The field name to use as the filter criterion. Multiple pairs allowed. Left Join if any pairs are included; Cross Join if all are omitted."
     },
     {
       "name": "… matching_field_value",
       "type": "Object",
-      "required": "No",
+      "required": "Optional",
       "description": "Field value to match for filtering."
     }
   ],

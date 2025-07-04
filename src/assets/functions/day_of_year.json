@@ -11,8 +11,8 @@
     }
   ],
   "examples": [
-    "DAY_OF_YEAR(DATE(2024, 1, 1))\n-- Returns 1.",
-    "DAY_OF_YEAR(DATE(2024, 12, 31))\n-- Returns 366."
+    "DAY_OF_YEAR(DATE(2024, 1, 1))\n-- Returns 1",
+    "DAY_OF_YEAR(DATE(2024, 12, 31))\n-- Returns 366"
   ],
   "tips": [],
   "relatedFormulas": [

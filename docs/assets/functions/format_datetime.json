@@ -12,19 +12,18 @@
     {
       "name": "format_string_optional",
       "type": "String",
-      "required": "No",
+      "required": "Optional",
       "description": "The format pattern. Defaults to a standard format if not provided."
     },
     {
       "name": "timezone_optional",
       "type": "String",
-      "required": "No",
+      "required": "Optional",
       "description": "Time zone identifier (e.g., 'America/New_York'). Defaults to the user's local time zone."
     }
   ],
   "examples": [
-    "FORMAT_DATETIME(CreatedDate)\n-- Returns CreatedDate as a formatted string (e.g., \"3/9/2022, 3:06 PM\") in user's local time zone.",
-    "FORMAT_DATETIME(NOW(), \"YYYY-MM-dd hh:mm:ss\", \"UTC\")\n-- Returns the current Datetime as a string in UTC formatted as 'YYYY-MM-dd hh:mm:ss'."
+    "FORMAT_DATETIME(NOW(), \"YYYY-MM-dd hh:mm:ss\", \"UTC\")\n-- Returns the current Datetime as a string in UTC formatted as \"YYYY-MM-dd hh:mm:ss\"."
   ],
   "tips": [
     {
