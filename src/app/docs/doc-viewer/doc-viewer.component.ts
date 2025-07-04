@@ -76,4 +76,5 @@ export class DocViewerComponent implements OnInit {
   getActiveCategory$(formula: string) {
     return this.docsService.getPrimaryCategory(formula);
   }
+
 }
