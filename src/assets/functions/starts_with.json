@@ -18,7 +18,7 @@
   ],
   "examples": [
     "STARTS_WITH(Email, \"sales@\")\n-- Returns TRUE if the Email field starts with \"sales@\"; otherwise, returns FALSE.",
-    "STARTS_WITH(\"Invoice-2023-001\", \"Inv\", \"Invoice\")\n-- Returns TRUE (case-sensitive)."
+    "STARTS_WITH(\"Invoice-2023-001\", \"INV\", \"Invoice\")\n-- Returns TRUE. The string starts with \"Invoice\" (case-sensitive)."
   ],
   "tips": [
     {

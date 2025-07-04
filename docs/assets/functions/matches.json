@@ -22,7 +22,7 @@
   ],
   "tips": [
     {
-      "text": "<p>Define your regular expressions using Apex- or Java-compliant syntax.</p>",
+      "text": "<p>Regular expressions must follow Apex or Java syntax.</p>",
       "children": []
     }
   ],
