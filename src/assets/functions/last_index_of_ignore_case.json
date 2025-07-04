@@ -18,13 +18,13 @@
     {
       "name": "end_position_optional",
       "type": "Integer",
-      "required": "Optional",
+      "required": "No",
       "description": "The zero-based index indicating the end position for the search. If omitted, searches the entire string."
     }
   ],
   "examples": [
-    "LAST_INDEX_OF_IGNORE_CASE(\"Error: INFO, Error: Warn, Error: Critical\", \"error\")\n --Returns 26. Finds \"Error\" at index 26, ignoring case.",
-    "LAST_INDEX_OF_IGNORE_CASE(\"Status_OK|Status_Fail|Status_Pending\", \"STATUS\", 20)\n -- Returns 10. Matches \"Status\" within the first 20 characters, ignoring case."
+    "LAST_INDEX_OF_IGNORE_CASE(\"Status_OK|Status_Fail|Status_Pending\", \"STATUS\", 20)\n -- Returns 10. Matches \"Status\" within the first 20 characters (case-insensitive).",
+    "LAST_INDEX_OF_IGNORE_CASE(\"Error: Info, Error: Warn, Error: Critical\", \"error\")\n --Returns 26. Finds \"Error\" at index 26 (case-insensitive)."
   ],
   "tips": [],
   "relatedFormulas": []

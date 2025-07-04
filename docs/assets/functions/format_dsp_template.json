@@ -7,12 +7,17 @@
       "name": "template",
       "type": "String",
       "required": "Yes",
-      "description": "A string containing merge fields or expressions in DSP template syntax (e.g. {!FieldName}, {VLOOKUP(...)}) to be evaluated and replaced with their corresponding values."
+      "description": "A string containing merge fields or expressions in DSP template syntax (e.g. {!FieldName}, {VLOOKUP(...)}) to be evaluated and replaced with their corresponding values. Incorrect or unparseable expressions remain literal strings in the output."
     }
   ],
   "examples": [
-    "FORMAT_DSP_TEMPLATE(\n\"Dear <shadow>{VLOOKUP('OpportunityContactRole', 'Contact.Name', 'OpportunityId', Id,'IsPrimary = TRUE')}</shadow>, \n\nWe are pleased to inform you that your Account: <shadow>{Account.Name}</shadow> has an Opportunity currently at the stage: <shadow>{StageName}</shadow>.\n\nFeel free to reach out if you have any questions.\n\nBest Regards,   \nSales Team\")\n\n/*Dear <shadow>Kristin Stanton</shadow>, \n\nWe are pleased to inform you that your Account: <shadow>Owens LLC</shadow> has an Opportunity currently at the stage: <shadow>Prospecting</shadow>. \n\nFeel free to reach out if you have any questions. \n\nBest Regards, \nSales Team*/"
- ],
-  "tips": [],
+    "FORMAT_DSP_TEMPLATE(\"Dear {VLOOKUP('OpportunityContactRole', 'Contact.Name', 'OpportunityId', Id,'IsPrimary = TRUE')}, \n\nWe are pleased to inform you that your Account: {Account.Name} has an Opportunity currently at the stage: {StageName}.\n\nFeel free to reach out if you have any questions.\n\nBest regards,   \nSales Team\")\n\n/*Dear Kristin Stanton, \n\nWe are pleased to inform you that your Account: Owens LLC has an Opportunity currently at the stage: Prospecting. \n\nFeel free to reach out if you have any questions. \n\nBest regards, \nSales Team*/",
+    "FORMAT_DSP_TEMPLATE(\"Hello {LOOKUP('Account', 'Name', 'Id', AccountId)}. Your Stage: {Opty.StageName}.\")\n-- Returns the template with unparseable expressions left as-is as \"LOOKUP\" is misspelled and \"Opty\" is an invalid object name." 
+  ],
+  "tips": [
+    {
+      "text": "<p>To validate embedded expressions, test them individually in a field mapping's editor."
+    }
+  ],
   "relatedFormulas": ["VLOOKUP"]
 }

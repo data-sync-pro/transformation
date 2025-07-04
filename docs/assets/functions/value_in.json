@@ -1,10 +1,10 @@
 {
   "title": "VALUE_IN",
   "description": "<p>Returns TRUE if the provided object matches any of the specified compare values; otherwise, returns FALSE.</p>",
-  "syntax": "VALUE_IN(obj, ...compare_values) -> Boolean",
+  "syntax": "VALUE_IN(object, ...compare_values) -> Boolean",
   "parameters": [
     {
-      "name": "obj",
+      "name": "object",
       "type": "Object",
       "required": "Yes",
       "description": "The object to evaluate."

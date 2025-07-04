@@ -11,7 +11,7 @@
     }
   ],
   "examples": [
-    "TO_BLOB(Document_Content__c)\n-- Converts the field 'Document_Content__c' into a Blob"
+    "TO_BLOB(Document_Content__c)\n-- Converts the field Document_Content__c into a Blob."
   ],
   "tips": [],
   "relatedFormulas": []

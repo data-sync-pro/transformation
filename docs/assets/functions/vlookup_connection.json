@@ -36,13 +36,13 @@
     {
       "name": "additional_clause_optional",
       "type": "String",
-      "required": "Optional",
+      "required": "No",
       "description": "Additional query conditions for more precise filtering."
     }
   ],
   "examples": [
-    "VLOOKUP_CONNECTION(\"Salesforce_Prod\",\n\t\"Opportunity\",\n\t\"Amount\", \n\t\"Account.Source_System_Id__c\",\n\tSource_System_Id__c)\n-- Fetches the Amount field from the first Opportunity record in the \"Salesforce_Prod\" connection where the Account.Source_System_Id__c matches the current record’s Source_System_Id__c.",
-    "VLOOKUP_CONNECTION(\"Salesforce_Prod\", \n\t\"Opportunity\", \n\t\"Amount\", \n\t\"AccountId\", Id, \n\t\"OwnerId\", $User.Id, \n\t\"FiscalYear = 2024\")\n-- Retrieves the Amount field from the first Opportunity record in the \"Salesforce_Prod\" connection where:\n-- AccountId matches the current record’s Id\n-- OwnerId matches the current user’s Id ($User.Id)\n-- FiscalYear equals 2024"
+    "VLOOKUP_CONNECTION(\"Salesforce_Prod\",\n                   \"Opportunity\",\n                   \"Amount\", \n                   \"Account.Source_System_Id__c\",\n                    Source_System_Id__c)\n-- Retrieves the Amount from the first Opportunity record in Org \"Salesforce_Prod\" where the Account.Source_System_Id__c matches the current record’s Source_System_Id__c.",
+    "VLOOKUP_CONNECTION(\"Salesforce_Prod\", \n                   \"Opportunity\", \n                   \"Amount\", \n                   \"AccountId\", Id, \n                   \"OwnerId\", $User.Id, \n                   \"FiscalYear = 2024\")\n-- Retrieves the Amount from the first Opportunity record in Org \"Salesforce_Prod\" where:\n-- AccountId matches the current record’s Id\n-- OwnerId matches the current user’s Id ($User.Id)\n-- FiscalYear equals 2024"
   ],
   "tips": [],
   "relatedFormulas": []

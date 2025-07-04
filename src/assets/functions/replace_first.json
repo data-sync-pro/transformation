@@ -23,7 +23,7 @@
     }
   ],
   "examples": [
-    "REPLACE_FIRST(\"Order 1234: Total 56\", \"[0-9]+\", \"#\")\n-- Returns: \"Order #: Total 56\""
+    "REPLACE_FIRST(\"Order 1234: Total 56\", \"[0-9]+\", \"#\")\n-- Returns \"Order #: Total 56\"."
   ],
   "tips": [],
   "relatedFormulas": []

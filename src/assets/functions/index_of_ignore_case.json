@@ -18,13 +18,14 @@
     {
       "name": "index_optional",
       "type": "Integer",
-      "required": "Optional",
+      "required": "No",
       "description": "The starting index for the search (zero-based). Defaults to 0."
     }
   ],
   "examples": [
     "INDEX_OF_IGNORE_CASE(\"Sales_Report.XLSX\", \".xlsx\")\n-- Returns 12.",
-    "INDEX_OF_IGNORE_CASE(\"Voltage=220V\", \"Temperature=\")\n-- Returns -1."
+    "INDEX_OF_IGNORE_CASE(\"Voltage=220V\", \"Temperature=\")\n-- Returns -1.",
+    "INDEX_OF_IGNORE_CASE(\"Report.Q1.Final.PDF\", \".pdf\", 10)\n-- Returns 15. Finds \".pdf\" starting search from index 10 (case-insensitive)."
   ],
   "tips": [],
   "relatedFormulas": []

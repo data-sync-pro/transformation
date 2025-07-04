@@ -10,14 +10,15 @@
       "description": "The string to evaluate."
     },
     {
-      "name": "… compare_strings",
+      "name": "...compare_strings",
       "type": "String",
       "required": "Yes",
       "description": "One or more strings to check for at the beginning of string"
     }
   ],
   "examples": [
-    "STARTS_WITH(Email, \"sales@\")\n-- Returns TRUE if the Email field starts with \"sales@\"; otherwise, returns FALSE."
+    "STARTS_WITH(Email, \"sales@\")\n-- Returns TRUE if the Email field starts with \"sales@\"; otherwise, returns FALSE.",
+    "STARTS_WITH(\"Invoice-2023-001\", \"INV\", \"Invoice\")\n-- Returns TRUE. The string starts with \"Invoice\" (case-sensitive)."
   ],
   "tips": [
     {

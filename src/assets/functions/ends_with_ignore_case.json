@@ -17,7 +17,7 @@
     }
   ],
   "examples": [
-    "ENDS_WITH_IGNORE_CASE(\"Salesforce Platform\", \"platform\", \"plat\") \n-- Returns TRUE (ignoring case).",
+    "ENDS_WITH_IGNORE_CASE(\"Salesforce Platform\", \"platform\") \n-- Returns TRUE (case-insensitive).",
     "ENDS_WITH_IGNORE_CASE(Email, \".gov\", \".edu\")\n-- Returns TRUE if the email ends with \".gov\" or \".edu\" in any case."
   ],
   "tips": [],

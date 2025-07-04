@@ -17,12 +17,12 @@
     }
   ],
   "examples": [
-    "MATCHES(\"123-456-7890\", \n        \"^\\d{3}-\\d{3}-\\d{4}$\",\n        \"^\\(\\d{3}\\) \\d{3}-\\d{4}$\")\n-- Returns TRUE because the string matches one of the patterns.",
-    "MATCHES(\"user@example.com\",\n        \"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$\")\n-- Returns TRUE because the string matches the pattern."
+    "MATCHES(\"123-456-7890\", \n        \"^\\d{3}-\\d{3}-\\d{4}$\",\n        \"^\\(\\d{3}\\) \\d{3}-\\d{4}$\")\n-- Returns TRUE because the string matches the first pattern.",
+    "MATCHES(\"user@example.com\",\n        \"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$\")\n-- Returns TRUE."
   ],
   "tips": [
     {
-      "text": "<p>Define your regular expressions using Apex- or Java-compliant syntax.</p>",
+      "text": "<p>Regular expressions must follow Apex or Java syntax.</p>",
       "children": []
     }
   ],

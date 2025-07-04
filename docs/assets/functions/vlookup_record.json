@@ -24,13 +24,13 @@
     {
       "name": "additional_clause_optional",
       "type": "String",
-      "required": "Optional",
+      "required": "No",
       "description": "Additional query conditions for more precise filtering."
     }
   ],
   "examples": [
-    "VLOOKUP_RECORD(\"Opportunity\", \n        \"AccountId\", Id, \n        \"IsClosed = true\")\n-- Retrieve an Opportunity record where:\n-- AccountId matches the current record's Id\n-- IsClosed equals true",
-    "VLOOKUP_RECORD(\"Opportunity\", \n        \"AccountId\", Id, \n        \"OwnerId\", OwnerId, \n        \"Probability > 90\")\n-- Retrieves an Opportunity record where:\n-- AccountId matches the current record's Id\n-- OwnerId matches the current record's OwnerId\n-- Probability is greater than 90"
+    "VLOOKUP_RECORD(\"Opportunity\", \n               \"AccountId\", Id)\n-- Retrieve an Opportunity record where:\n-- AccountId matches the current record's Id.",
+    "VLOOKUP_RECORD(\"Opportunity\", \n               \"AccountId\", Id, \n               \"OwnerId\", OwnerId, \n               \"Probability > 90\")\n-- Retrieves an Opportunity record where:\n-- AccountId matches the current record's Id;\n-- OwnerId matches the current record's OwnerId;\n-- Probability is greater than 90."
   ],
   "tips": [
     {
