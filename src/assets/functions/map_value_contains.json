@@ -24,7 +24,7 @@
     {
       "name": "default_return_value_optional",
       "type": "Object",
-      "required": "No",
+      "required": "Optional",
       "description": "The value returned if no substrings match. If omitted and no match occurs, returns $SKIP_ASSIGNMENT."
     }
   ],

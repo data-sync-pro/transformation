@@ -11,8 +11,8 @@
     }
   ],
   "examples": [
-    "HAS_PERMISSION(\"Admin_Access\")\n-- Checks if the context user has the \"Admin_Access\" permission.",
-    "HAS_PERMISSION(\"Manage_Cases\", \"View_Case_Data_List\")\n-- Checks if the context user has either the \"Manage_Cases\" or \"View_Case_Data_List\" permission."
+    "HAS_PERMISSION('Admin_Access')\n-- Checks if the context user has the 'Admin_Access' permission",
+    "HAS_PERMISSION('Manage_Cases', 'View_Case_Data_List')\n-- Checks if the context user has either the 'Sales_Access' or 'Marketing_Access' permission"
   ],
   "tips": [],
   "relatedFormulas": []

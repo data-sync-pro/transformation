@@ -12,7 +12,7 @@
     {
       "name": "locale_optional",
       "type": "String",
-      "required": "No",
+      "required": "Optional",
       "description": "Locale identifier (such as \"en-US\") to apply locale-specific casing rules. If omitted, default locale is used."
     }
   ],

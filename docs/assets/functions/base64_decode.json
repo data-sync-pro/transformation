@@ -11,7 +11,7 @@
     }
   ],
   "examples": [
-    "BASE64_DECODE(\"RGF0YSBTeW5jIFBybw==\")\n-- Returns \"Data Sync Pro\"."
+    "BASE64_DECODE(\"RGF0YSBTeW5jIFBybw==\")\n-- Returns \"Data Sync Pro\""
   ],
   "tips": [],
   "relatedFormulas": []

@@ -63,7 +63,6 @@
     { "Item Name": "OPERATORS", "Tags": ["Operators"] },
     { "Item Name": "RANDOMIZE", "Tags": ["Randomization"] },
     { "Item Name": "RANDOM_ITEM", "Tags": ["Randomization"] },
-    { "Item Name": "REPLACE", "Tags": ["Text"] },
     { "Item Name": "REPLACE_ALL", "Tags": ["Text"] },
     { "Item Name": "REPLACE_FIRST", "Tags": ["Text"] },
     { "Item Name": "RIGHT", "Tags": ["Text"] },

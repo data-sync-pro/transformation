@@ -7,7 +7,7 @@
       "name": "template",
       "type": "String",
       "required": "Yes",
-      "description": "A string containing merge fields or expressions in DSP template syntax (e.g. {!FieldName}, {VLOOKUP(...)}) to be evaluated and replaced with their corresponding values. Incorrect or unparseable expressions remain literal strings in the output."
+      "description": "A string containing merge fields or expressions in DSP template syntax (e.g. {!FieldName}, {VLOOKUP(...)}) to be evaluated and replaced with their corresponding values."
     }
   ],
   "examples": [

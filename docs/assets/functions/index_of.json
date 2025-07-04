@@ -18,7 +18,7 @@
     {
       "name": "index_optional",
       "type": "Integer",
-      "required": "No",
+      "required": "Optional",
       "description": "The starting index for the search (zero-based). Defaults to 0."
     }
   ],

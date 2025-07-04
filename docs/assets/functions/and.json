@@ -11,8 +11,8 @@
     }
   ],
   "examples": [
-    "AND(5 > 3, 10 == 10)\n-- Returns TRUE.",
-    "AND(5 < 3, 10 == 10)\n-- Returns FALSE."
+    "AND(5 > 3, 10 == 10)\n-- Returns TRUE",
+    "AND(5 < 3, 10 == 10)\n-- Returns FALSE"
   ],
   "tips": [
     {
