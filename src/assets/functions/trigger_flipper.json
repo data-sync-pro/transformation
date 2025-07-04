@@ -6,7 +6,7 @@
     {
       "name": "flip_if_evaluated_true_optional",
       "type": "Boolean",
-      "required": "No",
+      "required": "Optional",
       "description": "Flips the field if this evaluates to true; otherwise, no flip occurs."
     }
   ],

@@ -1,6 +1,6 @@
 {
   "title": "REPLACE",
-  "description": "<p>Returns a new string by replacing all case-sensitive occurrences of a target substring in the original string with a specified replacement.</p>",
+  "description": "<p>Returns a new string in which all occurrences of the target substring within the original string are replaced by the specified replacement substring. The replacement is case-sensitive.</p>",
   "syntax": "REPLACE(string, target, replacement) -> String",
   "parameters": [
     {
@@ -23,8 +23,8 @@
     }
   ],
   "examples": [
-    "REPLACE(\"PROD-ABC-123\", \"-\", \"_\")\n-- Returns \"PROD_ABC_123\".",
-    "REPLACE(CaseDescription, \"urgent\", \"important\")\n-- Replaces all occurrences of \"urgent\" with \"important\" in the field CaseDescription (case-sensitive)."
+    "REPLACE(\"Coupon coupon Coupon\", \"Coupon\", \"Discount\")\n-- Returns: \"Discount coupon Discount\"\n-- Only the exact matches of \"Coupon\" (case-sensitive) are replaced with \"Discount\".",
+    "REPLACE(CaseDescription, \"urgent\", \"important\")\n-- Replaces all occurrences of \"urgent\" with \"important\" in the field 'CaseDescription'"
   ],
   "tips": [],
   "relatedFormulas": []

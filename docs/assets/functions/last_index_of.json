@@ -18,7 +18,7 @@
     {
       "name": "end_position_optional",
       "type": "Integer",
-      "required": "No",
+      "required": "Optional",
       "description": "The zero-based index indicating the end position for the search. If omitted, searches the entire string."
     }
   ],

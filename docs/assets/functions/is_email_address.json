@@ -11,9 +11,9 @@
     }
   ],
   "examples": [
-    "IS_EMAIL_ADDRESS(\"user@example.com\")\n-- Returns TRUE.",
-    "IS_EMAIL_ADDRESS(\"user.example.com\")\n-- Returns FALSE, as it lacks the '@' symbol.",
-    "IS_EMAIL_ADDRESS(\"user@\")\n-- Returns FALSE, as it lacks a domain."
+    "IS_EMAIL_ADDRESS(\"user@example.com\")\n-- Returns TRUE",
+    "IS_EMAIL_ADDRESS(\"user.example.com\")\n-- Returns FALSE, as it lacks the '@' symbol",
+    "IS_EMAIL_ADDRESS(\"user@\")\n-- Returns FALSE, as it lacks a domain"
   ],
   "tips": [
     {

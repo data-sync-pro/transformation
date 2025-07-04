@@ -18,13 +18,13 @@
     {
       "name": "business_hours_name_optional",
       "type": "String",
-      "required": "No",
+      "required": "Optional",
       "description": "The name of the business hours."
     }
   ],
   "examples": [
-    "BUSINESS_HOURS_DIFF(CreatedDate, ClosedDate)\n-- Returns milliseconds of default business hours between record creation and closure.", 
-    "BUSINESS_HOURS_DIFF(Case_Created__c, First_Response__c, \"SupportSchedule\")\n-- Returns milliseconds of \"SupportSchedule\" hours between case creation and first response."
+    "BUSINESS_HOURS_DIFF(CreatedDate, ClosedDate)\n-- Returns milliseconds of default business hours between record creation and closure", 
+    "BUSINESS_HOURS_DIFF(Case_Created__c, First_Response__c, \"SupportSchedule\")\n-- Returns milliseconds of \"SupportSchedule\" hours between case creation and first response"
   ],
   "tips": [],
   "relatedFormulas": [
