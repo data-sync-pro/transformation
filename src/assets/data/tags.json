@@ -23,6 +23,7 @@
     { "Item Name": "FORMAT_DATETIME", "Tags": ["Date & Time", "Text"] },
     { "Item Name": "FORMAT_DSP_TEMPLATE", "Tags": ["Text"] },
     { "Item Name": "GLOBAL_VARIABLES", "Tags": ["Global Variables"] },
+    { "Item Name": "GET_PICKLIST_FIELD_OPTIONS", "Tags": ["Advanced"]},
     { "Item Name": "HAS_PERMISSION", "Tags": ["Logical"] },
     { "Item Name": "IF", "Tags": ["Logical"] },
     { "Item Name": "INDEX_OF", "Tags": ["Text"] },
