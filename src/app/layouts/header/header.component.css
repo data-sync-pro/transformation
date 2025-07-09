@@ -1,0 +1,60 @@
+/* ===========================
+   Logo and Title Styles
+   =========================== */
+.logo-name-wrapper {
+  text-decoration: none;
+}
+
+.logo {
+  height: 4rem;
+}
+
+.name {
+  font-size: 1.3rem;
+  font-weight: 550;
+  color: #418796;
+  margin-left: 4px;
+}
+
+.logo-name-items {
+  display: flex;
+  align-items: center;
+}
+
+/* ===========================
+   Top Header Container
+   =========================== */
+.top-header {
+  width: 100%;
+  height: 4rem;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.header-content {
+  width: 100%;
+  padding: 0 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.developer-guide {
+  padding-right: 1rem;
+}
+
+.developer-guide-link {
+  color: #333;
+}
