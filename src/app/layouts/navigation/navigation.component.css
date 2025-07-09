@@ -131,7 +131,7 @@ ul li {
 
 .function-list {
   list-style: none !important;
-  margin: 0 0 0.1rem 13px !important;
+  margin: 0 0 0.5rem 13px !important;
   padding-left: 0.5rem !important;
   border-left: 1.5px solid #d9e4e8;
 }
