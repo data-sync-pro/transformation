@@ -1,4 +1,8 @@
 /* ===========================
+   CSS Variables for Consistent Styling
+   =========================== */
+
+/* ===========================
    Navigation Menu Styles
    =========================== */
 .nav {
@@ -30,7 +34,7 @@ ul li {
   top: 0;
   z-index: 1;
   background-color: white;
-  padding: 1rem 0.5rem;
+  padding: 1rem 0rem 0.3rem 0.75rem;
   align-items: center;
 }
 
@@ -39,27 +43,44 @@ ul li {
   display: flex;
   align-items: center;
   width: 100%;
-  gap: 8px;
 }
 
 .nav-header-expanded app-search-box {
-  flex: 1;
+  flex: 0 0 85%;
 }
 
 .nav-collapse-button {
   background: transparent;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   cursor: pointer;
   color: #333;
-  padding: 4px 8px;
+  padding-bottom: 5px;
   border-radius: 4px;
   transition: background-color 0.2s ease;
-  flex-shrink: 0;
+  flex: 0 0 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .nav-collapse-button:hover {
   color: #418796;
+}
+
+.nav-collapse-button span {
+  display: block;
+  line-height: 1;
+  font-weight: normal;
 }
 
 /* Collapsed header layout */
@@ -92,6 +113,13 @@ ul li {
   color: #418796;
 }
 
+/* Firefox specific adjustment */
+@-moz-document url-prefix() {
+  .nav-collapse-button {
+    padding: 5px 8px;
+  }
+}
+
 .nav-search-button .icon-search {
   width: 1.2rem;
   height: 1.2rem;
@@ -110,7 +138,7 @@ ul li {
   transition: background 0.2s;
   border-radius: 6px;
   position: sticky;
-  top: 65px;
+  top: 56px;
   z-index: 0;
   background-color: white;
   line-height: 1.3;

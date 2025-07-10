@@ -1,0 +1,3 @@
+# This is not a Salesforce project
+# Ignore all files to prevent SFDX from treating this as a Salesforce project
+**/*

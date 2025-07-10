@@ -134,7 +134,7 @@
   overflow-y: scroll;
   opacity: 1;
   scrollbar-color: #c4c4c4 transparent;
-  border-right: inset;
+  border-right: 1px solid #e0e0e0;
   overflow-x: hidden;
 }
 
@@ -156,6 +156,17 @@
   color: #333;
   transition: color 0.2s ease;
   z-index: 1;
+  padding: 4px 8px;
+  border-radius: 4px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .sidebar-collapse-button:hover {
@@ -166,7 +177,7 @@
   position: fixed;
   top: 79.7px;
   left: 10px;
-  z-index: 0;
+  z-index: 1000;
 }
 
 /* ===========================
@@ -197,6 +208,13 @@
   width: 1.5rem;
   height: 1.5rem;
   stroke: currentColor;
+}
+
+/* Firefox specific adjustment */
+@-moz-document url-prefix() {
+  .sidebar-collapse-button {
+    padding: 5px 8px;
+  }
 }
 
 /* ===========================
@@ -322,7 +340,7 @@ li {
 .nav-item a {
   text-decoration: none;
   color: #555555d5;
-  /* rgb(var(--tint-12)/.64); */
+
   font-size: 0.75rem;
   font-weight: 400;
   margin: 0.25rem 0 0 0;
