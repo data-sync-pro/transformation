@@ -26,8 +26,8 @@
   height: calc(100vh - 60px);
   overflow-y: scroll;
   opacity: 1;
-  scrollbar-color: #c4c4c4 transparent;
-  border-right: inset;
+  scrollbar-width: none;
+  border-right: 1px solid #e0e0e0;
   overflow-x: hidden;
 }
 
