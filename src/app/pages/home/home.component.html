@@ -80,7 +80,7 @@
           <tbody>
             <tr *ngFor="let funcName of itemsByTag[tag]">
               <td>
-                <a (click)="goToFunction(funcName.toLowerCase())">{{ funcName }}</a>
+                <a (click)="goToFunction(funcName)">{{ funcName }}</a>
               </td>
               <td [innerHTML]="functionDescriptions[funcName] || 'Loading...'"></td>
             </tr>
