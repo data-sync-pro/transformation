@@ -1,19 +1,19 @@
 {
   "title": "MAP_VALUE_EQUALS",
-  "description": "<p>Returns the corresponding return_value for the first compare_value equal to the provided object. If no values match, returns default_return_value_optional. If default_return_value_optional is omitted and no matches occur, the function returns $SKIP_ASSIGNMENT.</p>",
-  "syntax": "MAP_VALUE_EQUALS(object, ...[compare_value, return_value], default_return_value_optional) -> Object",
+  "description": "<p>Returns the corresponding return_value for the first compare_value equal to the provided value. If no values match, returns default_return_value_optional. If default_return_value_optional is omitted and no matches occur, the function returns $SKIP_ASSIGNMENT.</p>",
+  "syntax": "MAP_VALUE_EQUALS(value, ...[compare_value, return_value], default_return_value_optional) -> Object",
   "parameters": [
     {
-      "name": "object",
+      "name": "value",
       "type": "Object",
       "required": "Yes",
-      "description": "The object to compare against."
+      "description": "The value to compare against."
     },
     {
       "name": "… compare_value",
       "type": "Object",
       "required": "Yes",
-      "description": "The value to match exactly against the provided object."
+      "description": "The value to match exactly against the provided value."
     },
     {
       "name": "… return_value",

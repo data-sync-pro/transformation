@@ -1,13 +1,13 @@
 {
   "title": "IS_BLANK",
-  "description": "<p>Returns TRUE if the object is blank (NULL, empty, or contains only whitespace); otherwise, returns FALSE.</p>",
-  "syntax": "IS_BLANK(object) -> Boolean",
+  "description": "<p>Returns TRUE if the value is blank (NULL, empty, or contains only whitespace); otherwise, returns FALSE.</p>",
+  "syntax": "IS_BLANK(value) -> Boolean",
   "parameters": [
     {
-      "name": "object",
+      "name": "value",
       "type": "Object",
       "required": "Yes",
-      "description": "The object to evaluate."
+      "description": "The value to evaluate."
     }
   ],
   "examples": [

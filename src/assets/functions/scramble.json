@@ -1,13 +1,13 @@
 {
   "title": "SCRAMBLE",
   "description": "<p>Shuffle the items in the current batch and select one at random.</p>",
-  "syntax": "SCRAMBLE(object) -> same data type as object",
+  "syntax": "SCRAMBLE(value) -> same data type as value",
   "parameters": [
     {
-      "name": "object",
+      "name": "value",
       "type": "Object",
       "required": "Yes",
-      "description": "Object whose content will be scrambled."
+      "description": "Value whose content will be scrambled."
     }
   ],
   "examples": [

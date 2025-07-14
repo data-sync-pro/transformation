@@ -1,13 +1,13 @@
 {
   "title": "TO_STRING",
-  "description": "<p>Converts an object into an unformatted text string.</p>",
-  "syntax": "TO_STRING(object) -> String",
+  "description": "<p>Converts the specified value into an unformatted text string.</p>",
+  "syntax": "TO_STRING(value) -> String",
   "parameters": [
     {
-      "name": "object",
+      "name": "value",
       "type": "Object",
       "required": "Yes",
-      "description": "The object to convert."
+      "description": "The value to convert."
     }
   ],
   "examples": [
