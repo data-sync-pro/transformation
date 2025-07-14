@@ -1,13 +1,13 @@
 {
   "title": "SKIP_BLANK_VALUE",
-  "description": "<p>Returns the provided object if it is not blank. If the object is blank (null, empty, or whitespace), returns $SKIP_ASSIGNMENT.</p>",
-  "syntax": "SKIP_BLANK_VALUE(object) -> Object",
+  "description": "<p>Returns the provided value if it is not blank. If the value is blank (null, empty, or whitespace), returns $SKIP_ASSIGNMENT.</p>",
+  "syntax": "SKIP_BLANK_VALUE(value) -> Object",
   "parameters": [
     {
-      "name": "object",
+      "name": "value",
       "type": "Object",
       "required": "Yes",
-      "description": "The object to evaluate."
+      "description": "The value to evaluate."
     }
   ],
   "examples": [
