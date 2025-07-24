@@ -15,7 +15,7 @@
   ],
   "tips": [
     {
-      "text": "<p>Using SCRAMBLE or RANDOMIZE in production will cause an exception when saving or executing the mapping.</p>",
+      "text": "<p>This function is only allowed for actions targeting sandboxes, to prevent accidental masking of production data.</p>",
       "children": []
     }
   ],
