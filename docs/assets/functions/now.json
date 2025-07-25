@@ -5,7 +5,7 @@
   "parameters": [],
   "examples": [
     "NOW()\n-- Returns the current Datetime (e.g., 2023-07-07T02:00:55.564Z).",
-    "ADD_DAYS(NOW(), 3)\n-- Returns the Datetime 3 days after the current time (e.g., 2023-07-10T02:00:55.564Z)."
+    "ADD_DAYS(NOW(), 3)\n-- Returns the Datetime 3 days after the current Datetime (e.g., 2023-07-10T02:00:55.564Z)."
   ],
   "tips": [
     {
