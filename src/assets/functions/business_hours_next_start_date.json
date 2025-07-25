@@ -17,11 +17,12 @@
     }
   ],
   "examples": [
-    "BUSINESS_HOURS_NEXT_START_DATE(TO_DATETIME(\"2023-10-01T10:00:00Z\"))\n-- Returns the next start time after the specified Datetime, based on default business hours.",
-    "BUSINESS_HOURS_NEXT_START_DATE(NOW(), \"Weekday9to5\")\n-- Returns the current Datetime if it's within the \"Weekday9to5\" business hours; otherwise, returns the next start Datetime."
+    "BUSINESS_HOURS_NEXT_START_DATE(TO_DATETIME(\"2023-10-01T10:00:00Z\"))\n-- Returns the specified Datetime if it's within the default business hours; otherwise, returns the next start time after it.",
+    "BUSINESS_HOURS_NEXT_START_DATE(NOW(), \"Weekday9to5\")\n-- Returns the current Datetime if it's within \"Weekday9to5\" hours; otherwise, returns the next start time after it."
   ],
   "tips": [],
   "relatedFormulas": [
+    "TO_DATETIME",
     "NOW"
   ]
 }

@@ -4,8 +4,8 @@
   "syntax": "TODAY() -> Date",
   "parameters": [],
   "examples": [
-    "TODAY()\n-- Returns the current date.",
-    "DAYS_BETWEEN(TODAY(), CloseDate)\n-- Returns the number of days between today and CloseDate."
+    "TODAY()\n-- Returns today's Date.",
+    "DAYS_BETWEEN(TODAY(), CloseDate)\n-- Returns the number of days between today's Date and CloseDate."
   ],
   "tips": [
     {

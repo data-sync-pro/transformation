@@ -18,7 +18,7 @@
   ],
   "examples": [
     "ADD_MONTHS(DATE(2017, 9, 30), 5)\n-- Adds 5 months to 2017-09-30.\n-- Returns 2018-02-28, the last day of February 2018.",
-    "ADD_MONTHS(NOW(), -2)\n-- Subtracts 2 months from NOW()."
+    "ADD_MONTHS(NOW(), -2)\n-- Subtracts 2 months from now."
   ],
   "tips": [
     {
@@ -26,7 +26,7 @@
       "children": []
     },
     {
-      "text": "<p>The return type matches the type of the first parameter: if the first parameter is of type Date, the function returns a Date; if it's a Datetime, the function returns a Datetime.</p>",
+      "text": "<p>The return type depends on the first parameter: if it's a Date, the result is a Date; if it's a Datetime, the result is a Datetime.</p>",
       "children": []
     }
   ],

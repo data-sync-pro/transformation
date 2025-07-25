@@ -18,11 +18,11 @@
   ],
   "examples": [
     "ADD_DAYS(DATE(2024, 8, 8), 4)\n-- Adds 4 days to 2024-08-08.\n-- Returns 2024-08-12.",
-    "ADD_DAYS(NOW(), -3)\n-- Subtracts 3 days from NOW()."
+    "ADD_DAYS(NOW(), -3)\n-- Subtracts 3 days from now."
   ],
   "tips": [
     {
-      "text": "<p>The return type matches the type of the first parameter: if the first parameter is of type Date, the function returns a Date; if it's a Datetime, the function returns a Datetime.</p>",
+      "text": "<p>The return type depends on the first parameter: if it's a Date, the result is a Date; if it's a Datetime, the result is a Datetime.</p>",
       "children": []
     }
   ],
