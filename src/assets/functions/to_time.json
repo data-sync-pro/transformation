@@ -11,7 +11,7 @@
     }
   ],
   "examples": [
-    "TO_TIME(\"14:30:00\"))\n-- Returns a Time object for 14:30 local time in UTC."
+    "TO_TIME(\"14:30:00\")\n-- Returns 14:30 as a Time in UTC."
   ],
   "tips": [
     {

@@ -11,7 +11,7 @@
     }
   ],
   "examples": [
-    "TO_START_OF_MONTH(DATE(2025, 4, 15))\n-- Returns 2025-04-01"
+    "TO_START_OF_MONTH(DATE(2025, 4, 15))\n-- Returns 2025-04-01."
   ],
   "relatedFormulas": [
     "DATE"

@@ -1,6 +1,6 @@
 {
   "title": "TO_DATE",
-  "description": "<p>Converts a given value into a Date. Acceptable inputs include strings representing Dates, Datetime values. If the input cannot be converted, the function returns an error.</p>",
+  "description": "<p>Converts a String or Datetime value into a Date by extracting the calendar date from the input. If the input cannot be parsed, an error is thrown.</p>",
   "syntax": "TO_DATE(string/datetime) -> Date",
   "parameters": [
     {
@@ -11,8 +11,8 @@
     }
   ],
   "examples": [
-    "TO_DATE(\"2005-11-15\")\n-- Returns November 15, 2005 as a Date.",
-    "TO_DATE(NOW())\n-- Returns today's date (extracts date from current Datetime)."
+    "TO_DATE(\"2005-11-15\")\n-- Returns \"2005-11-15\" as a Date.",
+    "TO_DATE(NOW())\n-- Returns today's Date extracted from the current Datetime."
   ],
   "tips": [
     {

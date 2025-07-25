@@ -1,17 +1,17 @@
 {
   "title": "TO_DATETIME",
-  "description": "<p>Converts a string representing a Datetime into a Datetime. If the string cannot be converted, an error is thrown.</p>",
+  "description": "<p>Converts a string in a recognized date/time format into a Datetime value. The result is returned in UTC. If the input string cannot be parsed, an error is thrown.</p>",
   "syntax": "TO_DATETIME(string) -> Datetime",
   "parameters": [
     {
       "name": "string",
       "type": "String",
       "required": "Yes",
-      "description": "The string to convert into a Datetime, provided in a recognized date/time format"
+      "description": "The string to convert into a Datetime, provided in a recognized date/time format."
     }
   ],
   "examples": [
-    "TO_DATETIME(\"2002-10-09T19:00:00Z\")\n-- Returns October 9, 2002, 7:00 PM UTC as a Datetime value."
+    "TO_DATETIME(\"2002-10-09T19:00:00-05:00\")\n-- Returns 2002-10-10T00:00:00.000Z as a Datetime in UTC."
   ],
   "tips": [
     {

@@ -12,7 +12,7 @@
    
   ],
   "examples": [
-    "TO_START_OF_WEEK(DATE(2025, 4, 16))\n-- Returns 2025-04-13\n-- April 16, 2025 is a Wednesday, and the function returns the preceding Sunday's date.\n"
+    "TO_START_OF_WEEK(DATE(2025, 4, 16))\n-- Returns 2025-04-13, the Sunday before April 16, 2025 (a Wednesday)."
   ],
   "tips": [{
     "text": "<p>Week calculations begin on Sunday.</p>",

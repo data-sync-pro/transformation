@@ -23,8 +23,8 @@
     }
   ],
   "examples": [
-    "BUSINESS_HOURS_DIFF(CreatedDate, ClosedDate)\n-- Returns milliseconds of default business hours between record creation and closure.", 
-    "BUSINESS_HOURS_DIFF(Case_Created__c, First_Response__c, \"SupportSchedule\")\n-- Returns milliseconds of \"SupportSchedule\" hours between case creation and first response."
+    "BUSINESS_HOURS_DIFF(CreatedDate, ClosedDate)\n-- Returns the number of milliseconds between CreatedDate and ClosedDate during default business hours.", 
+    "BUSINESS_HOURS_DIFF(Case_Created__c, First_Response__c, \"SupportSchedule\")\n-- Returns the number of milliseconds between Case_Created__c and First_Response__c during \"SupportSchedule\" hours."
   ],
   "tips": [],
   "relatedFormulas": [
