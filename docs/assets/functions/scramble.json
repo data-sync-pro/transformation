@@ -11,7 +11,7 @@
     }
   ],
   "examples": [
-    "SCRAMBLE(FirstName) \n-- Returns the FirstName of a random record within the execution batch."
+    "SCRAMBLE(FirstName) \n-- Returns the FirstName from a randomly selected record in the execution batch."
   ],
   "tips": [
     {
