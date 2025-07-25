@@ -17,12 +17,12 @@
     }
   ],
   "examples": [
-    "ADD_DAYS(DATE(2024, 8, 8), 4)\n-- Returns a Date 4 days after 2024-08-08.\n-- Result: 2024-08-12.",
-    "ADD_DAYS(NOW(), -3)\n-- Returns a Datetime 3 days before now."
+    "ADD_DAYS(DATE(2024, 8, 8), 4)\n-- Adds 4 days to 2024-08-08.\n-- Returns 2024-08-12.",
+    "ADD_DAYS(NOW(), -3)\n-- Subtracts 3 days from now."
   ],
   "tips": [
     {
-      "text": "<p>The return type depends on the first argument: if it's a Date, the result is a Date; if it's a Datetime, the result is a Datetime.</p>",
+      "text": "<p>The return type depends on the first parameter: if it's a Date, the result is a Date; if it's a Datetime, the result is a Datetime.</p>",
       "children": []
     }
   ],
