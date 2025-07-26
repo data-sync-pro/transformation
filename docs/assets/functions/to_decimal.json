@@ -21,11 +21,11 @@
     "TO_DECIMAL(123.456789, 3)\n-- Returns 123.457, rounded to 3 decimal places.",
     "TO_DECIMAL(3147483647, 2)\n-- Returns 3147483647.00.",
     "TO_DECIMAL(10/3, 3)\n-- Returns 3.333, rounded to 3 decimal places.",
-    "TO_DECIMAL(75, 3)\n-- Returns 75.000, rounded to 3 decimal places."
+    "TO_DECIMAL(75, 3)\n-- Returns 75.000."
   ],
   "tips": [
     {
-      "text": "<p>Ensure that the input string is a valid decimal representation.</p>",
+      "text": "<p>If the input is a string, it must represent a valid number; otherwise, an error will occur.</p>",
       "children": []
     }
   ],

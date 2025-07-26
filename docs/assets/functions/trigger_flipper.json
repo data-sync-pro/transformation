@@ -11,8 +11,8 @@
     }
   ],
   "examples": [
-    "TRIGGER_FLIPPER() \n-- Returns TRUE the first time it's called in a flow, then FALSE for the rest.",
-    "TRIGGER_FLIPPER(Priority == \"High\") \n-- Returns TRUE again whenever the Priority equals \"High\"."
+    "TRIGGER_FLIPPER() \n-- Returns TRUE the first time it's triggered; returns FALSE on subsequent calls within the same operation.",
+    "TRIGGER_FLIPPER(Priority == \"High\") \n-- Returns TRUE if Priority is \"High\" and it's the first evaluation; otherwise, returns FALSE."
   ],
   "tips": [
     {
