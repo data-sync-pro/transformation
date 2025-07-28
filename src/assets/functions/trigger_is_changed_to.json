@@ -17,7 +17,7 @@
     }
   ],
   "examples": [
-    "TRIGGER_IS_CHANGED_TO(\"Type\", \"Vendor\", \"Partner\")\n-- Returns TRUE if Type changes to either \"Vendor\" or \"Partner\"."
+    "TRIGGER_IS_CHANGED_TO(\"Type\", \"Vendor\", \"Partner\")\n-- Returns TRUE if Type is changed to \"Vendor\" or \"Partner\"; otherwise, FALSE."
   ],
   "tips": [],
   "relatedFormulas": []

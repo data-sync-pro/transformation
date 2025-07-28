@@ -11,7 +11,7 @@
     }
   ],
   "examples": [
-    "TRIGGER_IS_FLIPPED(\"IsClosed\")\n-- Returns TRUE if IsClosed changed from FALSE to TRUE during this transaction.\n-- Typically used with the TRIGGER_FLIPPER() function to detect one-time manual triggers within before-insert or before-update contexts."
+    "TRIGGER_IS_FLIPPED(\"IsClosed\")\n-- Returns TRUE if IsClosed was flipped from FALSE to TRUE in this transaction.\n-- Typically used with TRIGGER_FLIPPER() to detect one-time manual triggers in before-insert or before-update contexts."
   ],
   "tips": [],
   "relatedFormulas": [

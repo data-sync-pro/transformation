@@ -17,7 +17,7 @@
     }
   ],
   "examples": [
-    "TRIGGER_IS_CHANGED_FROM(\"Status\", \"New\", \"Pending\")\n-- Returns TRUE if Status changed from \"New\" or \"Pending\" to any other value in this transaction."
+    "TRIGGER_IS_CHANGED_FROM(\"Status\", \"New\", \"Pending\")\n-- Returns TRUE if Status changed from \"New\" or \"Pending\" to a different value in this transaction; otherwise, FALSE."
   ],
   "tips": [],
   "relatedFormulas": []
