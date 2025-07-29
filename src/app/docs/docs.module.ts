@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { DocsRoutingModule } from './docs-routing.module';
 import { DocViewerComponent } from './doc-viewer/doc-viewer.component';
 import { HomeComponent } from '../pages/home/home.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HomeComponent } from '../pages/home/home.component';
     CommonModule,
     FormsModule,
     RouterModule,
-    DocsRoutingModule
+    DocsRoutingModule,
+    SharedModule
   ]
 })
 export class DocsModule { }
