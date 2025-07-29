@@ -12,7 +12,7 @@
   ],
   "examples": [
     "FORMAT_DSP_TEMPLATE(\n\"Dear <shadow>{VLOOKUP('OpportunityContactRole', 'Contact.Name', 'OpportunityId', Id,'IsPrimary = TRUE')}</shadow>, \n\nWe are pleased to inform you that your Account: <shadow>{Account.Name}</shadow> has an Opportunity currently at the stage: <shadow>{StageName}</shadow>.\n\nFeel free to reach out if you have any questions.\n\nBest Regards,   \nSales Team\")\n\n/*Dear <shadow>Kristin Stanton</shadow>, \n\nWe are pleased to inform you that your Account: <shadow>Owens LLC</shadow> has an Opportunity currently at the stage: <shadow>Prospecting</shadow>. \n\nFeel free to reach out if you have any questions. \n\nBest Regards, \nSales Team*/",
-    "FORMAT_DSP_TEMPLATE(\"Hello {LOOKUP('Account', 'Name', 'Id', AccountId)}. Your Stage: {Opty.StageName}.\")\n-- Returns the template with unparseable expressions left as-is as \"LOOKUP\" is misspelled and \"Opty\" is an invalid object name." 
+    "FORMAT_DSP_TEMPLATE(\"Hello {LOOKUP('Account', 'Name', 'Id', AccountId)}. Your Stage: {Opty.StageName}.\")\n-- Returns the template string with unparseable expressions unchanged because \"LOOKUP\" is misspelled and \"Opty\" is an invalid object name." 
   ],
   "tips": [
     {

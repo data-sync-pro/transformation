@@ -17,7 +17,7 @@
     }
   ],
   "examples": [
-    "SUBSTRING_BEFORE_LAST(\"REF-2025-1234\", \"-\")\n-- Returns \"REF-2025\". Extracts string before the last hyphen."
+    "SUBSTRING_BEFORE_LAST(\"REF-2025-1234\", \"-\")\n-- Returns \"REF-2025\".\n-- Extracts the substring before the last occurrence of \"-\"."
   ],
   "tips": [
     {

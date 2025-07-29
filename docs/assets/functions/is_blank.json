@@ -11,7 +11,7 @@
     }
   ],
   "examples": [
-    "IS_BLANK(Email)\n-- Returns TRUE if Email is NULL, empty or whitespace only."
+    "IS_BLANK(Email)\n-- Returns TRUE if Email is NULL, empty or contains only whitespace characters."
   ],
   "tips": [],
   "relatedFormulas": [

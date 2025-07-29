@@ -17,8 +17,8 @@
     }
   ],
   "examples": [
-    "CONTAINS_IGNORE_CASE(\"Annual Financial Review 2024\", \"Quarterly\", \"financial\")\n-- Returns TRUE (\"financial\" matches, ignoring case).",
-    "CONTAINS_IGNORE_CASE(Subject, \"Urgent\", \"ASAP\")\n-- Returns TRUE if it matches \"Urgent\" or \"ASAP\" in any case. Otherwise, returns FALSE."
+    "CONTAINS_IGNORE_CASE(\"Annual Financial Review 2024\", \"Quarterly\", \"financial\")\n-- Returns TRUE (\"financial\" matches, case-insensitive).",
+    "CONTAINS_IGNORE_CASE(Subject, \"Urgent\", \"ASAP\")\n-- Returns TRUE if Subject contains \"Urgent\" or \"ASAP\" in any case; otherwise, returns FALSE."
   ],
   "tips": [],
   "relatedFormulas": [

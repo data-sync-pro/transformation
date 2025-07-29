@@ -17,7 +17,7 @@
     }
   ],
   "examples": [
-    "RIGHT(\"Q2Report\", 10)\n-- Returns \"Q2Report\". Since 10 exceeds the string length, the entire string is returned.",
+    "RIGHT(\"Q2Report\", 10)\n-- Returns the entire string \"Q2Report\" since 10 exceeds its length.",
     "RIGHT(Phone, 4)\n-- Returns the last 4 characters of the Phone field."
   ],
   "tips": [

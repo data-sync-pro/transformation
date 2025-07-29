@@ -18,7 +18,7 @@
   ],
   "examples": [
     "ERROR(\n    \"Amount must be a number\", NOT(IS_NUMERIC(Amount)),\n    \"Amount must be greater than zero\", Amount <= 0\n)\n-- First pair: Raises an error if Amount is not a number.\n-- Second pair: Raises an error if Amount is less than or equal to zero.",
-    "ERROR(\"Invalid\")\n-- Throw an exception with the message \"Invalid\" without a condition."
+    "ERROR(\"Invalid\")\n-- Raises an error with the message \"Invalid\" unconditionally."
   ],
   "tips": [],
   "relatedFormulas": [

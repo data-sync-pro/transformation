@@ -12,7 +12,7 @@
   ],
   "examples": [
     "TRIM(\"  FY25 Budget Report  \")\n-- Returns \"FY25 Budget Report\".",
-    "TRIM(Description)\n-- Returns the Description field value with leading and trailing whitespace removed."
+    "TRIM(Description)\n-- Returns Description with leading and trailing whitespace removed."
   ],
   "tips": [],
   "relatedFormulas": []
