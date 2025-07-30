@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Common Commands
 - `npm start` or `ng serve` - Start development server on http://localhost:4200
-- `npm run build` - Build for production (outputs to `docs/` directory with base href `/DSP_FunctionDocumentation`)
+- `npm run build` - Build for production (outputs to `docs/` directory with base href `/`)
 - `npm run watch` - Build in watch mode for development
 - `npm test` or `ng test` - Run unit tests with Karma
 
@@ -56,4 +56,4 @@ AppComponent (manages sidebar body class)
 ### Build Configuration
 - Production builds output to `docs/` directory for GitHub Pages hosting
 - Uses hash routing for static hosting compatibility
-- Custom base href `/DSP_FunctionDocumentation` for production deployment
+- Custom base href `/` for custom domain deployment
