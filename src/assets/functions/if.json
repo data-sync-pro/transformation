@@ -25,7 +25,7 @@
   "examples": [
     "IF(1 > 2, \"A\", \"B\") \n-- Returns \"B\".",
     "IF(1 > 2, \"A\") \n-- Returns $SKIP_ASSIGNMENT.",
-    "IF(Probability > 80, \"High\",\n   Probability > 40, \"Medium\",\n   \"Low\")\n-- Returns \"High\" if Probability > 80.\n-- If not, returns \"Medium\" if Probability > 40.\n-- Otherwise, returns \"Low\"."
+    "IF(Probability > 80, \"High\",\n   Probability > 40, \"Medium\",\n   \"Low\")\n-- Returns \"High\" if Probability > 80.\n-- Returns \"Medium\" if Probability > 40.\n-- Otherwise, returns \"Low\"."
   ],
   "tips": [],
   "relatedFormulas": []

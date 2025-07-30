@@ -18,7 +18,7 @@
   ],
   "examples": [
     "TO_LOWER_CASE(\"ICON\")\n-- Returns \"icon\".",
-    "TO_LOWER_CASE(\"ADMINISTRATOR\", \"tr\")\n-- Returns \"admınıstrator\"; converts using Turkish locale-specific rules."
+    "TO_LOWER_CASE(\"ADMINISTRATOR\", \"tr\")\n-- Returns \"admınıstrator\".\n-- Converts the string to lowercase using Turkish locale-specific rules."
   ],
   "tips": [
     {

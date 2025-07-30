@@ -54,7 +54,14 @@
     <h2>Description</h2>
     <p [innerHTML]="docContent.description"></p>
     <div class="doc-images" *ngIf="docContent.descriptionImages?.length">
-      <img *ngFor="let img of docContent.descriptionImages" [src]="img.src" alt="{{ img.alt }}" loading="lazy" />
+      <img 
+        *ngFor="let img of docContent.descriptionImages" 
+        [src]="img.src" 
+        alt="{{ img.alt }}" 
+        loading="lazy"
+        (click)="openImageViewer(img.src, img.alt)"
+        class="clickable-image" 
+      />
     </div>
     <div class="doc-example" *ngIf="highlightedDescriptionCode">
       <!-- no leading spaces before the code -->
@@ -154,3 +161,10 @@
     </ul>
   </section>
 </div>
+
+<app-image-viewer 
+  *ngIf="showImageViewer"
+  [imageUrl]="selectedImageUrl"
+  [imageAlt]="selectedImageAlt"
+  (closeViewer)="closeImageViewer()"
+></app-image-viewer>

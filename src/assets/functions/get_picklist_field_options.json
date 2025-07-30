@@ -17,7 +17,7 @@
     }
   ],
   "examples": [
-    "GET_PICKLIST_FIELD_OPTIONS(\"Case\",\"Priority\")\n-- Returns picklist options for Case.Priority (e.g., [\"High\", \"Medium\", \"Low\"])."
+    "GET_PICKLIST_FIELD_OPTIONS(\"Case\",\"Priority\")\n-- Returns the picklist options for Case.Priority (e.g., [\"High\", \"Medium\", \"Low\"])."
   ],
   "tips": [
     {

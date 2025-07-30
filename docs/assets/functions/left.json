@@ -17,8 +17,8 @@
     }
   ],
   "examples": [
-    "LEFT(CaseNumber, 3)\n-- Returns the first 3 characters of CaseNumber.",
-    "LEFT(\"Q2Report\", 20)\n-- Returns the full string \"Q2Report\" (20 exceeds the string length)."
+    "LEFT(CaseNumber, 3)\n-- Returns the first 3 characters from CaseNumber.",
+    "LEFT(\"Q2Report\", 20)\n-- Returns the entire string \"Q2Report\" since 20 exceeds its length."
     ],
   "tips": [
     {

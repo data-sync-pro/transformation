@@ -17,7 +17,7 @@
     }
   ],
   "examples": [
-    "ENDS_WITH(\"Salesforce Platform\", \"platform\") \n-- Returns FALSE (case-sensitive).",
+    "ENDS_WITH(\"Salesforce Platform\", \"platform\") \n-- Returns FALSE (no match, case-sensitive).",
     "ENDS_WITH(Website, \".org\", \".gov\")\n-- Returns TRUE if Website ends with \".org\" or \".gov\"; otherwise, returns FALSE."
   ],
   "tips": [],

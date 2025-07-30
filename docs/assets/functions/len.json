@@ -12,7 +12,7 @@
   ],
   "examples": [
     "LEN(\"Data Sync Pro\")\n-- Returns 13.",
-    "LEN(BillingPostalCode)\n-- Returns the number of characters in the BillingPostalCode field."
+    "LEN(BillingPostalCode)\n-- Returns the character count of the BillingPostalCode field."
 
   ],
   "tips": [],

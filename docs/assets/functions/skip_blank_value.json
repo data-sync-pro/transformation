@@ -11,7 +11,7 @@
     }
   ],
   "examples": [
-    "SKIP_BLANK_VALUE(AccountId)\n-- Returns $SKIP_ASSIGNMENT if AccountId is blank, otherwise returns the value of AccountId."
+    "SKIP_BLANK_VALUE(AccountId)\n-- Returns $SKIP_ASSIGNMENT if AccountId is blank; otherwise, returns AccountId."
   ],
   "tips": [],
   "relatedFormulas": []

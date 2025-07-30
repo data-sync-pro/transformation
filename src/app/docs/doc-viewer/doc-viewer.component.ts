@@ -14,7 +14,11 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 export class DocViewerComponent implements OnInit {
   docContent: DocData | null = null;
   highlightedExamples: SafeHtml[] = [];
-  highlightedDescriptionCode: SafeHtml | null = null; 
+  highlightedDescriptionCode: SafeHtml | null = null;
+  
+  showImageViewer = false;
+  selectedImageUrl = '';
+  selectedImageAlt = ''; 
   constructor(
     private route: ActivatedRoute,
     private docsService: DocsService,
@@ -75,6 +79,18 @@ export class DocViewerComponent implements OnInit {
   
   getActiveCategory$(formula: string) {
     return this.docsService.getPrimaryCategory(formula);
+  }
+
+  openImageViewer(imageUrl: string, imageAlt?: string) {
+    this.selectedImageUrl = imageUrl;
+    this.selectedImageAlt = imageAlt || '';
+    this.showImageViewer = true;
+  }
+
+  closeImageViewer() {
+    this.showImageViewer = false;
+    this.selectedImageUrl = '';
+    this.selectedImageAlt = '';
   }
 
 }

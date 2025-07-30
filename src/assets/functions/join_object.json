@@ -35,9 +35,9 @@
     }
   ],
   "examples": [
-    "JOIN_OBJECT(\n            \"Current\", \n            \"Opportunity\",\n            \"AccountId\", Id, \n            \"IsClosed = true\"\n)\n-- Left joins Opportunities where Opportunity's `AccountId` matches the current record’s `Id` and filters for closed Opportunities.",
-    "JOIN_OBJECT(\n            \"$Source\", \n            \"Opportunity\",\n            \"AccountId\", Id, \n            \"IsClosed = true\"\n)\n-- Left joins the `$Source` record to the `Opportunity` object by matching the Opportunity’s `AccountId` with the current record's `Id` and filters for closed Opportunities.",
-    "JOIN_OBJECT(\n            \"$Target\", \n            \"Opportunity\", \n            \"AccountId\", Id, \n            \"OwnerId\", OwnerId, \n            \"FiscalYear = 2024\"\n)\n-- Left joins the `$Target` record to the `Opportunity` object by matching the Opportunity’s `AccountId` to the current record's `Id` and matching the Opportunity’s `OwnerId` to the current record’s `OwnerId`; returns Opportunities from fiscal year 2024 only."
+    "JOIN_OBJECT(\n            \"Current\", \n            \"Opportunity\",\n            \"AccountId\", Id, \n            \"IsClosed = true\"\n)\n-- Performs a left join with Opportunity records where AccountId matches the current record’s Id, filtered by IsClosed = true.",
+    "JOIN_OBJECT(\n            \"$Source\", \n            \"Opportunity\",\n            \"AccountId\", Id, \n            \"IsClosed = true\"\n)\n-- Performs a left join from the $Source record to Opportunity records where AccountId matches the current record’s Id, filtered by IsClosed = true.",
+    "JOIN_OBJECT(\n            \"$Target\", \n            \"Opportunity\", \n            \"AccountId\", Id, \n            \"OwnerId\", OwnerId, \n            \"FiscalYear = 2024\"\n)\n-- Performs a left join from the $Target record to Opportunity records where AccountId and OwnerId match the current record’s Id and OwnerId, filtered by FiscalYear = 2024."
   ],
   "tips": [
     {

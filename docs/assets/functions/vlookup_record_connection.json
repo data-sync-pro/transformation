@@ -35,8 +35,8 @@
     }
   ],
     "examples": [
-      "VLOOKUP_RECORD_CONNECTION(\"Salesforce_Prod\",\n                          \"Opportunity\",\n                          \"Source_System_Id__c\",\n                           Source_System_Id__c)\n-- Retrieves an Opportunity record in Org \"Salesforce_Prod\" where the Source_System_Id__c matches the current record’s Source_System_Id__c.",
-      "VLOOKUP_RECORD_CONNECTION(\"Salesforce_Prod\", \n                          \"Opportunity\", \n                          \"Source_System_Id__c\", Source_System_Id__c, \n                          \"Amount > 50000\")\n-- Retrieves an Opportunity record in Org 'Salesforce_Prod' where: Source_System_Id__c matches the current record’s Source_System_Id__c and Amount is greater than 50,000."
+      "VLOOKUP_RECORD_CONNECTION(\"Salesforce_Prod\",\n                          \"Opportunity\",\n                          \"Source_System_Id__c\",\n                           Source_System_Id__c)\n-- Returns the Opportunity record from the \"Salesforce_Prod\" org where Source_System_Id__c matches the current record’s Source_System_Id__c.",
+      "VLOOKUP_RECORD_CONNECTION(\"Salesforce_Prod\", \n                          \"Opportunity\", \n                          \"Source_System_Id__c\", Source_System_Id__c, \n                          \"Amount > 50000\")\n-- Returns the Opportunity record from the \"Salesforce_Prod\" org where:\n-- Source_System_Id__c matches the current record’s Source_System_Id__c,\n-- and Amount > 50,000."
 ],
     "tips": [
     {

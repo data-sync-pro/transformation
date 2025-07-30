@@ -18,7 +18,7 @@
   ],
   "examples": [
     "BLANK_VALUE(\"\", \"N/A\")\n-- Returns \"N/A\".",
-    "BLANK_VALUE(Rating, \"No Data\")\n-- Returns \"No Data\" if Rating is NULL or blank; otherwise, returns the value of Rating."
+    "BLANK_VALUE(Rating, \"No Data\")\n-- Returns \"No Data\" if Rating is NULL or blank; otherwise, returns Rating."
   ],
   "tips": [],
   "relatedFormulas": []

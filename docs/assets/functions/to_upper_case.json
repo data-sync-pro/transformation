@@ -17,8 +17,8 @@
     }
   ],
   "examples": [
-    "TO_UPPER_CASE(\"icon\")\n-- Returns \"ICON\"",
-    "TO_UPPER_CASE(\"administrator\", \"tr\")\n-- Returns \"ADMİNİSTRATOR\"; converts using Turkish locale rules."
+    "TO_UPPER_CASE(\"icon\")\n-- Returns \"ICON\".",
+    "TO_UPPER_CASE(\"administrator\", \"tr\")\n-- Returns \"ADMİNİSTRATOR\".\n-- Converts the string to uppercase using Turkish locale-specific rules."
   ],
   "tips": [
     {
