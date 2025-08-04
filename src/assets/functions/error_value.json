@@ -1,0 +1,26 @@
+{
+  "title": "ERROR_VALUE",
+  "description": "<p>Returns the <strong>substitute_value</strong> if the provided <strong>value</strong> results in an error during evaluation. Otherwise, returns the original <strong>value</strong>. This function is useful for handling potential errors gracefully and ensuring that a default value is returned instead of an error.</p>",
+  "syntax": "ERROR_VALUE(value, substitute_value) -> Any",
+  "parameters": [
+    {
+      "name": "value",
+      "type": "Any",
+      "required": "Yes",
+      "description": "The expression or value to evaluate."
+    },
+    {
+      "name": "substitute_value",
+      "type": "Any",
+      "required": "Yes",
+      "description": "The value to return if the evaluation of 'value' results in an error."
+    }
+  ],
+  "examples": [
+    "ERROR_VALUE(1/0, 0)\n-- Returns 0 because dividing by zero results in an error."
+  ],
+  "tips": [
+    "Use ERROR_VALUE to avoid formula failures caused by invalid calculations or missing data."
+  ],
+  "relatedFormulas": []
+}

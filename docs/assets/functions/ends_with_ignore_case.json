@@ -10,7 +10,7 @@
       "description": "The source string to evaluate."
     },
     {
-      "name": "… compare_string",
+      "name": "… compare_strings",
       "type": "String",
       "required": "Yes",
       "description": "One or more strings to compare against the end of the source string."

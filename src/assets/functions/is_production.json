@@ -1,0 +1,9 @@
+{
+  "title": "IS_PRODUCTION",
+  "description": "<p>Returns TRUE if the current execution is running in a <strong>Production</strong> environment, otherwise, returns FALSE. This function can be used to apply environment-specific logic, such as skipping test data transformations or enabling/disabling certain actions when running in Production versus Sandbox or other environments.</p>",
+  "syntax": "IS_PRODUCTION() -> Boolean",
+  "parameters": [],
+  "examples": [],
+  "tips": [],
+  "relatedFormulas": []
+}

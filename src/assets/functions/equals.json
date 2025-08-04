@@ -1,0 +1,25 @@
+{
+  "title": "EQUALS",
+  "description": "<p>Returns TRUE if the provided value exactly matches any of the specified compare_values. The comparison is case-sensitive. Otherwise, returns FALSE.</p>",
+  "syntax": "EQUALS(value, ...compare_values) -> Boolean",
+  "parameters": [
+    {
+      "name": "value",
+      "type": "String",
+      "required": "Yes",
+      "description": "The source value to compare."
+    },
+    {
+      "name": "… compare_values",
+      "type": "String",
+      "required": "Yes",
+      "description": "One or more values to compare against the source value."
+    }
+  ],
+  "examples": [
+    "EQUALS(\"Quarterly加一个数字对比的例子\", \"quarterly\", \"financial\")\n-- Returns FALSE (no exact match, case-sensitive).",
+    "EQUALS(Status, \"Open\", \"Closed\")\n-- Returns TRUE if Status is exactly \"Open\" or \"Closed\"; otherwise, returns FALSE."
+  ],
+  "tips": [],
+  "relatedFormulas": []
+}

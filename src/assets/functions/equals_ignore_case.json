@@ -1,0 +1,28 @@
+{
+  "title": "EQUALS_IGNORE_CASE",
+  "description": "<p>Returns TRUE if the provided string exactly matches any of the specified compare_strings, ignoring case sensitivity. Otherwise, returns FALSE.</p>",
+  "syntax": "EQUALS_IGNORE_CASE(string, ...compare_strings) -> Boolean",
+  "parameters": [
+    {
+      "name": "string",
+      "type": "String",
+      "required": "Yes",
+      "description": "The source string to compare."
+    },
+    {
+      "name": "… compare_strings",
+      "type": "String",
+      "required": "Yes",
+      "description": "One or more strings to compare against the source string, ignoring case sensitivity."
+    }
+  ],
+  "examples": [
+    "EQUALS_IGNORE_CASE(\"Open\", \"open\", \"closed\")\n-- Returns TRUE because case is ignored and \"Open\" matches \"open\".",
+    "EQUALS_IGNORE_CASE(Status, \"in progress\", \"completed\")\n-- Returns TRUE if Status matches either string, ignoring case; otherwise, returns FALSE."
+  ],
+  "tips": [],
+  "relatedFormulas": [
+    "EQUALS",
+    "CONTAINS"
+  ]
+}
