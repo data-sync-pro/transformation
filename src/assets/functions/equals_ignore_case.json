@@ -17,6 +17,7 @@
     }
   ],
   "examples": [
+    "EQUALS_IGNORE_CASE(\"ny\", \"CA\", \"NY\")\n-- Returns TRUE (case-insensitive).",
     "EQUALS_IGNORE_CASE(Status, \"in progress\", \"completed\")\n-- Returns TRUE if Status is \"in progress\" or \"completed\" (case-insensitive); otherwise, returns FALSE."
   ],
   "tips": [],

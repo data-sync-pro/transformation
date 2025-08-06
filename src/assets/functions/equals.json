@@ -5,18 +5,19 @@
   "parameters": [
     {
       "name": "value",
-      "type": "Any",
+      "type": "Object",
       "required": "Yes",
       "description": "The value to be compared."
     },
     {
       "name": "…compare_values",
-      "type": "Any",
+      "type": "Object",
       "required": "Yes",
       "description": "One or more values to compare with the given value."
     }
   ],
   "examples": [
+    "EQUALS(\"ny\", \"CA\", \"NY\")\n-- Returns FALSE (no match, case-sensitive).",
     "EQUALS(Status, \"Open\", \"Closed\")\n-- Returns TRUE if Status is \"Open\" or \"Closed\"(case-sensitive); otherwise, returns FALSE."
   ],
   "tips": [],
