@@ -22,7 +22,7 @@
   ],
   "tips": [
     {
-      "text": "<p>An empty compare_string always returns TRUE since every string starts with an empty string.</p>",
+      "text": "<p>An empty compare_strings always returns TRUE since every string starts with an empty string.</p>",
       "children": []
     },
     {
