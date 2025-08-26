@@ -3,7 +3,7 @@
   "description": "<p><code>pushtopics.SalesforceDataTransformer</code> is a global interface that enables custom Apex logic within DSP formulas, extending the package’s out-of-box transformations when built-in functions are insufficient. Reference an implementation in a formula using the placeholder syntax <code>$apexClassName</code>.</p>",
   "descriptionImages" : [
     {
-      "src": "assets/transformation-description-img/apex_class/apex_class.jpg",
+      "src": "assets/description-img/apex_class/apex_class.jpg",
       "alt": "APEX CLASS"
     }
   ],

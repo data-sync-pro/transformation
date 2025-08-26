@@ -15,6 +15,11 @@ export interface DocImage {
   alt?: string;
 }
 
+export interface ExampleItem {
+  code?: string;
+  images?: DocImage[];
+}
+
 export interface DocData {
   title: string;
   description?: string;
@@ -22,7 +27,7 @@ export interface DocData {
   descriptionCode?: string;
   syntax?: string;
   parameters?: Parameter[];
-  examples?: string[];
+  examples?: (string | ExampleItem)[];
   tips?: string[];
   relatedFormulas?: string[];
   operators?: {

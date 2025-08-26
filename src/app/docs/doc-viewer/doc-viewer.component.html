@@ -96,12 +96,25 @@
       </tbody>
     </table>
   </section>
-  <section class="doc-section" *ngIf="highlightedExamples.length">
-    <h2 *ngIf="highlightedExamples.length === 1">Example</h2>
-    <h2 *ngIf="highlightedExamples.length > 1">Examples</h2>
+  <section class="doc-section" *ngIf="processedExamples.length">
+    <h2 *ngIf="processedExamples.length === 1">Example</h2>
+    <h2 *ngIf="processedExamples.length > 1">Examples</h2>
   
-    <div class="doc-example" *ngFor="let html of highlightedExamples">
-      <pre><code class="hljs language-sql" [innerHTML]="html"></code></pre>
+    <div class="example-item" *ngFor="let example of processedExamples">
+      <div class="doc-images" *ngIf="example.images?.length">
+        <img 
+          *ngFor="let img of example.images" 
+          [src]="img.src" 
+          alt="{{ img.alt }}" 
+          loading="lazy"
+          (click)="openImageViewer(img.src, img.alt)"
+          class="clickable-image" 
+        />
+      </div>
+      <div class="doc-example" *ngIf="example.code">
+        <pre><code class="hljs language-sql" [innerHTML]="example.code"></code></pre>
+      </div>
+      
     </div>
   </section>
 

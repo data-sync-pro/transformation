@@ -72,6 +72,18 @@
   background-color: #f2f2f2;
 }
 
+.example-item {
+  margin-bottom: 2rem;
+}
+
+.example-item:last-child {
+  margin-bottom: 0;
+}
+
+.doc-example {
+  margin: 1rem 0;
+}
+
 .doc-example pre {
   background-color: #f8f8f8;
   padding: 1rem;

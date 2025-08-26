@@ -1,10 +1,15 @@
 import { Component, OnInit, SecurityContext } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DocsService, DocData } from '../../services/docs.service';
+import { DocsService, DocData, ExampleItem, DocImage } from '../../services/docs.service';
 import hljs from 'highlight.js';
 
 import { switchMap } from 'rxjs';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+
+interface ProcessedExample {
+  code?: SafeHtml;
+  images?: DocImage[];
+}
 
 @Component({
   selector: 'app-doc-viewer',
@@ -13,7 +18,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 })
 export class DocViewerComponent implements OnInit {
   docContent: DocData | null = null;
-  highlightedExamples: SafeHtml[] = [];
+  processedExamples: ProcessedExample[] = [];
   highlightedDescriptionCode: SafeHtml | null = null;
   
   showImageViewer = false;
@@ -42,9 +47,7 @@ export class DocViewerComponent implements OnInit {
       .subscribe((doc) => {
         this.docContent = doc;
 
-        this.highlightedExamples = (doc?.examples ?? []).map((ex) =>
-          this.highlightExamples(ex)
-        );
+        this.processedExamples = this.processExamples(doc?.examples ?? []);
 
         this.highlightedDescriptionCode = doc?.descriptionCode
           ? this.highlightDescriptionCode(doc.descriptionCode)
@@ -54,6 +57,21 @@ export class DocViewerComponent implements OnInit {
       setTimeout(() => {
         hljs.highlightAll();
       }, 0);
+  }
+
+  private processExamples(examples: (string | ExampleItem)[]): ProcessedExample[] {
+    return examples.map(example => {
+      if (typeof example === 'string') {
+        return {
+          code: this.highlightExamples(example)
+        };
+      } else {
+        return {
+          code: example.code ? this.highlightExamples(example.code) : undefined,
+          images: example.images
+        };
+      }
+    });
   }
 
   private highlightExamples(raw: string): SafeHtml {
