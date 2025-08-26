@@ -19,7 +19,7 @@
       "text": "Returns FALSE if the string is empty."
     },
     {
-      "text": "<p>Accepted Formats:</p>",
+      "text": "<p>Accepted formats:</p>",
       "children": [
         {
           "text": "<p>Optional \"+\" and country code (e.g., \"+1\")</p>",
