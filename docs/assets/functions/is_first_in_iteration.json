@@ -1,6 +1,6 @@
 {
   "title": "IS_FIRST_IN_ITERATION",
-  "description": "<p>Returns TRUE if the current record is the first one encountered with the specified combination of expression values during the current iteration. Typically used in the Scope Filters.</p>",
+  "description": "<p>Returns TRUE the first time a given combination of evaluated expression values occurs in the current iteration, and FALSE for any duplicates after.</p>",
   "syntax": "IS_FIRST_IN_ITERATION(...expressions) -> Boolean",
   "parameters": [
     {
