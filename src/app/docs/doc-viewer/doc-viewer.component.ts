@@ -23,7 +23,8 @@ export class DocViewerComponent implements OnInit {
   
   showImageViewer = false;
   selectedImageUrl = '';
-  selectedImageAlt = ''; 
+  selectedImageAlt = '';
+  private currentDocName: string | null = null; 
   constructor(
     private route: ActivatedRoute,
     private docsService: DocsService,
@@ -35,6 +36,7 @@ export class DocViewerComponent implements OnInit {
       .pipe(
         switchMap((params) => {
           const docName = params.get('docName');
+          this.currentDocName = docName;
           if (!docName) {
             return [];
           }
@@ -79,7 +81,8 @@ export class DocViewerComponent implements OnInit {
       .replace(/<shadow>/g, '§§SHD_START§§')
       .replace(/<\/shadow>/g, '§§SHD_END§§');
 
-    const highlighted = hljs.highlight(tmp, { language: 'sql' }).value;
+    const language = this.currentDocName === 'apex_class' ? 'java' : 'sql';
+    const highlighted = hljs.highlight(tmp, { language }).value;
 
     const cleaned = highlighted
       .replace(/§§SHD_START§§/g, '<span class="code-comment">')
@@ -91,7 +94,8 @@ export class DocViewerComponent implements OnInit {
   }
 
   private highlightDescriptionCode(raw: string): SafeHtml {
-    const highlighted = hljs.highlight(raw, { language: 'sql' }).value;
+    const language = this.currentDocName === 'apex_class' ? 'java' : 'sql';
+    const highlighted = hljs.highlight(raw, { language }).value;
     return this.sanitizer.bypassSecurityTrustHtml(highlighted);
   }
   
