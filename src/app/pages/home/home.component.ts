@@ -97,6 +97,11 @@ export class HomeComponent implements OnInit {
   loadFunctionDescriptions() {
     this.tagsData.forEach(item => {
       const funcName = item["Item Name"];
+      
+      if (funcName.toUpperCase() === 'GLOBAL_VARIABLES') {
+        return;
+      }
+      
       let fileName: string;
 
       if (funcName.trim().toLowerCase() === 'apex class') {
