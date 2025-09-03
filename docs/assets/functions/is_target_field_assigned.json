@@ -1,0 +1,16 @@
+{
+  "title": "IS_TARGET_FIELD_ASSIGNED",
+  "description": "Checks whether a target field has been assigned a value.",
+  "syntax": "IS_TARGET_FIELD_ASSIGNED(target_field_name) -> Boolean",
+  "parameters": [
+    {
+      "name": "target_field_name",
+      "type": "string",
+      "required": "Yes",
+      "description": "The name of the target field to check."
+    }
+  ],
+  "examples": [
+    "IS_TARGET_FIELD_ASSIGNED(\"Priority\")\n-- Returns TRUE if Priority is assigned, FALSE if not assigned or skipped."
+  ]
+}
