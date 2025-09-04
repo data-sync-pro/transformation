@@ -1,5 +1,5 @@
 {
-  "title": "AGGREGATE GENERAL",
+  "title": "AGGREGATION GENERAL",
   "description": "<p>DSP optimizes performance by reducing SOQL queries, combining multiple mergeable aggregate functions into a single query whenever possible.</p>",
   "syntax": "",
   "parameters": [],
