@@ -11,7 +11,7 @@
     }
   ],
   "examples": [
-    "TRIGGER_OLD_VALUE(Priority)\n-- Returns the previous value of Priority in an update operation."
+    "TRIGGER_OLD_VALUE(\"Priority\")\n-- Returns the previous value of Priority in an update operation."
   ],
   "tips": [],
   "relatedFormulas": []
