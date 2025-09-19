@@ -1,6 +1,6 @@
 {
   "title": "BUSINESS_HOURS_NEXT_START_DATE",
-  "description": "<p>Returns the next Datetime business hours open after the specified target date; returns the target date itself if it's within business hours. The result is returned in UTC.</p>",
+  "description": "<p>Returns the next Datetime business hours open after the specified target date; returns the target date itself if it's within business hours. The result is returned in GMT.</p>",
   "syntax": "BUSINESS_HOURS_NEXT_START_DATE(target_date, business_hours_name_optional) -> Datetime",
   "parameters": [
     {

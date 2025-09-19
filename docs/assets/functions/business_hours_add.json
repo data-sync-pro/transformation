@@ -1,6 +1,6 @@
 {
   "title": "BUSINESS_HOURS_ADD",
-  "description": "<p>Adds a time interval to a starting Datetime, counting only business hours. The result is returned in UTC.</p>",
+  "description": "<p>Adds a time interval to a starting Datetime, counting only business hours. The result is returned in GMT.</p>",
   "syntax": "BUSINESS_HOURS_ADD(start_date, interval_milliseconds, business_hours_name_optional) -> Datetime",
   "parameters": [
     {

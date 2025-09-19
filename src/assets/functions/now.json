@@ -1,6 +1,6 @@
 {
   "title": "NOW",
-  "description": "<p>Returns the current Datetime based on the context user's local time zone.</p>",
+  "description": "<p>Returns the current Datetime in GMT.</p>",
   "syntax": "NOW() -> Datetime",
   "parameters": [],
   "examples": [
