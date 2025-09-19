@@ -11,7 +11,7 @@
     }
   ],
   "examples": [
-    "MINUTE(NOW())\n-- Returns 55 (if now = 2024-09-18T15:25:22.418Z and user is in UTC+5:30)."
+    "MINUTE(NOW())\n-- Returns 55 (if now = 2024-09-18T15:25:22.418Z and user is in GMT+5:30)."
   ],
   "relatedFormulas": [
     "NOW"
