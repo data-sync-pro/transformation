@@ -19,12 +19,12 @@
       "name": "timezone_optional",
       "type": "String",
       "required": "No",
-      "description": "Time zone identifier (e.g., 'America/New_York'). Defaults to the user's local time zone."
+      "description": "Time zone identifier (e.g., 'CST'). Defaults to the user's local time zone."
     }
   ],
   "examples": [
     "FORMAT_DATETIME(CreatedDate)\n-- Returns CreatedDate as a formatted string (e.g., \"3/9/2022, 3:06 PM\") in user's local time zone.",
-    "FORMAT_DATETIME(NOW(), \"YYYY-MM-dd hh:mm:ss\", \"GMT\")\n-- Returns the current Datetime as a string formatted as \"YYYY-MM-dd hh:mm:ss\" in GMT."
+    "FORMAT_DATETIME(NOW(), \"YYYY-MM-dd HH:mm:ss\", \"PST\")\n-- Returns the current Datetime as a string formatted as \"YYYY-MM-dd HH:mm:ss\" in PST."
   ],
   "tips": [
     {
