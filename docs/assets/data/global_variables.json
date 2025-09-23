@@ -21,6 +21,18 @@
       "description": "Returns the email address of the running user."
     },
     {
+      "variable": "$User.FirstName",
+      "description": "Returns the first name of the running user."
+    },
+    {
+      "variable": "$User.LastName",
+      "description": "Returns the last name of the running user."
+    },
+    {
+      "variable": "$User.Name",
+      "description": "Returns the full name of the running user."
+    },
+    {
       "variable": "$User.ProfileId",
       "description": "Returns the Profile Id of the running user."
     },
