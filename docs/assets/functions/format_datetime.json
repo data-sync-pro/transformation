@@ -24,11 +24,11 @@
   ],
   "examples": [
     "FORMAT_DATETIME(CreatedDate)\n-- Returns CreatedDate as a formatted string (e.g., \"3/9/2022, 3:06 PM\") in user's local time zone.",
-    "FORMAT_DATETIME(NOW(), \"YYYY-MM-dd HH:mm:ss\", \"PST\")\n-- Returns the current Datetime as a string formatted as \"YYYY-MM-dd HH:mm:ss\" in PST."
+    "FORMAT_DATETIME(NOW(), \"yyyy-MM-dd HH:mm:ss\", \"PST\")\n-- Returns the current Datetime as a string formatted as \"yyyy-MM-dd HH:mm:ss\" in PST."
   ],
   "tips": [
     {
-      "text": "<p>Use a custom format string with the following placeholders: YYYY for year, MM for month, dd for day, hh for hour, mm for minute, and ss for second.</p>",
+      "text": "<p>Format patterns: yyyy for year, MM for month, dd for day, HH for 24-hour, hh for 12-hour, mm for minute, ss for second.</p>",
       "children": []
     }
   ],

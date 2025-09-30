@@ -24,11 +24,11 @@
       "children": []
     },
     {
-      "text": "<p>Dates are returned as YYYY-MM-DD.</p>",
+      "text": "<p>Dates are returned as yyyy-MM-dd.</p>",
       "children": []
     },
     {
-      "text": "<p>Datetime values are returned as YYYY-MM-DD hh:mm:ss.</p>",
+      "text": "<p>Datetime values are returned as yyyy-MM-dd HH:mm:ss.</p>",
       "children": []
     }
   ],
