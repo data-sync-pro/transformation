@@ -29,7 +29,7 @@
     }
   ],
   "examples": [
-    "JOIN_OBJECT_SOURCE(\n            \"Opportunity\",\n            \"AccountId\", Id, \n            \"IsClosed = true\"\n)\n-- Fetches Opportunities from the $Source connection where AccountId equals the current record’s Id, further filtered to IsClosed = true"
+    "JOIN_OBJECT_SOURCE(\n            \"Opportunity\",\n            \"AccountId\", Id, \n            \"IsClosed = true\"\n)\n-- Fetches Opportunities from the $Source connection where AccountId equals the current record’s Id, further filtered to IsClosed = true."
   ],
   "tips": [
     {
