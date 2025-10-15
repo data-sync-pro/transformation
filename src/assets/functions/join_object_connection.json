@@ -1,6 +1,6 @@
 {
   "title": "JOIN_OBJECT_CONNECTION",
-  "description": "<p>Returns records from a specified object using a named connection or a related connection, filtered by joining field-value pairs, with an optional additional filtering clause.</p>",
+  "description": "<p>Returns records from a specified object through a named connection or a related connection, filtered by joining field-value pairs, with an optional additional filtering clause.</p>",
   "syntax": "JOIN_OBJECT_CONNECTION(connection_name, object_name, ...[joining_field_name, joining_field_value], additional_clause_optional)",
   "parameters": [
     {
