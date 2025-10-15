@@ -1,6 +1,6 @@
 {
   "title": "JOIN_OBJECT_TARGET",
-  "description": "Returns records from a specified object in the Target connection that match the provided joining field–value pairs, with an optional additional filtering clause.",
+  "description": "<p>Returns records from a specified object via the Target connection that match the provided joining field–value pairs, with an optional additional filtering clause.</p>",
   "syntax": "JOIN_OBJECT_TARGET(object_name, ...[joining_field_name, joining_field_value], additional_clause_optional)",
   "parameters": [
     {
