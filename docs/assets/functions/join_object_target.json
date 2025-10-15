@@ -33,11 +33,11 @@
   ],
   "tips": [
     {
-      "text": "Defines this function during the Scoping stage to retrieve and prepare data for subsequent use in the Mapping stage.",
+      "text": "<p>Defines this function during the Scoping stage to retrieve and prepare data for subsequent use in the Mapping stage.</p>",
       "children": []
     },
     {
-      "text": "Be careful to provide joining pairs when using this function. Omitting joining criteria can result in cross joins, creating excessively large record sets. Follow Salesforce best practices to prevent exceeding system limits.",
+      "text": "<p>Be careful to provide joining pairs when using this function. Omitting joining criteria can result in cross joins, creating excessively large record sets. Follow Salesforce best practices to prevent exceeding system limits.</p>",
       "children": []
     }
   ],

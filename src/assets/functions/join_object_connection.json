@@ -1,13 +1,13 @@
 {
   "title": "JOIN_OBJECT_CONNECTION",
-  "description": "<p>Returns records from a specified object connected via the given connection, filtered by joining field-value pairs, with an optional additional filtering clause.</p>",
+  "description": "<p>Returns records from a specified object using a named connection or a related connection, filtered by joining field-value pairs, with an optional additional filtering clause.</p>",
   "syntax": "JOIN_OBJECT_CONNECTION(connection_name, object_name, ...[joining_field_name, joining_field_value], additional_clause_optional)",
   "parameters": [
     {
       "name": "connection_name",
       "type": "String",
       "required": "Yes",
-      "description": "The name of the connection to use."
+      "description": "The name of the connection used to retrieve records, which can be either a named connection or a related connection."
     },
     {
       "name": "object_name",
@@ -35,7 +35,9 @@
     }
   ],
   "examples": [
-    "JOIN_OBJECT_CONNECTION(\n            \"Current\", \n            \"Opportunity\",\n            \"AccountId\", Id, \n            \"IsClosed = true\"\n)\n-- Fetches Opportunities from the \"Current\" connection where AccountId equals the current record’s Id, further filtered to IsClosed = true"
+    "JOIN_OBJECT_CONNECTION(\n            \"Current\", \n            \"Opportunity\",\n            \"AccountId\", Id, \n            \"IsClosed = true\"\n)\n-- Fetches Opportunities from the \"Current\" connection where AccountId equals the current record’s Id, further filtered to IsClosed = true",
+    "JOIN_OBJECT_CONNECTION(\n            \"$Source\", \n            \"Opportunity\",\n            \"AccountId\", Id, \n            \"IsClosed = true\"\n)\n-- Fetches Opportunities from the $Source connection where AccountId equals the current record’s Id, further filtered to IsClosed = true",
+    "JOIN_OBJECT_CONNECTION(\n            \"$Target\", \n            \"Opportunity\", \n            \"AccountId\", Id, \n            \"OwnerId\", OwnerId, \n            \"FiscalYear = 2024\"\n)\n-- Fetches Opportunities from the $Target connection where AccountId and OwnerId equals the current record’s Id and OwnerId, further filtered to FiscalYear = 2024."
   ],
   "tips": [
     {
