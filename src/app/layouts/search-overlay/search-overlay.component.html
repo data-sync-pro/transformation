@@ -8,6 +8,7 @@
         placeholder="Search..."
         [(ngModel)]="searchQuery"
         (input)="filterSuggestions()"
+        (keydown)="onKeyDown($event)"
       />
       <span class="shortcut-hint shortcut-clickable" (click)="close()"
         >Esc</span
@@ -41,9 +42,10 @@
           filteredSuggestions.length > 0
         "
       >
-        <ng-container *ngFor="let item of filteredSuggestions">
+        <ng-container *ngFor="let item of filteredSuggestions; let i = index">
           <div
             class="suggestion-item"
+            [class.selected]="selectedIndex === i"
             *ngIf="item.name !== 'GLOBAL_VARIABLES'"
             (click)="onSelectSuggestion(item)"
           >

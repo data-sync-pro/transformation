@@ -28,6 +28,7 @@ export class SearchOverlayComponent implements OnInit, OnChanges {
   tags: string[] = [];
   suggestions: any[] = [];
   filteredSuggestions: any[] = [];
+  selectedIndex: number = -1;
 
   constructor(private http: HttpClient, private router: Router,private sidebarService: SidebarService) {}
 
@@ -129,6 +130,7 @@ export class SearchOverlayComponent implements OnInit, OnChanges {
       setTimeout(() => {
         this.searchInputRef?.nativeElement?.focus();
       }, 0);
+      this.selectedIndex = -1;
     }
   }
 
@@ -181,6 +183,47 @@ export class SearchOverlayComponent implements OnInit, OnChanges {
         return aName.localeCompare(bName);
       });
     }
+    this.selectedIndex = -1;
+  }
+
+  getVisibleSuggestions() {
+    return this.filteredSuggestions.filter(item => item.name !== 'GLOBAL_VARIABLES');
+  }
+
+  onKeyDown(event: KeyboardEvent) {
+    const visibleSuggestions = this.getVisibleSuggestions();
+    
+    if (visibleSuggestions.length === 0) {
+      return;
+    }
+
+    switch(event.key) {
+      case 'ArrowDown':
+        event.preventDefault();
+        this.selectedIndex = Math.min(this.selectedIndex + 1, visibleSuggestions.length - 1);
+        this.scrollToSelected();
+        break;
+      case 'ArrowUp':
+        event.preventDefault();
+        this.selectedIndex = Math.max(this.selectedIndex - 1, -1);
+        this.scrollToSelected();
+        break;
+      case 'Enter':
+        event.preventDefault();
+        if (this.selectedIndex >= 0 && this.selectedIndex < visibleSuggestions.length) {
+          this.onSelectSuggestion(visibleSuggestions[this.selectedIndex]);
+        }
+        break;
+    }
+  }
+
+  private scrollToSelected() {
+    setTimeout(() => {
+      const selected = document.querySelector('.suggestion-item.selected');
+      if (selected) {
+        selected.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }, 0);
   }
 }
   

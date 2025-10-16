@@ -115,11 +115,13 @@
   white-space: nowrap;
 }
 
-.suggestion-item:hover {
+.suggestion-item:hover,
+.suggestion-item.selected {
   background-color: #d9e4e8;
 }
 
-.suggestion-item:hover .tag {
+.suggestion-item:hover .tag,
+.suggestion-item.selected .tag {
   background-color: #418796;
   color: white;
 }
