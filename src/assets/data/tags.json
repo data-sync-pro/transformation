@@ -55,7 +55,6 @@
     { "Item Name": "JOIN_OBJECT_CONNECTION", "Tags": ["Advanced"] },
     { "Item Name": "JOIN_OBJECT_SOURCE", "Tags": ["Advanced"] },
     { "Item Name": "JOIN_OBJECT_TARGET", "Tags": ["Advanced"] },
-    { "Item Name": "JOIN_DATA_LIST", "Tags": ["Advanced"]},
     { "Item Name": "LAST_INDEX_OF", "Tags": ["Text"] },
     { "Item Name": "LAST_INDEX_OF_IGNORE_CASE", "Tags": ["Text"] },
     { "Item Name": "LEFT", "Tags": ["Text"] },
