@@ -15,7 +15,7 @@
         "code":      "-- TotalPrice is calculated first, then uses that value in Description.",
         "images" : [
           {
-            "src" : "assets/example-img/evaluated_field_value.png",
+            "src" : "assets/example-img/evaluated_field_value/figure_1.png",
             "alt" : "Evaluated Field Value Example"
           }
         ]

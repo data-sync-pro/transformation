@@ -23,6 +23,7 @@
     { "Item Name": "ERROR_VALUE", "Tags": ["Logical"] },
     { "Item Name": "ESCAPE_HTML4", "Tags": ["Text"] },
     { "Item Name": "ESCAPE_XML", "Tags": ["Text"] },
+    { "Item Name": "EVALUATE", "Tags": ["Advanced"]},
     { "Item Name": "EVALUATED_FIELD_VALUE", "Tags": ["Advanced"]},
     { "Item Name": "FORMAT_DATETIME", "Tags": ["Date & Time", "Text"] },
     { "Item Name": "FORMAT_DSP_TEMPLATE", "Tags": ["Text"] },
