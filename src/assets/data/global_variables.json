@@ -5,12 +5,28 @@
       "description": "$CONTEXT_RECORD_ID is used in UI-based rules engines—such as Data Loader, Data List, and Action Button—to dynamically reference the current record ID from the Lightning Record Page. When used in transformations, it is automatically replaced with the record’s ID at runtime."
     },
     {
+      "variable": "$EXECUTABLE_NAME",
+      "description": "$EXECUTABLE_NAME returns the name of the currently running Executable."
+    },
+    {
+      "variable": "$EXECUTABLE_ID",
+      "description": "$EXECUTABLE_ID returns the Id of the currently running Executable."
+    },
+    {
       "variable": "$JOINER",
       "description": "$Joiner is a prefix used to reference fields from a dataset that has been joined in the Scoping step of an Executable (left-join or cross-join). It allows downstream logic—such as Scope Filter (Post Join) rules and field mappings—to access the joined record’s fields. For example, $Joiner.Parent__r.Status__c references the Status__c field on the joined record’s Parent__r relationship."
     },
     {
+      "variable": "$LAST_EXECUTION",
+      "description": "$LAST_EXECUTION references the most recent Execution record for the current Executable (any outcome), allowing formulas to read fields from that Execution."
+    },
+    {
+      "variable": "$LAST_SUCCESSFUL_EXECUTION",
+      "description": "$LAST_SUCCESSFUL_EXECUTION references the most recent successful Execution record for the current Executable, allowing formulas to read fields from that Execution."
+    },
+    {
       "variable": "$ORG_DOMAIN_URL",
-      "description": "Return current org's domain URL."
+      "description": "Returns current org's domain URL."
     },
     {
       "variable": "$SKIP_ASSIGNMENT",
