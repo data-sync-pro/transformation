@@ -13,7 +13,7 @@
       "name": "… compare_strings",
       "type": "String",
       "required": "Yes",
-      "description": "Strings to compare against the start of the source string."
+      "description": "One or more strings to check for at the beginning of the source string."
     }
   ],
   "examples": [

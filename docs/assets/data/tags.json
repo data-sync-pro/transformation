@@ -86,6 +86,7 @@
     { "Item Name": "SCRAMBLE", "Tags": ["Randomization"] },
     { "Item Name": "SECOND", "Tags": ["Date & Time"] },
     { "Item Name": "SKIP_BLANK_VALUE", "Tags": ["Logical", "Text"] },
+    { "Item Name": "SPLIT", "Tags": ["Text"]},
     { "Item Name": "STARTS_WITH", "Tags": ["Logical", "Text"] },
     { "Item Name": "STARTS_WITH_IGNORE_CASE", "Tags": ["Logical", "Text"] },
     { "Item Name": "STRING_JOIN", "Tags": ["Text"] },
