@@ -1,7 +1,7 @@
 {
   "title": "GET_PICKLIST_FIELD_OPTIONS",
   "description": "<p>Returns a list of options for the specified picklist field on a given object.</p>",
-  "syntax": "GET_PICKLIST_FIELD_OPTIONS(object_name, field_name) -> List<String>",
+  "syntax": "GET_PICKLIST_FIELD_OPTIONS(object_name, field_name) -> String[]",
   "parameters": [
     {
       "name": "object_name",
