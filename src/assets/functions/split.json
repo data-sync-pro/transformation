@@ -19,6 +19,10 @@
     "examples": [
       "SPLIT(\"Sales, Marketing;  Support,  Finance\", \"[,;\\s]+\")\n-- Returns [\"Sales\", \"Marketing\", \"Support\", \"Finance\"]."],
     "tips": [
+       {
+      "text": "<p>If regex does not match any part of string, SPLIT returns a single-element array with the original string.</p>",
+      "children": []
+    }
   ],
   "relatedFormula": []
 }
