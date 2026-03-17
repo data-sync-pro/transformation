@@ -4,7 +4,7 @@
   "descriptionCallouts": [
     {
       "type": "warning",
-      "content": "Starting in version 3.418.0-1, FORMAT_DSP_TEMPLATE is obsolete in the new package. Existing invocations continue to work for backward compatibility, but new implementations should use FORMAT_STRING_TEMPLATE or FORMAT_JSON_TEMPLATE instead."
+      "content": "Obsolete since v3.418. Use FORMAT_STRING_TEMPLATE with merged fields in the new {!expression} syntax. Existing invocations continue to work for backward compatibility."
     }
   ],
   "syntax": "FORMAT_DSP_TEMPLATE(template) -> String",
@@ -17,8 +17,8 @@
     }
   ],
   "examples": [
-    "FORMAT_DSP_TEMPLATE(\n\"Dear <shadow>{VLOOKUP('OpportunityContactRole', 'Contact.Name', 'OpportunityId', Id,'IsPrimary = TRUE')}</shadow>, \n\nWe are pleased to inform you that your Account: <shadow>{Account.Name}</shadow> has an Opportunity currently at the stage: <shadow>{StageName}</shadow>.\n\nFeel free to reach out if you have any questions.\n\nBest Regards,   \nSales Team\")\n\n/*Dear <shadow>Kristin Stanton</shadow>, \n\nWe are pleased to inform you that your Account: <shadow>Owens LLC</shadow> has an Opportunity currently at the stage: <shadow>Prospecting</shadow>. \n\nFeel free to reach out if you have any questions. \n\nBest Regards, \nSales Team*/",
-    "FORMAT_DSP_TEMPLATE(\"Hello <shadow>{LOOKUP('Account', 'Name', 'Id', AccountId)}</shadow>. Your Stage: <shadow>{Opty.StageName}</shadow>.\")\n-- Returns the template string with unparseable expressions unchanged because \"LOOKUP\" is misspelled and \"Opty\" is an invalid object name." 
+    "FORMAT_DSP_TEMPLATE(\n'Dear <shadow>{VLOOKUP(\"OpportunityContactRole\", \"Contact.Name\", \"OpportunityId\", Id,\"IsPrimary = TRUE\")}</shadow>, \n\nWe are pleased to inform you that your Account: <shadow>{Account.Name}</shadow> has an Opportunity currently at the stage: <shadow>{StageName}</shadow>.\n\nFeel free to reach out if you have any questions.\n\nBest Regards,   \nSales Team')\n\n/*Dear <shadow>Kristin Stanton</shadow>, \n\nWe are pleased to inform you that your Account: <shadow>Owens LLC</shadow> has an Opportunity currently at the stage: <shadow>Prospecting</shadow>. \n\nFeel free to reach out if you have any questions. \n\nBest Regards, \nSales Team*/",
+    "FORMAT_DSP_TEMPLATE('Hello <shadow>{LOOKUP(\"Account\", \"Name\", \"Id\", AccountId)}</shadow>. Your Stage: <shadow>{Opty.StageName}</shadow>.')\n-- Returns the template string with unparseable expressions unchanged because \"LOOKUP\" is misspelled and \"Opty\" is an invalid object name." 
   ],
   "tips": [
     {
