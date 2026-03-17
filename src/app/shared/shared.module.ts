@@ -5,12 +5,14 @@ import { RouterModule } from '@angular/router';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
 import { ImageViewerComponent } from './image-viewer/image-viewer.component';
+import { CalloutComponent } from './callout/callout.component';
 
 @NgModule({
   declarations: [
     BreadcrumbComponent,
     ScrollToTopComponent,
-    ImageViewerComponent
+    ImageViewerComponent,
+    CalloutComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { ImageViewerComponent } from './image-viewer/image-viewer.component';
   exports: [
     BreadcrumbComponent,
     ScrollToTopComponent,
-    ImageViewerComponent
+    ImageViewerComponent,
+    CalloutComponent
   ]
 })
 export class SharedModule { }

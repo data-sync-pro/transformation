@@ -1,6 +1,12 @@
 {
-  "title": "FORMAT_DSP_TEMPLATE",
-  "description": "<p>Parses and formats a DSP (Data Sync Pro) template string by resolving all embedded expressions and placeholders.</p>",
+  "title": "FORMAT_DSP_TEMPLATE (Obsolete)",
+  "description": "<p>Parses and formats a DSP template string by resolving embedded expressions and placeholders.</p>",
+  "descriptionCallouts": [
+    {
+      "type": "warning",
+      "content": "Starting in version 3.418.0-1, FORMAT_DSP_TEMPLATE is obsolete in the new package. Existing invocations continue to work for backward compatibility, but new implementations should use FORMAT_STRING_TEMPLATE or FORMAT_JSON_TEMPLATE instead."
+    }
+  ],
   "syntax": "FORMAT_DSP_TEMPLATE(template) -> String",
   "parameters": [
     {
@@ -12,12 +18,12 @@
   ],
   "examples": [
     "FORMAT_DSP_TEMPLATE(\n\"Dear <shadow>{VLOOKUP('OpportunityContactRole', 'Contact.Name', 'OpportunityId', Id,'IsPrimary = TRUE')}</shadow>, \n\nWe are pleased to inform you that your Account: <shadow>{Account.Name}</shadow> has an Opportunity currently at the stage: <shadow>{StageName}</shadow>.\n\nFeel free to reach out if you have any questions.\n\nBest Regards,   \nSales Team\")\n\n/*Dear <shadow>Kristin Stanton</shadow>, \n\nWe are pleased to inform you that your Account: <shadow>Owens LLC</shadow> has an Opportunity currently at the stage: <shadow>Prospecting</shadow>. \n\nFeel free to reach out if you have any questions. \n\nBest Regards, \nSales Team*/",
-    "FORMAT_DSP_TEMPLATE(\"Hello {LOOKUP('Account', 'Name', 'Id', AccountId)}. Your Stage: {Opty.StageName}.\")\n-- Returns the template string with unparseable expressions unchanged because \"LOOKUP\" is misspelled and \"Opty\" is an invalid object name." 
+    "FORMAT_DSP_TEMPLATE(\"Hello <shadow>{LOOKUP('Account', 'Name', 'Id', AccountId)}</shadow>. Your Stage: <shadow>{Opty.StageName}</shadow>.\")\n-- Returns the template string with unparseable expressions unchanged because \"LOOKUP\" is misspelled and \"Opty\" is an invalid object name." 
   ],
   "tips": [
     {
       "text": "<p>To validate embedded expressions, test them individually in a field mapping's editor."
     }
   ],
-  "relatedFormulas": ["VLOOKUP"]
+  "relatedFormulas": ["VLOOKUP", "FORMAT_STRING_TEMPLATE", "FORMAT_JSON_TEMPLATE"]
 }

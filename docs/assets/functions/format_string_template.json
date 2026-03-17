@@ -1,0 +1,22 @@
+{
+  "title": "FORMAT_STRING_TEMPLATE",
+  "description": "Parses and formats a template string by resolving embedded expressions and merge fields into standard string output.",
+  "syntax": "FORMAT_STRING_TEMPLATE(template) -> String",
+  "parameters": [
+    {
+      "name": "template",
+      "type": "String",
+      "required": "Yes",
+      "description": "A string containing merge fields or expressions in template syntax to be evaluated and replaced with their corresponding values. Incorrect or unparseable expressions remain as literal text in the output."
+    }
+  ],
+   "examples": [
+    "FORMAT_STRING_TEMPLATE(\n\"Dear <shadow>{!VLOOKUP('OpportunityContactRole', 'Contact.Name', 'OpportunityId', Id,'IsPrimary = TRUE')}</shadow>, \n\nWe are pleased to inform you that your Account: <shadow>{!Account.Name}</shadow> has an Opportunity currently at the stage: <shadow>{!StageName}</shadow>.\n\nFeel free to reach out if you have any questions.\n\nBest Regards,   \nSales Team\")\n\n/*Dear <shadow>Kristin Stanton</shadow>, \n\nWe are pleased to inform you that your Account: <shadow>Owens LLC</shadow> has an Opportunity currently at the stage: <shadow>Prospecting</shadow>. \n\nFeel free to reach out if you have any questions. \n\nBest Regards, \nSales Team*/",
+    "FORMAT_STRING_TEMPLATE(\"Hello <shadow>{!LOOKUP('Account', 'Name', 'Id', AccountId)}</shadow>. Your Stage: <shadow>{!Opty.StageName}</shadow>.\")\n-- Returns the template string with unparseable expressions unchanged because \"LOOKUP\" is misspelled and \"Opty\" is an invalid object name." 
+
+],
+  "relatedFormulas": [
+    "FORMAT_JSON_TEMPLATE",
+    "VLOOKUP"
+  ]
+}
