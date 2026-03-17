@@ -54,13 +54,13 @@
     <h2>Description</h2>
     <p [innerHTML]="docContent.description"></p>
     <div class="doc-images" *ngIf="docContent.descriptionImages?.length">
-      <img 
-        *ngFor="let img of docContent.descriptionImages" 
-        [src]="img.src" 
-        alt="{{ img.alt }}" 
+      <img
+        *ngFor="let img of docContent.descriptionImages"
+        [src]="img.src"
+        alt="{{ img.alt }}"
         loading="lazy"
         (click)="openImageViewer(img.src, img.alt)"
-        class="clickable-image" 
+        class="clickable-image"
       />
     </div>
     <div class="doc-example" *ngIf="highlightedDescriptionCode">
@@ -68,11 +68,21 @@
       <pre><code class="hljs language-sql"
                  [innerHTML]="highlightedDescriptionCode"></code></pre>
     </div>
+    <app-callout *ngFor="let callout of docContent.descriptionCallouts"
+      [type]="callout.type"
+      [title]="callout.title"
+      [content]="callout.content">
+    </app-callout>
   </section>
 
   <section class="doc-section" *ngIf="docContent.syntax">
     <h2>Syntax</h2>
     <pre class="doc-syntax">{{ docContent.syntax }}</pre>
+    <app-callout *ngFor="let callout of docContent.syntaxCallouts"
+      [type]="callout.type"
+      [title]="callout.title"
+      [content]="callout.content">
+    </app-callout>
   </section>
 
   <section class="doc-section" *ngIf="docContent.parameters?.length">
@@ -95,6 +105,11 @@
         </tr>
       </tbody>
     </table>
+    <app-callout *ngFor="let callout of docContent.parametersCallouts"
+      [type]="callout.type"
+      [title]="callout.title"
+      [content]="callout.content">
+    </app-callout>
   </section>
   <section class="doc-section" *ngIf="processedExamples.length">
     <h2 *ngIf="processedExamples.length === 1">Example</h2>
@@ -102,25 +117,45 @@
   
     <div class="example-item" *ngFor="let example of processedExamples">
       <div class="doc-images" *ngIf="example.images?.length">
-        <img 
-          *ngFor="let img of example.images" 
-          [src]="img.src" 
-          alt="{{ img.alt }}" 
+        <img
+          *ngFor="let img of example.images"
+          [src]="img.src"
+          alt="{{ img.alt }}"
           loading="lazy"
           (click)="openImageViewer(img.src, img.alt)"
-          class="clickable-image" 
+          class="clickable-image"
         />
       </div>
       <div class="doc-example" *ngIf="example.code">
         <pre><code class="hljs language-sql" [innerHTML]="example.code"></code></pre>
       </div>
-      
+      <p *ngIf="example.description">{{ example.description }}</p>
+      <div class="doc-images" *ngIf="example.descriptionImages?.length">
+        <img
+          *ngFor="let img of example.descriptionImages"
+          [src]="img.src"
+          alt="{{ img.alt }}"
+          loading="lazy"
+          (click)="openImageViewer(img.src, img.alt)"
+          class="clickable-image"
+        />
+      </div>
     </div>
+    <app-callout *ngFor="let callout of docContent.examplesCallouts"
+      [type]="callout.type"
+      [title]="callout.title"
+      [content]="callout.content">
+    </app-callout>
   </section>
 
   <section class="doc-section" *ngIf="docContent.tips?.length">
     <h2>Tips</h2>
     <ng-container *ngTemplateOutlet="recursiveList; context: { tips: docContent.tips }"></ng-container>
+    <app-callout *ngFor="let callout of docContent.tipsCallouts"
+      [type]="callout.type"
+      [title]="callout.title"
+      [content]="callout.content">
+    </app-callout>
   </section>
 
   <ng-template #recursiveList let-tips="tips">

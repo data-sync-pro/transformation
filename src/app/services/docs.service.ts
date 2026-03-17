@@ -18,6 +18,14 @@ export interface DocImage {
 export interface ExampleItem {
   code?: string;
   images?: DocImage[];
+  description?: string;
+  descriptionImages?: DocImage[];
+}
+
+export interface Callout {
+  type: 'info' | 'warning' | 'tip' | 'note';
+  title?: string;
+  content: string;
 }
 
 export interface DocData {
@@ -25,10 +33,15 @@ export interface DocData {
   description?: string;
   descriptionImages?: DocImage[];
   descriptionCode?: string;
+  descriptionCallouts?: Callout[];
   syntax?: string;
+  syntaxCallouts?: Callout[];
   parameters?: Parameter[];
+  parametersCallouts?: Callout[];
   examples?: (string | ExampleItem)[];
+  examplesCallouts?: Callout[];
   tips?: string[];
+  tipsCallouts?: Callout[];
   relatedFormulas?: string[];
   operators?: {
     [category: string]: {

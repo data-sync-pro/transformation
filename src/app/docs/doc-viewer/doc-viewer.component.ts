@@ -9,6 +9,8 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 interface ProcessedExample {
   code?: SafeHtml;
   images?: DocImage[];
+  description?: string;
+  descriptionImages?: DocImage[];
 }
 
 @Component({
@@ -70,7 +72,9 @@ export class DocViewerComponent implements OnInit {
       } else {
         return {
           code: example.code ? this.highlightExamples(example.code) : undefined,
-          images: example.images
+          images: example.images,
+          description: example.description,
+          descriptionImages: example.descriptionImages
         };
       }
     });
