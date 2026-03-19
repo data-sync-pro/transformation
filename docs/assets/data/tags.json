@@ -33,7 +33,6 @@
     { "Item Name": "EVALUATED_FIELD_VALUE", "Tags": ["Advanced"]},
     { "Item Name": "FLOOR", "Tags": ["Number"]},
     { "Item Name": "FORMAT_DATETIME", "Tags": ["Date & Time", "Text"] },
-    { "Item Name": "FORMAT_DSP_TEMPLATE(Obsolete)", "Tags": ["Text"] },
     { "Item Name": "FORMAT_JSON_TEMPLATE", "Tags": ["Text"] },
     { "Item Name": "FORMAT_STRING_TEMPLATE", "Tags": ["Text"] },
     { "Item Name": "GLOBAL_VARIABLES", "Tags": ["Global Variables"] },
