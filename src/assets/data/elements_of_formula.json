@@ -1,5 +1,5 @@
 {
-    "title": "Elements of a  Formula",
+    "title": "Elements of a Formula",
     "description": "A formula can contain references to the values of source fields, operators, functions, literal values, or other formulas. Use any or all of these elements to build a formula.",
     "elements": [
       {
