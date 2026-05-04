@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "docs",
+            "outputPath": "dist/dsp-function-documentation",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -44,7 +44,9 @@
                   "maximumError": "6kb"
                 }
               ],
-              "outputHashing": "all"            },
+              "outputHashing": "all",
+              "baseHref": "/DSP_FunctionDocumentation"
+            },
             "development": {
               "buildOptimizer": false,
               "optimization": false,
