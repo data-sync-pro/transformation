@@ -9,12 +9,16 @@ const routes: Routes = [
     component: FunctionPageMainLayoutComponent,
     loadChildren: () => import('./docs/docs.module').then(m => m.DocsModule)
   },
+  {
+    path: 'editor',
+    loadChildren: () => import('./editor/editor.module').then(m => m.EditorModule)
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes,
     {
-      useHash: true,
+      useHash: false,
       scrollPositionRestoration: 'enabled',
       anchorScrolling: 'enabled',
       preloadingStrategy: PreloadAllModules

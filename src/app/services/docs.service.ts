@@ -78,6 +78,20 @@ export class DocsService {
     );
   }
 
+  /**
+   * Loads a function doc without rewriting relative image paths.
+   * Use this for editing — preserves the on-disk shape so exports round-trip cleanly.
+   */
+  getDocByNameRaw(docName: string): Observable<DocData | null> {
+    const url = `assets/formulas/${docName}/data.json`;
+    return this.http.get<DocData>(url).pipe(
+      catchError((error) => {
+        console.error(`Error loading ${url}:`, error);
+        return of(null);
+      })
+    );
+  }
+
   // Rewrites image src values that are relative to the function's data.json
   // into URLs the browser can load (relative to the document root).
   private resolveImagePaths(doc: DocData, baseUrl: string): DocData {
