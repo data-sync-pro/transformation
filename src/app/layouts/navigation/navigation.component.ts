@@ -57,7 +57,7 @@ export class NavigationComponent implements OnInit, OnDestroy {
         }
       });
 
-    this.http.get<FunctionItem[]>('assets/data/tags.json').subscribe((data) => {
+    this.http.get<FunctionItem[]>('assets/formulas/tags.json').subscribe((data) => {
       this.groupFunctionsByTags(data);
       this.updateActiveCategory();
     });

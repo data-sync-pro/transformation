@@ -34,7 +34,7 @@ export class SearchOverlayComponent implements OnInit, OnChanges {
 
 
   ngOnInit() {
-    this.http.get<any[]>('assets/data/tags.json').subscribe((data) => {
+    this.http.get<any[]>('assets/formulas/tags.json').subscribe((data) => {
       this.suggestions = data.map((item) => ({
         name: item['Item Name'],
         Tags: item['Tags'],
@@ -42,7 +42,7 @@ export class SearchOverlayComponent implements OnInit, OnChanges {
       }));
 
       this.http
-        .get<any>('assets/data/global_variables.json')
+        .get<any>('assets/formulas/global_variables.json')
         .subscribe((gvData) => {
           (gvData.globalVariables ?? gvData ?? []).forEach((gv: any) => {
             const name = gv.variable ?? '';

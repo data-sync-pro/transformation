@@ -67,7 +67,7 @@ export class DocsService {
   constructor(private http: HttpClient) {}
 
   getDocByName(docName: string): Observable<DocData | null> {
-    const baseUrl = `assets/functions/${docName}/`;
+    const baseUrl = `assets/formulas/${docName}/`;
     const url = `${baseUrl}data.json`;
     return this.http.get<DocData>(url).pipe(
       map((doc) => this.resolveImagePaths(doc, baseUrl)),
@@ -101,11 +101,11 @@ export class DocsService {
   }
 
   getGlobalVariables(): Observable<DocData> {
-    return this.http.get<DocData>('assets/data/global_variables.json');
+    return this.http.get<DocData>('assets/formulas/global_variables.json');
   }
 
   private readonly tagMap$: Observable<Map<string, string>> = this.http
-    .get<TagItem[]>('assets/data/tags.json') 
+    .get<TagItem[]>('assets/formulas/tags.json')
     .pipe(
       map((list) => {
         const m = new Map<string, string>();
