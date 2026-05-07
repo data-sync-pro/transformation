@@ -76,6 +76,10 @@
   margin-bottom: 2rem;
 }
 
+.example-description {
+  white-space: pre-line;
+}
+
 .example-item:last-child {
   margin-bottom: 0;
 }

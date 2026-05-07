@@ -17,9 +17,8 @@ export interface DocImage {
 
 export interface ExampleItem {
   code?: string;
-  images?: DocImage[];
   description?: string;
-  descriptionImages?: DocImage[];
+  images?: DocImage[];
 }
 
 export interface Callout {
@@ -31,7 +30,7 @@ export interface Callout {
 export interface DocData {
   title: string;
   description?: string;
-  descriptionImages?: DocImage[];
+  images?: DocImage[];
   descriptionCode?: string;
   descriptionCallouts?: Callout[];
   syntax?: string;
@@ -68,13 +67,37 @@ export class DocsService {
   constructor(private http: HttpClient) {}
 
   getDocByName(docName: string): Observable<DocData | null> {
-    const url = `assets/functions/${docName}.json`;
+    const baseUrl = `assets/functions/${docName}/`;
+    const url = `${baseUrl}data.json`;
     return this.http.get<DocData>(url).pipe(
+      map((doc) => this.resolveImagePaths(doc, baseUrl)),
       catchError((error) => {
         console.error(`Error loading ${url}:`, error);
         return of(null);
       })
     );
+  }
+
+  // Rewrites image src values that are relative to the function's data.json
+  // into URLs the browser can load (relative to the document root).
+  private resolveImagePaths(doc: DocData, baseUrl: string): DocData {
+    const resolve = (img: DocImage): DocImage =>
+      this.isAbsoluteSrc(img.src) ? img : { ...img, src: baseUrl + img.src };
+
+    if (doc.images) {
+      doc.images = doc.images.map(resolve);
+    }
+    if (doc.examples) {
+      doc.examples = doc.examples.map((ex) => {
+        if (typeof ex === 'string' || !ex.images) return ex;
+        return { ...ex, images: ex.images.map(resolve) };
+      });
+    }
+    return doc;
+  }
+
+  private isAbsoluteSrc(src: string): boolean {
+    return /^(https?:|data:|\/|assets\/)/.test(src);
   }
 
   getGlobalVariables(): Observable<DocData> {
