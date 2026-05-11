@@ -156,12 +156,12 @@ export class HomeComponent implements OnInit {
     this.docsService.getPrimaryCategory(funcName).subscribe(category => {
       const routeName = funcName.toLowerCase();
       if (category) {
-        this.router.navigate(['/docs', routeName], {
+        this.router.navigate(['/', routeName], {
           queryParams: { activeCategory: category }
         });
       } else {
         // Fallback: navigate without activeCategory if category not found
-        this.router.navigate(['/docs', routeName]);
+        this.router.navigate(['/', routeName]);
       }
     });
   }

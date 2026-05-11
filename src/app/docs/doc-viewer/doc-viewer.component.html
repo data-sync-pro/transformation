@@ -13,7 +13,7 @@
         <tr *ngFor="let variable of docContent.globalVariables">
           <td>
             <a *ngIf="variable.variable === '$JOINER'; else plainText"
-              [routerLink]="['/docs', variable.variable.toLowerCase()]"
+              [routerLink]="['/', variable.variable.toLowerCase()]"
               [queryParams]="{ activeCategory: 'Global Variables' }">
               {{ variable.variable }}
             </a>
@@ -172,7 +172,7 @@
     <ul>
       <li>
         DSP handles AGG_ functions efficiently. See
-        <a [routerLink]="['/docs', 'aggregate_general']">AGGREGATE GENERAL</a>
+        <a [routerLink]="['/', 'aggregate_general']">AGGREGATE GENERAL</a>
         for details.
       </li>
     </ul>
@@ -188,7 +188,7 @@
     <ul>
       <li *ngFor="let formula of docContent.relatedFormulas">
         <a
-          [routerLink]="['/docs', formula | lowercase]"
+          [routerLink]="['/', formula | lowercase]"
           [queryParams]="{
             activeCategory: (getActiveCategory$(formula) | async)
           }"

@@ -94,18 +94,18 @@ export class SearchOverlayComponent implements OnInit, OnChanges {
     if (isGlobalVariableItem) {
       if (item.name.toUpperCase() === '$JOINER') {
         this.sidebarService.setActiveCategory('Global Variables');
-        this.router.navigate(['/docs', '$joiner'], {
+        this.router.navigate(['/', '$joiner'], {
           queryParams: { activeCategory: 'Global Variables' },
         });
       } else {
-        this.sidebarService.setActiveCategory('');              
-        this.router.navigate(['/docs', 'global_variables']);
-      }      
+        this.sidebarService.setActiveCategory('');
+        this.router.navigate(['/', 'global_variables']);
+      }
     } else if (isSpecialName) {
       this.sidebarService.setActiveCategory('');
-      this.router.navigate(['/docs', item.route]);
+      this.router.navigate(['/', item.route]);
     } else {
-      this.router.navigate(['/docs', item.route], {
+      this.router.navigate(['/', item.route], {
         queryParams: { activeCategory: item.Tags[0] },
       });
     }

@@ -11,11 +11,6 @@
   </app-sidebar>
 
   <main class="content" #contentRef [class.sidebar-collapsed]="collapsed$ | async">
-    <ng-container *ngIf="router.url !== '/docs'">
-      <!-- <div class="breadcrumb-wrapper">
-        <app-breadcrumb [crumbs]="breadcrumbs"></app-breadcrumb>
-      </div> -->
-    </ng-container>
     <router-outlet></router-outlet>
     <app-scroll-to-top [scrollContainer]="contentRef"></app-scroll-to-top>
   </main>

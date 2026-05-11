@@ -9,6 +9,7 @@
     "test": "ng test",
     "gen-index": "node tools/gen-formulas-index.mjs",
     "prebuild": "node tools/gen-formulas-index.mjs",
+    "postbuild": "node tools/copy-404.mjs",
     "prestart": "node tools/gen-formulas-index.mjs"
   },
   "private": true,

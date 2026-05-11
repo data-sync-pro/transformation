@@ -1,5 +1,5 @@
 import { Component, OnInit, SecurityContext } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DocsService, DocData, ExampleItem, DocImage } from '../../services/docs.service';
 import hljs from 'highlight.js';
 
@@ -28,6 +28,7 @@ export class DocViewerComponent implements OnInit {
   private currentDocName: string | null = null; 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private docsService: DocsService,
     private sanitizer: DomSanitizer
   ) {}
@@ -48,6 +49,11 @@ export class DocViewerComponent implements OnInit {
         })
       )
       .subscribe((doc) => {
+        if (!doc && this.currentDocName && this.currentDocName !== 'global_variables') {
+          this.router.navigateByUrl('/home', { replaceUrl: true });
+          return;
+        }
+
         this.docContent = doc;
 
         this.processedExamples = this.processExamples(doc?.examples ?? []);

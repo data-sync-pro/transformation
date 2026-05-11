@@ -1,5 +1,4 @@
 import { Component, HostListener } from '@angular/core';
-import { Router } from '@angular/router';
 import { LayoutService } from '../../services/layout.service';
 
 @Component({
@@ -12,10 +11,7 @@ export class FunctionPageMainLayoutComponent {
   collapsed$ = this.layout.collapsed$;
   showSidebar = false;
 
-  constructor(
-    public router: Router,
-    private layout: LayoutService
-  ) {}
+  constructor(private layout: LayoutService) {}
 
 
 
