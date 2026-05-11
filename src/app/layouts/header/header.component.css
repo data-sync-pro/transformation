@@ -6,7 +6,7 @@
 }
 
 .logo {
-  height: 4rem;
+  height: 2.5rem;
 }
 
 .name {
@@ -39,7 +39,7 @@
 
 .header-content {
   width: 100%;
-  padding: 0 0.7rem;
+  padding: 0 0.75rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
