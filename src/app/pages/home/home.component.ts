@@ -42,9 +42,16 @@ export class HomeComponent implements OnInit, AfterViewChecked {
   async ngOnInit(): Promise<void> {
     // Canonical in-page section URL is /home/<section>. paramMap emits the
     // section slug for both cold loads and in-page navigation between sections.
+    // Malformed sections (e.g. a percent-encoded legacy path stuffed into the
+    // section slot) fall through to /home so the user lands on the index.
     this.route.paramMap.subscribe((params) => {
       const section = params.get('section');
-      if (section) this.pendingFragment = section;
+      if (!section) return;
+      if (!/^[a-z0-9_]+$/.test(section)) {
+        this.router.navigate(['/home'], { replaceUrl: true });
+        return;
+      }
+      this.pendingFragment = section;
     });
 
     // Legacy /home#<section> URLs auto-upgrade to /home/<section> so shared

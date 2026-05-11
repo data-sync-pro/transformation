@@ -33,6 +33,13 @@ jobs:
       - name: Build Angular app
         run: npx ng build --configuration production --output-path docs --base-href /
 
+      - name: Create SPA 404 fallback
+        # GitHub Pages serves 404.html for any unmatched path. Mirroring
+        # index.html lets Angular bootstrap and parse the deep URL (e.g.
+        # /home, /text/contains) instead of showing the default GH 404 page.
+        run: Copy-Item docs/index.html docs/404.html -Force
+        shell: pwsh
+
       - name: Disable Jekyll
         run: New-Item -Path docs/.nojekyll -ItemType File -Force
         shell: pwsh
