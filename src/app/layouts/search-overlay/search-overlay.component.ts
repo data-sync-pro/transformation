@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { buildRoute } from 'src/app/utils/route.util';
+import { buildRoute, categorySlug } from 'src/app/utils/route.util';
 import { SidebarService } from 'src/app/services/sidebar.service';
 @Component({
   selector: 'app-search-overlay',
@@ -42,14 +42,14 @@ export class SearchOverlayComponent implements OnInit, OnChanges {
       }));
 
       this.http
-        .get<any>('assets/formulas/global_variables.json')
+        .get<any>('assets/formulas/global-variables.json')
         .subscribe((gvData) => {
           (gvData.globalVariables ?? gvData ?? []).forEach((gv: any) => {
             const name = gv.variable ?? '';
             this.suggestions.push({
               name,
               Tags: ['Global Variables'],
-              route: `global_variables`,
+              route: `global-variables`,
             });
           });
 
@@ -94,20 +94,16 @@ export class SearchOverlayComponent implements OnInit, OnChanges {
     if (isGlobalVariableItem) {
       if (item.name.toUpperCase() === '$JOINER') {
         this.sidebarService.setActiveCategory('Global Variables');
-        this.router.navigate(['/', '$joiner'], {
-          queryParams: { activeCategory: 'Global Variables' },
-        });
+        this.router.navigate(['/', 'joiner']);
       } else {
         this.sidebarService.setActiveCategory('');
-        this.router.navigate(['/', 'global_variables']);
+        this.router.navigate(['/', 'global-variables']);
       }
     } else if (isSpecialName) {
       this.sidebarService.setActiveCategory('');
       this.router.navigate(['/', item.route]);
     } else {
-      this.router.navigate(['/', item.route], {
-        queryParams: { activeCategory: item.Tags[0] },
-      });
+      this.router.navigate(['/', categorySlug(item.Tags[0]), item.route]);
     }
 
     this.close();

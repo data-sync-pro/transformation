@@ -76,8 +76,7 @@
           routerLinkActive="active"
         >
           <a
-            [routerLink]="['/', func.route]"
-            [queryParams]="{ activeCategory: category.name }"
+            [routerLink]="['/', categorySlug(category.name), func.route]"
             >{{ func.name }}</a
           >
         </li>

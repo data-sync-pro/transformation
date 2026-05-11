@@ -3,10 +3,10 @@
   <nav class="tag-nav">
     <ul>
       <li>
-        <a [attr.href]="'#' + getAnchorId('Formula Elements')">Elements of a Formula</a>
+        <a [routerLink]="['/home', getAnchorId('Formula Elements')]">Elements of a Formula</a>
       </li>
       <li *ngFor="let tag of displayTags">
-        <a [attr.href]="'#' + getAnchorId(tag)">
+        <a [routerLink]="['/home', getAnchorId(tag)]">
           {{ tag }}
           <ng-container *ngIf="tag !== 'Operators' && tag !== 'Global Variables'">
             Functions
@@ -58,8 +58,7 @@
               <tr *ngFor="let variable of globalVariables">
                 <td>
                   <a *ngIf="variable.variable === '$JOINER'; else plainText"
-                    [routerLink]="['/', variable.variable.toLowerCase()]"
-                    [queryParams]="{ activeCategory: 'Global Variables' }">    
+                    [routerLink]="['/', 'joiner']">
                     {{ variable.variable }}
                   </a>
                 </td>

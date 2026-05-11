@@ -82,7 +82,7 @@ export class EditorExportService {
       const doc = this.state.getDraft(name);
       if (!doc) continue;
       if (isSpecialDoc(name)) {
-        // Top-level file like formulas/global_variables.json
+        // Top-level file like formulas/global-variables.json
         formulas.file(`${name}.json`, JSON.stringify(doc, null, 2));
         continue;
       }

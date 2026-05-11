@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { AfterViewChecked, Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { DocsService, DocData } from '../../services/docs.service';
+import { categorySlug } from '../../utils/route.util';
 interface FunctionTag {
   "Item Name": string;
   Tags: string[];
@@ -12,7 +13,7 @@ interface FunctionTag {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewChecked {
   tagsData: FunctionTag[] = [];
   itemsByTag: { [tag: string]: string[] } = {};
   uniqueTags: string[] = [];
@@ -24,14 +25,49 @@ export class HomeComponent implements OnInit {
   globalVariables: { variable: string; description: string; }[] | undefined
   operators: { [category: string]: { operator: string; name: string; description: string }[] } | null = null;
 
-  constructor(private router: Router, private http: HttpClient, private docsService: DocsService) {}
+  // The scroll container is <main class="content">, not the window, so
+  // Angular's built-in anchorScrolling (which calls window.scrollTo) is a
+  // no-op here. We also can't scroll on NavigationEnd because the target
+  // sections are populated asynchronously from HTTP loads. Defer the scroll
+  // until the matching element actually appears in the DOM.
+  private pendingFragment: string | null = null;
+
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private http: HttpClient,
+    private docsService: DocsService
+  ) {}
 
   async ngOnInit(): Promise<void> {
+    // Canonical in-page section URL is /home/<section>. paramMap emits the
+    // section slug for both cold loads and in-page navigation between sections.
+    this.route.paramMap.subscribe((params) => {
+      const section = params.get('section');
+      if (section) this.pendingFragment = section;
+    });
+
+    // Legacy /home#<section> URLs auto-upgrade to /home/<section> so shared
+    // links with fragments still work without leaving '#' in the address bar.
+    this.route.fragment.subscribe((fragment) => {
+      if (!fragment) return;
+      this.router.navigate(['/home', fragment], { replaceUrl: true });
+    });
+
     this.loadTags();
     this.loadGlobalVariables();
     this.loadOperators();
     this.loadFormulaElements();
 
+  }
+
+  ngAfterViewChecked(): void {
+    if (!this.pendingFragment) return;
+    const el = document.getElementById(this.pendingFragment);
+    if (el) {
+      el.scrollIntoView({ block: 'start' });
+      this.pendingFragment = null;
+    }
   }
   // Load tags.json and group functions by tag, skipping excluded tags
   loadTags() {
@@ -152,15 +188,13 @@ export class HomeComponent implements OnInit {
     return text.toLowerCase().replace(/[^a-z0-9]+/g, '-');
   }
   goToFunction(funcName: string) {
-    // Get the primary category for this function to set activeCategory
+    // Build a category-prefixed URL (/text/char) using the function's primary
+    // category. Falls back to a flat /char URL if the category lookup fails.
     this.docsService.getPrimaryCategory(funcName).subscribe(category => {
       const routeName = funcName.toLowerCase();
       if (category) {
-        this.router.navigate(['/', routeName], {
-          queryParams: { activeCategory: category }
-        });
+        this.router.navigate(['/', categorySlug(category), routeName]);
       } else {
-        // Fallback: navigate without activeCategory if category not found
         this.router.navigate(['/', routeName]);
       }
     });

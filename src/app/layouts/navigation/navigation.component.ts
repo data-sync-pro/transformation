@@ -4,7 +4,7 @@ import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { filter, takeUntil } from 'rxjs/operators';
 import { Subject, Subscription, Observable } from 'rxjs';
 import { SidebarService } from 'src/app/services/sidebar.service';
-import { buildRoute } from 'src/app/utils/route.util';
+import { buildRoute, categoryNameFromSlug, categorySlug } from 'src/app/utils/route.util';
 
 interface FunctionItem {
   'Item Name': string;
@@ -18,10 +18,10 @@ interface FunctionCategory {
 }
 
 const SPECIAL_ROUTES: Record<string, string> = {
-  Home: 'home',   
+  Home: 'home',
   Operators: 'operators',
-  'Global Variables': 'global_variables',
-  'Apex Class': 'apex_class',
+  'Global Variables': 'global-variables',
+  'Apex Class': 'apex-class',
 };
 
 @Component({
@@ -33,6 +33,9 @@ export class NavigationComponent implements OnInit, OnDestroy {
   @Input() collapsed$!: Observable<boolean>;
   @Output() searchOpen = new EventEmitter<void>();
   @Output() toggleSidebar = new EventEmitter<void>();
+
+  // Exposed for template use in [routerLink].
+  categorySlug = categorySlug;
 
   private destroy$ = new Subject<void>();
   operatorExpand = false;
@@ -150,9 +153,17 @@ export class NavigationComponent implements OnInit, OnDestroy {
   }
 
   updateActiveCategory() {
-    const urlSegments = this.router.url.split('/');
-    const activeRoute = urlSegments[2];
-    const isDollarVar = activeRoute?.startsWith('$');
+    // URLs come in three shapes: /home, /<funcSlug> (legacy/special), and
+    // the canonical /<categorySlug>/<funcSlug>. Strip query/fragment first
+    // so they don't pollute the segment match.
+    const path = this.router.url.split('?')[0].split('#')[0];
+    const urlSegments = path.split('/');
+    const first = urlSegments[1] ?? '';
+    const second = urlSegments[2];
+    // When two segments are present, the first is a category slug; otherwise
+    // the lone segment is the doc slug (function name, home, or special page).
+    const explicitCategory = second ? categoryNameFromSlug(first) : null;
+    const activeRoute = second ?? first;
 
     this.sidebarService.activeCategory$
       .pipe(takeUntil(this.destroy$))
@@ -163,13 +174,17 @@ export class NavigationComponent implements OnInit, OnDestroy {
           } else if (category.name === 'Operators') {
             this.operatorExpand = activeRoute === 'operators';
           } else if (category.name === 'Global Variables') {
-            this.globalVariableExpand = activeRoute === 'global_variables' ||
-              isDollarVar ||
+            this.globalVariableExpand = activeRoute === 'global-variables' ||
+              activeRoute === 'joiner' ||
+              explicitCategory === 'Global Variables' ||
               activeCategory === 'Global Variables';
           } else if (category.name === 'Apex Class') {
-            this.apexClassExpand = activeRoute === 'apex_class';
+            this.apexClassExpand = activeRoute === 'apex-class' ||
+              explicitCategory === 'Apex Class';
           } else {
-            if (activeCategory) {
+            if (explicitCategory) {
+              category.expanded = category.name === explicitCategory;
+            } else if (activeCategory) {
               category.expanded = category.name === activeCategory;
             } else {
               category.expanded = category.functions.some(
