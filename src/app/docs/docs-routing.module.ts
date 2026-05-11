@@ -6,16 +6,17 @@ import { HomeComponent } from '../pages/home/home.component';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  // In-page sections (formerly /home#text, /home#formula-elements ...) now
+  // In-page sections (formerly /home#text, /home#formula_elements ...) now
   // live as path segments so URLs don't carry a fragment. HomeComponent reads
   // :section and scrolls the matching anchor.
   { path: 'home/:section', component: HomeComponent },
-  // Backward-compat redirects for pre-rename special-page URLs. Must come
-  // before the :docName catch-all so they win the match.
-  { path: 'global_variables', redirectTo: 'global-variables', pathMatch: 'full' },
-  { path: 'apex_class', redirectTo: 'apex-class', pathMatch: 'full' },
-  { path: 'aggregate_general', redirectTo: 'aggregate-general', pathMatch: 'full' },
+  // Backward-compat redirects: $joiner was the original $-prefixed slug; the
+  // three kebab forms (global-variables, apex-class, aggregate-general) were
+  // a brief intermediate naming. Canonical is now snake_case throughout.
   { path: '$joiner', redirectTo: 'joiner', pathMatch: 'full' },
+  { path: 'global-variables', redirectTo: 'global_variables', pathMatch: 'full' },
+  { path: 'apex-class', redirectTo: 'apex_class', pathMatch: 'full' },
+  { path: 'aggregate-general', redirectTo: 'aggregate_general', pathMatch: 'full' },
   // Canonical function URLs are category-prefixed: /text/char, /logical/if.
   // The two-segment match comes first; bare /:docName still works as a legacy
   // fallback that DocViewer upgrades to the canonical form when an

@@ -115,7 +115,7 @@ export class DocsService {
   }
 
   getGlobalVariables(): Observable<DocData> {
-    return this.http.get<DocData>('assets/formulas/global-variables.json');
+    return this.http.get<DocData>('assets/formulas/global_variables.json');
   }
 
   private readonly tagMap$: Observable<Map<string, string>> = this.http

@@ -20,8 +20,8 @@ interface FunctionCategory {
 const SPECIAL_ROUTES: Record<string, string> = {
   Home: 'home',
   Operators: 'operators',
-  'Global Variables': 'global-variables',
-  'Apex Class': 'apex-class',
+  'Global Variables': 'global_variables',
+  'Apex Class': 'apex_class',
 };
 
 @Component({
@@ -174,12 +174,12 @@ export class NavigationComponent implements OnInit, OnDestroy {
           } else if (category.name === 'Operators') {
             this.operatorExpand = activeRoute === 'operators';
           } else if (category.name === 'Global Variables') {
-            this.globalVariableExpand = activeRoute === 'global-variables' ||
+            this.globalVariableExpand = activeRoute === 'global_variables' ||
               activeRoute === 'joiner' ||
               explicitCategory === 'Global Variables' ||
               activeCategory === 'Global Variables';
           } else if (category.name === 'Apex Class') {
-            this.apexClassExpand = activeRoute === 'apex-class' ||
+            this.apexClassExpand = activeRoute === 'apex_class' ||
               explicitCategory === 'Apex Class';
           } else {
             if (explicitCategory) {

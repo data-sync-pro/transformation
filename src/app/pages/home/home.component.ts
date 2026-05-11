@@ -185,7 +185,7 @@ export class HomeComponent implements OnInit, AfterViewChecked {
   }
 
   getAnchorId(text: string): string {
-    return text.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    return text.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
   }
   goToFunction(funcName: string) {
     // Build a category-prefixed URL (/text/char) using the function's primary

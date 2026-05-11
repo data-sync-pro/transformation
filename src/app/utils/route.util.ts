@@ -1,11 +1,11 @@
 
-// Pseudo-function entries in tags.json / global-variables.json whose URL slug
-// is a category/special page rather than a real function identifier. These
-// follow URL kebab-case convention instead of mirroring the underscored
-// identifier the way actual function names (e.g. ADD_DAYS -> add_days) do.
+// $JOINER is the only pseudo-function whose URL slug doesn't fall out of the
+// lowercase-and-underscore rule: we strip the leading `$` so the address bar
+// shows /joiner instead of an ugly %24-encoded form. Other special entries
+// like GLOBAL_VARIABLES and APEX_CLASS already produce the right slug
+// (global_variables, apex_class) under the default rule, so they live in the
+// route table as plain identifiers without an explicit override.
 const SPECIAL_SLUGS: Record<string, string> = {
-  GLOBAL_VARIABLES: 'global-variables',
-  APEX_CLASS: 'apex-class',
   '$JOINER': 'joiner',
 };
 
@@ -33,8 +33,11 @@ const CATEGORY_NAMES = [
   'Advanced',
 ] as const;
 
+// Snake-cased throughout the app so URL slugs read like the underlying code
+// identifiers (TO_BLOB -> to_blob, DATE & TIME -> date_time) rather than
+// mixing snake for functions and kebab for categories.
 const slugifyCategory = (name: string): string =>
-  name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  name.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
 
 const SLUG_TO_CATEGORY: Record<string, string> = Object.fromEntries(
   CATEGORY_NAMES.map((n) => [slugifyCategory(n), n])

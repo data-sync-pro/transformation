@@ -42,14 +42,14 @@ export class SearchOverlayComponent implements OnInit, OnChanges {
       }));
 
       this.http
-        .get<any>('assets/formulas/global-variables.json')
+        .get<any>('assets/formulas/global_variables.json')
         .subscribe((gvData) => {
           (gvData.globalVariables ?? gvData ?? []).forEach((gv: any) => {
             const name = gv.variable ?? '';
             this.suggestions.push({
               name,
               Tags: ['Global Variables'],
-              route: `global-variables`,
+              route: `global_variables`,
             });
           });
 
@@ -97,7 +97,7 @@ export class SearchOverlayComponent implements OnInit, OnChanges {
         this.router.navigate(['/', 'joiner']);
       } else {
         this.sidebarService.setActiveCategory('');
-        this.router.navigate(['/', 'global-variables']);
+        this.router.navigate(['/', 'global_variables']);
       }
     } else if (isSpecialName) {
       this.sidebarService.setActiveCategory('');

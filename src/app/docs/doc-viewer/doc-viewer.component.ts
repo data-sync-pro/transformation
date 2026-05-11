@@ -65,14 +65,14 @@ export class DocViewerComponent implements OnInit {
           if (!docName) {
             return [];
           }
-          if (docName === 'global-variables') {
+          if (docName === 'global_variables') {
             return this.docsService.getGlobalVariables();
           }
           return this.docsService.getDocByName(docName);
         })
       )
       .subscribe((doc) => {
-        if (!doc && this.currentDocName && this.currentDocName !== 'global-variables') {
+        if (!doc && this.currentDocName && this.currentDocName !== 'global_variables') {
           this.router.navigateByUrl('/home', { replaceUrl: true });
           return;
         }
@@ -112,7 +112,7 @@ export class DocViewerComponent implements OnInit {
       .replace(/<shadow>/g, '§§SHD_START§§')
       .replace(/<\/shadow>/g, '§§SHD_END§§');
 
-    const language = this.currentDocName === 'apex-class' ? 'java' : 'sql';
+    const language = this.currentDocName === 'apex_class' ? 'java' : 'sql';
     const highlighted = hljs.highlight(tmp, { language }).value;
 
     const cleaned = highlighted
@@ -125,7 +125,7 @@ export class DocViewerComponent implements OnInit {
   }
 
   private highlightDescriptionCode(raw: string): SafeHtml {
-    const language = this.currentDocName === 'apex-class' ? 'java' : 'sql';
+    const language = this.currentDocName === 'apex_class' ? 'java' : 'sql';
     const highlighted = hljs.highlight(raw, { language }).value;
     return this.sanitizer.bypassSecurityTrustHtml(highlighted);
   }

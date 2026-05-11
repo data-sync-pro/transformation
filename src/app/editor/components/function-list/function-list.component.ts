@@ -16,7 +16,7 @@ interface FunctionEntry {
 
 /** Top-level JSON files (not function folders) that the editor also exposes. */
 const SPECIALS: FunctionEntry[] = [
-  { name: 'global-variables', display: 'Global Variables', primaryTag: 'special' },
+  { name: 'global_variables', display: 'Global Variables', primaryTag: 'special' },
   { name: 'elements_of_formula', display: 'Elements of Formula', primaryTag: 'special' },
 ];
 

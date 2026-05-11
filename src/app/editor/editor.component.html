@@ -87,9 +87,9 @@
               hint="The operators page has a special structure (operators table). Edit as raw JSON."
             ></app-raw-json-section>
             <app-raw-json-section
-              *ngSwitchCase="'global-variables'"
+              *ngSwitchCase="'global_variables'"
               [doc]="doc"
-              hint="Top-level file at src/assets/formulas/global-variables.json — list of { variable, description } entries. On export it goes to that path (not into a function folder)."
+              hint="Top-level file at src/assets/formulas/global_variables.json — list of { variable, description } entries. On export it goes to that path (not into a function folder)."
             ></app-raw-json-section>
             <app-raw-json-section
               *ngSwitchCase="'elements_of_formula'"

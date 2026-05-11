@@ -22,7 +22,7 @@ const itemKey = (rawName: string): string =>
 
 /** Top-level files in `src/assets/formulas/` that aren't function folders. */
 export const SPECIAL_DOC_NAMES = new Set<string>([
-  'global-variables',
+  'global_variables',
   'elements_of_formula',
 ]);
 
