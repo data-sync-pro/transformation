@@ -1,7 +1,7 @@
 {
-  "title": "MAP_VALUE_EQUALS",
+  "title": "CASE",
   "description": "<p>Returns the corresponding return_value for the first compare_value equal to the provided value. If no values match, returns default_return_value_optional. If default_return_value_optional is omitted and no matches occur, the function returns $SKIP_ASSIGNMENT.</p>",
-  "syntax": "MAP_VALUE_EQUALS(value, ...[compare_value, return_value], default_return_value_optional) -> Object",
+  "syntax": "CASE(value, ...[compare_value, return_value], default_return_value_optional) -> Object",
   "parameters": [
     {
       "name": "value",
@@ -29,8 +29,8 @@
     }
   ],
   "examples": [
-    "MAP_VALUE_EQUALS(\"NY\", \"NY\", \"New York\", \"CA\", \"California\") \n-- Returns \"New York\".",
-    "MAP_VALUE_EQUALS(Score, 100, \"Perfect\", 50, \"Average\", 0, \"Fail\")\n-- Returns \"Perfect\" if Score equals 100.\n-- Returns \"Average\" if Score equals 50.\n-- Returns \"Fail\" if Score equals 0.\n-- Returns $SKIP_ASSIGNMENT otherwise.\n-- Evaluation stops at the first match."
+    "CASE(\"NY\", \"NY\", \"New York\", \"CA\", \"California\") \n-- Returns \"New York\".",
+    "CASE(Score, 100, \"Perfect\", 50, \"Average\", 0, \"Fail\")\n-- Returns \"Perfect\" if Score equals 100.\n-- Returns \"Average\" if Score equals 50.\n-- Returns \"Fail\" if Score equals 0.\n-- Returns $SKIP_ASSIGNMENT otherwise.\n-- Evaluation stops at the first match."
   ],
   "tips": [
     {
