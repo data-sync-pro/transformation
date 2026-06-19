@@ -67,5 +67,26 @@ code {
 
 .code-comment {
   background-color: rgb(185, 200, 187);
-  display: inline-block;   
+  display: inline-block;
+}
+
+/* Notes section. These rules live in global styles (not the component's
+   encapsulated CSS) because the Notes body is injected via [innerHTML],
+   which component-scoped styles do not reach. */
+.doc-notes h3 {
+  color: #217B95;
+  margin: 1.75rem 0 0.75rem;
+}
+
+.doc-notes p {
+  margin: 0.75rem 0;
+  line-height: 1.6;
+}
+
+.doc-notes .note-box {
+  background-color: #90afba2e;
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+  line-height: 1.6;
 }

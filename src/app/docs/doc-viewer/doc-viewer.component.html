@@ -166,6 +166,11 @@
     </ul>
   </ng-template>
 
+  <section class="doc-section doc-notes" *ngIf="docContent.notes">
+    <h2>Notes</h2>
+    <div [innerHTML]="docContent.notes"></div>
+  </section>
+
   <section class="doc-section" *ngIf="docContent?.title?.startsWith('AGG_')">
     <h2>Related information</h2>
     <ul>
