@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of, map, shareReplay } from 'rxjs';
+import { Observable, of, map, shareReplay, switchMap } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 interface Parameter {
@@ -35,6 +35,12 @@ export interface DocData {
   descriptionCallouts?: Callout[];
   syntax?: string;
   syntaxCallouts?: Callout[];
+  /** Inline Notes HTML (rendered like `description`). Usually populated at
+   *  runtime from a shared file referenced by `notesRef`. */
+  notes?: string;
+  /** Name of a shared notes file under assets/shared/<notesRef>.html.
+   *  Lets multiple functions share one Notes block edited in a single place. */
+  notesRef?: string;
   parameters?: Parameter[];
   parametersCallouts?: Callout[];
   examples?: (string | ExampleItem)[];
@@ -71,10 +77,19 @@ export class DocsService {
     const url = `${baseUrl}data.json`;
     return this.http.get<DocData>(url).pipe(
       map((doc) => this.resolveImagePaths(doc, baseUrl)),
+      switchMap((doc) => this.attachSharedNotes(doc)),
       catchError((error) => {
         console.error(`Error loading ${url}:`, error);
         return of(null);
       })
+    );
+  }
+
+  // If a doc references a shared notes file, fetch it and merge into `notes`.
+  private attachSharedNotes(doc: DocData): Observable<DocData> {
+    if (!doc?.notesRef) return of(doc);
+    return this.getSharedNotes(doc.notesRef).pipe(
+      map((notes) => (notes ? { ...doc, notes } : doc))
     );
   }
 
@@ -112,6 +127,17 @@ export class DocsService {
 
   private isAbsoluteSrc(src: string): boolean {
     return /^(https?:|data:|\/|assets\/)/.test(src);
+  }
+
+  /** Loads a shared notes HTML fragment referenced by a doc's `notesRef`. */
+  getSharedNotes(ref: string): Observable<string | null> {
+    const url = `assets/shared/${ref}.html`;
+    return this.http.get(url, { responseType: 'text' }).pipe(
+      catchError((error) => {
+        console.error(`Error loading ${url}:`, error);
+        return of(null);
+      })
+    );
   }
 
   getGlobalVariables(): Observable<DocData> {
